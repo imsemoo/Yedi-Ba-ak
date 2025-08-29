@@ -1,0 +1,20 @@
+/* Placeholder: Swiper CSS */
+.swiper {
+  position: relative
+}
+
+.swiper-wrapper {
+  display: flex
+}
+
+.swiper-slide {
+  flex-shrink: 0
+}
+
+.swiper-pagination {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  text-align: center
+}

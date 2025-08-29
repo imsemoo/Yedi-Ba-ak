@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Theme Starter</title>
+  <link rel="stylesheet" href="assets/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+  <link rel="stylesheet" href="assets/css/lightbox.min.css">
+  <link rel="stylesheet" href="assets/css/animate.min.css">
+  <link rel="stylesheet" href="assets/css/aos.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <header class="site-header" role="banner">
+    <div class="topbar">
+      <div class="container">
+        <div class="topbar__left">
+          <a class="toplink" href="tel:+903423251030" title="Tel: +90 342 325 1030">
+            <svg class="icon" aria-hidden="true">
+              <use href="assets/icons/sprite.svg#phone" />
+            </svg>
+            <span class="toplink__label">Tel: +90 342 325 1030</span>
+          </a>
+          <a class="toplink" href="tel:+905538867777" title="Gsm: +90 553 886 7777">
+            <svg class="icon" aria-hidden="true">
+              <use href="assets/icons/sprite.svg#mobile" />
+            </svg>
+            <span class="toplink__label">Gsm: +90 553 886 7777</span>
+          </a>
+        </div>
+
+        <nav class="topbar__right" aria-label="Quick links">
+          <a class="toplink" href="#" title="Public Benefits status">
+            <svg class="icon" aria-hidden="true">
+              <use href="assets/icons/sprite.svg#bank" />
+            </svg>
+            <span class="toplink__label">Public Benefits status</span>
+          </a>
+          <a class="toplink" href="#" title="Bank info">
+            <svg class="icon" aria-hidden="true">
+              <use href="assets/icons/sprite.svg#card" />
+            </svg>
+            <span class="toplink__label">Bank info</span>
+          </a>
+          <a class="toplink" href="#" title="Food Banking">
+            <svg class="icon" aria-hidden="true">
+              <use href="assets/icons/sprite.svg#home" />
+            </svg>
+            <span class="toplink__label">Food Banking</span>
+          </a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="mainbar" role="navigation" aria-label="Main header">
+      <div class="container mainbar__row">
+        <a class="brand" href="/" aria-label="Homepage">
+          <img src="assets/images/logo.svg" alt="Brand Logo" width="140" height="36" />
+        </a>
+
+        <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-controls="offcanvas"
+          aria-expanded="false">
+          <svg class="icon" aria-hidden="true">
+            <use href="assets/icons/sprite.svg#menu" />
+          </svg>
+        </button>
+
+        <nav class="navbar" aria-label="Primary">
+          <ul class="menu">
+            <li><a class="menu__link" href="/" aria-current="page">Home</a></li>
+            <li class="has-dropdown">
+              <button class="menu__link dropdown-toggle" aria-haspopup="menu" aria-expanded="false">Corporate <svg
+                  class="chev icon" aria-hidden="true">
+                  <use href="assets/icons/sprite.svg#chevron-down" />
+                </svg></button>
+              <ul class="dropdown" role="menu">
+                <li><a role="menuitem" href="#">About Us</a></li>
+                <li><a role="menuitem" href="#">Board</a></li>
+                <li><a role="menuitem" href="#">Contact</a></li>
+              </ul>
+            </li>
+            <li><a class="menu__link" href="#">Our Activities</a></li>
+            <li class="has-dropdown">
+              <button class="menu__link dropdown-toggle" aria-haspopup="menu" aria-expanded="false">Media <svg
+                  class="chev icon" aria-hidden="true">
+                  <use href="assets/icons/sprite.svg#chevron-down" />
+                </svg></button>
+              <ul class="dropdown" role="menu">
+                <li><a role="menuitem" href="#">News</a></li>
+                <li><a role="menuitem" href="#">Gallery</a></li>
+              </ul>
+            </li>
+            <li><a class="menu__link" href="#">Be Volunteer</a></li>
+          </ul>
+        </nav>
+
+        <div class="actions">
+          <a class="btn btn--pill btn--primary" href="#">
+            <svg class="icon" aria-hidden="true">
+              <use href="assets/icons/sprite.svg#donate" />
+            </svg>
+            <span>Donate</span>
+          </a>
+          <button class="btn btn--ghost" aria-label="Account"><svg class="icon" aria-hidden="true">
+              <use href="assets/icons/sprite.svg#user" />
+            </svg></button>
+          <a class="btn btn--ghost" href="#" aria-label="Cart"><svg class="icon" aria-hidden="true">
+              <use href="assets/icons/sprite.svg#cart" />
+            </svg></a>
+          <button class="btn btn--ghost" aria-label="Language"><svg class="icon" aria-hidden="true">
+              <use href="assets/icons/sprite.svg#globe" />
+            </svg></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Offcanvas for mobile -->
+    <aside id="offcanvas" class="offcanvas" hidden aria-label="Mobile menu">
+      <div class="offcanvas__header">
+        <span>Menu</span>
+        <button class="offcanvas__close" aria-label="Close menu"><svg class="icon" aria-hidden="true">
+            <use href="assets/icons/sprite.svg#close" />
+          </svg></button>
+      </div>
+      <nav class="offcanvas__body" aria-label="Mobile primary">
+        <ul class="offcanvas__menu">
+          <li><a href="/">Home</a></li>
+          <li>
+            <button class="collapse-toggle" aria-expanded="false">Corporate <svg class="chev icon" aria-hidden="true">
+                <use href="assets/icons/sprite.svg#chevron-down" />
+              </svg></button>
+            <ul class="collapse" hidden>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Board</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Our Activities</a></li>
+          <li>
+            <button class="collapse-toggle" aria-expanded="false">Media <svg class="chev icon" aria-hidden="true">
+                <use href="assets/icons/sprite.svg#chevron-down" />
+              </svg></button>
+            <ul class="collapse" hidden>
+              <li><a href="#">News</a></li>
+              <li><a href="#">Gallery</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Be Volunteer</a></li>
+        </ul>
+      </nav>
+      <div class="offcanvas__footer">
+        <a class="btn btn--pill btn--primary" href="#"><svg class="icon" aria-hidden="true">
+            <use href="assets/icons/sprite.svg#donate" />
+          </svg><span>Donate</span></a>
+      </div>
+    </aside>
+    <div class="offcanvas__overlay" hidden></div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <h1 class="hero-title">A Minimal Local Theme Foundation</h1>
+          <p class="lead">Includes Swiper, AOS, Lightbox, Animate.css, and a local SVG sprite — all local assets.</p>
+          <p><a class="btn btn--primary" href="#stories">See stories</a></p>
+        </div>
+
+        <div class="hero-slider">
+          <div class="swiper" role="region" aria-roledescription="carousel" aria-label="Hero carousel">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide"><img src="assets/images/slide-1.jpg" alt="Slide 1"></div>
+              <div class="swiper-slide"><img src="assets/images/slide-2.jpg" alt="Slide 2"></div>
+              <div class="swiper-slide"><img src="assets/images/slide-3.jpg" alt="Slide 3"></div>
+            </div>
+            <div class="swiper-pagination" aria-hidden="true"></div>
+            <div class="swiper-button-prev" role="button" tabindex="0" aria-label="Previous slide"><svg class="icon"
+                aria-hidden="true">
+                <use href="assets/icons/sprite.svg#arrow-left"></use>
+              </svg></div>
+            <div class="swiper-button-next" role="button" tabindex="0" aria-label="Next slide"><svg class="icon"
+                aria-hidden="true">
+                <use href="assets/icons/sprite.svg#arrow-right"></use>
+              </svg></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Donation CTA -->
+    <section id="donation" class="donation" aria-labelledby="donation-title">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h2 id="donation-title">Your support matters</h2>
+            <p>Your support makes a real difference — every contribution helps families in need.</p>
+          </div>
+          <div class="col-md-6">
+            <form id="donation-form" class="donation-form" aria-describedby="donation-desc">
+              <p id="donation-desc" class="visually-hidden">Choose an amount or enter another amount</p>
+              <div class="amounts" role="radiogroup" aria-label="Amount options">
+                <button type="button" class="amount-btn" data-amount="25" aria-pressed="false">$25</button>
+                <button type="button" class="amount-btn" data-amount="50" aria-pressed="false">$50</button>
+                <button type="button" class="amount-btn" data-amount="100" aria-pressed="false">$100</button>
+                <button type="button" class="amount-btn" data-amount="other" aria-pressed="false">Other…</button>
+              </div>
+              <div class="other-amount" style="display:none;">
+                <label for="other-amount-input">Amount</label>
+                <input id="other-amount-input" name="other_amount" type="number" min="5" inputmode="numeric" />
+              </div>
+              <fieldset class="donation-type">
+                <legend>Donation type</legend>
+                <label><input type="radio" name="donation_type" value="monthly" checked> Monthly</label>
+                <label><input type="radio" name="donation_type" value="oneoff"> One-time</label>
+              </fieldset>
+              <input type="hidden" name="amount" id="donation-amount-hidden" value="">
+              <button type="submit" class="btn btn--primary"><svg class="icon" aria-hidden="true">
+                  <use href="assets/icons/sprite.svg#donate"></use>
+                </svg> Donate Now</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Impact Stats -->
+    <section id="impact" class="impact">
+      <div class="container">
+        <h2 class="section-title">Impact numbers</h2>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="stat">
+              <div class="stat-number">1,254</div>
+              <div class="stat-label">Families</div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="stat">
+              <div class="stat-number">8,430</div>
+              <div class="stat-label">Meals</div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="stat">
+              <div class="stat-number">320</div>
+              <div class="stat-label">Volunteers</div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="stat">
+              <div class="stat-number">45</div>
+              <div class="stat-label">Projects</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Volunteer Signup -->
+    <section id="volunteer" class="volunteer">
+      <div class="container">
+        <h2 class="section-title">Volunteer signup</h2>
+        <form id="volunteer-form" novalidate aria-describedby="volunteer-help">
+          <p id="volunteer-help" class="visually-hidden">Volunteer registration form</p>
+          <div class="row">
+            <div class="col-md-6">
+              <label for="vol-name">Name</label>
+              <input id="vol-name" name="name" required minlength="2">
+            </div>
+            <div class="col-md-6">
+              <label for="vol-email">Email</label>
+              <input id="vol-email" name="email" type="email" required>
+            </div>
+            <div class="col-md-6">
+              <label for="vol-phone">Phone (optional)</label>
+              <input id="vol-phone" name="phone" type="tel">
+            </div>
+            <div class="col-md-6">
+              <label for="vol-region">Region</label>
+              <select id="vol-region" name="region">
+                <option value="">Select region</option>
+                <option>New York</option>
+                <option>Los Angeles</option>
+                <option>Chicago</option>
+              </select>
+            </div>
+            <div class="col-md-12">
+              <fieldset>
+                <legend>Volunteering areas</legend>
+                <label><input type="checkbox" name="areas" value="food"> Food distribution</label>
+                <label><input type="checkbox" name="areas" value="education"> Education</label>
+                <label><input type="checkbox" name="areas" value="health"> Health</label>
+              </fieldset>
+            </div>
+            <div class="col-md-12">
+              <div id="volunteer-messages" aria-live="polite"></div>
+              <button type="submit" class="btn btn--primary">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Upcoming Events -->
+    <section id="events" class="events">
+      <div class="container">
+        <h2 class="section-title">Upcoming events</h2>
+        <div class="row">
+          <div class="col-md-4" data-aos="fade-up">
+            <article class="event-card"><svg class="icon">
+                <use href="assets/icons/sprite.svg#calendar"></use>
+              </svg>
+              <h3>Sept 15, 2025</h3>
+              <p>Workshop - New York <svg class="icon">
+                  <use href="assets/icons/sprite.svg#location"></use>
+                </svg></p>
+              <p><a class="btn" href="#">Learn more</a></p>
+            </article>
+          </div>
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="80">
+            <article class="event-card"><svg class="icon">
+                <use href="assets/icons/sprite.svg#calendar"></use>
+              </svg>
+              <h3>Oct 02, 2025</h3>
+              <p>Distribution Drive - New York <svg class="icon">
+                  <use href="assets/icons/sprite.svg#location"></use>
+                </svg></p>
+              <p><a class="btn" href="#">Learn more</a></p>
+            </article>
+          </div>
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="160">
+            <article class="event-card"><svg class="icon">
+                <use href="assets/icons/sprite.svg#calendar"></use>
+              </svg>
+              <h3>Nov 20, 2025</h3>
+              <p>Awareness Talk - New York <svg class="icon">
+                  <use href="assets/icons/sprite.svg#location"></use>
+                </svg></p>
+              <p><a class="btn" href="#">Learn more</a></p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Partners / Sponsors -->
+    <section id="partners" class="partners">
+      <div class="container">
+        <h2 class="section-title">Partners</h2>
+        <div class="row partners-row">
+          <div class="col-md-2"><img src="assets/images/partners/partner-1.png" alt="" loading="lazy" width="120"
+              height="60"></div>
+          <div class="col-md-2"><img src="assets/images/partners/partner-2.png" alt="" loading="lazy" width="120"
+              height="60"></div>
+          <div class="col-md-2"><img src="assets/images/partners/partner-3.png" alt="" loading="lazy" width="120"
+              height="60"></div>
+          <div class="col-md-2"><img src="assets/images/partners/partner-4.png" alt="" loading="lazy" width="120"
+              height="60"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stories (Lightbox) -->
+    <section id="stories" class="stories">
+      <div class="container">
+        <h2 class="section-title">Stories</h2>
+        <div class="row">
+          <div class="col-md-4">
+            <a href="assets/images/story-1.webp" data-lightbox="stories" data-title="Story 1: Family support">
+              <picture>
+                <source srcset="assets/images/story-1.webp" type="image/webp"><img src="assets/images/story-1.jpg"
+                  alt="Story 1" loading="lazy" decoding="async" width="640" height="480">
+              </picture>
+            </a>
+          </div>
+          <div class="col-md-4">
+            <a href="assets/images/story-2.webp" data-lightbox="stories" data-title="Story 2: Meals distribution">
+              <picture>
+                <source srcset="assets/images/story-2.webp" type="image/webp"><img src="assets/images/story-2.jpg"
+                  alt="Story 2" loading="lazy" decoding="async" width="640" height="480">
+              </picture>
+            </a>
+          </div>
+          <div class="col-md-4">
+            <a href="assets/images/story-3.webp" data-lightbox="stories" data-title="Story 3: Volunteers building hope">
+              <picture>
+                <source srcset="assets/images/story-3.webp" type="image/webp"><img src="assets/images/story-3.jpg"
+                  alt="Story 3" loading="lazy" decoding="async" width="640" height="480">
+              </picture>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="icons" class="icons">
+      <div class="container">
+        <h2 class="section-title">Icon Showcase</h2>
+        <div class="row">
+          <div class="col-sm-6 col-md-4">
+            <div class="card">
+              <svg class="icon icon--sm text-primary" aria-hidden="true">
+                <use href="assets/icons/sprite.svg#donate"></use>
+              </svg>
+              <p>Donate (sm)</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <div class="card">
+              <svg class="icon icon--md text-muted" aria-hidden="true">
+                <use href="assets/icons/sprite.svg#hands"></use>
+              </svg>
+              <p>Hands (md)</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <div class="card">
+              <svg class="icon icon--lg text-danger flip-rtl" aria-hidden="true">
+                <use href="assets/icons/sprite.svg#arrow-left"></use>
+              </svg>
+              <p>Arrow (flip in RTL)</p>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-4">
+            <div class="card">
+              <!-- informative icon with title and labelled id -->
+              <svg class="icon icon--md" role="img" aria-labelledby="info-title">
+                <title id="info-title">Volunteer</title>
+                <use href="assets/icons/sprite.svg#volunteer"></use>
+              </svg>
+              <p>Informative (has title)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="aos-demo" class="aos-demo">
+      <div class="container">
+        <h2 class="section-title">AOS Demo</h2>
+        <div class="row">
+          <div class="col-sm-6 col-md-4" data-aos="fade-up">Card 1</div>
+          <div class="col-sm-6 col-md-4" data-aos="fade-up" data-aos-delay="50">Card 2</div>
+          <div class="col-sm-6 col-md-4" data-aos="fade-up" data-aos-delay="100">Card 3</div>
+          <div class="col-sm-6 col-md-4" data-aos="zoom-in">Card 4</div>
+          <div class="col-sm-6 col-md-4" data-aos="zoom-in" data-aos-delay="80">Card 5</div>
+          <div class="col-sm-6 col-md-4" data-aos="zoom-in" data-aos-delay="160">Card 6</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="animate-demo" class="animate-demo">
+      <div class="container">
+        <h2 class="section-title">Animate.css Demo</h2>
+        <div class="callout animate__animated animate__bounceIn">This box uses Animate.css on load.</div>
+      </div>
+    </section>
+
+    <section id="features" class="features">
+      <div class="container">
+        <h2 class="section-title">Features</h2>
+        <div class="grid row">
+          <div class="col-sm-6 col-md-4">
+            <div class="card" data-aos="fade-up">
+              <svg class="icon icon-lg" aria-hidden="true">
+                <use href="assets/icons/sprite.svg#home"></use>
+              </svg>
+              <h3>Local Assets</h3>
+              <p>All CSS and JS are local files — no CDN required.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <div class="card" data-aos="fade-up" data-aos-delay="100">
+              <svg class="icon icon-lg" aria-hidden="true">
+                <use href="assets/icons/sprite.svg#menu"></use>
+              </svg>
+              <h3>Accessible</h3>
+              <p>Keyboard focus states, aria attributes, and reduced-motion respect.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <div class="card" data-aos="fade-up" data-aos-delay="200">
+              <svg class="icon icon-lg" aria-hidden="true">
+                <use href="assets/icons/sprite.svg#arrow-right"></use>
+              </svg>
+              <h3>Lightbox</h3>
+              <p>Gallery uses Lightbox for accessible image viewing.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+      <div class="container">
+        <h2 class="section-title">Gallery</h2>
+        <div class="grid row">
+          <div class="col-sm-6 col-md-4">
+            <a href="assets/images/gallery-1.jpg" data-lightbox="gallery" data-title="Gallery item 1"><img
+                src="assets/images/gallery-1.jpg" alt="Gallery 1" class="thumb"></a>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <a href="assets/images/gallery-2.jpg" data-lightbox="gallery" data-title="Gallery item 2"><img
+                src="assets/images/gallery-2.jpg" alt="Gallery 2" class="thumb"></a>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <a href="assets/images/gallery-3.jpg" data-lightbox="gallery" data-title="Gallery item 3"><img
+                src="assets/images/gallery-3.jpg" alt="Gallery 3" class="thumb"></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <p>Replace this block with contact details or a form.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="currentYear"></span> Brand — All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/swiper-bundle.min.js"></script>
+  <script src="assets/js/lightbox.min.js"></script>
+  <script src="assets/js/aos.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+
+</html>

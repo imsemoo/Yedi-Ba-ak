@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Components — UI Kit</title>
+  <link rel="stylesheet" href="assets/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets/css/animate.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="navbar">
+        <a class="brand" href="#" aria-label="Home"><svg class="icon" aria-hidden="true">
+            <use href="assets/icons/sprite.svg#home"></use>
+          </svg> Brand</a>
+        <nav>
+          <ul>
+            <li><a href="#">One</a></li>
+            <li><a href="#">Two</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="container">
+      <h1>Buttons</h1>
+      <p>
+        <button class="btn btn--primary">Primary</button>
+        <button class="btn">Default</button>
+        <button class="btn" aria-label="Icon left"><svg class="icon" aria-hidden="true">
+            <use href="assets/icons/sprite.svg#menu"></use>
+          </svg> Menu</button>
+      </p>
+
+      <h2>Donation amounts</h2>
+      <p>
+        <button class="amount-btn" data-amount="100" aria-pressed="false">100</button>
+        <button class="amount-btn" data-amount="200" aria-pressed="false">200</button>
+        <button class="amount-btn" data-amount="500" aria-pressed="false">500</button>
+        <button class="amount-btn" data-amount="other" aria-pressed="false">أخرى…</button>
+      </p>
+
+      <h2>Cards</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card card-impact">
+            <img src="assets/images/slide-1.jpg" alt="" />
+            <h3>Impact Card</h3>
+            <p class="badge">نجاح</p>
+            <p>Summary of impact.</p>
+            <p><a class="btn btn--primary" href="#">Action</a></p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card card-event">
+            <img src="assets/images/slide-2.jpg" alt="" />
+            <h3>Event Card</h3>
+            <p>Date: 15 Sep</p>
+            <p><a class="btn" href="#">Action</a></p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card card-story">
+            <img src="assets/images/slide-3.jpg" alt="" />
+            <h3>Story Card</h3>
+            <p>Short story excerpt.</p>
+            <p><a class="btn" href="#">Read</a></p>
+          </div>
+        </div>
+      </div>
+
+      <h2>Grid examples</h2>
+      <div class="row">
+        <div class="col-sm-6 col-md-4">Column</div>
+        <div class="col-sm-6 col-md-4">Column</div>
+        <div class="col-sm-6 col-md-4">Column</div>
+      </div>
+
+      <h2>Lightbox demo</h2>
+      <p>
+        <a href="assets/images/slide-1.jpg" data-lightbox="ui-kit"><img src="assets/images/slide-1.jpg" alt="Slide 1"
+            style="width:120px"></a>
+        <a href="assets/images/slide-2.jpg" data-lightbox="ui-kit"><img src="assets/images/slide-2.jpg" alt="Slide 2"
+            style="width:120px"></a>
+        <a href="assets/images/slide-3.jpg" data-lightbox="ui-kit"><img src="assets/images/slide-3.jpg" alt="Slide 3"
+            style="width:120px"></a>
+      </p>
+
+      <h2>AOS examples</h2>
+      <div data-aos="fade-up">This element uses AOS on scroll.</div>
+
+    </section>
+  </main>
+
+  <script src="assets/js/lightbox.min.js"></script>
+  <script src="assets/js/aos.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+
+</html>
