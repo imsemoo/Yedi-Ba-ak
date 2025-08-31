@@ -2,53 +2,135 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Theme Starter</title>
-  <link rel="stylesheet" href="assets/css/bootstrap-grid.min.css">
-  <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-  <link rel="stylesheet" href="assets/css/lightbox.min.css">
-  <link rel="stylesheet" href="assets/css/animate.min.css">
-  <link rel="stylesheet" href="assets/css/aos.css">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- ===== Meta essentials ===== -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- ===== Primary SEO ===== -->
+  <title>Yedi Başak – Humanitarian Aid & Charity</title>
+  <meta name="description"
+    content="Yedi Başak supports families in need through emergency aid, water wells, health and orphan care. Donate or volunteer to make a real impact." />
+  <link rel="canonical" href="https://www.yedibasak.org/" />
+
+  <!-- ===== Open Graph / Twitter (social sharing) ===== -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Yedi Başak" />
+  <meta property="og:title" content="Yedi Başak – Humanitarian Aid & Charity" />
+  <meta property="og:description"
+    content="Donate or volunteer to support emergency aid, water wells, health, and orphan care." />
+  <meta property="og:url" content="https://www.yedibasak.org/" />
+  <meta property="og:image" content="https://www.yedibasak.org/assets/images/og-cover.jpg" />
+  <meta property="og:image:alt" content="Yedi Başak delivering humanitarian aid" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Yedi Başak – Humanitarian Aid & Charity" />
+  <meta name="twitter:description" content="Join us: donate or volunteer today." />
+  <meta name="twitter:image" content="https://www.yedibasak.org/assets/images/og-cover.jpg" />
+
+  <!-- ===== Favicons / PWA (replace with your generated set) ===== -->
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+
+  <!-- ===== Preload critical assets (local only) ===== -->
+  <link rel="preload" href="assets/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/images/slide-1.webp" as="image" />
+
+  <!-- ===== CSS (vendor → theme) ===== -->
+  <link rel="stylesheet" href="assets/css/bootstrap-grid.min.css" />
+  <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="assets/css/lightbox.min.css" />
+  <link rel="stylesheet" href="assets/css/animate.min.css" />
+  <link rel="stylesheet" href="assets/css/aos.css" />
+  <link rel="stylesheet" href="assets/css/normalize.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- Font Awesome (local) -->
+  <link rel="stylesheet" href="assets/css/fontawesome.min.css" />
+  <link rel="stylesheet" href="assets/css/solid.min.css" />
+  <link rel="stylesheet" href="assets/css/regular.min.css" />
+  <link rel="stylesheet" href="assets/css/brands.min.css" />
+
+  <!-- ===== Structured Data (JSON-LD) ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Yedi Başak",
+    "url": "https://www.yedibasak.org/",
+    "logo": "https://www.yedibasak.org/assets/images/logo.svg",
+    "sameAs": [
+      "https://www.facebook.com/yourpage",
+      "https://twitter.com/yourhandle",
+      "https://www.instagram.com/yourhandle/",
+      "https://www.youtube.com/@yourchannel"
+    ],
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "telephone": "+90-342-325-1030",
+      "contactType": "customer service",
+      "areaServed": "TR"
+    }]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://www.yedibasak.org/",
+    "name": "Yedi Başak",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.yedibasak.org/search?q={query}",
+      "query-input": "required name=query"
+    }
+  }
+  </script>
+
+  <!--
+    SEO NOTES:
+    - Keep a single <h1> on the page (hero title).
+    - Use meaningful alt text for images; decorative icons remain aria-hidden.
+    - Use descriptive link text (avoid “click here”).
+    - Update canonical/OG URLs when deploying.
+  -->
 </head>
 
 <body>
+  <!-- Skip link improves keyboard/screen reader navigation -->
+  <!-- <a class="visually-hidden" href="#main">Skip to main content</a> -->
+
+  <!-- ===========================
+       HEADER
+       - Topbar: contact + quick links
+       - Mainbar: brand + primary nav + actions
+       - Offcanvas: mobile navigation panel
+       =========================== -->
   <header class="site-header" role="banner">
     <div class="topbar">
       <div class="container">
         <div class="topbar__left">
-          <a class="toplink" href="tel:+903423251030" title="Tel: +90 342 325 1030">
-            <svg class="icon" aria-hidden="true">
-              <use href="assets/icons/sprite.svg#phone" />
-            </svg>
+          <!-- Tel links are tap-to-call on mobile -->
+          <a class="toplink" href="tel:+903423251030" title="Call: +90 342 325 1030">
+            <i class="fa-solid fa-phone" aria-hidden="true"></i>
             <span class="toplink__label">Tel: +90 342 325 1030</span>
           </a>
-          <a class="toplink" href="tel:+905538867777" title="Gsm: +90 553 886 7777">
-            <svg class="icon" aria-hidden="true">
-              <use href="assets/icons/sprite.svg#mobile" />
-            </svg>
+          <a class="toplink" href="tel:+905538867777" title="Call: +90 553 886 7777">
+            <i class="fa-solid fa-phone" aria-hidden="true"></i>
             <span class="toplink__label">Gsm: +90 553 886 7777</span>
           </a>
         </div>
 
         <nav class="topbar__right" aria-label="Quick links">
           <a class="toplink" href="#" title="Public Benefits status">
-            <svg class="icon" aria-hidden="true">
-              <use href="assets/icons/sprite.svg#bank" />
-            </svg>
+            <i class="fa-solid fa-building-columns" aria-hidden="true"></i>
             <span class="toplink__label">Public Benefits status</span>
           </a>
           <a class="toplink" href="#" title="Bank info">
-            <svg class="icon" aria-hidden="true">
-              <use href="assets/icons/sprite.svg#card" />
-            </svg>
+            <i class="fa-solid fa-credit-card" aria-hidden="true"></i>
             <span class="toplink__label">Bank info</span>
           </a>
           <a class="toplink" href="#" title="Food Banking">
-            <svg class="icon" aria-hidden="true">
-              <use href="assets/icons/sprite.svg#home" />
-            </svg>
+            <i class="fa-solid fa-house" aria-hidden="true"></i>
             <span class="toplink__label">Food Banking</span>
           </a>
         </nav>
@@ -57,81 +139,83 @@
 
     <div class="mainbar" role="navigation" aria-label="Main header">
       <div class="container mainbar__row">
+        <!-- Brand: use an SVG for best sharpness -->
         <a class="brand" href="/" aria-label="Homepage">
-          <img src="assets/images/logo.svg" alt="Brand Logo" width="140" height="36" />
+          <img src="assets/images/logo.svg" alt="Yedi Başak Logo" width="140" height="36" />
         </a>
 
+        <!-- Mobile menu toggle -->
         <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-controls="offcanvas"
           aria-expanded="false">
-          <svg class="icon" aria-hidden="true">
-            <use href="assets/icons/sprite.svg#menu" />
-          </svg>
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
         </button>
 
+        <!-- Primary navigation (desktop) -->
         <nav class="navbar" aria-label="Primary">
           <ul class="menu">
             <li><a class="menu__link" href="/" aria-current="page">Home</a></li>
+
             <li class="has-dropdown">
-              <button class="menu__link dropdown-toggle" aria-haspopup="menu" aria-expanded="false">Corporate <svg
-                  class="chev icon" aria-hidden="true">
-                  <use href="assets/icons/sprite.svg#chevron-down" />
-                </svg></button>
+              <button class="menu__link dropdown-toggle" aria-haspopup="menu" aria-expanded="false">
+                Corporate <i class="fa-solid fa-chevron-down fa-sm" aria-hidden="true"></i>
+              </button>
               <ul class="dropdown" role="menu">
                 <li><a role="menuitem" href="#">About Us</a></li>
                 <li><a role="menuitem" href="#">Board</a></li>
                 <li><a role="menuitem" href="#">Contact</a></li>
               </ul>
             </li>
+
             <li><a class="menu__link" href="#">Our Activities</a></li>
+
             <li class="has-dropdown">
-              <button class="menu__link dropdown-toggle" aria-haspopup="menu" aria-expanded="false">Media <svg
-                  class="chev icon" aria-hidden="true">
-                  <use href="assets/icons/sprite.svg#chevron-down" />
-                </svg></button>
+              <button class="menu__link dropdown-toggle" aria-haspopup="menu" aria-expanded="false">
+                Media <i class="fa-solid fa-chevron-down fa-sm" aria-hidden="true"></i>
+              </button>
               <ul class="dropdown" role="menu">
                 <li><a role="menuitem" href="#">News</a></li>
                 <li><a role="menuitem" href="#">Gallery</a></li>
               </ul>
             </li>
+
             <li><a class="menu__link" href="#">Be Volunteer</a></li>
           </ul>
         </nav>
 
+        <!-- Header actions: primary CTA + utilities -->
         <div class="actions">
           <a class="btn btn--pill btn--primary" href="#">
-            <svg class="icon" aria-hidden="true">
-              <use href="assets/icons/sprite.svg#donate" />
-            </svg>
+            <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i>
             <span>Donate</span>
           </a>
-          <button class="btn btn--ghost" aria-label="Account"><svg class="icon" aria-hidden="true">
-              <use href="assets/icons/sprite.svg#user" />
-            </svg></button>
-          <a class="btn btn--ghost" href="#" aria-label="Cart"><svg class="icon" aria-hidden="true">
-              <use href="assets/icons/sprite.svg#cart" />
-            </svg></a>
-          <button class="btn btn--ghost" aria-label="Language"><svg class="icon" aria-hidden="true">
-              <use href="assets/icons/sprite.svg#globe" />
-            </svg></button>
+          <button class="btn btn--ghost" aria-label="Account">
+            <i class="fa-solid fa-user" aria-hidden="true"></i>
+          </button>
+          <a class="btn btn--ghost" href="#" aria-label="Cart">
+            <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+          </a>
+          <button class="btn btn--ghost" aria-label="Language">
+            <i class="fa-solid fa-globe" aria-hidden="true"></i>
+          </button>
         </div>
       </div>
     </div>
 
-    <!-- Offcanvas for mobile -->
+    <!-- Offcanvas (mobile nav). Hidden by default, opened via JS. -->
     <aside id="offcanvas" class="offcanvas" hidden aria-label="Mobile menu">
       <div class="offcanvas__header">
         <span>Menu</span>
-        <button class="offcanvas__close" aria-label="Close menu"><svg class="icon" aria-hidden="true">
-            <use href="assets/icons/sprite.svg#close" />
-          </svg></button>
+        <button class="offcanvas__close" aria-label="Close menu">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
       </div>
       <nav class="offcanvas__body" aria-label="Mobile primary">
         <ul class="offcanvas__menu">
           <li><a href="/">Home</a></li>
           <li>
-            <button class="collapse-toggle" aria-expanded="false">Corporate <svg class="chev icon" aria-hidden="true">
-                <use href="assets/icons/sprite.svg#chevron-down" />
-              </svg></button>
+            <button class="collapse-toggle" aria-expanded="false">
+              Corporate <i class="fa-solid fa-chevron-down fa-sm" aria-hidden="true"></i>
+            </button>
             <ul class="collapse" hidden>
               <li><a href="#">About Us</a></li>
               <li><a href="#">Board</a></li>
@@ -140,9 +224,9 @@
           </li>
           <li><a href="#">Our Activities</a></li>
           <li>
-            <button class="collapse-toggle" aria-expanded="false">Media <svg class="chev icon" aria-hidden="true">
-                <use href="assets/icons/sprite.svg#chevron-down" />
-              </svg></button>
+            <button class="collapse-toggle" aria-expanded="false">
+              Media <i class="fa-solid fa-chevron-down fa-sm" aria-hidden="true"></i>
+            </button>
             <ul class="collapse" hidden>
               <li><a href="#">News</a></li>
               <li><a href="#">Gallery</a></li>
@@ -152,387 +236,231 @@
         </ul>
       </nav>
       <div class="offcanvas__footer">
-        <a class="btn btn--pill btn--primary" href="#"><svg class="icon" aria-hidden="true">
-            <use href="assets/icons/sprite.svg#donate" />
-          </svg><span>Donate</span></a>
+        <a class="btn btn--pill btn--primary" href="#">
+          <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i>
+          <span>Donate</span>
+        </a>
       </div>
     </aside>
     <div class="offcanvas__overlay" hidden></div>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-inner">
-        <div class="hero-copy">
-          <h1 class="hero-title">A Minimal Local Theme Foundation</h1>
-          <p class="lead">Includes Swiper, AOS, Lightbox, Animate.css, and a local SVG sprite — all local assets.</p>
-          <p><a class="btn btn--primary" href="#stories">See stories</a></p>
-        </div>
-
-        <div class="hero-slider">
-          <div class="swiper" role="region" aria-roledescription="carousel" aria-label="Hero carousel">
+  <!-- ===========================
+       MAIN
+       - Hero slider: Swiper + 8 category tabs (synced)
+       - Keep one <h1> in hero for homepage SEO
+       =========================== -->
+  <main id="main">
+    <section class="hero hero--slider" aria-label="Campaign highlights">
+      <div class="container-fluid">
+        <div class="hero__inner">
+          <!-- Swiper -->
+          <div class="hero__swiper swiper" aria-roledescription="carousel">
             <div class="swiper-wrapper">
-              <div class="swiper-slide"><img src="assets/images/slide-1.jpg" alt="Slide 1"></div>
-              <div class="swiper-slide"><img src="assets/images/slide-2.jpg" alt="Slide 2"></div>
-              <div class="swiper-slide"><img src="assets/images/slide-3.jpg" alt="Slide 3"></div>
-            </div>
-            <div class="swiper-pagination" aria-hidden="true"></div>
-            <div class="swiper-button-prev" role="button" tabindex="0" aria-label="Previous slide"><svg class="icon"
-                aria-hidden="true">
-                <use href="assets/icons/sprite.svg#arrow-left"></use>
-              </svg></div>
-            <div class="swiper-button-next" role="button" tabindex="0" aria-label="Next slide"><svg class="icon"
-                aria-hidden="true">
-                <use href="assets/icons/sprite.svg#arrow-right"></use>
-              </svg></div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Donation CTA -->
-    <section id="donation" class="donation" aria-labelledby="donation-title">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <h2 id="donation-title">Your support matters</h2>
-            <p>Your support makes a real difference — every contribution helps families in need.</p>
-          </div>
-          <div class="col-md-6">
-            <form id="donation-form" class="donation-form" aria-describedby="donation-desc">
-              <p id="donation-desc" class="visually-hidden">Choose an amount or enter another amount</p>
-              <div class="amounts" role="radiogroup" aria-label="Amount options">
-                <button type="button" class="amount-btn" data-amount="25" aria-pressed="false">$25</button>
-                <button type="button" class="amount-btn" data-amount="50" aria-pressed="false">$50</button>
-                <button type="button" class="amount-btn" data-amount="100" aria-pressed="false">$100</button>
-                <button type="button" class="amount-btn" data-amount="other" aria-pressed="false">Other…</button>
+              <!-- Slide 0: Emergency / Kurbanım Kardeşime -->
+              <div class="swiper-slide hero__slide" id="hero-slide-0" data-tab="0">
+                <picture>
+                  <!-- <source type="image/avif" srcset="assets/images/slide-1.avif" /> -->
+                  <source type="image/webp" srcset="assets/images/slide-1.webp" />
+                  <img src="assets/images/slide-1.jpg" alt="Emergency food parcels delivered to displaced families"
+                    width="1920" height="840" loading="eager" decoding="async" />
+                </picture>
+                <div class="hero__caption">
+                  <h1>Kurbanım Kardeşime</h1>
+                  <p>Share your Qurbani with families in crisis—bringing dignity, fresh meals, and festival joy across
+                    multiple countries.</p>
+                  <a class="btn btn--pill btn--primary" href="#">
+                    <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i><span>Donate Now</span>
+                  </a>
+                </div>
               </div>
-              <div class="other-amount" style="display:none;">
-                <label for="other-amount-input">Amount</label>
-                <input id="other-amount-input" name="other_amount" type="number" min="5" inputmode="numeric" />
+
+              <!-- Slide 1: Water Well -->
+              <div class="swiper-slide hero__slide" id="hero-slide-1" data-tab="1">
+                <picture>
+                  <source type="image/webp" srcset="assets/images/slide-2.webp" />
+                  <img src="assets/images/slide-2.jpg" alt="Children enjoying clean water from a community well"
+                    width="1920" height="840" loading="lazy" decoding="async" />
+                </picture>
+                <div class="hero__caption">
+                  <h1>Clean Water Changes Everything</h1>
+                  <p>Fund durable wells and water access so families can drink safely, learn, and thrive—one village at
+                    a time.</p>
+                  <a class="btn btn--pill btn--primary" href="#">
+                    <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i><span>Donate Now</span>
+                  </a>
+                </div>
               </div>
-              <fieldset class="donation-type">
-                <legend>Donation type</legend>
-                <label><input type="radio" name="donation_type" value="monthly" checked> Monthly</label>
-                <label><input type="radio" name="donation_type" value="oneoff"> One-time</label>
-              </fieldset>
-              <input type="hidden" name="amount" id="donation-amount-hidden" value="">
-              <button type="submit" class="btn btn--primary"><svg class="icon" aria-hidden="true">
-                  <use href="assets/icons/sprite.svg#donate"></use>
-                </svg> Donate Now</button>
-            </form>
+
+              <!-- Slide 2: Sacrifice -->
+              <div class="swiper-slide hero__slide" id="hero-slide-2" data-tab="2">
+                <picture>
+                  <source type="image/webp" srcset="assets/images/slide-3.webp" />
+                  <img src="assets/images/slide-3.jpg" alt="Distributing meat to families through the sacrifice program"
+                    width="1920" height="840" loading="lazy" decoding="async" />
+                </picture>
+                <div class="hero__caption">
+                  <h1>Sacrifice Program</h1>
+                  <p>Give Adak, Akika, or Shukr offerings that become nutritious meals and hope for families in need.
+                  </p>
+                  <a class="btn btn--pill btn--primary" href="#">
+                    <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i><span>Donate Now</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Slide 3: Öşür -->
+              <div class="swiper-slide hero__slide" id="hero-slide-3" data-tab="3">
+                <picture>
+                  <source type="image/webp" srcset="assets/images/slide-4.webp" />
+                  <img src="assets/images/slide-4.jpg" alt="Harvest-based giving supporting rural families" width="1920"
+                    height="840" loading="lazy" decoding="async" />
+                </picture>
+                <div class="hero__caption">
+                  <h1>Öşür – Harvest Giving</h1>
+                  <p>Turn the blessings of your harvest into year-round support for vulnerable households and small
+                    farmers.</p>
+                  <a class="btn btn--pill btn--primary" href="#">
+                    <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i><span>Donate Now</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Slide 4: Orphan Care -->
+              <div class="swiper-slide hero__slide" id="hero-slide-4" data-tab="4">
+                <picture>
+                  <source type="image/webp" srcset="assets/images/slide-5.webp" />
+                  <img src="assets/images/slide-5.jpg" alt="Orphaned children receiving care and education support"
+                    width="1920" height="840" loading="lazy" decoding="async" />
+                </picture>
+                <div class="hero__caption">
+                  <h1>Orphan Care</h1>
+                  <p>Provide safety, education, nutrition, and a brighter future—so every child can grow with
+                    confidence.</p>
+                  <a class="btn btn--pill btn--primary" href="#">
+                    <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i><span>Donate Now</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Slide 5: Health -->
+              <div class="swiper-slide hero__slide" id="hero-slide-5" data-tab="5">
+                <picture>
+                  <source type="image/webp" srcset="assets/images/slide-6.webp" />
+                  <img src="assets/images/slide-6.jpg" alt="Medical relief including medicines and surgeries"
+                    width="1920" height="840" loading="lazy" decoding="async" />
+                </picture>
+                <div class="hero__caption">
+                  <h1>Health & Medical Relief</h1>
+                  <p>From essential medicines to cataract surgeries—your gift restores health, sight, and everyday
+                    dignity.</p>
+                  <a class="btn btn--pill btn--primary" href="#">
+                    <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i><span>Donate Now</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Slide 6: General Fund -->
+              <div class="swiper-slide hero__slide" id="hero-slide-6" data-tab="6">
+                <picture>
+                  <source type="image/webp" srcset="assets/images/slide-7.webp" />
+                  <img src="assets/images/slide-7.jpg" alt="General fund supporting urgent and ongoing needs"
+                    width="1920" height="840" loading="lazy" decoding="async" />
+                </picture>
+                <div class="hero__caption">
+                  <h1>General Fund</h1>
+                  <p>Empower our teams to respond fast where needs are greatest—flexible support that multiplies impact.
+                  </p>
+                  <a class="btn btn--pill btn--primary" href="#">
+                    <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i><span>Donate Now</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Slide 7: Zakat & Sadaqah -->
+              <div class="swiper-slide hero__slide" id="hero-slide-7" data-tab="7">
+                <picture>
+                  <source type="image/webp" srcset="assets/images/slide-8.webp" />
+                  <img src="assets/images/slide-8.jpg" alt="Zakat and Sadaqah reaching trusted aid programs"
+                    width="1920" height="840" loading="lazy" decoding="async" />
+                </picture>
+                <div class="hero__caption">
+                  <h1>Zakat & Sadaqah</h1>
+                  <p>Give with confidence—your Zakat and Sadaqah reach verified programs and the most vulnerable
+                    families.</p>
+                  <a class="btn btn--pill btn--primary" href="#">
+                    <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i><span>Donate Now</span>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Pagination & arrows (desktop) -->
+            <div class="swiper-pagination"></div>
+            <button class="swiper-btn prev" aria-label="Previous slide">
+              <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+            </button>
+            <button class="swiper-btn next" aria-label="Next slide">
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </button>
           </div>
+
+          <!-- Category tabs -->
+          <nav class="hero__tabs" aria-label="Campaign categories">
+            <button class="hero-tab" data-slide="0" aria-controls="hero-slide-0" aria-pressed="true">
+              <i class="fa-solid fa-truck-medical" aria-hidden="true"></i><span>Emergency Aid</span>
+            </button>
+            <button class="hero-tab" data-slide="1" aria-controls="hero-slide-1">
+              <i class="fa-solid fa-faucet-drip" aria-hidden="true"></i><span>Water Well</span>
+            </button>
+            <button class="hero-tab" data-slide="2" aria-controls="hero-slide-2">
+              <i class="fa-solid fa-drumstick-bite" aria-hidden="true"></i><span>Sacrifice</span>
+            </button>
+            <button class="hero-tab" data-slide="3" aria-controls="hero-slide-3">
+              <i class="fa-solid fa-wheat-awn" aria-hidden="true"></i><span>Öşür</span>
+            </button>
+            <button class="hero-tab" data-slide="4" aria-controls="hero-slide-4">
+              <i class="fa-solid fa-child-reaching" aria-hidden="true"></i><span>Orphan</span>
+            </button>
+            <button class="hero-tab" data-slide="5" aria-controls="hero-slide-5">
+              <i class="fa-solid fa-stethoscope" aria-hidden="true"></i><span>Health</span>
+            </button>
+            <button class="hero-tab" data-slide="6" aria-controls="hero-slide-6">
+              <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i><span>General</span>
+            </button>
+            <button class="hero-tab" data-slide="7" aria-controls="hero-slide-7">
+              <i class="fa-solid fa-hand-holding-dollar" aria-hidden="true"></i><span>Zakat Sadaqah</span>
+            </button>
+          </nav>
         </div>
       </div>
     </section>
 
-    <!-- Impact Stats -->
-    <section id="impact" class="impact">
-      <div class="container">
-        <h2 class="section-title">Impact numbers</h2>
-        <div class="row">
-          <div class="col-md-3">
-            <div class="stat">
-              <div class="stat-number">1,254</div>
-              <div class="stat-label">Families</div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="stat">
-              <div class="stat-number">8,430</div>
-              <div class="stat-label">Meals</div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="stat">
-              <div class="stat-number">320</div>
-              <div class="stat-label">Volunteers</div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="stat">
-              <div class="stat-number">45</div>
-              <div class="stat-label">Projects</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Volunteer Signup -->
-    <section id="volunteer" class="volunteer">
-      <div class="container">
-        <h2 class="section-title">Volunteer signup</h2>
-        <form id="volunteer-form" novalidate aria-describedby="volunteer-help">
-          <p id="volunteer-help" class="visually-hidden">Volunteer registration form</p>
-          <div class="row">
-            <div class="col-md-6">
-              <label for="vol-name">Name</label>
-              <input id="vol-name" name="name" required minlength="2">
-            </div>
-            <div class="col-md-6">
-              <label for="vol-email">Email</label>
-              <input id="vol-email" name="email" type="email" required>
-            </div>
-            <div class="col-md-6">
-              <label for="vol-phone">Phone (optional)</label>
-              <input id="vol-phone" name="phone" type="tel">
-            </div>
-            <div class="col-md-6">
-              <label for="vol-region">Region</label>
-              <select id="vol-region" name="region">
-                <option value="">Select region</option>
-                <option>New York</option>
-                <option>Los Angeles</option>
-                <option>Chicago</option>
-              </select>
-            </div>
-            <div class="col-md-12">
-              <fieldset>
-                <legend>Volunteering areas</legend>
-                <label><input type="checkbox" name="areas" value="food"> Food distribution</label>
-                <label><input type="checkbox" name="areas" value="education"> Education</label>
-                <label><input type="checkbox" name="areas" value="health"> Health</label>
-              </fieldset>
-            </div>
-            <div class="col-md-12">
-              <div id="volunteer-messages" aria-live="polite"></div>
-              <button type="submit" class="btn btn--primary">Submit</button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </section>
-
-    <!-- Upcoming Events -->
-    <section id="events" class="events">
-      <div class="container">
-        <h2 class="section-title">Upcoming events</h2>
-        <div class="row">
-          <div class="col-md-4" data-aos="fade-up">
-            <article class="event-card"><svg class="icon">
-                <use href="assets/icons/sprite.svg#calendar"></use>
-              </svg>
-              <h3>Sept 15, 2025</h3>
-              <p>Workshop - New York <svg class="icon">
-                  <use href="assets/icons/sprite.svg#location"></use>
-                </svg></p>
-              <p><a class="btn" href="#">Learn more</a></p>
-            </article>
-          </div>
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="80">
-            <article class="event-card"><svg class="icon">
-                <use href="assets/icons/sprite.svg#calendar"></use>
-              </svg>
-              <h3>Oct 02, 2025</h3>
-              <p>Distribution Drive - New York <svg class="icon">
-                  <use href="assets/icons/sprite.svg#location"></use>
-                </svg></p>
-              <p><a class="btn" href="#">Learn more</a></p>
-            </article>
-          </div>
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="160">
-            <article class="event-card"><svg class="icon">
-                <use href="assets/icons/sprite.svg#calendar"></use>
-              </svg>
-              <h3>Nov 20, 2025</h3>
-              <p>Awareness Talk - New York <svg class="icon">
-                  <use href="assets/icons/sprite.svg#location"></use>
-                </svg></p>
-              <p><a class="btn" href="#">Learn more</a></p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Partners / Sponsors -->
-    <section id="partners" class="partners">
-      <div class="container">
-        <h2 class="section-title">Partners</h2>
-        <div class="row partners-row">
-          <div class="col-md-2"><img src="assets/images/partners/partner-1.png" alt="" loading="lazy" width="120"
-              height="60"></div>
-          <div class="col-md-2"><img src="assets/images/partners/partner-2.png" alt="" loading="lazy" width="120"
-              height="60"></div>
-          <div class="col-md-2"><img src="assets/images/partners/partner-3.png" alt="" loading="lazy" width="120"
-              height="60"></div>
-          <div class="col-md-2"><img src="assets/images/partners/partner-4.png" alt="" loading="lazy" width="120"
-              height="60"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Stories (Lightbox) -->
-    <section id="stories" class="stories">
-      <div class="container">
-        <h2 class="section-title">Stories</h2>
-        <div class="row">
-          <div class="col-md-4">
-            <a href="assets/images/story-1.webp" data-lightbox="stories" data-title="Story 1: Family support">
-              <picture>
-                <source srcset="assets/images/story-1.webp" type="image/webp"><img src="assets/images/story-1.jpg"
-                  alt="Story 1" loading="lazy" decoding="async" width="640" height="480">
-              </picture>
-            </a>
-          </div>
-          <div class="col-md-4">
-            <a href="assets/images/story-2.webp" data-lightbox="stories" data-title="Story 2: Meals distribution">
-              <picture>
-                <source srcset="assets/images/story-2.webp" type="image/webp"><img src="assets/images/story-2.jpg"
-                  alt="Story 2" loading="lazy" decoding="async" width="640" height="480">
-              </picture>
-            </a>
-          </div>
-          <div class="col-md-4">
-            <a href="assets/images/story-3.webp" data-lightbox="stories" data-title="Story 3: Volunteers building hope">
-              <picture>
-                <source srcset="assets/images/story-3.webp" type="image/webp"><img src="assets/images/story-3.jpg"
-                  alt="Story 3" loading="lazy" decoding="async" width="640" height="480">
-              </picture>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="icons" class="icons">
-      <div class="container">
-        <h2 class="section-title">Icon Showcase</h2>
-        <div class="row">
-          <div class="col-sm-6 col-md-4">
-            <div class="card">
-              <svg class="icon icon--sm text-primary" aria-hidden="true">
-                <use href="assets/icons/sprite.svg#donate"></use>
-              </svg>
-              <p>Donate (sm)</p>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-4">
-            <div class="card">
-              <svg class="icon icon--md text-muted" aria-hidden="true">
-                <use href="assets/icons/sprite.svg#hands"></use>
-              </svg>
-              <p>Hands (md)</p>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-4">
-            <div class="card">
-              <svg class="icon icon--lg text-danger flip-rtl" aria-hidden="true">
-                <use href="assets/icons/sprite.svg#arrow-left"></use>
-              </svg>
-              <p>Arrow (flip in RTL)</p>
-            </div>
-          </div>
-
-          <div class="col-sm-6 col-md-4">
-            <div class="card">
-              <!-- informative icon with title and labelled id -->
-              <svg class="icon icon--md" role="img" aria-labelledby="info-title">
-                <title id="info-title">Volunteer</title>
-                <use href="assets/icons/sprite.svg#volunteer"></use>
-              </svg>
-              <p>Informative (has title)</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="aos-demo" class="aos-demo">
-      <div class="container">
-        <h2 class="section-title">AOS Demo</h2>
-        <div class="row">
-          <div class="col-sm-6 col-md-4" data-aos="fade-up">Card 1</div>
-          <div class="col-sm-6 col-md-4" data-aos="fade-up" data-aos-delay="50">Card 2</div>
-          <div class="col-sm-6 col-md-4" data-aos="fade-up" data-aos-delay="100">Card 3</div>
-          <div class="col-sm-6 col-md-4" data-aos="zoom-in">Card 4</div>
-          <div class="col-sm-6 col-md-4" data-aos="zoom-in" data-aos-delay="80">Card 5</div>
-          <div class="col-sm-6 col-md-4" data-aos="zoom-in" data-aos-delay="160">Card 6</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="animate-demo" class="animate-demo">
-      <div class="container">
-        <h2 class="section-title">Animate.css Demo</h2>
-        <div class="callout animate__animated animate__bounceIn">This box uses Animate.css on load.</div>
-      </div>
-    </section>
-
-    <section id="features" class="features">
-      <div class="container">
-        <h2 class="section-title">Features</h2>
-        <div class="grid row">
-          <div class="col-sm-6 col-md-4">
-            <div class="card" data-aos="fade-up">
-              <svg class="icon icon-lg" aria-hidden="true">
-                <use href="assets/icons/sprite.svg#home"></use>
-              </svg>
-              <h3>Local Assets</h3>
-              <p>All CSS and JS are local files — no CDN required.</p>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-4">
-            <div class="card" data-aos="fade-up" data-aos-delay="100">
-              <svg class="icon icon-lg" aria-hidden="true">
-                <use href="assets/icons/sprite.svg#menu"></use>
-              </svg>
-              <h3>Accessible</h3>
-              <p>Keyboard focus states, aria attributes, and reduced-motion respect.</p>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-4">
-            <div class="card" data-aos="fade-up" data-aos-delay="200">
-              <svg class="icon icon-lg" aria-hidden="true">
-                <use href="assets/icons/sprite.svg#arrow-right"></use>
-              </svg>
-              <h3>Lightbox</h3>
-              <p>Gallery uses Lightbox for accessible image viewing.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="gallery" class="gallery">
-      <div class="container">
-        <h2 class="section-title">Gallery</h2>
-        <div class="grid row">
-          <div class="col-sm-6 col-md-4">
-            <a href="assets/images/gallery-1.jpg" data-lightbox="gallery" data-title="Gallery item 1"><img
-                src="assets/images/gallery-1.jpg" alt="Gallery 1" class="thumb"></a>
-          </div>
-          <div class="col-sm-6 col-md-4">
-            <a href="assets/images/gallery-2.jpg" data-lightbox="gallery" data-title="Gallery item 2"><img
-                src="assets/images/gallery-2.jpg" alt="Gallery 2" class="thumb"></a>
-          </div>
-          <div class="col-sm-6 col-md-4">
-            <a href="assets/images/gallery-3.jpg" data-lightbox="gallery" data-title="Gallery item 3"><img
-                src="assets/images/gallery-3.jpg" alt="Gallery 3" class="thumb"></a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="contact">
-      <div class="container">
-        <h2 class="section-title">Contact</h2>
-        <p>Replace this block with contact details or a form.</p>
-      </div>
-    </section>
   </main>
 
+  <!-- ===========================
+       FOOTER
+       =========================== -->
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; <span id="currentYear"></span> Brand — All rights reserved.</p>
+      <p>&copy; <span id="currentYear"></span> Yedi Başak — All rights reserved.</p>
     </div>
   </footer>
 
+  <!-- ===== JS (vendor → app). Keep local only. ===== -->
   <script src="assets/js/swiper-bundle.min.js"></script>
   <script src="assets/js/lightbox.min.js"></script>
   <script src="assets/js/aos.js"></script>
   <script src="assets/js/app.js"></script>
+
+  <!--
+    JS NOTES:
+    - In app.js: init Swiper with reduced motion check, sync tabs (aria-pressed), and offcanvas a11y.
+    - Ensure images exist: slide-1..8.(webp/jpg) with given sizes to avoid CLS.
+    - For further SEO: add sitemap.xml + robots.txt on deploy.
+  -->
 </body>
 
 </html>

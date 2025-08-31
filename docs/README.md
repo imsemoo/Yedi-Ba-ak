@@ -8,7 +8,7 @@ File tree
 - `components.html` — UI kit samples (buttons, cards, grid, lightbox)
 - `assets/css/` — vendor CSS + `style.css` (tokens + base + components)
 - `assets/js/` — vendor JS + `app.js` (init + small helpers)
-- `assets/icons/sprite.svg` — SVG symbols used via `<use>`
+- Local Font Awesome CSS under `assets/css/` (`fontawesome.min.css`, `solid.min.css`, `brands.min.css`) — used instead of an SVG sprite
 - `assets/images/` — example images
 
 Quick start
