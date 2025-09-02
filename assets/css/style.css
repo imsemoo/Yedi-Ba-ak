@@ -118,25 +118,9 @@
 
 @font-face {
   font-family: "Jost";
-  src: url("../fonts/Jost-ThinItalic.ttf") format("truetype");
-  font-weight: 100;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Jost";
   src: url("../fonts/Jost-ExtraLight.ttf") format("truetype");
   font-weight: 200;
   font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Jost";
-  src: url("../fonts/Jost-ExtraLightItalic.ttf") format("truetype");
-  font-weight: 200;
-  font-style: italic;
   font-display: swap;
 }
 
@@ -150,25 +134,9 @@
 
 @font-face {
   font-family: "Jost";
-  src: url("../fonts/Jost-LightItalic.ttf") format("truetype");
-  font-weight: 300;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Jost";
   src: url("../fonts/Jost-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Jost";
-  src: url("../fonts/Jost-Italic.ttf") format("truetype");
-  font-weight: 400;
-  font-style: italic;
   font-display: swap;
 }
 
@@ -182,25 +150,9 @@
 
 @font-face {
   font-family: "Jost";
-  src: url("../fonts/Jost-MediumItalic.ttf") format("truetype");
-  font-weight: 500;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Jost";
   src: url("../fonts/Jost-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Jost";
-  src: url("../fonts/Jost-SemiBoldItalic.ttf") format("truetype");
-  font-weight: 600;
-  font-style: italic;
   font-display: swap;
 }
 
@@ -214,25 +166,9 @@
 
 @font-face {
   font-family: "Jost";
-  src: url("../fonts/Jost-BoldItalic.ttf") format("truetype");
-  font-weight: 700;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Jost";
   src: url("../fonts/Jost-ExtraBold.ttf") format("truetype");
   font-weight: 800;
   font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Jost";
-  src: url("../fonts/Jost-ExtraBoldItalic.ttf") format("truetype");
-  font-weight: 800;
-  font-style: italic;
   font-display: swap;
 }
 
@@ -244,13 +180,6 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: "Jost";
-  src: url("../fonts/Jost-BlackItalic.ttf") format("truetype");
-  font-weight: 900;
-  font-style: italic;
-  font-display: swap;
-}
 
 
 /* =========================================================
@@ -260,11 +189,15 @@
   box-sizing: border-box;
 }
 
-/* Apply English/Latin default */
-html:not([dir="rtl"]) body,
-html[dir="ltr"] body {
+body {
+  margin: 0;
   font-family: var(--font-sans);
-  font-style: normal;
+  font-size: var(--fs-400);
+  font-weight: 400;
+  background: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Arabic pages (optional): use Arabic font for better glyphs/kerning */
@@ -348,9 +281,7 @@ b {
   font-weight: 900;
 }
 
-.ital {
-  font-style: italic;
-}
+
 
 /* Visually hidden utility (used by skip link / a11y) */
 .visually-hidden {
@@ -560,6 +491,10 @@ b {
   margin-right: 10px;
 }
 
+.actions .btn--primary i {
+  margin-inline-end: .4rem;
+}
+
 .actions .btn--ghost {
   display: flex;
   width: 40px;
@@ -582,7 +517,6 @@ b {
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
   padding: 0.5rem 0.75rem;
   border-radius: 6px;
   border: 1px solid transparent;
@@ -602,8 +536,8 @@ b {
 }
 
 .btn--ghost {
-  background: transparent;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
 }
 
 /* =========================================================
@@ -760,31 +694,7 @@ b {
   text-decoration: none;
 }
 
-/* =========================================================
-   BUTTONS (duplicate preserved; earlier set takes precedence)
-   ========================================================= */
-.btn {
-  display: inline-block;
-  padding: 0.5rem 0.75rem;
-  border-radius: 6px;
-  border: 1px solid transparent;
-  background: var(--color-surface);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-}
 
-.btn--primary {
-  background: var(--color-primary);
-  color: #fff;
-}
-
-.btn--ghost {
-  background: transparent;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-}
 
 /* =========================================================
    HERO (Swiper + caption + tabs)
@@ -970,24 +880,7 @@ html.rtl .hero__tabs {
   }
 }
 
-/* Button styles (secondary block preserved; complements main one) */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  border: 0;
-  cursor: pointer;
-}
 
-.btn--pill {
-  border-radius: 999px;
-  padding: 10px 16px;
-}
-
-.btn--primary {
-  background: var(--color-primary);
-  color: #fff;
-}
 
 .btn--primary:hover {
   filter: brightness(.95);
@@ -1150,4 +1043,505 @@ html.rtl .hero__tabs {
   background: rgba(255, 255, 255, .03);
   color: var(--color-text);
   font-size: .9rem;
+}
+
+/* ===== AGENDA (Cards Slider) ===== */
+.agenda {
+  padding: var(--space-9) 0;
+}
+
+.agenda__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+  position: relative;
+  padding-left: 15px;
+}
+
+.agenda__header h2 {
+  font-size: var(--fs-700);
+  margin: 0;
+}
+
+.agenda__header h2::before {
+  content: "";
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: 0;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 32px;
+  background: var(--color-primary);
+  border-radius: var(--radius);
+}
+
+.agenda__seeall i {
+  margin-inline-start: .4rem;
+}
+
+.agenda__swiper {
+  overflow: hidden;
+  padding-bottom: 60px;
+}
+
+.agenda-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.agenda-card__media {
+  margin: 0;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.agenda-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.agenda-card__body {
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.agenda-card__title {
+  font-size: var(--fs-600);
+  line-height: 1.25;
+  margin: 0;
+}
+
+.agenda-card__meta {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: var(--fs-400);
+  color: var(--color-muted);
+}
+
+.agenda-card__meta-dot {
+  opacity: .5;
+}
+
+.agenda-card__flag {
+  width: 16px !important;
+  height: 12px !important;
+  object-fit: cover;
+  border-radius: 2px;
+  margin-inline-end: .25rem;
+}
+
+.agenda-card__growth {
+  margin-inline-start: auto;
+  font-weight: 600;
+}
+
+.agenda-card__meter {
+  position: relative;
+  inline-size: 100%;
+  block-size: 8px;
+  background: #EAF6F8;
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.agenda-card__meter-bar {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
+  block-size: 100%;
+  inline-size: 0%;
+  background: var(--color-primary);
+  transition: inline-size var(--dur-2) var(--ease);
+}
+
+.agenda-card__stats {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-6);
+  margin: 0;
+}
+
+.agenda-card__stat dt {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.agenda-card__stat dd {
+  margin: 0;
+}
+
+.agenda-card__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.agenda-card__icons {
+  display: flex;
+  gap: .5rem;
+}
+
+.agenda-card__icons .btn {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius);
+}
+
+/* Swiper spacing */
+.agenda .swiper-wrapper {
+  align-items: stretch;
+}
+
+.agenda .swiper-slide {
+  height: auto;
+}
+
+.agenda-card__meta-item {
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+}
+
+/* Breakpoints: 1→2→3→4 */
+@media (max-width: 575px) {
+  .agenda-card__stats {
+    gap: var(--space-4);
+  }
+}
+
+/* ===== AGENDA: Swiper Controls (Pro Look) ===== */
+.agenda {
+  --agenda-ctrl-size: 46px;
+  --agenda-ctrl-bg: color-mix(in srgb, #ffffff 88%, transparent);
+  --agenda-ctrl-ring: color-mix(in srgb, var(--color-primary) 30%, transparent);
+  --agenda-ctrl-icon: var(--color-dark);
+}
+
+/* nav buttons */
+.agenda .swiper-btn {
+  inline-size: var(--agenda-ctrl-size);
+  block-size: var(--agenda-ctrl-size);
+  border-radius: 999px;
+  background: var(--agenda-ctrl-bg);
+  border: 1px solid var(--color-border);
+  color: var(--agenda-ctrl-icon);
+  box-shadow: none;
+  backdrop-filter: blur(6px);
+  display: grid;
+  place-items: center;
+  transition: transform var(--dur-2) var(--ease), box-shadow var(--dur-2) var(--ease), background var(--dur-2) var(--ease);
+}
+
+.agenda .swiper-btn i {
+  font-size: 1rem;
+}
+
+/* positions (نخليها فوق الباجينيشن يمين/يسار) */
+.agenda .swiper-btn.prev {
+  inset-inline-start: 10px;
+  inset-block-end: 0;
+}
+
+.agenda .swiper-btn.next {
+  inset-inline-start: 64px;
+  inset-block-end: 0;
+}
+
+/* hover / active */
+.agenda .swiper-btn:hover {
+  transform: translateY(-2px);
+}
+
+.agenda .swiper-btn:active {
+  transform: translateY(0);
+}
+
+.agenda .swiper-btn:focus-visible {
+  outline: 3px solid var(--agenda-ctrl-ring);
+  outline-offset: 2px;
+}
+
+/* disabled (Swiper يضيف هذه الكلاس تلقائياً) */
+.agenda .swiper-btn.swiper-button-disabled {
+  opacity: .45;
+  cursor: not-allowed;
+  filter: grayscale(.2);
+}
+
+/* ===== Pagination bullets (pill + smooth) ===== */
+.agenda .swiper-pagination {
+  width: max-content;
+  margin: auto;
+  position: absolute;
+  inset-block-end: 14px;
+  inset-inline-end: 14px;
+  display: inline-flex;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 999px;
+  background: color-mix(in srgb, #ffffff 78%, transparent);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(6px);
+}
+
+.agenda .swiper-pagination-bullet {
+  inline-size: 8px;
+  block-size: 8px;
+  border-radius: 999px;
+  background: #C8E9EE;
+  /* خفيف من لون الـ primary */
+  opacity: 1;
+  /* نتجاوز أوباسيتى Swiper الافتراضى */
+  transform: scale(1);
+  transition: transform var(--dur-2) var(--ease), background var(--dur-2) var(--ease);
+}
+
+.agenda .swiper-pagination-bullet-active {
+  inline-size: 22px;
+  /* pill عند التفعيل */
+  block-size: 8px;
+  background: var(--color-primary);
+  transform: none;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+  .agenda .swiper-btn,
+  .agenda .swiper-pagination-bullet {
+    transition-duration: .01ms;
+  }
+}
+
+/* Small screens: نخفف الزحمة */
+@media (max-width: 576px) {
+  .agenda .swiper-btn.prev {
+    inset-inline-start: 8px;
+    inset-block-end: 10px;
+  }
+
+  .agenda .swiper-btn.next {
+    inset-inline-start: 56px;
+    inset-block-end: 10px;
+  }
+
+
+  .agenda .swiper-pagination {
+    inset-inline-end: 8px;
+    inset-block-end: 10px;
+  }
+
+  .agenda .swiper-btn {
+    display: none;
+  }
+
+  .agenda {
+    padding: var(--space-9) 0 var(--space-6);
+  }
+}
+
+
+
+/* Map container */
+.donations__map {
+  position: relative;
+  min-block-size: clamp(300px, 44vw, 560px);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.donations__map-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+/* Panel + Cards (كما أرسلته لك سابقًا) */
+.donations {
+  padding: var(--space-8) 0;
+}
+
+.donations__grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: var(--space-7);
+  align-items: start;
+}
+
+@media (max-width: 992px) {
+  .donations__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.donations__panel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.donations__panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.donations__country {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.donations__flag {
+  width: 18px;
+  height: 12px;
+  border-radius: 2px;
+  object-fit: cover;
+}
+
+.donations__list {
+  display: grid;
+  gap: var(--space-5);
+  max-block-size: 560px;
+  overflow: auto;
+}
+
+/* بطاقة الحملة (مختصر) */
+.donation-card {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+@media (max-width:576px) {
+  .donation-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+.donation-card__media {
+  block-size: 140px;
+  overflow: hidden;
+}
+
+.donation-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.donation-card__body {
+  padding: var(--space-5);
+  display: grid;
+  gap: var(--space-4);
+}
+
+.donation-card__top {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.donation-card__title {
+  font-size: var(--fs-600);
+  margin: 0;
+}
+
+.donation-card__meta {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  color: var(--color-muted);
+}
+
+.donation-card__flag {
+  width: 16px;
+  height: 12px;
+  border-radius: 2px;
+  margin-inline-end: .25rem;
+}
+
+.donation-card__meter {
+  position: relative;
+  inline-size: 100%;
+  block-size: 8px;
+  background: #EAF6F8;
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.donation-card__meter-bar {
+  position: absolute;
+  inset: 0 auto 0 0;
+  block-size: 100%;
+  inline-size: 0%;
+  background: var(--color-primary);
+  transition: inline-size var(--dur-2) var(--ease);
+}
+
+.donation-card__percent {
+  position: absolute;
+  inset-inline-end: 0;
+  inset-block-start: -22px;
+  font-weight: 600;
+}
+
+.donation-card__stats {
+  display: grid;
+  grid-auto-flow: column;
+  gap: var(--space-6);
+}
+
+.donation-card__stat dt {
+  color: var(--color-muted);
+  font-weight: 600;
+}
+
+.donation-card__stat dd {
+  margin: 0;
+}
+
+.donation-card__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.donation-card__icons {
+  display: inline-flex;
+  gap: .5rem;
+}
+
+.donation-card__icons .btn {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius);
 }
