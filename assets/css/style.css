@@ -1371,7 +1371,7 @@ html.rtl .hero__tabs {
 
 .donations__grid {
   display: grid;
-  grid-template-columns: 1.25fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: var(--space-4);
   align-items: start;
 }
@@ -1496,7 +1496,6 @@ html.rtl .hero__tabs {
 .donation-card {
   display: grid;
   grid-template-columns: 160px 1fr;
-  gap: var(--space-5);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   background: var(--color-surface);
@@ -1523,22 +1522,28 @@ html.rtl .hero__tabs {
 }
 
 .donation-card__body {
-  padding: var(--space-5);
+  padding: var(--space-4);
   display: grid;
-  gap: var(--space-4);
+}
+
+.donation-card__meta-item {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
 }
 
 .donation-card__top {
   display: flex;
-  flex-flow: column;
   align-items: start;
   justify-content: space-between;
   gap: var(--space-4);
+  margin-bottom: var(--space-3);
 }
 
 .donation-card__title {
   font-size: var(--fs-500);
   margin: 0;
+  flex: 1;
 }
 
 .donation-card__meta {
@@ -1550,9 +1555,7 @@ html.rtl .hero__tabs {
 
 .donation-card__flag {
   width: 16px;
-  height: 12px;
   border-radius: 2px;
-  margin-inline-end: .25rem;
 }
 
 .donation-card__meta-dot {
@@ -1587,7 +1590,7 @@ html.rtl .hero__tabs {
 .donation-card__stats {
   display: grid;
   grid-auto-flow: column;
-  gap: var(--space-6);
+  gap: var(--space-3);
 }
 
 .donation-card__stat dt {

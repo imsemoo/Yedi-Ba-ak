@@ -318,7 +318,7 @@
     // --- Data: countries with lon/lat + campaigns ---
     const DATA = {
       countries: [
-        { code: 'PS', name: 'Palestine', flag: 'assets/icons/flag-palestine.svg', lon: 35.2, lat: 31.9 },
+        { code: 'PS', name: 'Palestine', flag: 'assets/images/flags/ps.webp', lon: 35.2, lat: 31.9 },
         { code: 'EG', name: 'Egypt', flag: 'assets/icons/flag-egypt.svg', lon: 30.0, lat: 26.0 },
         { code: 'TR', name: 'Turkey', flag: 'assets/icons/flag-turkey.svg', lon: 35.0, lat: 39.0 },
         { code: 'MA', name: 'Morocco', flag: 'assets/icons/flag-morocco.svg', lon: -7.0, lat: 31.0 },
