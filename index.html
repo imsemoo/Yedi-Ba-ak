@@ -33,7 +33,7 @@
   <link rel="manifest" href="site.webmanifest" />
 
   <!-- ===== Preload critical assets (local only) ===== -->
-  <link rel="preload" href="assets/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/images/slide-1.webp" as="image" />
 
   <!-- ===== CSS (vendor → theme) ===== -->
@@ -43,6 +43,7 @@
   <link rel="stylesheet" href="assets/css/animate.min.css" />
   <link rel="stylesheet" href="assets/css/aos.css" />
   <link rel="stylesheet" href="assets/css/normalize.css" />
+  <link rel="stylesheet" href="assets/css/leaflet.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <!-- Font Awesome (local) -->
   <link rel="stylesheet" href="assets/css/fontawesome.min.css" />
@@ -440,7 +441,7 @@
 
     <section class="agenda" aria-label="Agenda campaigns">
       <div class="container">
-        <div class="agenda__header">
+        <div class="main__header agenda__header">
           <h2 class="h2">AGENDA</h2>
           <a class="agenda__seeall btn btn--ghost btn--pill" href="#" aria-label="See all campaigns">
             See all <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
@@ -894,7 +895,6 @@
     </section>
 
 
-
     <section class="donations" aria-label="Donation campaigns by country">
       <div class="container">
         <div class="donations__header">
@@ -902,9 +902,28 @@
         </div>
 
         <div class="donations__grid">
-          <!-- LEFT: World map (ECharts) -->
-          <div class="donations__map">
-            <div id="worldMap" class="donations__map-canvas" role="img" aria-label="Interactive world map"></div>
+          <!-- LEFT: Inline SVG map (self-contained, no network) -->
+          <div class="donations__map" aria-label="World map">
+            <svg class="donations__map-svg" viewBox="0 0 1000 520" role="img" aria-label="Simplified world map">
+              <!-- خلفية نقطية لطيفة -->
+              <defs>
+                <pattern id="dots" width="10" height="10" patternUnits="userSpaceOnUse">
+                  <circle cx="1.6" cy="1.6" r="1.2" fill="#E8F2F4"></circle>
+                </pattern>
+                <filter id="softBlur" x="-10%" y="-10%" width="120%" height="120%">
+                  <feGaussianBlur stdDeviation="0.6"></feGaussianBlur>
+                </filter>
+              </defs>
+              <rect x="0" y="0" width="1000" height="520" fill="url(#dots)"></rect>
+              <ellipse cx="420" cy="220" rx="360" ry="150" fill="#F5FAFB" filter="url(#softBlur)"></ellipse>
+              <ellipse cx="680" cy="280" rx="280" ry="130" fill="#F0F8FA" filter="url(#softBlur)"></ellipse>
+            </svg>
+
+            <div class="donations__map" aria-label="World map">
+              <img src="assets/images/map/world.svg" alt="" aria-hidden="true" class="donations__map-img">
+              <div class="donations__markers" aria-live="polite"></div>
+            </div>
+
           </div>
 
           <!-- RIGHT: Panel -->
@@ -916,17 +935,19 @@
               </div>
               <div class="donations__count text-muted"><span id="donationsCount">0</span> campaigns</div>
             </div>
+
             <div id="donationsList" class="donations__list" aria-live="polite" aria-busy="false"></div>
           </div>
         </div>
       </div>
 
-      <!-- Card template (كما هو) -->
+      <!-- Card template -->
       <template id="donationCardTpl">
         <article class="donation-card">
           <figure class="donation-card__media"><img src="" alt="" loading="lazy" decoding="async"></figure>
           <div class="donation-card__body">
             <header class="donation-card__top">
+
               <h3 class="donation-card__title"></h3>
               <div class="donation-card__meta">
                 <span class="donation-card__meta-item"><span class="donation-card__donors">0</span> Donors</span>
@@ -980,6 +1001,7 @@
 
 
 
+
   </main>
 
   <!-- ===========================
@@ -997,9 +1019,7 @@
   <script src="assets/js/lightbox.min.js"></script>
   <script src="assets/js/aos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
-  <!-- World map bundle (يسجّل 'world' مباشرة) -->
-  <script src="https://cdn.jsdelivr.net/npm/echarts@5/map/js/world.js"></script>
-
+  <!-- <script src="https://cdn.jsdelivr.net/npm/echarts@5/map/js/world.js"></script> -->
   <script src="assets/js/app.js"></script>
 
   <!--

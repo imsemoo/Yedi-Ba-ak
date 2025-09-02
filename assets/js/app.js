@@ -55,7 +55,7 @@
     initHeaderBehaviors();
     initAgendaSlider();
     initAgendaProgress();
-    initDonationMapECharts();
+    initDonationMapSVG();
 
   });
 
@@ -298,184 +298,143 @@
 
 
   /* ======================== Donation Map (ECharts) ======================== */
-  function initDonationMapECharts() {
-    const elCanvas = document.getElementById('worldMap');
-    const panelList = document.getElementById('donationsList');
-    const panelCount = document.getElementById('donationsCount');
-    const countryName = document.querySelector('.donations__country-name');
-    const countryFlag = document.querySelector('.donations__flag');
-    const tpl = document.getElementById('donationCardTpl');
-    if (!elCanvas || !panelList || !panelCount || !tpl || !window.echarts) return;
+  /* ============================================================================
+     Donation Map (SVG, no external dependencies)
+     - Render interactive country markers on a static world SVG
+     - Projection: Equirectangular (lon/lat → % of map)
+     - Clicking a marker updates the right-hand donation panel
+     ============================================================================ */
+  function initDonationMapSVG() {
+    // --- DOM references ---
+    const markersWrap = qs('.donations__markers');
+    const listEl = qs('#donationsList');
+    const countEl = qs('#donationsCount');
+    const countryName = qs('.donations__country-name');
+    const countryFlag = qs('.donations__flag');
+    const tpl = qs('#donationCardTpl');
 
-    // ---- Data model (يمكن فصلها لاحقاً لملف JSON / API) ----
+    if (!markersWrap || !listEl || !countEl || !countryName || !countryFlag || !tpl) return;
+
+    // --- Data: countries with lon/lat + campaigns ---
     const DATA = {
       countries: [
-        { code: 'PS', name: 'Palestine', lat: 31.9, lon: 35.2, flag: 'assets/icons/flag-palestine.svg' },
-        { code: 'IN', name: 'India', lat: 22.8, lon: 79.0, flag: 'assets/icons/flag-india.svg' },
-        { code: 'TR', name: 'Turkey', lat: 39.0, lon: 35.2, flag: 'assets/icons/flag-turkey.svg' },
-        { code: 'EG', name: 'Egypt', lat: 26.8, lon: 30.8, flag: 'assets/icons/flag-egypt.svg' },
-        { code: 'MA', name: 'Morocco', lat: 31.8, lon: -7.1, flag: 'assets/icons/flag-morocco.svg' },
-        { code: 'ID', name: 'Indonesia', lat: -2.5, lon: 117.0, flag: 'assets/icons/flag-indonesia.svg' }
+        { code: 'PS', name: 'Palestine', flag: 'assets/icons/flag-palestine.svg', lon: 35.2, lat: 31.9 },
+        { code: 'EG', name: 'Egypt', flag: 'assets/icons/flag-egypt.svg', lon: 30.0, lat: 26.0 },
+        { code: 'TR', name: 'Turkey', flag: 'assets/icons/flag-turkey.svg', lon: 35.0, lat: 39.0 },
+        { code: 'MA', name: 'Morocco', flag: 'assets/icons/flag-morocco.svg', lon: -7.0, lat: 31.0 },
+        { code: 'IN', name: 'India', flag: 'assets/icons/flag-india.svg', lon: 78.9, lat: 20.5 },
+        { code: 'ID', name: 'Indonesia', flag: 'assets/icons/flag-indonesia.svg', lon: 113.0, lat: -0.8 },
       ],
       campaigns: {
-        IN: [
-          { title: 'Medical Aid for Flood Victims', img: 'assets/images/agenda/slide-1.png', donors: 12, total: 18000, support: 6840, country: 'India', flag: 'assets/icons/flag-india.svg' },
-          { title: 'Food Packages for Remote Villages', img: 'assets/images/agenda/slide-2.png', donors: 8, total: 12000, support: 4200, country: 'India', flag: 'assets/icons/flag-india.svg' }
-        ],
         PS: [
           { title: '1000 Tent Aid Campaign for Gaza', img: 'assets/images/agenda/slide-1.png', donors: 6, total: 20000, support: 2920, country: 'Palestine', flag: 'assets/icons/flag-palestine.svg' },
-          { title: 'Emergency Food Support', img: 'assets/images/agenda/slide-4.png', donors: 14, total: 15000, support: 12030, country: 'Palestine', flag: 'assets/icons/flag-palestine.svg' }
-        ],
-        TR: [
-          { title: 'Winter Clothes for Orphans', img: 'assets/images/agenda/slide-3.png', donors: 10, total: 22000, support: 1100, country: 'Turkey', flag: 'assets/icons/flag-turkey.svg' }
+          { title: 'Emergency Food Support', img: 'assets/images/agenda/slide-4.png', donors: 14, total: 15000, support: 12030, country: 'Palestine', flag: 'assets/icons/flag-palestine.svg' },
         ],
         EG: [
-          { title: 'Dialysis Machines Support', img: 'assets/images/agenda/slide-2.png', donors: 7, total: 20000, support: 5460, country: 'Egypt', flag: 'assets/icons/flag-egypt.svg' }
+          { title: 'Dialysis Machines Support', img: 'assets/images/agenda/slide-2.png', donors: 7, total: 20000, support: 5460, country: 'Egypt', flag: 'assets/icons/flag-egypt.svg' },
+        ],
+        TR: [
+          { title: 'Winter Clothes for Orphans', img: 'assets/images/agenda/slide-3.png', donors: 10, total: 22000, support: 1100, country: 'Turkey', flag: 'assets/icons/flag-turkey.svg' },
         ],
         MA: [
-          { title: 'Earthquake Rebuild Houses', img: 'assets/images/agenda/slide-3.png', donors: 16, total: 26000, support: 11544, country: 'Morocco', flag: 'assets/icons/flag-morocco.svg' }
+          { title: 'Earthquake Rebuild Houses', img: 'assets/images/agenda/slide-3.png', donors: 16, total: 26000, support: 11544, country: 'Morocco', flag: 'assets/icons/flag-morocco.svg' },
+        ],
+        IN: [
+          { title: 'Medical Aid for Flood Victims', img: 'assets/images/agenda/slide-1.png', donors: 12, total: 18000, support: 6840, country: 'India', flag: 'assets/icons/flag-india.svg' },
+          { title: 'Food Packages for Villages', img: 'assets/images/agenda/slide-2.png', donors: 8, total: 12000, support: 4200, country: 'India', flag: 'assets/icons/flag-india.svg' },
         ],
         ID: [
-          { title: 'Clean Water Wells', img: 'assets/images/agenda/slide-4.png', donors: 9, total: 12000, support: 8616, country: 'Indonesia', flag: 'assets/icons/flag-indonesia.svg' }
+          { title: 'Clean Water Wells', img: 'assets/images/agenda/slide-4.png', donors: 9, total: 12000, support: 8616, country: 'Indonesia', flag: 'assets/icons/flag-indonesia.svg' },
         ]
       }
     };
 
-    // ---- Helpers ----
+    // --- Helpers ---
     const fmt = (n) => Number(n || 0).toLocaleString('en-US');
     const clamp = (n, min, max) => Math.min(max, Math.max(min, n));
+    const pct = (s, t) => clamp(t > 0 ? (s / t) * 100 : 0, 0, 100);
 
+    // Convert longitude/latitude to % coords (simple equirectangular projection)
+    function project(lon, lat) {
+      const x = ((lon + 180) / 360) * 100;     // -180..180 → 0..100%
+      const y = ((90 - lat) / 180) * 100;      //  90..-90  → 0..100%
+      return { x, y };
+    }
+
+    // Build campaign card from template
     function buildCard(item) {
-      const frag = document.importNode(tpl.content, true);
-      const img = frag.querySelector('.donation-card__media img');
-      const title = frag.querySelector('.donation-card__title');
-      const donors = frag.querySelector('.donation-card__donors');
-      const flag = frag.querySelector('.donation-card__flag');
-      const country = frag.querySelector('.donation-card__country');
+      const node = tpl.content.firstElementChild.cloneNode(true);
+      node.querySelector('.donation-card__media img').src = item.img;
+      node.querySelector('.donation-card__media img').alt = item.title;
+      node.querySelector('.donation-card__title').textContent = item.title;
+      node.querySelector('.donation-card__donors').textContent = item.donors;
+      node.querySelector('.donation-card__country').textContent = item.country;
+      node.querySelector('.donation-card__flag').src = item.flag;
 
-      const meter = frag.querySelector('.donation-card__meter');
-      const bar = frag.querySelector('.donation-card__meter-bar');
-      const percent = frag.querySelector('.donation-card__percent');
-
-      const req = frag.querySelector('.donation-card__required');
-      const sup = frag.querySelector('.donation-card__support');
-      const rem = frag.querySelector('.donation-card__remaining');
-
-      img.src = item.img; img.alt = item.title;
-      title.textContent = item.title;
-      donors.textContent = String(item.donors ?? 0);
-      flag.src = item.flag; flag.alt = '';
-      country.textContent = item.country;
-
-      const total = Number(item.total || 0);
-      const support = Number(item.support || 0);
-      const remaining = Math.max(0, total - support);
-      const progress = total > 0 ? clamp((support / total) * 100, 0, 100) : 0;
-
-      meter.setAttribute('aria-valuenow', progress.toFixed(1));
-      requestAnimationFrame(() => { bar.style.inlineSize = `${progress.toFixed(1)}%`; });
-      percent.textContent = `%${progress.toFixed(1)}`;
-
-      req.textContent = `${fmt(total)} $`;
-      sup.textContent = `${fmt(support)} $`;
-      rem.textContent = `${fmt(remaining)} $`;
-      return frag;
-    }
-
-    function renderCountry(code) {
-      const def = DATA.countries.find(c => c.code === code);
-      const list = DATA.campaigns[code] || [];
-
-      countryName.textContent = def?.name || '—';
-      if (def?.flag) countryFlag.src = def.flag;
-      panelCount.textContent = String(list.length);
-
-      panelList.setAttribute('aria-busy', 'true');
-      panelList.innerHTML = '';
-      list.forEach(item => panelList.appendChild(buildCard(item)));
-      panelList.setAttribute('aria-busy', 'false');
-    }
-
-    // ---- Init ECharts ----
-    const chart = echarts.init(elCanvas, null, { renderer: 'svg' }); // SVG أنعم مع UI
-    // تحميل GeoJSON للخريطة
-    fetch('https://cdn.jsdelivr.net/npm/echarts@5/map/json/world.json')
-      .then(r => r.json())
-      .then(geojson => {
-        echarts.registerMap('world', geojson);
-
-        // نقاط الدول (effectScatter لجلـو جذاب)
-        const points = DATA.countries.map(c => ({
-          name: c.name,
-          value: [c.lon, c.lat, 1], // [lon, lat, size]
-          code: c.code
-        }));
-
-        const option = {
-          backgroundColor: 'transparent',
-          geo: {
-            map: 'world',
-            roam: true,            // سحب/زوم
-            zoom: 1.15,
-            scaleLimit: { min: 1, max: 6 },
-            itemStyle: {
-              areaColor: '#F5FAFB',
-              borderColor: '#D7E6E9',
-              borderWidth: 0.7
-            },
-            emphasis: { itemStyle: { areaColor: '#EAF6F8' } }
-          },
-          tooltip: {
-            trigger: 'item',
-            backgroundColor: '#fff',
-            textStyle: { color: '#0b1f24' },
-            borderColor: '#E3EEF0',
-            borderWidth: 1,
-            formatter: (p) => p.data?.name || p.name
-          },
-          series: [
-            // ظل لطيف فوق المناطق (polygons soft)
-            {
-              type: 'map',
-              map: 'world',
-              geoIndex: 0,
-              roam: false,
-              itemStyle: { areaColor: 'transparent', borderColor: 'transparent' },
-              emphasis: { disabled: true }
-            },
-            // نقاط متوهجة للدول
-            {
-              name: 'countries',
-              type: 'effectScatter',
-              coordinateSystem: 'geo',
-              symbolSize: 8,
-              rippleEffect: { brushType: 'stroke', scale: 3, period: 6 },
-              itemStyle: { color: getComputedStyle(document.documentElement).getPropertyValue('--color-primary').trim() || '#0bb2c1' },
-              data: points,
-              emphasis: { scale: 1.4 }
-            }
-          ]
-        };
-
-        chart.setOption(option);
-
-        // Click → اختيار الدولة
-        chart.on('click', (params) => {
-          const code = params.data?.code;
-          if (code) renderCountry(code);
-        });
-
-        // دولة افتراضية
-        renderCountry('PS');
-
-        // Responsive
-        const ro = new ResizeObserver(() => chart.resize());
-        ro.observe(elCanvas);
-      })
-      .catch(() => {
-        // فشل تحميل الخريطة (انقطاع نت) — نعرض رسالة بسيطة
-        elCanvas.innerHTML = '<div style="padding:1rem;color:#b00;">Map failed to load. Please check your connection.</div>';
+      const p = pct(item.support, item.total);
+      node.querySelector('.donation-card__percent').textContent = `%${p.toFixed(1)}`;
+      node.querySelector('.donation-card__meter').setAttribute('aria-valuenow', p.toFixed(1));
+      requestAnimationFrame(() => {
+        node.querySelector('.donation-card__meter-bar').style.inlineSize = `${p.toFixed(1)}%`;
       });
+
+      node.querySelector('.donation-card__required').textContent = `${fmt(item.total)} $`;
+      node.querySelector('.donation-card__support').textContent = `${fmt(item.support)} $`;
+      node.querySelector('.donation-card__remaining').textContent = `${fmt(Math.max(0, item.total - item.support))} $`;
+      return node;
+    }
+
+    // Render campaigns for a given country code
+    function renderCountry(code) {
+      const c = DATA.countries.find((x) => x.code === code);
+      const list = DATA.campaigns[code] || [];
+      countryName.textContent = c?.name || '—';
+      if (c?.flag) countryFlag.src = c.flag;
+      listEl.setAttribute('aria-busy', 'true');
+      listEl.innerHTML = '';
+      list.forEach((i) => listEl.appendChild(buildCard(i)));
+      countEl.textContent = String(list.length);
+      listEl.setAttribute('aria-busy', 'false');
+    }
+
+    // --- Render markers ---
+    markersWrap.innerHTML = '';
+    DATA.countries.forEach((c) => {
+      const { x, y } = project(c.lon, c.lat); // project lon/lat → %
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'marker';
+      b.style.left = `${x}%`;
+      b.style.top = `${y}%`;
+      b.setAttribute('data-code', c.code);
+      b.setAttribute('data-name', c.name);
+      b.setAttribute('aria-label', c.name);
+      b.setAttribute('aria-pressed', 'false');
+
+      // Click / keyboard events
+      b.addEventListener('click', () => select(c.code));
+      b.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          b.click();
+        }
+      });
+
+      markersWrap.appendChild(b);
+    });
+
+    // Update selected state + render panel
+    function select(code) {
+      qsa('.marker', markersWrap).forEach((m) => {
+        const active = m.getAttribute('data-code') === code;
+        m.setAttribute('data-active', String(active));
+        m.setAttribute('aria-pressed', String(active));
+      });
+      renderCountry(code);
+    }
+
+    // Default selection
+    select('PS');
   }
 
 
