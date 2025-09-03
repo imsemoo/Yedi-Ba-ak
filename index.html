@@ -899,12 +899,12 @@
 
     <section class="donations" aria-label="Donation campaigns by country">
       <div class="container">
-        <div class="main__header donations__header ">
+        <div class="main__header donations__header">
           <h2 class="h2">
             DONATION CAMPAIGNS
-            <!-- شارة بث اختيارية -->
-            <span class="badge badge--live" aria-label="Live"><i class="fa-solid fa-tower-broadcast"
-                aria-hidden="true"></i> Live</span>
+            <span class="badge badge--live" aria-label="Live">
+              <i class="fa-solid fa-tower-broadcast" aria-hidden="true"></i> Live
+            </span>
           </h2>
         </div>
 
@@ -912,7 +912,6 @@
           <!-- LEFT: Interactive Map -->
           <div class="donations__map" aria-label="World map">
             <div id="countriesControlMount" aria-hidden="true"></div>
-
             <div id="map" role="img" aria-label="Interactive world map"></div>
           </div>
 
@@ -923,7 +922,7 @@
                 <img class="donations__flag" src="assets/icons/flag-palestine.svg" alt="" aria-hidden="true">
                 <span class="donations__country-name">Palestine</span>
               </div>
-              <div class="donations__count" style="color:var(--color-muted)">
+              <div class="donations__count text-muted">
                 <span id="donationsCount">0</span> campaigns
               </div>
             </div>
@@ -959,7 +958,7 @@
             <div class="donation-card__meter" role="progressbar" aria-valuemin="0" aria-valuemax="100"
               aria-valuenow="0">
               <span class="donation-card__meter-bar"></span>
-              <span class="donation-card__percent" style="color:var(--color-primary)">%0.0</span>
+              <span class="donation-card__percent text-primary">%0.0</span>
             </div>
 
             <!-- Stats -->
@@ -984,7 +983,7 @@
                 <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i>
                 <span>DONATE</span>
               </a>
-              <div class="donation-card__icons" style="display:inline-flex;gap:.5rem">
+              <div class="donation-card__icons">
                 <button class="btn btn--ghost" aria-label="Add to wishlist">
                   <i class="fa-regular fa-heart" aria-hidden="true"></i>
                 </button>
