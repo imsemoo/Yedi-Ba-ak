@@ -297,71 +297,56 @@
   }
 
 
-  /* ======================== Donation Map (ECharts) ======================== */
-  /* ============================================================================
-     Donation Map (SVG, no external dependencies)
-     - Render interactive country markers on a static world SVG
-     - Projection: Equirectangular (lon/lat → % of map)
-     - Clicking a marker updates the right-hand donation panel
-     ============================================================================ */
-  function initDonationMapSVG() {
-    // --- DOM references ---
-    const markersWrap = qs('.donations__markers');
+  (function () {
+    // Helpers
+    const qs = (s, r = document) => r.querySelector(s);
+    const qsa = (s, r = document) => [...r.querySelectorAll(s)];
+    const fmt = (n) => Number(n || 0).toLocaleString('en-US');
+    const clamp = (n, min, max) => Math.min(max, Math.max(min, n));
+    const pct = (s, t) => clamp(t > 0 ? (s / t) * 100 : 0, 0, 100);
+
+    // DOM
     const listEl = qs('#donationsList');
     const countEl = qs('#donationsCount');
     const countryName = qs('.donations__country-name');
     const countryFlag = qs('.donations__flag');
     const tpl = qs('#donationCardTpl');
 
-    if (!markersWrap || !listEl || !countEl || !countryName || !countryFlag || !tpl) return;
-
-    // --- Data: countries with lon/lat + campaigns ---
+    // Data (نفس بياناتك)
     const DATA = {
       countries: [
         { code: 'PS', name: 'Palestine', flag: 'assets/images/flags/ps.webp', lon: 35.2, lat: 31.9 },
-        { code: 'EG', name: 'Egypt', flag: 'assets/icons/flag-egypt.svg', lon: 30.0, lat: 26.0 },
-        { code: 'TR', name: 'Turkey', flag: 'assets/icons/flag-turkey.svg', lon: 35.0, lat: 39.0 },
-        { code: 'MA', name: 'Morocco', flag: 'assets/icons/flag-morocco.svg', lon: -7.0, lat: 31.0 },
-        { code: 'IN', name: 'India', flag: 'assets/icons/flag-india.svg', lon: 78.9, lat: 20.5 },
-        { code: 'ID', name: 'Indonesia', flag: 'assets/icons/flag-indonesia.svg', lon: 113.0, lat: -0.8 },
+        { code: 'EG', name: 'Egypt', flag: 'assets/images/flags/eg.webp', lon: 30.0, lat: 26.0 },
+        { code: 'TR', name: 'Turkey', flag: 'assets/images/flags/tr.webp', lon: 35.0, lat: 39.0 },
+        { code: 'MA', name: 'Morocco', flag: 'assets/images/flags/ma.webp', lon: -7.0, lat: 31.0 },
+        { code: 'IN', name: 'India', flag: 'assets/images/flags/in.webp', lon: 78.9, lat: 20.5 },
+        { code: 'ID', name: 'Indonesia', flag: 'assets/images/flags/id.webp', lon: 113.0, lat: -0.8 },
       ],
       campaigns: {
         PS: [
           { title: '1000 Tent Aid Campaign for Gaza', img: 'assets/images/agenda/slide-1.png', donors: 6, total: 20000, support: 2920, country: 'Palestine', flag: 'assets/icons/flag-palestine.svg' },
-          { title: 'Emergency Food Support', img: 'assets/images/agenda/slide-4.png', donors: 14, total: 15000, support: 12030, country: 'Palestine', flag: 'assets/icons/flag-palestine.svg' },
+          { title: 'Emergency Food Support', img: 'assets/images/agenda/slide-4.png', donors: 14, total: 15000, support: 12030, country: 'Palestine', flag: 'assets/images/flags/ps.webp' },
         ],
         EG: [
-          { title: 'Dialysis Machines Support', img: 'assets/images/agenda/slide-2.png', donors: 7, total: 20000, support: 5460, country: 'Egypt', flag: 'assets/icons/flag-egypt.svg' },
+          { title: 'Dialysis Machines Support', img: 'assets/images/agenda/slide-2.png', donors: 7, total: 20000, support: 5460, country: 'Egypt', flag: 'assets/images/flags/eg.webp' },
         ],
         TR: [
-          { title: 'Winter Clothes for Orphans', img: 'assets/images/agenda/slide-3.png', donors: 10, total: 22000, support: 1100, country: 'Turkey', flag: 'assets/icons/flag-turkey.svg' },
+          { title: 'Winter Clothes for Orphans', img: 'assets/images/agenda/slide-3.png', donors: 10, total: 22000, support: 1100, country: 'Turkey', flag: 'assets/images/flags/tr.webp' },
         ],
         MA: [
           { title: 'Earthquake Rebuild Houses', img: 'assets/images/agenda/slide-3.png', donors: 16, total: 26000, support: 11544, country: 'Morocco', flag: 'assets/icons/flag-morocco.svg' },
         ],
         IN: [
-          { title: 'Medical Aid for Flood Victims', img: 'assets/images/agenda/slide-1.png', donors: 12, total: 18000, support: 6840, country: 'India', flag: 'assets/icons/flag-india.svg' },
-          { title: 'Food Packages for Villages', img: 'assets/images/agenda/slide-2.png', donors: 8, total: 12000, support: 4200, country: 'India', flag: 'assets/icons/flag-india.svg' },
+          { title: 'Medical Aid for Flood Victims', img: 'assets/images/agenda/slide-1.png', donors: 12, total: 18000, support: 6840, country: 'India', flag: 'assets/images/flags/in.webp' },
+          { title: 'Food Packages for Villages', img: 'assets/images/agenda/slide-2.png', donors: 8, total: 12000, support: 4200, country: 'India', flag: 'assets/images/flags/in.webp' },
         ],
         ID: [
-          { title: 'Clean Water Wells', img: 'assets/images/agenda/slide-4.png', donors: 9, total: 12000, support: 8616, country: 'Indonesia', flag: 'assets/icons/flag-indonesia.svg' },
+          { title: 'Clean Water Wells', img: 'assets/images/agenda/slide-4.png', donors: 9, total: 12000, support: 8616, country: 'Indonesia', flag: 'assets/images/flags/id.webp' },
         ]
       }
     };
 
-    // --- Helpers ---
-    const fmt = (n) => Number(n || 0).toLocaleString('en-US');
-    const clamp = (n, min, max) => Math.min(max, Math.max(min, n));
-    const pct = (s, t) => clamp(t > 0 ? (s / t) * 100 : 0, 0, 100);
-
-    // Convert longitude/latitude to % coords (simple equirectangular projection)
-    function project(lon, lat) {
-      const x = ((lon + 180) / 360) * 100;     // -180..180 → 0..100%
-      const y = ((90 - lat) / 180) * 100;      //  90..-90  → 0..100%
-      return { x, y };
-    }
-
-    // Build campaign card from template
+    // Build a campaign card
     function buildCard(item) {
       const node = tpl.content.firstElementChild.cloneNode(true);
       node.querySelector('.donation-card__media img').src = item.img;
@@ -374,9 +359,7 @@
       const p = pct(item.support, item.total);
       node.querySelector('.donation-card__percent').textContent = `%${p.toFixed(1)}`;
       node.querySelector('.donation-card__meter').setAttribute('aria-valuenow', p.toFixed(1));
-      requestAnimationFrame(() => {
-        node.querySelector('.donation-card__meter-bar').style.inlineSize = `${p.toFixed(1)}%`;
-      });
+      requestAnimationFrame(() => { node.querySelector('.donation-card__meter-bar').style.inlineSize = `${p.toFixed(1)}%`; });
 
       node.querySelector('.donation-card__required').textContent = `${fmt(item.total)} $`;
       node.querySelector('.donation-card__support').textContent = `${fmt(item.support)} $`;
@@ -384,58 +367,69 @@
       return node;
     }
 
-    // Render campaigns for a given country code
+    // Render campaigns for a given country
     function renderCountry(code) {
-      const c = DATA.countries.find((x) => x.code === code);
+      const c = DATA.countries.find(x => x.code === code);
       const list = DATA.campaigns[code] || [];
       countryName.textContent = c?.name || '—';
       if (c?.flag) countryFlag.src = c.flag;
       listEl.setAttribute('aria-busy', 'true');
       listEl.innerHTML = '';
-      list.forEach((i) => listEl.appendChild(buildCard(i)));
+      list.forEach(i => listEl.appendChild(buildCard(i)));
       countEl.textContent = String(list.length);
       listEl.setAttribute('aria-busy', 'false');
     }
 
-    // --- Render markers ---
-    markersWrap.innerHTML = '';
-    DATA.countries.forEach((c) => {
-      const { x, y } = project(c.lon, c.lat); // project lon/lat → %
-      const b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'marker';
-      b.style.left = `${x}%`;
-      b.style.top = `${y}%`;
-      b.setAttribute('data-code', c.code);
-      b.setAttribute('data-name', c.name);
-      b.setAttribute('aria-label', c.name);
-      b.setAttribute('aria-pressed', 'false');
-
-      // Click / keyboard events
-      b.addEventListener('click', () => select(c.code));
-      b.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          b.click();
-        }
-      });
-
-      markersWrap.appendChild(b);
+    // ==== Leaflet map init ====
+    const map = L.map('map', {
+      worldCopyJump: true, // يسهّل السحب حول خط التاريخ
+      zoomControl: true
     });
 
-    // Update selected state + render panel
-    function select(code) {
-      qsa('.marker', markersWrap).forEach((m) => {
-        const active = m.getAttribute('data-code') === code;
-        m.setAttribute('data-active', String(active));
-        m.setAttribute('aria-pressed', String(active));
-      });
+    // OSM tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 6, minZoom: 2,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a>'
+    }).addTo(map);
+
+    // Create markers
+    const markers = {};
+    const latlngs = [];
+
+    const defaultStyle = { radius: 6, color: '#fff', weight: 2, fillColor: 'var(--color-primary)', fillOpacity: 1 };
+    const activeStyle = { radius: 7, color: '#fff', weight: 2, fillColor: 'var(--color-orange)', fillOpacity: 1 };
+
+    DATA.countries.forEach(c => {
+      const latlng = [c.lat, c.lon];
+      latlngs.push(latlng);
+      const m = L.circleMarker(latlng, defaultStyle)
+        .bindTooltip(c.name, { permanent: false, direction: 'right', offset: [8, 0] })
+        .on('click', () => select(c.code, true))
+        .addTo(map);
+      m._code = c.code;
+      markers[c.code] = m;
+    });
+
+    // Fit map to markers
+    const bounds = L.latLngBounds(latlngs);
+    map.fitBounds(bounds.pad(0.3)); // مساحة تنفُّس حول النقاط
+
+    // Selection handling
+    let current = null;
+    function select(code, pan) {
+      // update marker styles
+      Object.values(markers).forEach(m => m.setStyle(defaultStyle));
+      const mk = markers[code];
+      if (mk) { mk.setStyle(activeStyle); if (pan) map.panTo(mk.getLatLng()); }
+      current = code;
       renderCountry(code);
     }
 
     // Default selection
-    select('PS');
-  }
+    select('PS', false);
 
+    // Optional: keyboard nav (Tab -> Enter/Space)
+    // Leaflet already handles focus on canvas; for accessibility you could add custom controls if needed.
 
+  })();
 })();

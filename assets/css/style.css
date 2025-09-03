@@ -1353,35 +1353,29 @@ html.rtl .hero__tabs {
   }
 }
 
-
+/* ===== Layout ===== */
 .donations {
-  background-color: #fff;
-  padding: var(--space-9) 0;
-
-}
-
-/* ===== DONATIONS (Map + Panel) ===== */
-.donations {
-  padding: var(--space-8) 0;
+  padding: var(--space-9) 0
 }
 
 .donations__header {
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-6)
 }
 
 .donations__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-4);
-  align-items: start;
+  align-items: start
 }
 
-@media (max-width: 992px) {
+@media (max-width:992px) {
   .donations__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr
   }
 }
 
+/* ===== Map box ===== */
 .donations__map {
   position: relative;
   background: var(--color-surface);
@@ -1389,71 +1383,20 @@ html.rtl .hero__tabs {
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
   overflow: hidden;
-  min-block-size: clamp(280px, 45vw, 460px);
+  min-block-size: clamp(320px, 45vw, 520px)
 }
 
-.donations__map-svg {
+#map {
   width: 100%;
-  height: auto;
-  display: block;
+  height: 100%;
+  min-height: clamp(320px, 45vw, 520px)
 }
 
-.donations__markers {
-  position: absolute;
-  inset: 0;
+.leaflet-container {
+  font: inherit
 }
 
-/* Markers */
-.marker {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  inline-size: 12px;
-  block-size: 12px;
-  border-radius: 999px;
-  background: var(--color-primary);
-  border: 2px solid #fff;
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 22%, transparent),
-    0 8px 18px rgba(11, 178, 193, .28);
-  cursor: pointer;
-}
-
-.marker:focus-visible {
-  outline: 3px solid color-mix(in srgb, var(--color-primary) 30%, transparent);
-  outline-offset: 2px;
-}
-
-.marker[data-active="true"] {
-  background: var(--color-orange);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-orange) 26%, transparent),
-    0 10px 22px rgba(230, 117, 20, .28);
-}
-
-/* Tiny tooltip label */
-.marker::after {
-  content: attr(data-name);
-  position: absolute;
-  inset-inline-start: 14px;
-  inset-block-start: -2px;
-  background: #fff;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-pill);
-  padding: 2px 8px;
-  font-size: var(--fs-300);
-  color: var(--color-dark);
-  box-shadow: var(--shadow-sm);
-  white-space: nowrap;
-  transform: translateY(-50%);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity var(--dur-2) var(--ease);
-}
-
-.marker:hover::after,
-.marker[data-active="true"]::after {
-  opacity: 1;
-}
-
-/* Panel + Cards */
+/* ===== Panel ===== */
 .donations__panel {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
@@ -1462,74 +1405,68 @@ html.rtl .hero__tabs {
   padding: var(--space-4);
   display: flex;
   flex-direction: column;
-  gap: var(--space-5);
+  gap: var(--space-5)
 }
 
 .donations__panel-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-4);
+  gap: var(--space-4)
 }
 
 .donations__country {
   display: inline-flex;
   align-items: center;
-  gap: .5rem;
+  gap: .5rem
 }
 
 .donations__flag {
   width: 18px;
   height: 12px;
   object-fit: cover;
-  border-radius: 2px;
+  border-radius: 2px
 }
 
 .donations__list {
   display: grid;
   gap: var(--space-5);
   max-block-size: 520px;
-  overflow: auto;
+  overflow: auto
 }
 
-/* Card (horiz.) */
+/* ===== Card ===== */
 .donation-card {
   display: grid;
-  grid-template-columns: 160px 1fr;
+  grid-template-columns: 200px 1fr;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   background: var(--color-surface);
   box-shadow: var(--shadow-sm);
-  overflow: hidden;
+  overflow: hidden
 }
 
 @media (max-width:576px) {
   .donation-card {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr
   }
 }
 
 .donation-card__media {
-  block-size: 140px;
+  block-size: 200px;
   margin: 0;
-  overflow: hidden;
+  overflow: hidden
 }
 
 .donation-card__media img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover
 }
 
 .donation-card__body {
   padding: var(--space-4);
-  display: grid;
-}
-
-.donation-card__meta-item {
-  display: flex;
-  align-items: center;
-  gap: .5rem;
+  display: grid
 }
 
 .donation-card__top {
@@ -1537,29 +1474,33 @@ html.rtl .hero__tabs {
   align-items: start;
   justify-content: space-between;
   gap: var(--space-4);
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-3)
 }
 
 .donation-card__title {
   font-size: var(--fs-500);
   margin: 0;
-  flex: 1;
+  flex: 1
 }
 
 .donation-card__meta {
   display: inline-flex;
   align-items: center;
   gap: .5rem;
-  color: var(--color-muted);
+  color: var(--color-muted)
+}
+
+.donation-card__meta-item {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  gap: 2px
 }
 
 .donation-card__flag {
   width: 16px;
   border-radius: 2px;
-}
-
-.donation-card__meta-dot {
-  opacity: .5;
+  margin-inline-end: .25rem;
 }
 
 .donation-card__meter {
@@ -1568,7 +1509,7 @@ html.rtl .hero__tabs {
   block-size: 8px;
   background: #EAF6F8;
   border-radius: var(--radius-pill);
-  overflow: hidden;
+  overflow: hidden
 }
 
 .donation-card__meter-bar {
@@ -1577,60 +1518,43 @@ html.rtl .hero__tabs {
   block-size: 100%;
   inline-size: 0%;
   background: var(--color-primary);
-  transition: inline-size var(--dur-2) var(--ease);
+  transition: inline-size var(--dur-2) var(--ease)
 }
 
 .donation-card__percent {
   position: absolute;
   inset-inline-end: 0;
   inset-block-start: -22px;
-  font-weight: 600;
+  font-weight: 600
 }
 
 .donation-card__stats {
   display: grid;
   grid-auto-flow: column;
+  justify-content: space-between;
   gap: var(--space-3);
+  margin: var(--space-2) 0
 }
 
 .donation-card__stat dt {
-  color: var(--color-muted);
+  color: var(--color-primary);
   font-weight: 600;
+  font-size: var(--fs-300)
 }
 
 .donation-card__stat dd {
   margin: 0;
+  font-size: var(--fs-300)
 }
 
 .donation-card__actions {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-4);
+  gap: var(--space-4)
 }
 
-.donation-card__icons {
-  display: inline-flex;
-  gap: .5rem;
-}
+.donation-card__actions .btn--primary i {
+  margin-inline-end: .4rem;
 
-.donation-card__icons .btn {
-  width: 40px;
-  height: 40px;
-  border-radius: var(--radius);
-}
-
-.donations__map {
-  position: relative;
-}
-
-.donations__map-svg {
-  position: absolute;
-  inset: 0;
-}
-
-.donations__markers {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
 }

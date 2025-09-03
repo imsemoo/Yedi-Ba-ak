@@ -43,7 +43,8 @@
   <link rel="stylesheet" href="assets/css/animate.min.css" />
   <link rel="stylesheet" href="assets/css/aos.css" />
   <link rel="stylesheet" href="assets/css/normalize.css" />
-  <link rel="stylesheet" href="assets/css/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <!-- Font Awesome (local) -->
   <link rel="stylesheet" href="assets/css/fontawesome.min.css" />
@@ -895,35 +896,22 @@
     </section>
 
 
+
     <section class="donations" aria-label="Donation campaigns by country">
       <div class="container">
         <div class="donations__header">
-          <h2 class="h2">DONATION CAMPAIGNS</h2>
+          <h2 class="h2" style="margin:0">
+            DONATION CAMPAIGNS
+            <!-- شارة بث اختيارية -->
+            <span class="badge badge--live" aria-label="Live"><i class="fa-solid fa-tower-broadcast"
+                aria-hidden="true"></i> Live</span>
+          </h2>
         </div>
 
         <div class="donations__grid">
-          <!-- LEFT: Inline SVG map (self-contained, no network) -->
+          <!-- LEFT: Interactive Map -->
           <div class="donations__map" aria-label="World map">
-            <svg class="donations__map-svg" viewBox="0 0 1000 520" role="img" aria-label="Simplified world map">
-              <!-- خلفية نقطية لطيفة -->
-              <defs>
-                <pattern id="dots" width="10" height="10" patternUnits="userSpaceOnUse">
-                  <circle cx="1.6" cy="1.6" r="1.2" fill="#E8F2F4"></circle>
-                </pattern>
-                <filter id="softBlur" x="-10%" y="-10%" width="120%" height="120%">
-                  <feGaussianBlur stdDeviation="0.6"></feGaussianBlur>
-                </filter>
-              </defs>
-              <rect x="0" y="0" width="1000" height="520" fill="url(#dots)"></rect>
-              <ellipse cx="420" cy="220" rx="360" ry="150" fill="#F5FAFB" filter="url(#softBlur)"></ellipse>
-              <ellipse cx="680" cy="280" rx="280" ry="130" fill="#F0F8FA" filter="url(#softBlur)"></ellipse>
-            </svg>
-
-            <div class="donations__map" aria-label="World map">
-              <img src="assets/images/map/world.svg" alt="" aria-hidden="true" class="donations__map-img">
-              <div class="donations__markers" aria-live="polite"></div>
-            </div>
-
+            <div id="map" role="img" aria-label="Interactive world map"></div>
           </div>
 
           <!-- RIGHT: Panel -->
@@ -933,7 +921,9 @@
                 <img class="donations__flag" src="assets/icons/flag-palestine.svg" alt="" aria-hidden="true">
                 <span class="donations__country-name">Palestine</span>
               </div>
-              <div class="donations__count text-muted"><span id="donationsCount">0</span> campaigns</div>
+              <div class="donations__count" style="color:var(--color-muted)">
+                <span id="donationsCount">0</span> campaigns
+              </div>
             </div>
 
             <div id="donationsList" class="donations__list" aria-live="polite" aria-busy="false"></div>
@@ -944,14 +934,18 @@
       <!-- Card template -->
       <template id="donationCardTpl">
         <article class="donation-card">
-          <figure class="donation-card__media"><img src="" alt="" loading="lazy" decoding="async"></figure>
+          <figure class="donation-card__media">
+            <img src="" alt="" loading="lazy" decoding="async">
+          </figure>
+
           <div class="donation-card__body">
             <header class="donation-card__top">
-
               <h3 class="donation-card__title"></h3>
               <div class="donation-card__meta">
-                <span class="donation-card__meta-item"><span class="donation-card__donors">0</span> Donors</span>
-                <span class="donation-card__meta-dot" aria-hidden="true">•</span>
+                <span class="donation-card__meta-item">
+                  <i class="fa-regular fa-user" aria-hidden="true"></i>
+                  <span class="donation-card__donors">0</span> Donors
+                </span>
                 <span class="donation-card__meta-item">
                   <img class="donation-card__flag" src="" alt="" aria-hidden="true">
                   <span class="donation-card__country"></span>
@@ -959,37 +953,45 @@
               </div>
             </header>
 
+            <!-- Progress -->
             <div class="donation-card__meter" role="progressbar" aria-valuemin="0" aria-valuemax="100"
               aria-valuenow="0">
               <span class="donation-card__meter-bar"></span>
-              <span class="donation-card__percent text-primary">%0.0</span>
+              <span class="donation-card__percent" style="color:var(--color-primary)">%0.0</span>
             </div>
 
+            <!-- Stats -->
             <dl class="donation-card__stats">
               <div class="donation-card__stat">
-                <dt>Required Fund</dt>
+                <dt><i class="fa-solid fa-bullseye" aria-hidden="true"></i> Required Fund</dt>
                 <dd class="donation-card__required">—</dd>
               </div>
               <div class="donation-card__stat">
-                <dt>Support</dt>
+                <dt><i class="fa-solid fa-hand-holding-dollar" aria-hidden="true"></i> Support</dt>
                 <dd class="donation-card__support">—</dd>
               </div>
               <div class="donation-card__stat">
-                <dt>Remaining</dt>
+                <dt><i class="fa-regular fa-hourglass-half" aria-hidden="true"></i> Remaining</dt>
                 <dd class="donation-card__remaining">—</dd>
               </div>
             </dl>
 
+            <!-- Actions -->
             <div class="donation-card__actions">
-              <a class="btn btn--pill btn--primary" href="#"><i class="fa-solid fa-hand-holding-heart"
-                  aria-hidden="true"></i><span>DONATE</span></a>
-              <div class="donation-card__icons">
-                <button class="btn btn--ghost" aria-label="Wishlist"><i class="fa-regular fa-heart"
-                    aria-hidden="true"></i></button>
-                <button class="btn btn--ghost" aria-label="Share"><i class="fa-solid fa-share-nodes"
-                    aria-hidden="true"></i></button>
-                <button class="btn btn--ghost" aria-label="Add to cart"><i class="fa-solid fa-cart-shopping"
-                    aria-hidden="true"></i></button>
+              <a class="btn btn--pill btn--primary" href="#">
+                <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i>
+                <span>DONATE</span>
+              </a>
+              <div class="donation-card__icons" style="display:inline-flex;gap:.5rem">
+                <button class="btn btn--ghost" aria-label="Add to wishlist">
+                  <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                </button>
+                <button class="btn btn--ghost" aria-label="Share">
+                  <i class="fa-solid fa-share-nodes" aria-hidden="true"></i>
+                </button>
+                <button class="btn btn--ghost" aria-label="Add to cart">
+                  <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+                </button>
               </div>
             </div>
           </div>
@@ -1018,8 +1020,10 @@
   <script src="assets/js/swiper-bundle.min.js"></script>
   <script src="assets/js/lightbox.min.js"></script>
   <script src="assets/js/aos.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/echarts@5/map/js/world.js"></script> -->
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
   <script src="assets/js/app.js"></script>
 
   <!--
