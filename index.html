@@ -899,8 +899,8 @@
 
     <section class="donations" aria-label="Donation campaigns by country">
       <div class="container">
-        <div class="donations__header">
-          <h2 class="h2" style="margin:0">
+        <div class="main__header donations__header ">
+          <h2 class="h2">
             DONATION CAMPAIGNS
             <!-- شارة بث اختيارية -->
             <span class="badge badge--live" aria-label="Live"><i class="fa-solid fa-tower-broadcast"
@@ -911,6 +911,8 @@
         <div class="donations__grid">
           <!-- LEFT: Interactive Map -->
           <div class="donations__map" aria-label="World map">
+            <div id="countriesControlMount" aria-hidden="true"></div>
+
             <div id="map" role="img" aria-label="Interactive world map"></div>
           </div>
 

@@ -296,23 +296,39 @@
     });
   }
 
-
   (function () {
-    // Helpers
+    // ===== Helpers =====
     const qs = (s, r = document) => r.querySelector(s);
     const qsa = (s, r = document) => [...r.querySelectorAll(s)];
     const fmt = (n) => Number(n || 0).toLocaleString('en-US');
     const clamp = (n, min, max) => Math.min(max, Math.max(min, n));
     const pct = (s, t) => clamp(t > 0 ? (s / t) * 100 : 0, 0, 100);
+    const debounce = (fn, d = 200) => {
+      let id; return (...args) => { clearTimeout(id); id = setTimeout(() => fn(...args), d); };
+    };
+    const toast = (() => {
+      let el;
+      return (msg, timeout = 1800) => {
+        if (!el) {
+          el = document.createElement('div');
+          el.className = 'toast';
+          document.body.appendChild(el);
+        }
+        el.textContent = msg;
+        el.classList.add('is-show');
+        setTimeout(() => el.classList.remove('is-show'), timeout);
+      };
+    })();
 
-    // DOM
+    // ===== DOM =====
     const listEl = qs('#donationsList');
     const countEl = qs('#donationsCount');
     const countryName = qs('.donations__country-name');
     const countryFlag = qs('.donations__flag');
     const tpl = qs('#donationCardTpl');
+    const chipsMount = qs('#countriesControlMount');
 
-    // Data (نفس بياناتك)
+    // ===== Data (kept as-is) =====
     const DATA = {
       countries: [
         { code: 'PS', name: 'Palestine', flag: 'assets/images/flags/ps.webp', lon: 35.2, lat: 31.9 },
@@ -346,11 +362,12 @@
       }
     };
 
-    // Build a campaign card
+    // ===== Card builder =====
     function buildCard(item) {
       const node = tpl.content.firstElementChild.cloneNode(true);
-      node.querySelector('.donation-card__media img').src = item.img;
-      node.querySelector('.donation-card__media img').alt = item.title;
+      const img = node.querySelector('.donation-card__media img');
+      img.src = item.img; img.alt = item.title;
+
       node.querySelector('.donation-card__title').textContent = item.title;
       node.querySelector('.donation-card__donors').textContent = item.donors;
       node.querySelector('.donation-card__country').textContent = item.country;
@@ -359,20 +376,38 @@
       const p = pct(item.support, item.total);
       node.querySelector('.donation-card__percent').textContent = `%${p.toFixed(1)}`;
       node.querySelector('.donation-card__meter').setAttribute('aria-valuenow', p.toFixed(1));
-      requestAnimationFrame(() => { node.querySelector('.donation-card__meter-bar').style.inlineSize = `${p.toFixed(1)}%`; });
+      requestAnimationFrame(() => {
+        node.querySelector('.donation-card__meter-bar').style.inlineSize = `${p.toFixed(1)}%`;
+      });
 
       node.querySelector('.donation-card__required').textContent = `${fmt(item.total)} $`;
       node.querySelector('.donation-card__support').textContent = `${fmt(item.support)} $`;
       node.querySelector('.donation-card__remaining').textContent = `${fmt(Math.max(0, item.total - item.support))} $`;
+
+      // Demo actions
+      node.querySelector('[aria-label="Add to wishlist"]').addEventListener('click', () => toast('Added to wishlist'));
+      node.querySelector('[aria-label="Share"]').addEventListener('click', async () => {
+        try {
+          if (navigator.share) {
+            await navigator.share({ title: item.title, text: 'Support this campaign', url: location.href });
+            toast('Shared successfully');
+          } else {
+            await navigator.clipboard.writeText(`${item.title} — ${location.href}`);
+            toast('Link copied to clipboard');
+          }
+        } catch { /* no-op */ }
+      });
+      node.querySelector('[aria-label="Add to cart"]').addEventListener('click', () => toast('Added to cart'));
       return node;
     }
 
-    // Render campaigns for a given country
+    // ===== Render campaigns for a country =====
     function renderCountry(code) {
       const c = DATA.countries.find(x => x.code === code);
       const list = DATA.campaigns[code] || [];
       countryName.textContent = c?.name || '—';
       if (c?.flag) countryFlag.src = c.flag;
+
       listEl.setAttribute('aria-busy', 'true');
       listEl.innerHTML = '';
       list.forEach(i => listEl.appendChild(buildCard(i)));
@@ -380,22 +415,20 @@
       listEl.setAttribute('aria-busy', 'false');
     }
 
-    // ==== Leaflet map init ====
+    // ===== Leaflet init =====
     const map = L.map('map', {
-      worldCopyJump: true, // يسهّل السحب حول خط التاريخ
+      worldCopyJump: true,
       zoomControl: true
     });
 
-    // OSM tiles
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 6, minZoom: 2,
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a>'
     }).addTo(map);
 
-    // Create markers
+    // Markers + bounds
     const markers = {};
     const latlngs = [];
-
     const defaultStyle = { radius: 6, color: '#fff', weight: 2, fillColor: 'var(--color-primary)', fillOpacity: 1 };
     const activeStyle = { radius: 7, color: '#fff', weight: 2, fillColor: 'var(--color-orange)', fillOpacity: 1 };
 
@@ -404,32 +437,185 @@
       latlngs.push(latlng);
       const m = L.circleMarker(latlng, defaultStyle)
         .bindTooltip(c.name, { permanent: false, direction: 'right', offset: [8, 0] })
-        .on('click', () => select(c.code, true))
+        .on('click', () => select(c.code, { pan: true, save: true, from: 'marker' }))
+        .on('mouseover', () => highlight(c.code, true))
+        .on('mouseout', () => highlight(null))
         .addTo(map);
+      // store code for quick access
       m._code = c.code;
       markers[c.code] = m;
     });
 
-    // Fit map to markers
     const bounds = L.latLngBounds(latlngs);
-    map.fitBounds(bounds.pad(0.3)); // مساحة تنفُّس حول النقاط
+    map.fitBounds(bounds.pad(0.3));
 
-    // Selection handling
-    let current = null;
-    function select(code, pan) {
-      // update marker styles
-      Object.values(markers).forEach(m => m.setStyle(defaultStyle));
-      const mk = markers[code];
-      if (mk) { mk.setStyle(activeStyle); if (pan) map.panTo(mk.getLatLng()); }
-      current = code;
-      renderCountry(code);
+    // ===== Floating Countries Control =====
+    const CountriesControl = L.Control.extend({
+      options: { position: 'topright' },
+      onAdd: function () {
+        const div = L.DomUtil.create('div', 'leaflet-control countries-control');
+        const head = document.createElement('div');
+        head.className = 'countries-control__head';
+        head.innerHTML = `<strong>Countries</strong>`;
+        const grid = document.createElement('div');
+        grid.className = 'countries-control__grid';
+
+        // build chips
+        DATA.countries.forEach(c => {
+          const count = (DATA.campaigns[c.code] || []).length;
+          const chip = document.createElement('button');
+          chip.type = 'button';
+          chip.className = 'country-chip';
+          chip.dataset.code = c.code;
+          chip.setAttribute('aria-pressed', 'false');
+          chip.innerHTML = `
+          <img class="country-chip__flag" src="${c.flag}" alt="">
+          <span class="country-chip__name">${c.name}</span>
+          <span class="country-chip__count">(${count})</span>
+        `;
+          chip.addEventListener('click', () => select(c.code, { pan: true, save: true, from: 'chip' }));
+          chip.addEventListener('mouseenter', () => highlight(c.code, true));
+          chip.addEventListener('mouseleave', () => highlight(null));
+          grid.appendChild(chip);
+        });
+
+        div.appendChild(head);
+        div.appendChild(grid);
+
+        // prevent map drag when using control
+        L.DomEvent.disableClickPropagation(div);
+        L.DomEvent.disableScrollPropagation(div);
+        return div;
+      }
+    });
+    const control = new CountriesControl();
+    map.addControl(control);
+
+    // Move control into custom mount (optional, keeps layout tidy)
+    if (chipsMount) {
+      const controlEl = document.querySelector('.countries-control')?.parentElement;
+      if (controlEl && chipsMount) chipsMount.appendChild(controlEl);
     }
 
-    // Default selection
-    select('PS', false);
+    // ===== Selection & Highlighting =====
+    let current = null;
 
-    // Optional: keyboard nav (Tab -> Enter/Space)
-    // Leaflet already handles focus on canvas; for accessibility you could add custom controls if needed.
+    function setActiveMarker(code) {
+      Object.values(markers).forEach(m => {
+        m.setStyle(defaultStyle);
+        const el = m._path || m._renderer?._container?.querySelector(`[stroke][fill]`);
+        m._path?.classList.remove('is-active');
+      });
+      const mk = markers[code];
+      if (mk) {
+        mk.setStyle(activeStyle);
+        mk._path?.classList.add('is-active');
+      }
+    }
+
+    function updateChips(code) {
+      qsa('.country-chip').forEach(chip => {
+        const is = chip.dataset.code === code;
+        chip.setAttribute('aria-current', is ? 'true' : 'false');
+        chip.setAttribute('aria-pressed', is ? 'true' : 'false');
+      });
+    }
+
+    const flyToDebounced = debounce((latlng) => {
+      map.flyTo(latlng, clamp(map.getZoom(), 3, 5), { duration: .7, easeLinearity: .25 });
+    }, 10);
+
+    function select(code, opts = { pan: false, save: false, from: 'unknown' }) {
+      const mk = markers[code];
+      if (!mk) return;
+
+      // sync visuals
+      setActiveMarker(code);
+      updateChips(code);
+      renderCountry(code);
+
+      // pan/fly
+      if (opts.pan) flyToDebounced(mk.getLatLng());
+
+      // state + deep link + persist
+      current = code;
+      history.replaceState(null, '', `#${code}`);
+      if (opts.save) localStorage.setItem('donations:last', code);
+    }
+
+    function highlight(code, hover = false) {
+      // hover preview on markers and chips
+      qsa('.country-chip').forEach(chip => {
+        chip.style.outline = chip.dataset.code === code ? '2px solid var(--color-primary)' : '';
+      });
+      Object.entries(markers).forEach(([k, m]) => {
+        if (k === code) {
+          m.setStyle({ ...activeStyle, fillOpacity: 1 });
+        } else if (k !== current) {
+          m.setStyle({ ...defaultStyle, fillOpacity: .9 });
+        }
+      });
+      if (hover && code && markers[code]) {
+        // subtle guided pan without committing selection
+        // (comment out next line if you don't want hover pan)
+        // flyToDebounced(markers[code].getLatLng());
+      }
+    }
+
+    // ===== Keyboard navigation (↑/↓ select, Enter apply) =====
+    function indexOfCurrent() {
+      return Math.max(0, DATA.countries.findIndex(c => c.code === current));
+    }
+    document.addEventListener('keydown', (e) => {
+      const key = e.key;
+      if (!['ArrowDown', 'ArrowUp', 'Enter'].includes(key)) return;
+      const i = indexOfCurrent();
+      if (key === 'ArrowDown') {
+        const n = (i + 1) % DATA.countries.length;
+        const code = DATA.countries[n].code;
+        updateChips(code);
+        setActiveMarker(code);
+        renderCountry(code);
+        current = code;
+        e.preventDefault();
+      }
+      if (key === 'ArrowUp') {
+        const p = (i - 1 + DATA.countries.length) % DATA.countries.length;
+        const code = DATA.countries[p].code;
+        updateChips(code);
+        setActiveMarker(code);
+        renderCountry(code);
+        current = code;
+        e.preventDefault();
+      }
+      if (key === 'Enter') {
+        const mk = markers[current];
+        if (mk) select(current, { pan: true, save: true, from: 'keyboard' });
+        e.preventDefault();
+      }
+    });
+
+    // ===== Initial selection (hash -> localStorage -> default) =====
+    const initial =
+      (location.hash || '').replace('#', '').toUpperCase() ||
+      localStorage.getItem('donations:last') ||
+      'PS';
+    select(initial, { pan: false, save: false, from: 'init' });
+
+    // ===== Panel hover ↔ Map tooltip sync =====
+    listEl.addEventListener('mouseover', (e) => {
+      const card = e.target.closest('.donation-card');
+      if (!card) return;
+      const code = current;
+      const m = markers[code];
+      if (m) m.openTooltip();
+    });
+    listEl.addEventListener('mouseleave', () => {
+      Object.values(markers).forEach(m => m.closeTooltip());
+    });
+
+
 
   })();
+
 })();

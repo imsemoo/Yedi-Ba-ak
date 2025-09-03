@@ -1558,3 +1558,139 @@ html.rtl .hero__tabs {
   margin-inline-end: .4rem;
 
 }
+
+.donations__header h2 {
+  display: flex;
+  align-items: center;
+}
+
+/* --- Map UI Enhancements --- */
+.leaflet-control.countries-control {
+  background: var(--color-bg);
+  color: var(--color-muted);
+  padding: .5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, .25);
+  display: grid;
+  gap: .25rem;
+  max-width: min(420px, 60vw);
+}
+
+.countries-control__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: .5rem;
+}
+
+.country-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .4rem .6rem;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--color-primary) 14%, transparent);
+  border: 1px solid color-mix(in oklab, var(--color-primary) 36%, transparent);
+  cursor: pointer;
+  transition: transform .15s ease, background .15s ease, border-color .15s ease;
+  user-select: none;
+}
+
+.country-chip:hover,
+.country-chip[aria-current="true"] {
+  background: color-mix(in oklab, var(--color-primary) 28%, transparent);
+  border-color: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+.country-chip__flag {
+  inline-size: 18px;
+  block-size: 18px;
+  border-radius: 2px;
+  object-fit: contain;
+}
+
+.country-chip__name {
+  font-weight: 600;
+  font-size: var(--fs-300);
+  color: var(--color-primary);
+}
+
+.countries-control__head {
+  text-align: center;
+}
+
+.country-chip__count {
+  margin-inline-start: auto;
+  font-size: .8rem;
+  opacity: .8;
+  font-weight: 600;
+  font-size: var(--fs-300);
+  color: var(--color-primary);
+}
+
+/* Active marker pulse */
+.leaflet-interactive.is-active {
+  filter: drop-shadow(0 0 0.5rem color-mix(in oklab, var(--color-orange) 80%, #000));
+}
+
+@keyframes pulse {
+  0% {
+    r: 7;
+  }
+
+  50% {
+    r: 9.5;
+  }
+
+  100% {
+    r: 7;
+  }
+}
+
+.leaflet-interactive.is-active[stroke] {
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+/* Donation card polish */
+.donation-card__meter {
+  position: relative;
+  overflow: hidden;
+}
+
+.donation-card__meter-bar {
+  transition: inline-size .6s cubic-bezier(.22, .61, .36, 1);
+}
+
+.donation-card__actions .btn--ghost {
+  transition: transform .15s ease, background .15s ease;
+}
+
+.donation-card__actions .btn--ghost:hover {
+  transform: translateY(-1px);
+  background: color-mix(in oklab, var(--color-primary) 12%, transparent);
+}
+
+/* Toast */
+.toast {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 1.25rem;
+  margin-inline: auto;
+  width: fit-content;
+  max-width: 90vw;
+  background: var(--surface-2, #1b1b1b);
+  color: var(--text, #fff);
+  border: 1px solid color-mix(in oklab, var(--color-primary) 30%, transparent);
+  padding: .6rem .9rem;
+  border-radius: .75rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, .35);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .2s ease, transform .2s ease;
+  z-index: 9999;
+}
+
+.toast.is-show {
+  opacity: 1;
+  transform: translateY(0);
+}
