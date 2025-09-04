@@ -422,9 +422,11 @@
     });
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 6, minZoom: 2,
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a>'
+      maxZoom: 6,
+      minZoom: 2,
+      attribution: '', // ← فضّيت النص
     }).addTo(map);
+    map.attributionControl.setPrefix(false);
 
     // Markers + bounds
     const markers = {};
@@ -617,5 +619,26 @@
 
 
   })();
+  function initImpactSlider() {
+    const el = document.querySelector('.impact__swiper');
+    if (!el || !window.Swiper) return null;
+
+    return new Swiper(el, {
+      speed: 600,
+      loop: false,
+      autoplay: prefersReduced ? false : { delay: 5000, disableOnInteraction: false },
+      slidesPerView: 1,
+      spaceBetween: 24,
+      a11y: { enabled: true },
+      pagination: { el: '.impact__pagination', clickable: true },
+      keyboard: { enabled: true }
+    });
+  }
+
+  /* call on DOM ready with your other inits */
+  document.addEventListener('DOMContentLoaded', () => {
+    initImpactSlider();
+  });
+
 
 })();

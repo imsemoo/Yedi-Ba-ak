@@ -102,6 +102,11 @@
   }
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 /* =========================================================
    Jost Font Family (Local TTF) – Full weights + italics
@@ -1355,7 +1360,10 @@ html.rtl .hero__tabs {
 
 /* ===== Layout ===== */
 .donations {
-  padding: var(--space-9) 0
+  padding: var(--space-9) 0;
+  z-index: 1;
+  position: relative;
+  background: #fff;
 }
 
 .donations__header {
@@ -1389,7 +1397,8 @@ html.rtl .hero__tabs {
 #map {
   width: 100%;
   height: 100%;
-  min-height: clamp(320px, 45vw, 500px)
+  min-height: clamp(320px, 45vw, 500px);
+
 }
 
 .leaflet-container {
@@ -1566,6 +1575,10 @@ html.rtl .hero__tabs {
   align-items: center;
 }
 
+.leaflet-control-attribution {
+  display: none !important;
+}
+
 /* --- Map UI Enhancements --- */
 .leaflet-control.countries-control {
   background: var(--color-bg);
@@ -1697,4 +1710,254 @@ html.rtl .hero__tabs {
 .toast.is-show {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ===== Impact slider ===== */
+.impact {
+  padding: var(--space-9) 0;
+}
+
+.impact__swiper {
+  overflow: hidden;
+}
+
+/* Card layout */
+.impact-card {
+  display: grid;
+  grid-template-columns: 1fr minmax(50%, 50%);
+  gap: clamp(var(--space-5), 2.5vw, var(--space-8));
+  align-items: center;
+
+}
+
+@media (max-width: 992px) {
+  .impact-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+.impact-card__content {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.impact-card__content .btn {
+  width: max-content;
+}
+
+.impact-card__title {
+  margin: 0;
+  font-size: var(--fs-800);
+}
+
+.impact-card__text {
+  color: var(--color-muted);
+  max-width: 58ch;
+}
+
+.impact-card__media {
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 28px rgba(16, 24, 40, .12);
+}
+
+.impact-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: inherit;
+  aspect-ratio: 4 / 3;
+  /* keeps consistent height on all slides */
+}
+
+/* Pagination (centered pills under the card) */
+.impact .swiper-pagination {
+  position: relative;
+  margin-top: var(--space-8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.impact .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #CFEAEC;
+  opacity: 1;
+  transform: translateY(0);
+  transition: width var(--dur-2) var(--ease), background var(--dur-2) var(--ease);
+}
+
+.impact .swiper-pagination-bullet-active {
+  width: 28px;
+  height: 8px;
+  background: var(--color-primary);
+}
+
+/* Button icon spacing */
+.impact .btn--primary i {
+  margin-inline-end: .5rem;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .impact .swiper-pagination-bullet {
+    transition-duration: 1ms;
+  }
+}
+
+/* ===== Sponsor layout ===== */
+.sponsor {
+  padding: var(--space-9) 0;
+  background: #fff;
+}
+
+.sponsor__header {
+  margin-bottom: var(--space-7);
+}
+
+.sponsor__grid {
+  display: grid;
+  grid-template-columns: 1fr minmax(260px, 520px) 1fr;
+  gap: clamp(var(--space-6), 6vw, var(--space-10));
+  align-items: center;
+}
+
+@media (max-width: 992px) {
+  .sponsor__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sponsor__list {
+  display: grid;
+  gap: clamp(var(--space-6), 4vw, var(--space-9));
+  justify-items: center;
+}
+
+/* ===== Items ===== */
+.sponsor-item {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: .5rem;
+  min-inline-size: 180px;
+}
+
+.sponsor-item__media {
+  inline-size: min(160px, 30vw);
+  aspect-ratio: 1;
+  margin: 0;
+}
+
+.sponsor-item__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.sponsor-item__title {
+  margin: .25rem 0 0;
+  font-size: var(--fs-500);
+}
+
+.sponsor-item__price {
+  display: inline-block;
+  background: color-mix(in srgb, var(--color-orange) 18%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-orange) 42%, transparent);
+  border-radius: 999px;
+  padding: .15rem .5rem;
+  font-weight: 600;
+  color: var(--color-orange);
+  font-size: var(--fs-300);
+}
+
+.sponsor-item__controls {
+  display: inline-grid;
+  grid-auto-flow: column;
+  gap: .6rem;
+  align-items: center;
+  margin-top: .25rem;
+}
+
+.ctrl {
+  inline-size: 36px;
+  block-size: 36px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  display: grid;
+  place-items: center;
+  background: var(--color-surface);
+  color: var(--color-primary);
+  transition: transform .15s ease, background .15s ease;
+}
+
+.ctrl:hover {
+  transform: translateY(-1px);
+  background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+}
+
+.ctrl__qty {
+  min-inline-size: 1.25rem;
+  font-weight: 700;
+}
+
+/* ===== Avatar stack ===== */
+.sponsor__avatar {
+  position: relative;
+  inline-size: 100%;
+  aspect-ratio: 3/4;
+  border-radius: var(--radius-xl);
+  display: grid;
+  place-items: end center;
+}
+
+.avatar__layer {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: min(100%, 300px);
+  height: auto;
+  opacity: 0;
+  transform: translateY(6px) scale(.995);
+  transition: opacity .25s ease, transform .25s ease;
+  pointer-events: none;
+}
+
+.avatar__layer.is-base {
+  opacity: 1;
+  transform: none;
+  position: relative;
+  pointer-events: none;
+}
+
+.avatar__layer.is-on {
+  opacity: 1;
+  transform: none;
+}
+
+/* ===== Footer ===== */
+.sponsor__footer {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-4);
+  margin-top: var(--space-7);
+}
+
+.sponsor__total {
+  font-weight: 700;
+}
+
+.sponsor__actions {
+  display: inline-grid;
+  grid-auto-flow: column;
+  gap: .75rem;
+}
+
+.sponsor__actions .btn i {
+  margin-inline-end: .45rem;
 }

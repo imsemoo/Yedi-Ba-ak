@@ -1001,8 +1001,280 @@
     </section>
 
 
+    <section class="impact" aria-label="Featured causes">
+      <div class="container">
+        <div class="impact__swiper swiper" aria-roledescription="carousel">
+          <div class="swiper-wrapper">
+
+            <!-- Slide -->
+            <article class="swiper-slide impact-card">
+              <div class="impact-card__content">
+                <h2 class="impact-card__title h2">Support What Matters Most</h2>
+                <p class="impact-card__text">
+                  Children are often the most vulnerable in times of conflict and displacement.
+                  Our programs focus on ensuring that refugee children have access to medical care,
+                  education, and emotional support.
+                </p>
+                <a href="#" class="btn btn--primary btn--pill">
+                  <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i>
+                  <span>Donate</span>
+                </a>
+              </div>
+              <figure class="impact-card__media">
+                <img src="assets/images/impact/slide-1.png" alt="Volunteers preparing aid boxes" loading="lazy"
+                  decoding="async">
+              </figure>
+            </article>
+
+            <!-- Slide -->
+            <article class="swiper-slide impact-card">
+              <div class="impact-card__content">
+                <h2 class="impact-card__title h2">Food & Clean Water</h2>
+                <p class="impact-card__text">
+                  Provide emergency food parcels and clean water to families in remote areas.
+                  Your support keeps communities healthy and resilient.
+                </p>
+                <a href="#" class="btn btn--primary btn--pill">
+                  <i class="fa-solid fa-utensils" aria-hidden="true"></i>
+                  <span>Donate</span>
+                </a>
+              </div>
+              <figure class="impact-card__media">
+                <img src="assets/images/impact/slide-1.png" alt="Food distribution to families" loading="lazy"
+                  decoding="async">
+              </figure>
+            </article>
+
+            <!-- Slide -->
+            <article class="swiper-slide impact-card">
+              <div class="impact-card__content">
+                <h2 class="impact-card__title h2">Shelter & Warmth</h2>
+                <p class="impact-card__text">
+                  Help us deliver tents, blankets, and heaters to families facing harsh weather
+                  and unsafe living conditions.
+                </p>
+                <a href="#" class="btn btn--primary btn--pill">
+                  <i class="fa-solid fa-house-chimney-heart" aria-hidden="true"></i>
+                  <span>Donate</span>
+                </a>
+              </div>
+              <figure class="impact-card__media">
+                <img src="assets/images/impact/slide-1.png" alt="Emergency shelter supplies" loading="lazy"
+                  decoding="async">
+              </figure>
+            </article>
+
+          </div>
+
+          <!-- pagination -->
+          <div class="impact__pagination swiper-pagination" aria-label="Slide pagination"></div>
+        </div>
+      </div>
+    </section>
 
 
+    <section class="sponsor" aria-label="Sponsor a child">
+      <div class="container">
+        <header class="sponsor__header">
+          <h2 class="h2">SPONSOR A CHILD</h2>
+        </header>
+
+        <div class="sponsor__grid">
+          <!-- Left column -->
+          <div class="sponsor__list" id="sponsorListLeft" aria-label="Items left side"></div>
+
+          <!-- Avatar (center) -->
+          <div class="sponsor__avatar" aria-live="polite">
+            <!-- Base body -->
+            <img class="avatar__layer is-base" src="assets/images/sponsor/avatar/base.png" alt="Child avatar base"
+              decoding="async">
+
+            <!-- Layers (start hidden). Replace with your assets -->
+            <img class="avatar__layer" data-layer="clothes-basic" src="assets/images/sponsor/avatar/clothes/basic.svg"
+              alt="" aria-hidden="true">
+            <img class="avatar__layer" data-layer="clothes-jacket" src="assets/images/sponsor/avatar/clothes/jacket.svg"
+              alt="" aria-hidden="true">
+            <img class="avatar__layer" data-layer="bag" src="assets/images/sponsor/avatar/props/bag.svg" alt=""
+              aria-hidden="true">
+            <img class="avatar__layer" data-layer="book" src="assets/images/sponsor/avatar/props/book-hand.svg" alt=""
+              aria-hidden="true">
+            <img class="avatar__layer" data-layer="food" src="assets/images/sponsor/avatar/props/food.svg" alt=""
+              aria-hidden="true">
+          </div>
+
+          <!-- Right column -->
+          <div class="sponsor__list" id="sponsorListRight" aria-label="Items right side"></div>
+        </div>
+
+        <!-- Footer: total + CTA -->
+        <footer class="sponsor__footer">
+          <div class="sponsor__total" aria-live="polite">Total <span id="sponsorTotal">$0</span></div>
+          <div class="sponsor__actions">
+            <a href="#" class="btn btn--primary btn--pill" id="sponsorDonate">
+              <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i><span>DONATE</span>
+            </a>
+            <button class="btn btn--ghost btn--pill" id="sponsorCart" aria-label="Add selection to cart">
+              <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+            </button>
+          </div>
+        </footer>
+      </div>
+
+      <!-- Item template -->
+      <template id="sponsorItemTpl">
+        <article class="sponsor-item">
+          <figure class="sponsor-item__media"><img alt="" loading="lazy" decoding="async"></figure>
+          <h3 class="sponsor-item__title"></h3>
+          <span class="sponsor-item__price"></span>
+
+          <div class="sponsor-item__controls" role="group" aria-label="Quantity controls">
+            <button class="ctrl ctrl--minus" aria-label="Decrease"><i class="fa-solid fa-minus"
+                aria-hidden="true"></i></button>
+            <output class="ctrl__qty" aria-live="polite">0</output>
+            <button class="ctrl ctrl--plus" aria-label="Increase"><i class="fa-solid fa-plus"
+                aria-hidden="true"></i></button>
+          </div>
+        </article>
+      </template>
+    </section>
+    <script>
+      (() => {
+        "use strict";
+
+        /* -------------------- Utilities -------------------- */
+        const qs = (s, r = document) => r.querySelector(s);
+        const qsa = (s, r = document) => [...r.querySelectorAll(s)];
+        const fmt = (n) => `$${Number(n || 0).toLocaleString('en-US')}`;
+
+        /* -------------------- Catalog -------------------- */
+        // Each item defines: id, title, price, image (for card), layers mapping (avatar layers to toggle / choose)
+        const CATALOG = [
+          {
+            id: 'clothes',
+            title: 'clothes',
+            price: 5,
+            image: 'assets/images/sponsor/items/clothes.png',
+            layers: [
+              { layer: 'clothes-basic', threshold: 1 },   // >=1 show basic
+              { layer: 'clothes-jacket', threshold: 2 }   // >=2 upgrade to jacket
+            ]
+          },
+          {
+            id: 'bag',
+            title: 'School Bag',
+            price: 5,
+            image: 'assets/images/sponsor/items/bag.png',
+            layers: [{ layer: 'bag', threshold: 1 }]
+          },
+          {
+            id: 'books',
+            title: 'Books',
+            price: 5,
+            image: 'assets/images/sponsor/items/books.png',
+            layers: [{ layer: 'book', threshold: 1 }]
+          },
+          {
+            id: 'food',
+            title: 'Food',
+            price: 5,
+            image: 'assets/images/sponsor/items/food.png',
+            layers: [{ layer: 'food', threshold: 1 }]
+          }
+        ];
+
+        /* -------------------- State -------------------- */
+        const state = new Map(CATALOG.map(i => [i.id, 0]));
+        const totalEl = qs('#sponsorTotal');
+
+        /* -------------------- Render items -------------------- */
+        const tpl = qs('#sponsorItemTpl');
+        const leftMount = qs('#sponsorListLeft');
+        const rightMount = qs('#sponsorListRight');
+
+        const mid = Math.ceil(CATALOG.length / 2);
+        const columns = [CATALOG.slice(0, mid), CATALOG.slice(mid)];
+
+        columns.forEach((col, idx) => {
+          const mount = idx === 0 ? leftMount : rightMount;
+          col.forEach(item => mount.appendChild(buildItem(item)));
+        });
+
+        function buildItem(item) {
+          const node = tpl.content.firstElementChild.cloneNode(true);
+          node.dataset.id = item.id;
+          node.querySelector('img').src = item.image;
+          node.querySelector('img').alt = item.title;
+          node.querySelector('.sponsor-item__title').textContent = item.title;
+          node.querySelector('.sponsor-item__price').textContent = `$${item.price}`;
+
+          const qty = node.querySelector('.ctrl__qty');
+          const plus = node.querySelector('.ctrl--plus');
+          const minus = node.querySelector('.ctrl--minus');
+
+          const updateQty = (delta) => {
+            const current = Math.max(0, (state.get(item.id) || 0) + delta);
+            state.set(item.id, current);
+            qty.textContent = String(current);
+            applyAvatarLayers();
+            updateTotal();
+          };
+
+          plus.addEventListener('click', () => updateQty(+1));
+          minus.addEventListener('click', () => updateQty(-1));
+          plus.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); updateQty(+1); } });
+          minus.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); updateQty(-1); } });
+
+          return node;
+        }
+
+        /* -------------------- Avatar layers logic -------------------- */
+        const layersIndex = new Map(qsa('.avatar__layer[data-layer]').map(el => [el.dataset.layer, el]));
+
+        function applyAvatarLayers() {
+          // Turn off all optional layers first
+          layersIndex.forEach(el => el.classList.remove('is-on'));
+
+          // For each catalog item, decide which layer(s) should be on based on quantity and thresholds
+          CATALOG.forEach(item => {
+            const qty = state.get(item.id) || 0;
+            // If multiple thresholds exist, prefer the highest threshold satisfied (upgrades)
+            const eligible = item.layers
+              .filter(L => qty >= L.threshold)
+              .sort((a, b) => b.threshold - a.threshold)[0];
+
+            if (eligible) {
+              const el = layersIndex.get(eligible.layer);
+              if (el) el.classList.add('is-on');
+            }
+          });
+        }
+
+        /* -------------------- Totals -------------------- */
+        function updateTotal() {
+          let total = 0;
+          CATALOG.forEach(i => total += (state.get(i.id) || 0) * i.price);
+          totalEl.textContent = fmt(total);
+        }
+
+        /* -------------------- CTA handlers -------------------- */
+        qs('#sponsorDonate').addEventListener('click', (e) => {
+          e.preventDefault();
+          const payload = CATALOG.map(i => ({ id: i.id, qty: state.get(i.id) || 0, price: i.price }))
+            .filter(x => x.qty > 0);
+          console.log('Donate payload', payload);
+          // Integrate with your cart/checkout here
+        });
+        qs('#sponsorCart').addEventListener('click', () => {
+          // Example visual feedback
+          qs('#sponsorCart').classList.add('is-bounce');
+          setTimeout(() => qs('#sponsorCart').classList.remove('is-bounce'), 350);
+        });
+
+        /* -------------------- Init -------------------- */
+        applyAvatarLayers();
+        updateTotal();
+      })();
+    </script>
 
 
   </main>
