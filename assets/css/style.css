@@ -1961,3 +1961,36 @@ html.rtl .hero__tabs {
 .sponsor__actions .btn i {
   margin-inline-end: .45rem;
 }
+
+/* Avatar holder */
+.sponsor__avatar {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+#childRive {
+  width: 100%;
+  height: auto;
+  max-width: 520px;
+  display: block;
+}
+
+#childSvg {
+  width: 100%;
+  height: auto;
+  max-width: 520px;
+  display: block;
+}
+
+/* SVG layers toggle */
+.layer {
+  opacity: 0;
+  transform: translateY(6px) scale(.995);
+  transition: opacity .25s ease, transform .25s ease;
+}
+
+.layer.on {
+  opacity: 1;
+  transform: none;
+}
