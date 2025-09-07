@@ -640,5 +640,32 @@
     initImpactSlider();
   });
 
+  (function initImpactCounters() {
+    const els = document.querySelectorAll('.impact-stats .stat__value[data-count]');
+    if (!('IntersectionObserver' in window) || !els.length) return;
+
+    const easeOut = t => 1 - Math.pow(1 - t, 3);
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = Number(el.dataset.count || 0);
+        const dur = 1200;
+        const start = performance.now();
+
+        function tick(now) {
+          const p = Math.min(1, (now - start) / dur);
+          const val = Math.floor(target * easeOut(p));
+          el.textContent = val.toLocaleString('en-US');
+          if (p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+        io.unobserve(el);
+      });
+    }, { threshold: 0.35 });
+
+    els.forEach(el => io.observe(el));
+  })();
 
 })();

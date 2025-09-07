@@ -1096,8 +1096,8 @@
               alt="" aria-hidden="true">
             <img class="avatar__layer" data-layer="bag" src="assets/images/sponsor/avatar/props/bag.svg" alt=""
               aria-hidden="true">
-            <img class="avatar__layer" data-layer="book" src="assets/images/sponsor/avatar/props/book-hand.svg" alt=""
-              aria-hidden="true">
+            <img class="avatar__layer avatar__layer--book" data-layer="book"
+              src="assets/images/sponsor/avatar/props/book-hand.svg" alt="" aria-hidden="true">
             <img class="avatar__layer" data-layer="food" src="assets/images/sponsor/avatar/props/food.svg" alt=""
               aria-hidden="true">
           </div>
@@ -1276,159 +1276,225 @@
       })();
     </script>
 
-    <!-- Avatar: Rive (if available) + SVG fallback with same API -->
-    <div class="sponsor__avatar" aria-live="polite">
-      <canvas id="childRive" width="520" height="520" aria-label="Child avatar"></canvas>
+    <section class="media" aria-label="Latest media and stories">
+      <div class="container">
+        <div class="media__grid" itemscope itemtype="https://schema.org/Blog">
+          <!-- Column 1: copy + single card -->
+          <div class="media__col media__col--lead">
+            <header class="media__header">
+              <span class="badge badge--soft">MEDIA</span>
+              <h2 class="h2">By you It’s happened</h2>
+              <p class="media__sub">
+                We are dedicated to creating a brighter future for those in need. Through collective effort and
+                unwavering compassion, we connect people to meaningful causes. Together, we create a lifeline for
+                those who need it most.
+              </p>
+            </header>
 
-      <!-- Inline SVG fallback (kept hidden when Rive loads) -->
-      <svg id="childSvg" viewBox="0 0 300 400" role="img" aria-label="Child avatar fallback"
-        xmlns="http://www.w3.org/2000/svg">
-        <!-- base body -->
-        <g id="base">
-          <circle cx="150" cy="90" r="36" fill="#F4D8C6" />
-          <rect x="115" y="125" width="70" height="100" rx="12" fill="#ECEFF3" />
-          <rect x="125" y="225" width="50" height="90" rx="8" fill="#2F3A4A" />
-          <rect x="120" y="315" width="30" height="12" rx="6" fill="#111" />
-          <rect x="150" y="315" width="30" height="12" rx="6" fill="#111" />
-        </g>
+            <article class="media-card" itemprop="blogPosts" itemscope itemtype="https://schema.org/BlogPosting">
+              <a class="media-card__link" href="#" itemprop="url">
+                <figure class="media-card__media">
+                  <img src="assets/images/media/01.webp" alt="Volunteers carrying medicine boxes" loading="lazy"
+                    decoding="async" itemprop="image">
+                  <span class="media-card__badge">News from us</span>
+                </figure>
+                <div class="media-card__meta-body">
+                  <h3 class="media-card__title" itemprop="headline">
+                    Young Couple from Batman Shared Wedding Table with Gaza
+                  </h3>
+                  <div class="media-card__meta">
+                    <time class="media-card__date" datetime="2025-07-05" itemprop="datePublished">
+                      <i class="fa-regular fa-calendar" aria-hidden="true"></i> 05 July 2025
+                    </time>
+                  </div>
 
-        <!-- clothes tiers -->
-        <g id="clothes-tee" class="layer on">
-          <rect x="115" y="125" width="70" height="100" rx="12" fill="#FFFFFF" />
-          <path d="M115,145 h70 v-18 h-20 l-6 -8 h-18 l-6 8 h-20 z" fill="#9ECFE0" />
-        </g>
-        <g id="clothes-jacket" class="layer">
-          <rect x="110" y="120" width="80" height="110" rx="14" fill="#BBD1E6" />
-          <rect x="147" y="120" width="6" height="110" fill="#7C93A8" />
-        </g>
-        <g id="clothes-winter" class="layer">
-          <rect x="108" y="118" width="84" height="114" rx="16" fill="#AFC1D8" />
-          <rect x="140" y="118" width="20" height="114" fill="#6B86A1" />
-          <circle cx="150" cy="178" r="10" fill="#6B86A1" />
-        </g>
+                  <meta itemprop="author" content="Yedi Başak">
+                </div>
 
-        <!-- bag -->
-        <g id="bag" class="layer" transform="translate(185,160)">
-          <rect x="-10" y="0" width="40" height="46" rx="10" fill="#7BB7F0" stroke="#2F3A4A" stroke-width="2" />
-          <rect x="-5" y="8" width="30" height="22" rx="4" fill="#A6D4FF" />
-        </g>
+              </a>
+            </article>
+          </div>
 
-        <!-- book in hand -->
-        <g id="book" class="layer" transform="translate(92,195) rotate(-18)">
-          <rect x="0" y="0" width="46" height="28" rx="4" fill="#9ECFE0" stroke="#2F3A4A" stroke-width="2" />
-          <rect x="6" y="6" width="34" height="16" rx="2" fill="#FFF" />
-        </g>
+          <!-- Column 2: two cards -->
+          <div class="media__col">
+            <article class="media-card" itemprop="blogPosts" itemscope itemtype="https://schema.org/BlogPosting">
+              <a class="media-card__link" href="#" itemprop="url">
+                <figure class="media-card__media">
+                  <img src="assets/images/media/02.webp" alt="Soup distribution at community kitchen" loading="lazy"
+                    decoding="async" itemprop="image">
+                  <span class="media-card__badge">News from us</span>
+                </figure>
+                <div class="media-card__meta-body">
+                  <h3 class="media-card__title" itemprop="headline">Community kitchen serves hundreds every day</h3>
 
-        <!-- food pack -->
-        <g id="food" class="layer" transform="translate(160,255)">
-          <ellipse cx="0" cy="20" rx="24" ry="10" fill="#F6B36B" />
-          <circle cx="-8" cy="15" r="6" fill="#E85D5D" />
-          <rect x="6" y="8" width="10" height="14" rx="2" fill="#5CBF7A" />
-        </g>
-      </svg>
-    </div>
+                  <div class="media-card__meta">
+                    <time class="media-card__date" datetime="2025-07-05" itemprop="datePublished">
+                      <i class="fa-regular fa-calendar" aria-hidden="true"></i> 05 July 2025
+                    </time>
+                  </div>
+                  <meta itemprop="author" content="Yedi Başak">
+                </div>
+              </a>
+            </article>
 
-    <script src="https://unpkg.com/@rive-app/canvas@2.15.0"></script>
-    <script>
-      (() => {
-        "use strict";
+            <article class="media-card" itemprop="blogPosts" itemscope itemtype="https://schema.org/BlogPosting">
+              <a class="media-card__link" href="#" itemprop="url">
+                <figure class="media-card__media">
+                  <img src="assets/images/media/03.webp" alt="Donation bags with fresh vegetables" loading="lazy"
+                    decoding="async" itemprop="image">
+                  <span class="media-card__badge">News from us</span>
+                </figure>
+                <div class="media-card__meta-body">
+                  <h3 class="media-card__title" itemprop="headline">Fresh food packs delivered to remote villages</h3>
 
-        // ---------- selectors ----------
-        const qs = (s, r = document) => r.querySelector(s);
-        const qsa = (s, r = document) => [...r.querySelectorAll(s)];
-        const canvas = qs('#childRive');
-        const svg = qs('#childSvg');
+                  <div class="media-card__meta">
+                    <time class="media-card__date" datetime="2025-07-05" itemprop="datePublished">
+                      <i class="fa-regular fa-calendar" aria-hidden="true"></i> 05 July 2025
+                    </time>
+                  </div>
+                  <meta itemprop="author" content="Yedi Başak">
+                </div>
+              </a>
+            </article>
+          </div>
 
-        // ---------- shared state ----------
-        const state = new Map([['clothes', 0], ['bag', 0], ['books', 0], ['food', 0]]);
-        const clamp = (n, min, max) => Math.min(max, Math.max(min, n));
+          <!-- Column 3: two cards -->
+          <div class="media__col">
+            <article class="media-card" itemprop="blogPosts" itemscope itemtype="https://schema.org/BlogPosting">
+              <a class="media-card__link" href="#" itemprop="url">
+                <figure class="media-card__media">
+                  <img src="assets/images/media/04.webp" alt="Volunteer carrying medicine" loading="lazy"
+                    decoding="async" itemprop="image">
+                  <span class="media-card__badge">News from us</span>
+                </figure>
+                <div class="media-card__meta-body">
+                  <h3 class="media-card__title" itemprop="headline">Medicine aid arrives at field clinic</h3>
 
-        // ---------- Rive adapter ----------
-        let riveApp = null, inputs = null;
-        function initRive() {
-          if (!window.Rive || !canvas) return false;
-          try {
-            riveApp = new Rive.Rive({
-              src: 'assets/rive/child_avatar.riv', // TODO: put your .riv file here
-              canvas,
-              autoplay: true,
-              stateMachines: ['AvatarSM'],
-              onLoad: () => {
-                const sm = riveApp.stateMachineInputs('AvatarSM');
-                inputs = {
-                  clothesTier: sm.find(i => i.name === 'clothesTier'),
-                  hasBag: sm.find(i => i.name === 'hasBag'),
-                  hasBook: sm.find(i => i.name === 'hasBook'),
-                  hasFood: sm.find(i => i.name === 'hasFood'),
-                  mood: sm.find(i => i.name === 'mood') || { value: 0 }
-                };
-                applyToRive();
-                // Hide SVG fallback when Rive is ready
-                if (svg) svg.style.display = 'none';
-              },
-              onError: () => { /* fallback will remain visible */ }
-            });
-            return true;
-          } catch { return false; }
-        }
-        function applyToRive() {
-          if (!inputs) return;
-          const clothesTier = clamp(state.get('clothes') || 0, 0, 2); // 0 tee, 1 jacket, 2 winter
-          inputs.clothesTier.value = clothesTier;
-          inputs.hasBag.value = (state.get('bag') || 0) > 0;
-          inputs.hasBook.value = (state.get('books') || 0) > 0;
-          inputs.hasFood.value = (state.get('food') || 0) > 0;
-          const qtySum = [...state.values()].reduce((a, b) => a + b, 0);
-          inputs.mood.value = clamp(qtySum, 0, 3);
-        }
+                  <div class="media-card__meta">
+                    <time class="media-card__date" datetime="2025-07-05" itemprop="datePublished">
+                      <i class="fa-regular fa-calendar" aria-hidden="true"></i> 05 July 2025
+                    </time>
+                  </div>
+                  <meta itemprop="author" content="Yedi Başak">
+                </div>
+              </a>
+            </article>
 
-        // ---------- SVG fallback adapter ----------
-        function applyToSvg() {
-          if (!svg) return;
-          // reset
-          qsa('.layer', svg).forEach(g => g.classList.remove('on'));
-          // clothes tier
-          const tier = clamp(state.get('clothes') || 0, 0, 2);
-          const clothesIds = ['clothes-tee', 'clothes-jacket', 'clothes-winter'];
-          const id = clothesIds[tier] || clothesIds[0];
-          qs('#' + id, svg)?.classList.add('on');
-          // accessories
-          if ((state.get('bag') || 0) > 0) qs('#bag', svg)?.classList.add('on');
-          if ((state.get('books') || 0) > 0) qs('#book', svg)?.classList.add('on');
-          if ((state.get('food') || 0) > 0) qs('#food', svg)?.classList.add('on');
-        }
+            <article class="media-card" itemprop="blogPosts" itemscope itemtype="https://schema.org/BlogPosting">
+              <a class="media-card__link" href="#" itemprop="url">
+                <figure class="media-card__media">
+                  <img src="assets/images/media/05.webp" alt="Donation of euro bills" loading="lazy" decoding="async"
+                    itemprop="image">
+                  <span class="media-card__badge">News from us</span>
+                </figure>
+                <div class="media-card__meta-body">
+                  <h3 class="media-card__title" itemprop="headline">Donors pledge recurring monthly support</h3>
 
-        // ---------- wire UI controls (±) ----------
-        function bindControls() {
-          qsa('.sponsor-item').forEach(card => {
-            const id = card.dataset.id;
-            const qtyOut = card.querySelector('.ctrl__qty');
-            const plusBtn = card.querySelector('.ctrl--plus');
-            const minBtn = card.querySelector('.ctrl--minus');
-            const setQty = (delta) => {
-              const next = Math.max(0, (state.get(id) || 0) + delta);
-              state.set(id, next);
-              if (qtyOut) qtyOut.textContent = String(next);
-              applyToRive();
-              applyToSvg();
-              // call your existing total updater if present
-              window.updateSponsorTotal && window.updateSponsorTotal();
-            };
-            plusBtn?.addEventListener('click', () => setQty(+1));
-            minBtn?.addEventListener('click', () => setQty(-1));
-            plusBtn?.addEventListener('keydown', (e) => { if (['Enter', ' '].includes(e.key)) { e.preventDefault(); setQty(+1); } });
-            minBtn?.addEventListener('keydown', (e) => { if (['Enter', ' '].includes(e.key)) { e.preventDefault(); setQty(-1); } });
-          });
-        }
+                  <div class="media-card__meta">
+                    <time class="media-card__date" datetime="2025-07-05" itemprop="datePublished">
+                      <i class="fa-regular fa-calendar" aria-hidden="true"></i> 05 July 2025
+                    </time>
+                  </div>
+                  <meta itemprop="author" content="Yedi Başak">
+                </div>
+              </a>
+            </article>
+          </div>
+        </div>
 
-        // ---------- boot ----------
-        document.addEventListener('DOMContentLoaded', () => {
-          const riveOk = initRive(); // if Rive loads, SVG will auto-hide onLoad
-          if (!riveOk) { applyToSvg(); } // show fallback immediately
-          bindControls();
-        });
-      })();
-    </script>
+        <div class="media__cta">
+          <a class="btn btn--pill btn--primary " href="#" aria-label="See all media">
+            See all <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="impact-stats" aria-label="How donations make impact">
+      <div class="container">
+        <div class="impact-stats__grid">
+          <!-- Col 1: Stats (SEO ItemList) -->
+          <aside class="impact-stats__stats" itemscope itemtype="https://schema.org/ItemList">
+            <meta itemprop="name" content="Impact statistics">
+            <div class="stat" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+              <meta itemprop="position" content="1">
+              <div class="stat__label">Total donors</div>
+              <div class="stat__value" data-count="13256" aria-label="Total donors">0</div>
+            </div>
+            <div class="stat" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+              <meta itemprop="position" content="2">
+              <div class="stat__label">Number of campaigns</div>
+              <div class="stat__value" data-count="450" aria-label="Number of campaigns">0</div>
+            </div>
+            <div class="stat" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+              <meta itemprop="position" content="3">
+              <div class="stat__label">Number of beneficiaries</div>
+              <div class="stat__value" data-count="45256" aria-label="Number of beneficiaries">0</div>
+            </div>
+          </aside>
+
+          <!-- Col 2: Center image card -->
+          <figure class="impact-stats__feature" itemscope itemtype="https://schema.org/ImageObject">
+            <img src="assets/images/impact/feature-children.webp" alt="Children walking through muddy ground near tents"
+              loading="lazy" decoding="async" itemprop="contentUrl">
+            <figcaption class="feature__caption">
+              <strong class="feature__title">Big changes</strong>
+              <span class="feature__text">We are dedicated to creating a brighter future for those in need</span>
+            </figcaption>
+            <meta itemprop="name" content="Field impact photo">
+          </figure>
+
+          <!-- Col 3: Benefits list -->
+          <div class="impact-stats__benefits" itemscope itemtype="https://schema.org/FAQPage">
+            <div class="benefits__eyebrow">
+              <span class="dot"></span> <span>Immediate Action</span>
+            </div>
+            <h2 class="h2">How Your Donation Helps</h2>
+
+            <ul class="benefits__list" role="list">
+              <li class="benefit" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <div class="benefit__icon benefit__icon--orange">
+                  <i class="fa-solid fa-check"></i>
+                </div>
+                <div class="benefit__body">
+                  <span class="benefit__title" itemprop="name">One Cause at a Time</span>
+                  <p class="benefit__text" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <span itemprop="text">Through focused initiatives, we strive to address immediate needs while
+                      working toward solutions.</span>
+                  </p>
+                </div>
+              </li>
+              <li class="benefit" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <div class="benefit__icon benefit__icon--teal">
+                  <i class=" fa-solid fa-check" aria-hidden="true"></i>
+                </div>
+                <div class="benefit__body">
+                  <span class="benefit__title" itemprop="name">A World of Change</span>
+                  <p class="benefit__text" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <span itemprop="text">Our mission is rooted in the belief that everyone deserves a chance at a
+                      better life.</span>
+                  </p>
+                </div>
+              </li>
+              <li class="benefit" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <div class="benefit__icon benefit__icon--teal">
+
+                  <i class=" fa-solid fa-check" aria-hidden="true"></i>
+                </div>
+                <div class="benefit__body">
+                  <span class="benefit__title" itemprop="name">Faith Communion</span>
+                  <p class="benefit__text" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <span itemprop="text">Our spotlight cause this month focuses on providing essential aid to
+                      refugees
+                      worldwide.</span>
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
 
   </main>
