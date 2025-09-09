@@ -3,136 +3,894 @@
 
 <head>
   <!-- =========================================================
+       PAGE: Activities (Listing Shell Only)
        THEME: Yedi Başak — Frontend (HTML Only)
-       FILE: index.html
-       PURPOSE: Clean, accessible, SEO-optimized landing page markup
-       NOTES:
-       - Comment style matches premium theme conventions.
-       - Keep exactly one <h1> (hero).
-       - ARIA + semantic landmarks for screen readers.
-       - Vendor CSS/JS kept local where possible for performance.
        ========================================================= -->
 
-  <!-- ==================== Meta Essentials ==================== -->
+  <!-- Meta essentials -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- ====================== Primary SEO ====================== -->
-  <title>Yedi Başak – Humanitarian Aid & Charity</title>
+  <!-- Primary SEO -->
+  <title>Activities – Yedi Başak</title>
   <meta name="description"
-    content="Yedi Başak supports families in need through emergency aid, water wells, health and orphan care. Donate or volunteer to make a real impact." />
-  <link rel="canonical" href="https://www.yedibasak.org/" />
+    content="Explore Yedi Başak activities: Ramadan support, health, orphan care, water wells, emergency aid, and more." />
+  <link rel="canonical" href="https://www.yedibasak.org/activities.html" />
 
-  <!-- ============== Open Graph / Twitter Cards ============== -->
+  <!-- Social -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Yedi Başak" />
-  <meta property="og:title" content="Yedi Başak – Humanitarian Aid & Charity" />
-  <meta property="og:description"
-    content="Donate or volunteer to support emergency aid, water wells, health, and orphan care." />
-  <meta property="og:url" content="https://www.yedibasak.org/" />
+  <meta property="og:title" content="Activities – Yedi Başak" />
+  <meta property="og:description" content="Explore Yedi Başak activities and support our programs." />
+  <meta property="og:url" content="https://www.yedibasak.org/activities.html" />
   <meta property="og:image" content="https://www.yedibasak.org/assets/images/og-cover.jpg" />
   <meta property="og:image:alt" content="Yedi Başak delivering humanitarian aid" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Yedi Başak – Humanitarian Aid & Charity" />
-  <meta name="twitter:description" content="Join us: donate or volunteer today." />
-  <meta name="twitter:image" content="https://www.yedibasak.org/assets/images/og-cover.jpg" />
 
-  <!-- =================== Favicons / PWA Set =================== -->
+  <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
   <link rel="manifest" href="site.webmanifest" />
 
-  <!-- =============== Preload Critical Resources =============== -->
-  <!-- Fonts: variable, cross-origin is required for proper caching -->
+  <!-- Preloads (optional) -->
   <link rel="preload" href="assets/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin>
-  <!-- Hero image: improves LCP on first slide -->
-  <link rel="preload" href="assets/images/slide-1.webp" as="image" />
 
-  <!-- ================= Vendor CSS → Theme CSS ================= -->
+  <!-- CSS (vendor → theme) -->
   <link rel="stylesheet" href="assets/css/bootstrap-grid.min.css" />
   <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
   <link rel="stylesheet" href="assets/css/lightbox.min.css" />
   <link rel="stylesheet" href="assets/css/animate.min.css" />
   <link rel="stylesheet" href="assets/css/aos.css" />
   <link rel="stylesheet" href="assets/css/normalize.css" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css" />
-  <!-- Font Awesome (local split builds) -->
+  <!-- Font Awesome (local) -->
   <link rel="stylesheet" href="assets/css/fontawesome.min.css" />
   <link rel="stylesheet" href="assets/css/solid.min.css" />
   <link rel="stylesheet" href="assets/css/regular.min.css" />
   <link rel="stylesheet" href="assets/css/brands.min.css" />
 
-  <!-- ==================== Structured Data ==================== -->
+  <!-- Structured data (optional/compact) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Yedi Başak",
-    "url": "https://www.yedibasak.org/",
-    "logo": "https://www.yedibasak.org/assets/images/logo.svg",
-    "sameAs": [
-      "https://www.facebook.com/yourpage",
-      "https://twitter.com/yourhandle",
-      "https://www.instagram.com/yourhandle/",
-      "https://www.youtube.com/@yourchannel"
-    ],
-    "contactPoint": [{
-      "@type": "ContactPoint",
-      "telephone": "+90-342-325-1030",
-      "contactType": "customer service",
-      "areaServed": "TR"
-    }]
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.yedibasak.org/" },
+      { "@type": "ListItem", "position": 2, "name": "Activities", "item": "https://www.yedibasak.org/activities.html" }
+    ]
   }
   </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "url": "https://www.yedibasak.org/",
-    "name": "Yedi Başak",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://www.yedibasak.org/search?q={query}",
-      "query-input": "required name=query"
-    }
-  }
-  </script>
-
-  <!--
-    SEO CHECKLIST
-    - Keep a single <h1> on the page (hero title only).
-    - Provide meaningful alt text; decorative icons should be aria-hidden.
-    - Use descriptive link text (avoid generic "click here").
-    - Update canonical/OG URLs on deploy to production domain.
-  -->
 </head>
 
 <body>
 
+  <!-- ========================= HEADER ========================= -->
+  <header class="site-header" role="banner">
+    <!-- Topbar -->
+    <div class="topbar">
+      <div class="container">
+        <div class="topbar__left">
+          <a class="toplink" href="tel:+903423251030" title="Call: +90 342 325 1030">
+            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+            <span class="toplink__label">Tel: +90 342 325 1030</span>
+          </a>
+          <a class="toplink" href="tel:+905538867777" title="Call: +90 553 886 7777">
+            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+            <span class="toplink__label">Gsm: +90 553 886 7777</span>
+          </a>
+        </div>
+
+        <nav class="topbar__right" aria-label="Quick links">
+          <a class="toplink" href="public-benefits.html" title="Public Benefits status">
+            <i class="fa-solid fa-building-columns" aria-hidden="true"></i>
+            <span class="toplink__label">Public Benefits status</span>
+          </a>
+          <a class="toplink" href="bank-info.html" title="Bank info">
+            <i class="fa-solid fa-credit-card" aria-hidden="true"></i>
+            <span class="toplink__label">Bank info</span>
+          </a>
+          <a class="toplink" href="food-banking.html" title="Food Banking">
+            <i class="fa-solid fa-house" aria-hidden="true"></i>
+            <span class="toplink__label">Food Banking</span>
+          </a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Mainbar -->
+    <div class="mainbar" role="navigation" aria-label="Main header">
+      <div class="container mainbar__row">
+        <a class="brand" href="index.html" aria-label="Homepage">
+          <img src="assets/images/logo.svg" alt="Yedi Başak Logo" width="140" height="36" />
+        </a>
+
+        <!-- Mobile toggle -->
+        <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-controls="offcanvas"
+          aria-expanded="false">
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+
+        <!-- Primary nav (desktop) -->
+        <nav class="navbar" aria-label="Primary">
+          <ul class="menu">
+            <li><a class="menu__link" href="index.html">Home</a></li>
+
+            <li class="has-dropdown">
+              <button class="menu__link dropdown-toggle" aria-haspopup="menu" aria-expanded="false">
+                Corporate <i class="fa-solid fa-chevron-down fa-sm" aria-hidden="true"></i>
+              </button>
+              <ul class="dropdown" role="menu">
+                <li><a role="menuitem" href="about.html">About Us</a></li>
+                <li><a role="menuitem" href="board.html">Board</a></li>
+                <li><a role="menuitem" href="contact.html">Contact</a></li>
+              </ul>
+            </li>
+
+            <li><a class="menu__link" href="activities.html" aria-current="page">Our Activities</a></li>
+
+            <li class="has-dropdown">
+              <button class="menu__link dropdown-toggle" aria-haspopup="menu" aria-expanded="false">
+                Media <i class="fa-solid fa-chevron-down fa-sm" aria-hidden="true"></i>
+              </button>
+              <ul class="dropdown" role="menu">
+                <li><a role="menuitem" href="news.html">News</a></li>
+                <li><a role="menuitem" href="gallery.html">Gallery</a></li>
+              </ul>
+            </li>
+
+            <li><a class="menu__link" href="volunteer.html">Be Volunteer</a></li>
+          </ul>
+        </nav>
+
+        <!-- Header actions -->
+        <div class="actions">
+          <a class="btn btn--pill btn--primary" href="donate.html">
+            <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i>
+            <span>Donate</span>
+          </a>
+          <a class="btn btn--ghost" href="account.html" aria-label="Account">
+            <i class="fa-solid fa-user" aria-hidden="true"></i>
+          </a>
+          <a class="btn btn--ghost" href="cart.html" aria-label="Cart">
+            <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+          </a>
+          <button class="btn btn--ghost" aria-label="Language">
+            <i class="fa-solid fa-globe" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Offcanvas (mobile) -->
+    <aside id="offcanvas" class="offcanvas" hidden aria-label="Mobile menu">
+      <div class="offcanvas__header">
+        <span>Menu</span>
+        <button class="offcanvas__close" aria-label="Close menu">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+      </div>
+      <nav class="offcanvas__body" aria-label="Mobile primary">
+        <ul class="offcanvas__menu">
+          <li><a href="index.html">Home</a></li>
+          <li>
+            <button class="collapse-toggle" aria-expanded="false">
+              Corporate <i class="fa-solid fa-chevron-down fa-sm" aria-hidden="true"></i>
+            </button>
+            <ul class="collapse" hidden>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="board.html">Board</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </li>
+          <li><a href="activities.html" aria-current="page">Our Activities</a></li>
+          <li>
+            <button class="collapse-toggle" aria-expanded="false">
+              Media <i class="fa-solid fa-chevron-down fa-sm" aria-hidden="true"></i>
+            </button>
+            <ul class="collapse" hidden>
+              <li><a href="news.html">News</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+          </li>
+          <li><a href="volunteer.html">Be Volunteer</a></li>
+        </ul>
+      </nav>
+      <div class="offcanvas__footer">
+        <a class="btn btn--pill btn--primary" href="donate.html">
+          <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i>
+          <span>Donate</span>
+        </a>
+      </div>
+    </aside>
+    <div class="offcanvas__overlay" hidden></div>
+  </header>
+  <!-- /HEADER -->
+
+  <!-- ========================== MAIN ========================== -->
+  <main id="main" class="page" aria-labelledby="pageTitle">
+    <!-- ========================= Page Hero ========================= -->
+    <section class="page-hero" aria-label="Activities hero">
+      <!-- Background image (responsive sources if you have them) -->
+      <figure class="page-hero__bg" aria-hidden="true">
+        <picture>
+          <!-- <source type="image/avif" srcset="assets/images/hero/activities.avif"> -->
+          <source type="image/webp" srcset="assets/images/bg/bg_activities.webp">
+          <img src="assets/images/bg/bg_activities.webp" alt="" loading="eager" decoding="async">
+        </picture>
+      </figure>
+
+      <!-- Overlayed content -->
+      <div class="page-hero__content container">
+        <h1 class="page-hero__title">ACTIVITIES</h1>
+        <p class="page-hero__lead">
+          With your support, we continue this journey we embarked on to live and sustain goodness in our country and in
+          many
+          different geographies of the world. We look forward to your support to move the boundaries of this journey
+          further.
+        </p>
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol class="breadcrumb__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+            <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+              <a class="breadcrumb__link" href="index.html" itemprop="item">
+                <span itemprop="name">Home</span>
+              </a>
+              <meta itemprop="position" content="1" />
+            </li>
+            <li class="breadcrumb__item is-current" aria-current="page" itemprop="itemListElement" itemscope
+              itemtype="https://schema.org/ListItem">
+              <span class="breadcrumb__current" itemprop="name">Activities</span>
+              <meta itemprop="position" content="2" />
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    <!-- ========================= Activities (Standalone / Scoped) ========================= -->
+    <section class="acts" data-acts-root aria-label="Activities listing">
+      <div class="container">
+        <!-- Tabs -->
+        <div id="actsTabs" class="acts__tabs" role="tablist" aria-label="Categories">
+          <button class="acts__tab is-active" role="tab" aria-selected="true" data-acts-cat="emergency">
+            <span class="acts__tab-icon"><i class="fa-solid fa-truck-medical" aria-hidden="true"></i></span>
+            <span class="acts__tab-text">Emergency Aid</span>
+          </button>
+          <button class="acts__tab" role="tab" aria-selected="false" data-acts-cat="water">
+            <span class="acts__tab-icon"><i class="fa-solid fa-faucet-drip" aria-hidden="true"></i></span>
+            <span class="acts__tab-text">Water Well</span>
+          </button>
+          <button class="acts__tab" role="tab" aria-selected="false" data-acts-cat="sacrifice">
+            <span class="acts__tab-icon"><i class="fa-solid fa-drumstick-bite" aria-hidden="true"></i></span>
+            <span class="acts__tab-text">Sacrifice</span>
+          </button>
+          <button class="acts__tab" role="tab" aria-selected="false" data-acts-cat="oshur">
+            <span class="acts__tab-icon"><i class="fa-solid fa-wheat-awn" aria-hidden="true"></i></span>
+            <span class="acts__tab-text">Öşür</span>
+          </button>
+          <button class="acts__tab" role="tab" aria-selected="false" data-acts-cat="orphan">
+            <span class="acts__tab-icon"><i class="fa-solid fa-child-reaching" aria-hidden="true"></i></span>
+            <span class="acts__tab-text">Orphan</span>
+          </button>
+          <button class="acts__tab" role="tab" aria-selected="false" data-acts-cat="health">
+            <span class="acts__tab-icon"><i class="fa-solid fa-stethoscope" aria-hidden="true"></i></span>
+            <span class="acts__tab-text">Health</span>
+          </button>
+          <button class="acts__tab" role="tab" aria-selected="false" data-acts-cat="general">
+            <span class="acts__tab-icon"><i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i></span>
+            <span class="acts__tab-text">General</span>
+          </button>
+          <button class="acts__tab" role="tab" aria-selected="false" data-acts-cat="zakat">
+            <span class="acts__tab-icon"><i class="fa-solid fa-hand-holding-dollar" aria-hidden="true"></i></span>
+            <span class="acts__tab-text">Zakat &amp; Sadaqah</span>
+          </button>
+        </div>
+
+        <!-- Cards Grid -->
+        <div class="acts__panel" role="tabpanel" tabindex="0" aria-live="polite">
+          <div id="actsGrid" class="acts__grid">
+            <!-- ====== Emergency ====== -->
+            <article class="acts-card" data-acts-cat="emergency" data-total="20000" data-support="2915">
+              <figure class="acts-card__media">
+                <img src="assets/images/agenda/slide-1.png" alt="1000 Tent Aid Campaign for Gaza">
+              </figure>
+              <div class="acts-card__body">
+                <h3 class="acts-card__title">1000 Tent Aid Campaign for Gaza</h3>
+                <div class="acts-card__meta">
+                  <span>6 Donors</span><span>•</span>
+                  <span><img class="acts-card__flag" src="assets/icons/flag-palestine.svg" alt="">Palestine</span>
+                  <span class="acts-card__pct text-primary">%0.0</span>
+                </div>
+                <div class="acts-card__meter" role="progressbar" aria-valuemin="0" aria-valuemax="100"
+                  aria-valuenow="0">
+                  <span class="acts-card__bar"></span>
+                </div>
+                <dl class="acts-card__stats">
+                  <div>
+                    <dt>Required Fund</dt>
+                    <dd class="js-required">—</dd>
+                  </div>
+                  <div>
+                    <dt>Support</dt>
+                    <dd class="js-support">—</dd>
+                  </div>
+                  <div>
+                    <dt>Remaining</dt>
+                    <dd class="js-remaining">—</dd>
+                  </div>
+                </dl>
+                <div class="acts-card__actions">
+                  <a href="#" class="btn btn--primary btn--pill"><i
+                      class="fa-solid fa-hand-holding-heart"></i><span>DONATE</span></a>
+                  <div class="acts-card__icons">
+                    <button class="btn btn--ghost" aria-label="Add to wishlist"><i
+                        class="fa-regular fa-heart"></i></button>
+                    <button class="btn btn--ghost" aria-label="Share"><i class="fa-solid fa-share-nodes"></i></button>
+                    <button class="btn btn--ghost" aria-label="Add to cart"><i
+                        class="fa-solid fa-cart-shopping"></i></button>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="acts-card" data-acts-cat="emergency" data-total="15000" data-support="12030">
+              <figure class="acts-card__media"><img src="assets/images/agenda/slide-4.png" alt="Emergency Food Parcels">
+              </figure>
+              <div class="acts-card__body">
+                <h3 class="acts-card__title">Emergency Food Parcels</h3>
+                <div class="acts-card__meta"><span>10 Donors</span><span>•</span><span><img class="acts-card__flag"
+                      src="assets/icons/flag-palestine.svg" alt="">Palestine</span><span
+                    class="acts-card__pct text-primary">%0.0</span></div>
+                <div class="acts-card__meter" role="progressbar" aria-valuenow="0"><span class="acts-card__bar"></span>
+                </div>
+                <dl class="acts-card__stats">
+                  <div>
+                    <dt>Required Fund</dt>
+                    <dd class="js-required">—</dd>
+                  </div>
+                  <div>
+                    <dt>Support</dt>
+                    <dd class="js-support">—</dd>
+                  </div>
+                  <div>
+                    <dt>Remaining</dt>
+                    <dd class="js-remaining">—</dd>
+                  </div>
+                </dl>
+                <div class="acts-card__actions"><a href="#" class="btn btn--primary btn--pill"><i
+                      class="fa-solid fa-hand-holding-heart"></i><span>DONATE</span></a>
+                  <div class="acts-card__icons"><button class="btn btn--ghost"><i
+                        class="fa-regular fa-heart"></i></button><button class="btn btn--ghost"><i
+                        class="fa-solid fa-share-nodes"></i></button><button class="btn btn--ghost"><i
+                        class="fa-solid fa-cart-shopping"></i></button></div>
+                </div>
+              </div>
+            </article>
+
+            <article class="acts-card" data-acts-cat="emergency" data-total="26000" data-support="11544">
+              <figure class="acts-card__media"><img src="assets/images/agenda/slide-3.png" alt="Cash Support"></figure>
+              <div class="acts-card__body">
+                <h3 class="acts-card__title">Cash Support for Families</h3>
+                <div class="acts-card__meta"><span>12 Donors</span><span>•</span><span><img class="acts-card__flag"
+                      src="assets/icons/flag-palestine.svg" alt="">Palestine</span><span
+                    class="acts-card__pct text-primary">%0.0</span></div>
+                <div class="acts-card__meter" role="progressbar" aria-valuenow="0"><span class="acts-card__bar"></span>
+                </div>
+                <dl class="acts-card__stats">
+                  <div>
+                    <dt>Required Fund</dt>
+                    <dd class="js-required">—</dd>
+                  </div>
+                  <div>
+                    <dt>Support</dt>
+                    <dd class="js-support">—</dd>
+                  </div>
+                  <div>
+                    <dt>Remaining</dt>
+                    <dd class="js-remaining">—</dd>
+                  </div>
+                </dl>
+                <div class="acts-card__actions"><a href="#" class="btn btn--primary btn--pill"><i
+                      class="fa-solid fa-hand-holding-heart"></i><span>DONATE</span></a>
+                  <div class="acts-card__icons"><button class="btn btn--ghost"><i
+                        class="fa-regular fa-heart"></i></button><button class="btn btn--ghost"><i
+                        class="fa-solid fa-share-nodes"></i></button><button class="btn btn--ghost"><i
+                        class="fa-solid fa-cart-shopping"></i></button></div>
+                </div>
+              </div>
+            </article>
+
+            <!-- ====== Water ====== -->
+            <article class="acts-card" data-acts-cat="water" data-total="12000" data-support="8616">
+              <figure class="acts-card__media"><img src="assets/images/agenda/slide-4.png" alt="Clean Water Wells">
+              </figure>
+              <div class="acts-card__body">
+                <h3 class="acts-card__title">Clean Water Wells</h3>
+                <div class="acts-card__meta"><span>9 Donors</span><span>•</span><span><img class="acts-card__flag"
+                      src="assets/images/flags/id.webp" alt="">Indonesia</span><span
+                    class="acts-card__pct text-primary">%0.0</span></div>
+                <div class="acts-card__meter" role="progressbar" aria-valuenow="0"><span class="acts-card__bar"></span>
+                </div>
+                <dl class="acts-card__stats">
+                  <div>
+                    <dt>Required Fund</dt>
+                    <dd class="js-required">—</dd>
+                  </div>
+                  <div>
+                    <dt>Support</dt>
+                    <dd class="js-support">—</dd>
+                  </div>
+                  <div>
+                    <dt>Remaining</dt>
+                    <dd class="js-remaining">—</dd>
+                  </div>
+                </dl>
+                <div class="acts-card__actions"><a href="#" class="btn btn--primary btn--pill"><i
+                      class="fa-solid fa-hand-holding-heart"></i><span>DONATE</span></a>
+                  <div class="acts-card__icons"><button class="btn btn--ghost"><i
+                        class="fa-regular fa-heart"></i></button><button class="btn btn--ghost"><i
+                        class="fa-solid fa-share-nodes"></i></button><button class="btn btn--ghost"><i
+                        class="fa-solid fa-cart-shopping"></i></button></div>
+                </div>
+              </div>
+            </article>
+
+            <article class="acts-card" data-acts-cat="water" data-total="18000" data-support="6840">
+              <figure class="acts-card__media"><img src="assets/images/agenda/slide-2.png" alt="Village Water Access">
+              </figure>
+              <div class="acts-card__body">
+                <h3 class="acts-card__title">Village Water Access</h3>
+                <div class="acts-card__meta"><span>12 Donors</span><span>•</span><span><img class="acts-card__flag"
+                      src="assets/images/flags/in.webp" alt="">India</span><span
+                    class="acts-card__pct text-primary">%0.0</span></div>
+                <div class="acts-card__meter" role="progressbar" aria-valuenow="0"><span class="acts-card__bar"></span>
+                </div>
+                <dl class="acts-card__stats">
+                  <div>
+                    <dt>Required Fund</dt>
+                    <dd class="js-required">—</dd>
+                  </div>
+                  <div>
+                    <dt>Support</dt>
+                    <dd class="js-support">—</dd>
+                  </div>
+                  <div>
+                    <dt>Remaining</dt>
+                    <dd class="js-remaining">—</dd>
+                  </div>
+                </dl>
+                <div class="acts-card__actions"><a href="#" class="btn btn--primary btn--pill"><i
+                      class="fa-solid fa-hand-holding-heart"></i><span>DONATE</span></a>
+                  <div class="acts-card__icons"><button class="btn btn--ghost"><i
+                        class="fa-regular fa-heart"></i></button><button class="btn btn--ghost"><i
+                        class="fa-solid fa-share-nodes"></i></button><button class="btn btn--ghost"><i
+                        class="fa-solid fa-cart-shopping"></i></button></div>
+                </div>
+              </div>
+            </article>
+
+            <!-- ====== Orphan ====== -->
+            <article class="acts-card" data-acts-cat="orphan" data-total="22000" data-support="1100">
+              <figure class="acts-card__media"><img src="assets/images/agenda/slide-2.png"
+                  alt="Winter Clothes for Orphans"></figure>
+              <div class="acts-card__body">
+                <h3 class="acts-card__title">Winter Clothes for Orphans</h3>
+                <div class="acts-card__meta"><span>10 Donors</span><span>•</span><span><img class="acts-card__flag"
+                      src="assets/images/flags/tr.webp" alt="">Turkey</span><span
+                    class="acts-card__pct text-primary">%0.0</span></div>
+                <div class="acts-card__meter" role="progressbar" aria-valuenow="0"><span class="acts-card__bar"></span>
+                </div>
+                <dl class="acts-card__stats">
+                  <div>
+                    <dt>Required Fund</dt>
+                    <dd class="js-required">—</dd>
+                  </div>
+                  <div>
+                    <dt>Support</dt>
+                    <dd class="js-support">—</dd>
+                  </div>
+                  <div>
+                    <dt>Remaining</dt>
+                    <dd class="js-remaining">—</dd>
+                  </div>
+                </dl>
+                <div class="acts-card__actions"><a href="#" class="btn btn--primary btn--pill"><i
+                      class="fa-solid fa-hand-holding-heart"></i><span>DONATE</span></a>
+                  <div class="acts-card__icons"><button class="btn btn--ghost"><i
+                        class="fa-regular fa-heart"></i></button><button class="btn btn--ghost"><i
+                        class="fa-solid fa-share-nodes"></i></button><button class="btn btn--ghost"><i
+                        class="fa-solid fa-cart-shopping"></i></button></div>
+                </div>
+              </div>
+            </article>
+
+            <!-- ====== Health ====== -->
+            <article class="acts-card" data-acts-cat="health" data-total="20000" data-support="5460">
+              <figure class="acts-card__media"><img src="assets/images/agenda/slide-2.png"
+                  alt="Dialysis Machines Support"></figure>
+              <div class="acts-card__body">
+                <h3 class="acts-card__title">Dialysis Machines Support</h3>
+                <div class="acts-card__meta"><span>7 Donors</span><span>•</span><span><img class="acts-card__flag"
+                      src="assets/images/flags/eg.webp" alt="">Egypt</span><span
+                    class="acts-card__pct text-primary">%0.0</span></div>
+                <div class="acts-card__meter" role="progressbar" aria-valuenow="0"><span class="acts-card__bar"></span>
+                </div>
+                <dl class="acts-card__stats">
+                  <div>
+                    <dt>Required Fund</dt>
+                    <dd class="js-required">—</dd>
+                  </div>
+                  <div>
+                    <dt>Support</dt>
+                    <dd class="js-support">—</dd>
+                  </div>
+                  <div>
+                    <dt>Remaining</dt>
+                    <dd class="js-remaining">—</dd>
+                  </div>
+                </dl>
+                <div class="acts-card__actions"><a href="#" class="btn btn--primary btn--pill"><i
+                      class="fa-solid fa-hand-holding-heart"></i><span>DONATE</span></a>
+                  <div class="acts-card__icons"><button class="btn btn--ghost"><i
+                        class="fa-regular fa-heart"></i></button><button class="btn btn--ghost"><i
+                        class="fa-solid fa-share-nodes"></i></button><button class="btn btn--ghost"><i
+                        class="fa-solid fa-cart-shopping"></i></button></div>
+                </div>
+              </div>
+            </article>
+
+            <!-- ====== Sacrifice / Öşür / General / Zakat: أمثلة سريعة ====== -->
+            <article class="acts-card" data-acts-cat="sacrifice" data-total="25000" data-support="15625">
+              <figure class="acts-card__media"><img src="assets/images/agenda/slide-3.png" alt="Sacrifice Program">
+              </figure>
+              <div class="acts-card__body">
+                <h3 class="acts-card__title">Sacrifice Program</h3>
+                <div class="acts-card__meta"><span>14 Donors</span><span>•</span><span><img class="acts-card__flag"
+                      src="assets/icons/flag-palestine.svg" alt="">Palestine</span><span
+                    class="acts-card__pct text-primary">%0.0</span></div>
+                <div class="acts-card__meter" role="progressbar" aria-valuenow="0"><span class="acts-card__bar"></span>
+                </div>
+                <dl class="acts-card__stats">
+                  <div>
+                    <dt>Required Fund</dt>
+                    <dd class="js-required">—</dd>
+                  </div>
+                  <div>
+                    <dt>Support</dt>
+                    <dd class="js-support">—</dd>
+                  </div>
+                  <div>
+                    <dt>Remaining</dt>
+                    <dd class="js-remaining">—</dd>
+                  </div>
+                </dl>
+                <div class="acts-card__actions"><a href="#" class="btn btn--primary btn--pill"><i
+                      class="fa-solid fa-hand-holding-heart"></i><span>DONATE</span></a>
+                  <div class="acts-card__icons"><button class="btn btn--ghost"><i
+                        class="fa-regular fa-heart"></i></button><button class="btn btn--ghost"><i
+                        class="fa-solid fa-share-nodes"></i></button><button class="btn btn--ghost"><i
+                        class="fa-solid fa-cart-shopping"></i></button></div>
+                </div>
+              </div>
+            </article>
+
+            <article class="acts-card" data-acts-cat="oshur" data-total="15000" data-support="7025">
+              <figure class="acts-card__media"><img src="assets/images/agenda/slide-4.png" alt="Öşür Harvest Giving">
+              </figure>
+              <div class="acts-card__body">
+                <h3 class="acts-card__title">Öşür Harvest Giving</h3>
+                <div class="acts-card__meta"><span>8 Donors</span><span>•</span><span><img class="acts-card__flag"
+                      src="assets/images/flags/tr.webp" alt="">Turkey</span><span
+                    class="acts-card__pct text-primary">%0.0</span></div>
+                <div class="acts-card__meter" role="progressbar" aria-valuenow="0"><span class="acts-card__bar"></span>
+                </div>
+                <dl class="acts-card__stats">
+                  <div>
+                    <dt>Required Fund</dt>
+                    <dd class="js-required">—</dd>
+                  </div>
+                  <div>
+                    <dt>Support</dt>
+                    <dd class="js-support">—</dd>
+                  </div>
+                  <div>
+                    <dt>Remaining</dt>
+                    <dd class="js-remaining">—</dd>
+                  </div>
+                </dl>
+                <div class="acts-card__actions"><a href="#" class="btn btn--primary btn--pill"><i
+                      class="fa-solid fa-hand-holding-heart"></i><span>DONATE</span></a>
+                  <div class="acts-card__icons"><button class="btn btn--ghost"><i
+                        class="fa-regular fa-heart"></i></button><button class="btn btn--ghost"><i
+                        class="fa-solid fa-share-nodes"></i></button><button class="btn btn--ghost"><i
+                        class="fa-solid fa-cart-shopping"></i></button></div>
+                </div>
+              </div>
+            </article>
+
+            <article class="acts-card" data-acts-cat="general" data-total="20000" data-support="5460">
+              <figure class="acts-card__media"><img src="assets/images/agenda/slide-7.webp" alt="General Fund"></figure>
+              <div class="acts-card__body">
+                <h3 class="acts-card__title">General Fund</h3>
+                <div class="acts-card__meta"><span>16 Donors</span><span>•</span><span><img class="acts-card__flag"
+                      src="assets/icons/flag-palestine.svg" alt="">Palestine</span><span
+                    class="acts-card__pct text-primary">%0.0</span></div>
+                <div class="acts-card__meter" role="progressbar" aria-valuenow="0"><span class="acts-card__bar"></span>
+                </div>
+                <dl class="acts-card__stats">
+                  <div>
+                    <dt>Required Fund</dt>
+                    <dd class="js-required">—</dd>
+                  </div>
+                  <div>
+                    <dt>Support</dt>
+                    <dd class="js-support">—</dd>
+                  </div>
+                  <div>
+                    <dt>Remaining</dt>
+                    <dd class="js-remaining">—</dd>
+                  </div>
+                </dl>
+                <div class="acts-card__actions"><a href="#" class="btn btn--primary btn--pill"><i
+                      class="fa-solid fa-hand-holding-heart"></i><span>DONATE</span></a>
+                  <div class="acts-card__icons"><button class="btn btn--ghost"><i
+                        class="fa-regular fa-heart"></i></button><button class="btn btn--ghost"><i
+                        class="fa-solid fa-share-nodes"></i></button><button class="btn btn--ghost"><i
+                        class="fa-solid fa-cart-shopping"></i></button></div>
+                </div>
+              </div>
+            </article>
+
+            <article class="acts-card" data-acts-cat="zakat" data-total="12000" data-support="8616">
+              <figure class="acts-card__media"><img src="assets/images/agenda/slide-8.webp" alt="Zakat & Sadaqah">
+              </figure>
+              <div class="acts-card__body">
+                <h3 class="acts-card__title">Zakat &amp; Sadaqah</h3>
+                <div class="acts-card__meta"><span>22 Donors</span><span>•</span><span><img class="acts-card__flag"
+                      src="assets/images/flags/ps.webp" alt="">Palestine</span><span
+                    class="acts-card__pct text-primary">%0.0</span></div>
+                <div class="acts-card__meter" role="progressbar" aria-valuenow="0"><span class="acts-card__bar"></span>
+                </div>
+                <dl class="acts-card__stats">
+                  <div>
+                    <dt>Required Fund</dt>
+                    <dd class="js-required">—</dd>
+                  </div>
+                  <div>
+                    <dt>Support</dt>
+                    <dd class="js-support">—</dd>
+                  </div>
+                  <div>
+                    <dt>Remaining</dt>
+                    <dd class="js-remaining">—</dd>
+                  </div>
+                </dl>
+                <div class="acts-card__actions"><a href="#" class="btn btn--primary btn--pill"><i
+                      class="fa-solid fa-hand-holding-heart"></i><span>DONATE</span></a>
+                  <div class="acts-card__icons"><button class="btn btn--ghost"><i
+                        class="fa-regular fa-heart"></i></button><button class="btn btn--ghost"><i
+                        class="fa-solid fa-share-nodes"></i></button><button class="btn btn--ghost"><i
+                        class="fa-solid fa-cart-shopping"></i></button></div>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Pagination -->
+          <nav class="acts__pager" aria-label="Pagination">
+            <button class="pager__btn" data-act="prev" aria-label="Previous page"><i
+                class="fa-solid fa-chevron-left"></i></button>
+            <ul class="pager__list" id="actsPages" role="list"></ul>
+            <button class="pager__btn" data-act="next" aria-label="Next page"><i
+                class="fa-solid fa-chevron-right"></i></button>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <!-- ضمان إخفاء العناصر hidden حتى لو فيه CSS تاني -->
+    <style>
+      [hidden] {
+        display: none !important
+      }
+    </style>
+
+    <script>
+      /* =========================================================================
+         Activities Tabs (Scoped, No Conflicts) 
+         - يعتمد فقط على هذا السكشن عبر [data-acts-root]
+         ========================================================================= */
+      document.addEventListener('DOMContentLoaded', function initActivitiesTabs() {
+        const root = document.querySelector('[data-acts-root]');
+        if (!root) return;
+
+        const grid = root.querySelector('#actsGrid');
+        const tabs = Array.from(root.querySelectorAll('#actsTabs .acts__tab'));
+        const pages = root.querySelector('#actsPages');
+        const prev = root.querySelector('[data-act="prev"]');
+        const next = root.querySelector('[data-act="next"]');
+
+        const fmt = n => Number(n || 0).toLocaleString('en-US');
+        const clamp = (n, min, max) => Math.min(max, Math.max(min, n));
+
+        const state = {
+          cat: (tabs.find(t => t.classList.contains('is-active'))?.dataset.actsCat) || 'emergency',
+          page: 1,
+          perPage: 6   // عدّلها لو عايز عدد مختلف
+        };
+
+        // حساب البروجريس/الأرقام مرة واحدة
+        grid.querySelectorAll('.acts-card').forEach(card => {
+          const total = Number(card.dataset.total || 0);
+          const support = Number(card.dataset.support || 0);
+          const pct = total > 0 ? clamp((support / total) * 100, 0, 100) : 0;
+
+          const bar = card.querySelector('.acts-card__bar');
+          const meter = card.querySelector('.acts-card__meter');
+          const pctEl = card.querySelector('.acts-card__pct');
+          const req = card.querySelector('.js-required');
+          const sup = card.querySelector('.js-support');
+          const rem = card.querySelector('.js-remaining');
+
+          if (bar) requestAnimationFrame(() => bar.style.inlineSize = pct.toFixed(1) + '%');
+          if (meter) meter.setAttribute('aria-valuenow', pct.toFixed(1));
+          if (pctEl) pctEl.textContent = `%${pct.toFixed(1)}`;
+          if (req) req.textContent = `${fmt(total)} $`;
+          if (sup) sup.textContent = `${fmt(support)} $`;
+          if (rem) rem.textContent = `${fmt(Math.max(0, total - support))} $`;
+        });
+
+        const getByCat = cat => Array.from(grid.querySelectorAll('.acts-card'))
+          .filter(c => (c.dataset.actsCat || '').toLowerCase() === cat.toLowerCase());
+
+        function render() {
+          // أخفي كل الكروت أولاً (داخل نفس السكشن فقط)
+          grid.querySelectorAll('.acts-card').forEach(c => c.hidden = true);
+
+          const list = getByCat(state.cat);
+          const pagesCount = Math.max(1, Math.ceil(list.length / state.perPage));
+          state.page = clamp(state.page, 1, pagesCount);
+
+          const start = (state.page - 1) * state.perPage;
+          list.slice(start, start + state.perPage).forEach(c => c.hidden = false);
+
+          // بناء أزرار الصفحات
+          pages.innerHTML = '';
+          for (let i = 1; i <= pagesCount; i++) {
+            const li = document.createElement('li');
+            const b = document.createElement('button');
+            b.className = 'pager__page';
+            b.textContent = i;
+            if (i === state.page) b.setAttribute('aria-current', 'page');
+            b.addEventListener('click', () => { state.page = i; render(); });
+            li.appendChild(b); pages.appendChild(li);
+          }
+          prev.disabled = state.page === 1;
+          next.disabled = state.page === pagesCount;
+        }
+
+        tabs.forEach(btn => {
+          btn.addEventListener('click', () => {
+            if (btn.dataset.actsCat === state.cat) return;
+            tabs.forEach(t => { t.classList.remove('is-active'); t.setAttribute('aria-selected', 'false'); });
+            btn.classList.add('is-active'); btn.setAttribute('aria-selected', 'true');
+            state.cat = btn.dataset.actsCat; state.page = 1; render();
+          });
+        });
+
+        prev.addEventListener('click', () => { if (state.page > 1) { state.page--; render(); } });
+        next.addEventListener('click', () => { state.page++; render(); });
+
+        render(); // أول تشغيل
+      });
+    </script>
 
 
+  </main>
 
-  <!-- ======================= Vendor JS → App JS ======================== -->
+  <!-- ========================= FOOTER ========================= -->
+  <section class="cta-footer" aria-label="Hope in action">
+    <div class="cta-footer__bg" aria-hidden="true"></div>
+
+    <div class="container">
+      <header class="cta-footer__head">
+        <div>
+          <h2 class="cta-footer__title h2">Hope in action</h2>
+          <p class="cta-footer__sub">
+            Together, we can rebuild lives and restore dignity.
+          </p>
+        </div>
+
+        <!-- Newsletter -->
+        <form class="cta-footer__form" action="#" method="post" aria-label="Subscribe to updates" novalidate>
+          <label class="visually-hidden" for="footerEmail">Email address</label>
+          <input id="footerEmail" name="email" type="email" placeholder="Email address" inputmode="email" />
+          <button class="cta-footer__send" aria-label="Send email">
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </form>
+      </header>
+
+      <div class="cta-footer__grid">
+        <!-- Mission -->
+        <section class="cta-footer__block" aria-labelledby="ft-mission">
+          <h3 id="ft-mission" class="cta-footer__eyebrow">Our Mission :</h3>
+          <p class="cta-footer__text">
+            We provide immediate and long-term support to war refugees, offering essential resources
+            like food, water, medical care, and shelter.
+          </p>
+
+          <div class="cta-footer__call">
+            <span class="cta-footer__call-ico" aria-hidden="true">
+              <i class="fa-solid fa-phone"></i>
+            </span>
+            <div class="cta-footer__call-body">
+              <span class="cta-footer__call-title">Call Us</span>
+              <a href="tel:+903423251030" class="cta-footer__call-link">+90 (342) 325 1030</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Activities -->
+        <nav class="cta-footer__block" aria-labelledby="ft-activities">
+          <h3 id="ft-activities" class="cta-footer__eyebrow">Activities:</h3>
+          <ul class="cta-footer__list cta-footer__list_main">
+            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Ramadan</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> General</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Health</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Emergency Aid</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Orphan</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Water Well</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Sacrifice</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Zakat Sadaqah</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> ÖŞÜR</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Winter Aid</a></li>
+          </ul>
+        </nav>
+
+        <!-- Contact -->
+        <nav class="cta-footer__block" aria-labelledby="ft-contact">
+          <h3 id="ft-contact" class="cta-footer__eyebrow">CONTACT:</h3>
+          <ul class="cta-footer__list cta-footer__list_main">
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Contact</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Project Suggestion Form</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Volunteer</a></li>
+
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Help Request Form</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Job Application Form</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> AUCTIONS</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> SMS / Mail cancellation Request Form</a></li>
+
+          </ul>
+        </nav>
+
+
+      </div>
+
+      <!-- Divider -->
+      <hr class="cta-footer__hr" />
+
+      <div class="cta-footer__bar">
+        <a href="/" class="cta-footer__brand">
+          <img src="assets/images/logo.svg" alt="Yedi Başak" width="128" height="36" />
+        </a>
+        <p class="cta-footer__copy">Copyright © <span id="footerYear"></span>, All Rights Reserved</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =================== Vendor JS → App JS =================== -->
   <script src="assets/js/swiper-bundle.min.js"></script>
   <script src="assets/js/lightbox.min.js"></script>
   <script src="assets/js/aos.js"></script>
-  <!-- Leaflet JS -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin></script>
-
-  <!-- =============================== App JS ============================== -->
   <script src="assets/js/app.js"></script>
 
-  <!--
-    JS CHECKLIST
-    - In app.js: init Swiper with reduced-motion guard, sync tabs (aria-pressed), offcanvas a11y.
-    - Ensure images exist: slide-1..8.(webp/jpg) to avoid CLS.
-    - Year auto-fill: document.getElementById('currentYear').textContent = new Date().getFullYear().toString();
-    - For SEO: include sitemap.xml + robots.txt in production.
-  -->
+  <!-- Small helper: year fill (only if not already handled in app.js) -->
+  <script>
+    document.getElementById('currentYear')?.replaceChildren(new Date().getFullYear());
+  </script>
 </body>
 
 </html>
