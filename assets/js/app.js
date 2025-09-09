@@ -667,5 +667,32 @@
 
     els.forEach(el => io.observe(el));
   })();
+  /* ============================
+     Donate left media slider
+     (scoped, no conflicts)
+     ============================ */
+  function initDonateShowcaseSlider() {
+    const el = document.querySelector('.donate-swiper');
+    if (!el || !window.Swiper) return null;
+
+    return new Swiper(el, {
+      speed: 600,
+      loop: false,
+      // احترم تفضيل تقليل الحركة
+      autoplay: (window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+        ? false
+        : { delay: 4500, disableOnInteraction: false },
+      slidesPerView: 1,
+      spaceBetween: 0,
+      a11y: { enabled: true },
+      pagination: { el: '.donate__pagination', clickable: true },
+      keyboard: { enabled: true }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    initDonateShowcaseSlider();
+  });
 
 })();

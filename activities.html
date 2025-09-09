@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+  <!-- =========================================================
+       THEME: Yedi Başak — Frontend (HTML Only)
+       FILE: index.html
+       PURPOSE: Clean, accessible, SEO-optimized landing page markup
+       NOTES:
+       - Comment style matches premium theme conventions.
+       - Keep exactly one <h1> (hero).
+       - ARIA + semantic landmarks for screen readers.
+       - Vendor CSS/JS kept local where possible for performance.
+       ========================================================= -->
+
+  <!-- ==================== Meta Essentials ==================== -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- ====================== Primary SEO ====================== -->
+  <title>Yedi Başak – Humanitarian Aid & Charity</title>
+  <meta name="description"
+    content="Yedi Başak supports families in need through emergency aid, water wells, health and orphan care. Donate or volunteer to make a real impact." />
+  <link rel="canonical" href="https://www.yedibasak.org/" />
+
+  <!-- ============== Open Graph / Twitter Cards ============== -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Yedi Başak" />
+  <meta property="og:title" content="Yedi Başak – Humanitarian Aid & Charity" />
+  <meta property="og:description"
+    content="Donate or volunteer to support emergency aid, water wells, health, and orphan care." />
+  <meta property="og:url" content="https://www.yedibasak.org/" />
+  <meta property="og:image" content="https://www.yedibasak.org/assets/images/og-cover.jpg" />
+  <meta property="og:image:alt" content="Yedi Başak delivering humanitarian aid" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Yedi Başak – Humanitarian Aid & Charity" />
+  <meta name="twitter:description" content="Join us: donate or volunteer today." />
+  <meta name="twitter:image" content="https://www.yedibasak.org/assets/images/og-cover.jpg" />
+
+  <!-- =================== Favicons / PWA Set =================== -->
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+
+  <!-- =============== Preload Critical Resources =============== -->
+  <!-- Fonts: variable, cross-origin is required for proper caching -->
+  <link rel="preload" href="assets/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <!-- Hero image: improves LCP on first slide -->
+  <link rel="preload" href="assets/images/slide-1.webp" as="image" />
+
+  <!-- ================= Vendor CSS → Theme CSS ================= -->
+  <link rel="stylesheet" href="assets/css/bootstrap-grid.min.css" />
+  <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="assets/css/lightbox.min.css" />
+  <link rel="stylesheet" href="assets/css/animate.min.css" />
+  <link rel="stylesheet" href="assets/css/aos.css" />
+  <link rel="stylesheet" href="assets/css/normalize.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- Font Awesome (local split builds) -->
+  <link rel="stylesheet" href="assets/css/fontawesome.min.css" />
+  <link rel="stylesheet" href="assets/css/solid.min.css" />
+  <link rel="stylesheet" href="assets/css/regular.min.css" />
+  <link rel="stylesheet" href="assets/css/brands.min.css" />
+
+  <!-- ==================== Structured Data ==================== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Yedi Başak",
+    "url": "https://www.yedibasak.org/",
+    "logo": "https://www.yedibasak.org/assets/images/logo.svg",
+    "sameAs": [
+      "https://www.facebook.com/yourpage",
+      "https://twitter.com/yourhandle",
+      "https://www.instagram.com/yourhandle/",
+      "https://www.youtube.com/@yourchannel"
+    ],
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "telephone": "+90-342-325-1030",
+      "contactType": "customer service",
+      "areaServed": "TR"
+    }]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://www.yedibasak.org/",
+    "name": "Yedi Başak",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.yedibasak.org/search?q={query}",
+      "query-input": "required name=query"
+    }
+  }
+  </script>
+
+  <!--
+    SEO CHECKLIST
+    - Keep a single <h1> on the page (hero title only).
+    - Provide meaningful alt text; decorative icons should be aria-hidden.
+    - Use descriptive link text (avoid generic "click here").
+    - Update canonical/OG URLs on deploy to production domain.
+  -->
+</head>
+
+<body>
+
+
+
+
+  <!-- ======================= Vendor JS → App JS ======================== -->
+  <script src="assets/js/swiper-bundle.min.js"></script>
+  <script src="assets/js/lightbox.min.js"></script>
+  <script src="assets/js/aos.js"></script>
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin></script>
+
+  <!-- =============================== App JS ============================== -->
+  <script src="assets/js/app.js"></script>
+
+  <!--
+    JS CHECKLIST
+    - In app.js: init Swiper with reduced-motion guard, sync tabs (aria-pressed), offcanvas a11y.
+    - Ensure images exist: slide-1..8.(webp/jpg) to avoid CLS.
+    - Year auto-fill: document.getElementById('currentYear').textContent = new Date().getFullYear().toString();
+    - For SEO: include sitemap.xml + robots.txt in production.
+  -->
+</body>
+
+</html>

@@ -2,17 +2,28 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <!-- ===== Meta essentials ===== -->
+  <!-- =========================================================
+       THEME: Yedi Başak — Frontend (HTML Only)
+       FILE: index.html
+       PURPOSE: Clean, accessible, SEO-optimized landing page markup
+       NOTES:
+       - Comment style matches premium theme conventions.
+       - Keep exactly one <h1> (hero).
+       - ARIA + semantic landmarks for screen readers.
+       - Vendor CSS/JS kept local where possible for performance.
+       ========================================================= -->
+
+  <!-- ==================== Meta Essentials ==================== -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- ===== Primary SEO ===== -->
+  <!-- ====================== Primary SEO ====================== -->
   <title>Yedi Başak – Humanitarian Aid & Charity</title>
   <meta name="description"
     content="Yedi Başak supports families in need through emergency aid, water wells, health and orphan care. Donate or volunteer to make a real impact." />
   <link rel="canonical" href="https://www.yedibasak.org/" />
 
-  <!-- ===== Open Graph / Twitter (social sharing) ===== -->
+  <!-- ============== Open Graph / Twitter Cards ============== -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Yedi Başak" />
   <meta property="og:title" content="Yedi Başak – Humanitarian Aid & Charity" />
@@ -26,17 +37,19 @@
   <meta name="twitter:description" content="Join us: donate or volunteer today." />
   <meta name="twitter:image" content="https://www.yedibasak.org/assets/images/og-cover.jpg" />
 
-  <!-- ===== Favicons / PWA (replace with your generated set) ===== -->
+  <!-- =================== Favicons / PWA Set =================== -->
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
   <link rel="manifest" href="site.webmanifest" />
 
-  <!-- ===== Preload critical assets (local only) ===== -->
+  <!-- =============== Preload Critical Resources =============== -->
+  <!-- Fonts: variable, cross-origin is required for proper caching -->
   <link rel="preload" href="assets/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <!-- Hero image: improves LCP on first slide -->
   <link rel="preload" href="assets/images/slide-1.webp" as="image" />
 
-  <!-- ===== CSS (vendor → theme) ===== -->
+  <!-- ================= Vendor CSS → Theme CSS ================= -->
   <link rel="stylesheet" href="assets/css/bootstrap-grid.min.css" />
   <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
   <link rel="stylesheet" href="assets/css/lightbox.min.css" />
@@ -44,15 +57,15 @@
   <link rel="stylesheet" href="assets/css/aos.css" />
   <link rel="stylesheet" href="assets/css/normalize.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css" />
-  <!-- Font Awesome (local) -->
+  <!-- Font Awesome (local split builds) -->
   <link rel="stylesheet" href="assets/css/fontawesome.min.css" />
   <link rel="stylesheet" href="assets/css/solid.min.css" />
   <link rel="stylesheet" href="assets/css/regular.min.css" />
   <link rel="stylesheet" href="assets/css/brands.min.css" />
 
-  <!-- ===== Structured Data (JSON-LD) ===== -->
+  <!-- ==================== Structured Data ==================== -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -89,29 +102,31 @@
   </script>
 
   <!--
-    SEO NOTES:
-    - Keep a single <h1> on the page (hero title).
-    - Use meaningful alt text for images; decorative icons remain aria-hidden.
-    - Use descriptive link text (avoid “click here”).
-    - Update canonical/OG URLs when deploying.
+    SEO CHECKLIST
+    - Keep a single <h1> on the page (hero title only).
+    - Provide meaningful alt text; decorative icons should be aria-hidden.
+    - Use descriptive link text (avoid generic "click here").
+    - Update canonical/OG URLs on deploy to production domain.
   -->
 </head>
 
 <body>
-  <!-- Skip link improves keyboard/screen reader navigation -->
+  <!-- ===================== Accessibility ====================== -->
+  <!-- Skip link: uncomment if using keyboard focus rings -->
   <!-- <a class="visually-hidden" href="#main">Skip to main content</a> -->
 
-  <!-- ===========================
+  <!-- =========================================================
        HEADER
-       - Topbar: contact + quick links
+       - Topbar: contact + utility links
        - Mainbar: brand + primary nav + actions
        - Offcanvas: mobile navigation panel
-       =========================== -->
+       ========================================================= -->
   <header class="site-header" role="banner">
+    <!-- ===== Topbar ===== -->
     <div class="topbar">
       <div class="container">
         <div class="topbar__left">
-          <!-- Tel links are tap-to-call on mobile -->
+          <!-- Tel links: tap-to-call on mobile -->
           <a class="toplink" href="tel:+903423251030" title="Call: +90 342 325 1030">
             <i class="fa-solid fa-phone" aria-hidden="true"></i>
             <span class="toplink__label">Tel: +90 342 325 1030</span>
@@ -139,9 +154,10 @@
       </div>
     </div>
 
+    <!-- ===== Mainbar ===== -->
     <div class="mainbar" role="navigation" aria-label="Main header">
       <div class="container mainbar__row">
-        <!-- Brand: use an SVG for best sharpness -->
+        <!-- Brand: prefer SVG for sharpness -->
         <a class="brand" href="/" aria-label="Homepage">
           <img src="assets/images/logo.svg" alt="Yedi Başak Logo" width="140" height="36" />
         </a>
@@ -203,7 +219,7 @@
       </div>
     </div>
 
-    <!-- Offcanvas (mobile nav). Hidden by default, opened via JS. -->
+    <!-- ===== Offcanvas (mobile) ===== -->
     <aside id="offcanvas" class="offcanvas" hidden aria-label="Mobile menu">
       <div class="offcanvas__header">
         <span>Menu</span>
@@ -247,12 +263,13 @@
     <div class="offcanvas__overlay" hidden></div>
   </header>
 
-  <!-- ===========================
+  <!-- =========================================================
        MAIN
        - Hero slider: Swiper + 8 category tabs (synced)
        - Keep one <h1> in hero for homepage SEO
-       =========================== -->
+       ========================================================= -->
   <main id="main">
+    <!-- ========================= Hero ========================= -->
     <section class="hero hero--slider" aria-label="Campaign highlights">
       <div class="container-fluid">
         <div class="hero__inner">
@@ -409,7 +426,7 @@
             </button>
           </div>
 
-          <!-- Category tabs -->
+          <!-- Category tabs: synced with hero slides via data-slide -->
           <nav class="hero__tabs" aria-label="Campaign categories">
             <button class="hero-tab" data-slide="0" aria-controls="hero-slide-0" aria-pressed="true">
               <i class="fa-solid fa-truck-medical" aria-hidden="true"></i><span>Emergency Aid</span>
@@ -440,6 +457,7 @@
       </div>
     </section>
 
+    <!-- ======================== Agenda ======================== -->
     <section class="agenda" aria-label="Agenda campaigns">
       <div class="container">
         <div class="main__header agenda__header">
@@ -449,7 +467,7 @@
           </a>
         </div>
 
-        <!-- Swiper -->
+        <!-- Swiper: Agenda cards -->
         <div class="agenda__swiper swiper" aria-roledescription="carousel">
           <div class="swiper-wrapper">
 
@@ -895,8 +913,7 @@
       </div>
     </section>
 
-
-
+    <!-- ====================== Donations by Country ====================== -->
     <section class="donations" aria-label="Donation campaigns by country">
       <div class="container">
         <div class="main__header donations__header">
@@ -909,13 +926,13 @@
         </div>
 
         <div class="donations__grid">
-          <!-- LEFT: Interactive Map -->
+          <!-- LEFT: Interactive Map (Leaflet mounts here) -->
           <div class="donations__map" aria-label="World map">
             <div id="countriesControlMount" aria-hidden="true"></div>
             <div id="map" role="img" aria-label="Interactive world map"></div>
           </div>
 
-          <!-- RIGHT: Panel -->
+          <!-- RIGHT: Dynamic Panel (populated via JS) -->
           <div class="donations__panel">
             <div class="donations__panel-head">
               <div class="donations__country">
@@ -932,7 +949,7 @@
         </div>
       </div>
 
-      <!-- Card template -->
+      <!-- Card template (cloned in JS) -->
       <template id="donationCardTpl">
         <article class="donation-card">
           <figure class="donation-card__media">
@@ -1000,7 +1017,7 @@
       </template>
     </section>
 
-
+    <!-- ======================== Impact (Carousel) ======================== -->
     <section class="impact" aria-label="Featured causes">
       <div class="container">
         <div class="impact__swiper swiper" aria-roledescription="carousel">
@@ -1066,13 +1083,13 @@
 
           </div>
 
-          <!-- pagination -->
+          <!-- Pagination bullets -->
           <div class="impact__pagination swiper-pagination" aria-label="Slide pagination"></div>
         </div>
       </div>
     </section>
 
-
+    <!-- ========================= Sponsor a Child ========================= -->
     <section class="sponsor" aria-label="Sponsor a child">
       <div class="container">
         <header class="sponsor__header">
@@ -1080,7 +1097,7 @@
         </header>
 
         <div class="sponsor__grid">
-          <!-- Left column -->
+          <!-- Left column (items) -->
           <div class="sponsor__list" id="sponsorListLeft" aria-label="Items left side"></div>
 
           <!-- Avatar (center) -->
@@ -1089,7 +1106,7 @@
             <img class="avatar__layer is-base" src="assets/images/sponsor/avatar/base.png" alt="Child avatar base"
               decoding="async">
 
-            <!-- Layers (start hidden). Replace with your assets -->
+            <!-- Layers (hidden by default; toggled in JS) -->
             <img class="avatar__layer" data-layer="clothes-basic" src="assets/images/sponsor/avatar/clothes/basic.svg"
               alt="" aria-hidden="true">
             <img class="avatar__layer" data-layer="clothes-jacket" src="assets/images/sponsor/avatar/clothes/jacket.svg"
@@ -1102,7 +1119,7 @@
               aria-hidden="true">
           </div>
 
-          <!-- Right column -->
+          <!-- Right column (items) -->
           <div class="sponsor__list" id="sponsorListRight" aria-label="Items right side"></div>
         </div>
 
@@ -1120,7 +1137,7 @@
         </footer>
       </div>
 
-      <!-- Item template -->
+      <!-- Item template (JS will clone) -->
       <template id="sponsorItemTpl">
         <article class="sponsor-item">
           <figure class="sponsor-item__media"><img alt="" loading="lazy" decoding="async"></figure>
@@ -1137,157 +1154,20 @@
         </article>
       </template>
     </section>
-    <script>
-      (() => {
-        "use strict";
 
-        /* -------------------- Utilities -------------------- */
-        const qs = (s, r = document) => r.querySelector(s);
-        const qsa = (s, r = document) => [...r.querySelectorAll(s)];
-        const fmt = (n) => `$${Number(n || 0).toLocaleString('en-US')}`;
-
-        /* -------------------- Catalog -------------------- */
-        // Each item defines: id, title, price, image (for card), layers mapping (avatar layers to toggle / choose)
-        const CATALOG = [
-          {
-            id: 'clothes',
-            title: 'clothes',
-            price: 5,
-            image: 'assets/images/sponsor/items/clothes.png',
-            layers: [
-              { layer: 'clothes-basic', threshold: 1 },   // >=1 show basic
-              { layer: 'clothes-jacket', threshold: 2 }   // >=2 upgrade to jacket
-            ]
-          },
-          {
-            id: 'bag',
-            title: 'School Bag',
-            price: 5,
-            image: 'assets/images/sponsor/items/bag.png',
-            layers: [{ layer: 'bag', threshold: 1 }]
-          },
-          {
-            id: 'books',
-            title: 'Books',
-            price: 5,
-            image: 'assets/images/sponsor/items/books.png',
-            layers: [{ layer: 'book', threshold: 1 }]
-          },
-          {
-            id: 'food',
-            title: 'Food',
-            price: 5,
-            image: 'assets/images/sponsor/items/food.png',
-            layers: [{ layer: 'food', threshold: 1 }]
-          }
-        ];
-
-        /* -------------------- State -------------------- */
-        const state = new Map(CATALOG.map(i => [i.id, 0]));
-        const totalEl = qs('#sponsorTotal');
-
-        /* -------------------- Render items -------------------- */
-        const tpl = qs('#sponsorItemTpl');
-        const leftMount = qs('#sponsorListLeft');
-        const rightMount = qs('#sponsorListRight');
-
-        const mid = Math.ceil(CATALOG.length / 2);
-        const columns = [CATALOG.slice(0, mid), CATALOG.slice(mid)];
-
-        columns.forEach((col, idx) => {
-          const mount = idx === 0 ? leftMount : rightMount;
-          col.forEach(item => mount.appendChild(buildItem(item)));
-        });
-
-        function buildItem(item) {
-          const node = tpl.content.firstElementChild.cloneNode(true);
-          node.dataset.id = item.id;
-          node.querySelector('img').src = item.image;
-          node.querySelector('img').alt = item.title;
-          node.querySelector('.sponsor-item__title').textContent = item.title;
-          node.querySelector('.sponsor-item__price').textContent = `$${item.price}`;
-
-          const qty = node.querySelector('.ctrl__qty');
-          const plus = node.querySelector('.ctrl--plus');
-          const minus = node.querySelector('.ctrl--minus');
-
-          const updateQty = (delta) => {
-            const current = Math.max(0, (state.get(item.id) || 0) + delta);
-            state.set(item.id, current);
-            qty.textContent = String(current);
-            applyAvatarLayers();
-            updateTotal();
-          };
-
-          plus.addEventListener('click', () => updateQty(+1));
-          minus.addEventListener('click', () => updateQty(-1));
-          plus.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); updateQty(+1); } });
-          minus.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); updateQty(-1); } });
-
-          return node;
-        }
-
-        /* -------------------- Avatar layers logic -------------------- */
-        const layersIndex = new Map(qsa('.avatar__layer[data-layer]').map(el => [el.dataset.layer, el]));
-
-        function applyAvatarLayers() {
-          // Turn off all optional layers first
-          layersIndex.forEach(el => el.classList.remove('is-on'));
-
-          // For each catalog item, decide which layer(s) should be on based on quantity and thresholds
-          CATALOG.forEach(item => {
-            const qty = state.get(item.id) || 0;
-            // If multiple thresholds exist, prefer the highest threshold satisfied (upgrades)
-            const eligible = item.layers
-              .filter(L => qty >= L.threshold)
-              .sort((a, b) => b.threshold - a.threshold)[0];
-
-            if (eligible) {
-              const el = layersIndex.get(eligible.layer);
-              if (el) el.classList.add('is-on');
-            }
-          });
-        }
-
-        /* -------------------- Totals -------------------- */
-        function updateTotal() {
-          let total = 0;
-          CATALOG.forEach(i => total += (state.get(i.id) || 0) * i.price);
-          totalEl.textContent = fmt(total);
-        }
-
-        /* -------------------- CTA handlers -------------------- */
-        qs('#sponsorDonate').addEventListener('click', (e) => {
-          e.preventDefault();
-          const payload = CATALOG.map(i => ({ id: i.id, qty: state.get(i.id) || 0, price: i.price }))
-            .filter(x => x.qty > 0);
-          console.log('Donate payload', payload);
-          // Integrate with your cart/checkout here
-        });
-        qs('#sponsorCart').addEventListener('click', () => {
-          // Example visual feedback
-          qs('#sponsorCart').classList.add('is-bounce');
-          setTimeout(() => qs('#sponsorCart').classList.remove('is-bounce'), 350);
-        });
-
-        /* -------------------- Init -------------------- */
-        applyAvatarLayers();
-        updateTotal();
-      })();
-    </script>
-
+    <!-- ========================= Media / Stories ========================= -->
     <section class="media" aria-label="Latest media and stories">
       <div class="container">
         <div class="media__grid" itemscope itemtype="https://schema.org/Blog">
-          <!-- Column 1: copy + single card -->
+          <!-- Column 1: lead copy + primary card -->
           <div class="media__col media__col--lead">
             <header class="media__header">
               <span class="badge badge--soft">MEDIA</span>
               <h2 class="h2">By you It’s happened</h2>
               <p class="media__sub">
                 We are dedicated to creating a brighter future for those in need. Through collective effort and
-                unwavering compassion, we connect people to meaningful causes. Together, we create a lifeline for
-                those who need it most.
+                unwavering compassion, we connect people to meaningful causes. Together, we create a lifeline for those
+                who need it most.
               </p>
             </header>
 
@@ -1299,18 +1179,15 @@
                   <span class="media-card__badge">News from us</span>
                 </figure>
                 <div class="media-card__meta-body">
-                  <h3 class="media-card__title" itemprop="headline">
-                    Young Couple from Batman Shared Wedding Table with Gaza
-                  </h3>
+                  <h3 class="media-card__title" itemprop="headline">Young Couple from Batman Shared Wedding Table with
+                    Gaza</h3>
                   <div class="media-card__meta">
                     <time class="media-card__date" datetime="2025-07-05" itemprop="datePublished">
                       <i class="fa-regular fa-calendar" aria-hidden="true"></i> 05 July 2025
                     </time>
                   </div>
-
                   <meta itemprop="author" content="Yedi Başak">
                 </div>
-
               </a>
             </article>
           </div>
@@ -1410,6 +1287,7 @@
       </div>
     </section>
 
+    <!-- ======================= Impact Stats / Benefits ======================= -->
     <section class="impact-stats" aria-label="How donations make impact">
       <div class="container">
         <div class="impact-stats__grid">
@@ -1433,7 +1311,7 @@
             </div>
           </aside>
 
-          <!-- Col 2: Center image card -->
+          <!-- Col 2: Center image card (with subtle overlay handled in CSS) -->
           <figure class="impact-stats__feature" itemscope itemtype="https://schema.org/ImageObject">
             <img src="assets/images/impact/feature-children.webp" alt="Children walking through muddy ground near tents"
               loading="lazy" decoding="async" itemprop="contentUrl">
@@ -1478,14 +1356,12 @@
               </li>
               <li class="benefit" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                 <div class="benefit__icon benefit__icon--teal">
-
                   <i class=" fa-solid fa-check" aria-hidden="true"></i>
                 </div>
                 <div class="benefit__body">
                   <span class="benefit__title" itemprop="name">Faith Communion</span>
                   <p class="benefit__text" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                    <span itemprop="text">Our spotlight cause this month focuses on providing essential aid to
-                      refugees
+                    <span itemprop="text">Our spotlight cause this month focuses on providing essential aid to refugees
                       worldwide.</span>
                   </p>
                 </div>
@@ -1496,34 +1372,490 @@
       </div>
     </section>
 
+    <!-- =========================
+     DONATION HIGHLIGHT (left slider)
+     - Left: media slider (Swiper)
+     - Right: copy + KPI + CTA
+     ========================= -->
+    <section class="donate" aria-label="Make an impact">
+      <div class="container donate__grid">
+        <!-- LEFT: Media slider (independent instance) -->
+        <div class="donate__media">
+          <div class="donate-swiper swiper" aria-roledescription="carousel">
+            <div class="swiper-wrapper">
+              <!-- Slide 1 -->
+              <div class="swiper-slide donate__slide">
+                <img src="assets/images/media/01.webp" alt="Volunteers preparing food parcels">
+                <div class="donate__quote-caption" aria-hidden="true">
+                  <p>Every act of kindness. no matter how small, carries the power in humanity.</p>
+                </div>
+              </div>
+              <!-- Slide 2 -->
+              <div class="swiper-slide donate__slide">
+                <img src="assets/images/media/02.webp" alt="Donation boxes being prepared">
+                <div class="donate__quote-caption" aria-hidden="true">
+                  <p>Every act of kindness. no matter how small, carries the power in humanity.</p>
+                </div>
+              </div>
+              <!-- Slide 3 -->
+              <div class="swiper-slide donate__slide">
+                <img src="assets/images/media/03.webp" alt="Delivering aid to families">
+                <div class="donate__quote-caption" aria-hidden="true">
+                  <p>Every act of kindness. no matter how small, carries the power in humanity.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Local pagination (scoped) -->
+            <div class="donate__pagination swiper-pagination" aria-label="Slide pagination"></div>
+          </div>
+
+          <!-- Floating quote card -->
+          <figure class="donate__quote card" aria-hidden="false">
+            <figcaption class="donate__quote-text">
+              Every act of kindness, no matter how small, carries the power in humanity.
+            </figcaption>
+          </figure>
+        </div>
+        <div class="donate__content-center">
+          <div class="donate__kpi">
+            <div class="donate__kpi-num">56+</div>
+            <div class="donate__kpi-sub">Make an Impact</div>
+          </div>
+          <div class="donate__icon" aria-hidden="true">
+            <!-- decorative icon (fontawesome already loaded) -->
+            <img src="assets/icons/donate online.svg" alt="" aria-hidden="true">
+          </div>
+          <img src="assets/images/donate/01.webp" alt="Volunteers preparing aid boxes" loading="lazy" decoding="async"
+            class="donate__center-image">
+        </div>
+
+        <!-- RIGHT: Content -->
+        <div class="donate__content">
+
+
+
+          <div class="donate__eyebrow">
+            <span class="dot"></span> <span>Make an Impact</span>
+          </div>
+
+          <h2 class="donate__title h2">
+            Your Donation Can <span class="accent">Save Lives</span>
+          </h2>
+
+          <p class="donate__lead text-muted">
+            Every contribution makes a difference. Every contribution counts in creating a better world.
+            Your donation empowers change, bringing hope to those in need and driving meaningful solutions to global
+            challenges.
+          </p>
+
+          <a href="#" class="btn btn--primary btn--pill donate__cta">
+            <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i>
+            <span>Start Helping</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+     STORY SPOTLIGHT (full-width hero)
+     ========================= -->
+    <section class="story" aria-label="Story spotlight">
+      <!-- Background media (decorative) -->
+      <figure class="story__media" aria-hidden="true">
+        <picture>
+          <!-- <source type="image/avif" srcset="assets/images/story/teacher.avif"> -->
+          <source type="image/webp" srcset="assets/images/media/06.webp">
+          <img src="assets/images/media/6.webp" alt="" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+
+      <!-- Content -->
+      <div class="container story__content">
+        <img src="assets/icons/help.svg" class="story__icon" aria-hidden="true" alt="">
+        <div class="story__eyebrow">
+          <span>WHAT’S THE STORY?</span>
+        </div>
+
+        <h2 class="story__title h1">Yemeni Teacher</h2>
+
+        <p class="story__lead text-muted--on-dark">
+          In the Taiz Region of Yemen, Yemeni teacher Adil SERCI’s house is in front of
+          700 students in rows and can’t wait to go home and get education.
+        </p>
+
+        <a href="#" class="btn btn--primary btn--pill story__cta">
+          <span>Read the story</span>
+        </a>
+      </div>
+    </section>
+
+
+    <!-- =========================
+     DONOR OPINIONS (overlapped cards, no slider)
+     ========================= -->
+    <section class="testi" aria-label="Donor opinions">
+      <div class="container">
+        <header class="testi__header">
+          <h2 class="h2 testi__title">Donor opinions</h2>
+          <p class="testi__sub">
+            What they said about us… Real experiences from hearts that donated with confidence
+          </p>
+        </header>
+
+        <!-- Track of overlapping cards -->
+        <div class="testi__track" role="list">
+          <!-- Intro/CTA card (optional) -->
+          <article class="testi-card testi-card--intro" role="listitem" tabindex="0" aria-label="Share your story">
+            <div class="testi-intro">
+              <span class="testi-intro__title">Say what donors say</span>
+              <a href="#" class="btn btn--pill btn--primary testi-intro__cta">Share yours</a>
+            </div>
+          </article>
+
+          <!-- Card -->
+          <article class="testi-card" role="listitem" tabindex="0">
+            <header class="testi-card__head">
+              <i class="fa-regular fa-calendar"></i>
+              <time datetime="2025-07-05">05 July 2025</time>
+            </header>
+            <p class="testi-card__text">
+              I am happy that I was able to contribute to supporting families in need. May God reward you for your
+              efforts.
+            </p>
+            <footer class="testi-card__foot">
+              <img class="testi-card__avatar" src="assets/images/avatars/01.png" alt="" />
+              <div>
+                <strong class="testi-card__name">Ahmed Muhammed</strong>
+                <span class="testi-card__role">Donor</span>
+              </div>
+            </footer>
+          </article>
+
+          <article class="testi-card" role="listitem" tabindex="0">
+            <header class="testi-card__head">
+              <i class="fa-regular fa-calendar"></i>
+              <time datetime="2025-07-05">05 July 2025</time>
+            </header>
+            <p class="testi-card__text">
+              Transparent, quick, and impactful. I felt my donation reached the right people.
+            </p>
+            <footer class="testi-card__foot">
+              <img class="testi-card__avatar" src="assets/images/avatars/02.png" alt="" />
+              <div>
+                <strong class="testi-card__name">Sara Ali</strong>
+                <span class="testi-card__role">Donor</span>
+              </div>
+            </footer>
+          </article>
+
+          <article class="testi-card" role="listitem" tabindex="0">
+            <header class="testi-card__head">
+              <i class="fa-regular fa-calendar"></i>
+              <time datetime="2025-06-20">20 June 2025</time>
+            </header>
+            <p class="testi-card__text">
+              Great initiatives and professional team. Happy to keep supporting monthly.
+            </p>
+            <footer class="testi-card__foot">
+              <img class="testi-card__avatar" src="assets/images/avatars/03.png" alt="" />
+              <div>
+                <strong class="testi-card__name">Khaled N.</strong>
+                <span class="testi-card__role">Donor</span>
+              </div>
+            </footer>
+          </article>
+          <article class="testi-card" role="listitem" tabindex="0">
+            <header class="testi-card__head">
+              <i class="fa-regular fa-calendar"></i>
+              <time datetime="2025-06-10">10 June 2025</time>
+            </header>
+            <p class="testi-card__text">
+              Easy donation flow and clear reporting. Highly recommended.
+            </p>
+            <footer class="testi-card__foot">
+              <img class="testi-card__avatar" src="assets/images/avatars/04.png" alt="" />
+              <div>
+                <strong class="testi-card__name">Omar Y.</strong>
+                <span class="testi-card__role">Donor</span>
+              </div>
+            </footer>
+          </article>
+          <article class="testi-card" role="listitem" tabindex="0">
+            <header class="testi-card__head">
+              <i class="fa-regular fa-calendar"></i>
+              <time datetime="2025-06-10">10 June 2025</time>
+            </header>
+            <p class="testi-card__text">
+              Easy donation flow and clear reporting. Highly recommended.
+            </p>
+            <footer class="testi-card__foot">
+              <img class="testi-card__avatar" src="assets/images/avatars/04.png" alt="" />
+              <div>
+                <strong class="testi-card__name">Omar Y.</strong>
+                <span class="testi-card__role">Donor</span>
+              </div>
+            </footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
 
   </main>
 
-  <!-- ===========================
-       FOOTER
-       =========================== -->
-  <footer class="site-footer">
+  <!-- =========================================
+     FOOTER – Hero-style (Hope in action)
+     ========================================= -->
+  <section class="cta-footer" aria-label="Hope in action">
+    <div class="cta-footer__bg" aria-hidden="true"></div>
+
     <div class="container">
-      <p>&copy; <span id="currentYear"></span> Yedi Başak — All rights reserved.</p>
+      <header class="cta-footer__head">
+        <div>
+          <h2 class="cta-footer__title h2">Hope in action</h2>
+          <p class="cta-footer__sub">
+            Together, we can rebuild lives and restore dignity.
+          </p>
+        </div>
+
+        <!-- Newsletter -->
+        <form class="cta-footer__form" action="#" method="post" aria-label="Subscribe to updates" novalidate>
+          <label class="visually-hidden" for="footerEmail">Email address</label>
+          <input id="footerEmail" name="email" type="email" placeholder="Email address" inputmode="email" />
+          <button class="cta-footer__send" aria-label="Send email">
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </form>
+      </header>
+
+      <div class="cta-footer__grid">
+        <!-- Mission -->
+        <section class="cta-footer__block" aria-labelledby="ft-mission">
+          <h3 id="ft-mission" class="cta-footer__eyebrow">Our Mission :</h3>
+          <p class="cta-footer__text">
+            We provide immediate and long-term support to war refugees, offering essential resources
+            like food, water, medical care, and shelter.
+          </p>
+
+          <div class="cta-footer__call">
+            <span class="cta-footer__call-ico" aria-hidden="true">
+              <i class="fa-solid fa-phone"></i>
+            </span>
+            <div class="cta-footer__call-body">
+              <span class="cta-footer__call-title">Call Us</span>
+              <a href="tel:+903423251030" class="cta-footer__call-link">+90 (342) 325 1030</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Activities -->
+        <nav class="cta-footer__block" aria-labelledby="ft-activities">
+          <h3 id="ft-activities" class="cta-footer__eyebrow">Activities:</h3>
+          <ul class="cta-footer__list cta-footer__list_main">
+            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Ramadan</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> General</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Health</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Emergency Aid</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Orphan</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Water Well</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Sacrifice</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Zakat Sadaqah</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> ÖŞÜR</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Winter Aid</a></li>
+          </ul>
+        </nav>
+
+        <!-- Contact -->
+        <nav class="cta-footer__block" aria-labelledby="ft-contact">
+          <h3 id="ft-contact" class="cta-footer__eyebrow">CONTACT:</h3>
+          <ul class="cta-footer__list cta-footer__list_main">
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Contact</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Project Suggestion Form</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Volunteer</a></li>
+
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Help Request Form</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Job Application Form</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> AUCTIONS</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> SMS / Mail cancellation Request Form</a></li>
+
+          </ul>
+        </nav>
+
+
+      </div>
+
+      <!-- Divider -->
+      <hr class="cta-footer__hr" />
+
+      <div class="cta-footer__bar">
+        <a href="/" class="cta-footer__brand">
+          <img src="assets/images/logo.svg" alt="Yedi Başak" width="128" height="36" />
+        </a>
+        <p class="cta-footer__copy">Copyright © <span id="footerYear"></span>, All Rights Reserved</p>
+      </div>
     </div>
-  </footer>
+  </section>
 
-  <!-- ===== JS (vendor → app). Keep local only. ===== -->
 
+
+
+  <script>
+    (() => {
+      "use strict";
+
+      /* -------------------- Utilities -------------------- */
+      const qs = (s, r = document) => r.querySelector(s);
+      const qsa = (s, r = document) => [...r.querySelectorAll(s)];
+      const fmt = (n) => `$${Number(n || 0).toLocaleString('en-US')}`;
+
+      /* -------------------- Catalog -------------------- */
+      // Each item defines: id, title, price, image (for card), layers mapping (avatar layers to toggle / choose)
+      const CATALOG = [
+        {
+          id: 'clothes',
+          title: 'clothes',
+          price: 5,
+          image: 'assets/images/sponsor/items/clothes.png',
+          layers: [
+            { layer: 'clothes-basic', threshold: 1 },   // >=1 show basic
+            { layer: 'clothes-jacket', threshold: 2 }   // >=2 upgrade to jacket
+          ]
+        },
+        {
+          id: 'bag',
+          title: 'School Bag',
+          price: 5,
+          image: 'assets/images/sponsor/items/bag.png',
+          layers: [{ layer: 'bag', threshold: 1 }]
+        },
+        {
+          id: 'books',
+          title: 'Books',
+          price: 5,
+          image: 'assets/images/sponsor/items/books.png',
+          layers: [{ layer: 'book', threshold: 1 }]
+        },
+        {
+          id: 'food',
+          title: 'Food',
+          price: 5,
+          image: 'assets/images/sponsor/items/food.png',
+          layers: [{ layer: 'food', threshold: 1 }]
+        }
+      ];
+
+      /* -------------------- State -------------------- */
+      const state = new Map(CATALOG.map(i => [i.id, 0]));
+      const totalEl = qs('#sponsorTotal');
+
+      /* -------------------- Render items -------------------- */
+      const tpl = qs('#sponsorItemTpl');
+      const leftMount = qs('#sponsorListLeft');
+      const rightMount = qs('#sponsorListRight');
+
+      const mid = Math.ceil(CATALOG.length / 2);
+      const columns = [CATALOG.slice(0, mid), CATALOG.slice(mid)];
+
+      columns.forEach((col, idx) => {
+        const mount = idx === 0 ? leftMount : rightMount;
+        col.forEach(item => mount.appendChild(buildItem(item)));
+      });
+
+      function buildItem(item) {
+        const node = tpl.content.firstElementChild.cloneNode(true);
+        node.dataset.id = item.id;
+        node.querySelector('img').src = item.image;
+        node.querySelector('img').alt = item.title;
+        node.querySelector('.sponsor-item__title').textContent = item.title;
+        node.querySelector('.sponsor-item__price').textContent = `$${item.price}`;
+
+        const qty = node.querySelector('.ctrl__qty');
+        const plus = node.querySelector('.ctrl--plus');
+        const minus = node.querySelector('.ctrl--minus');
+
+        const updateQty = (delta) => {
+          const current = Math.max(0, (state.get(item.id) || 0) + delta);
+          state.set(item.id, current);
+          qty.textContent = String(current);
+          applyAvatarLayers();
+          updateTotal();
+        };
+
+        plus.addEventListener('click', () => updateQty(+1));
+        minus.addEventListener('click', () => updateQty(-1));
+        plus.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); updateQty(+1); } });
+        minus.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); updateQty(-1); } });
+
+        return node;
+      }
+
+      /* -------------------- Avatar layers logic -------------------- */
+      const layersIndex = new Map(qsa('.avatar__layer[data-layer]').map(el => [el.dataset.layer, el]));
+
+      function applyAvatarLayers() {
+        // Turn off all optional layers first
+        layersIndex.forEach(el => el.classList.remove('is-on'));
+
+        // For each catalog item, decide which layer(s) should be on based on quantity and thresholds
+        CATALOG.forEach(item => {
+          const qty = state.get(item.id) || 0;
+          // If multiple thresholds exist, prefer the highest threshold satisfied (upgrades)
+          const eligible = item.layers
+            .filter(L => qty >= L.threshold)
+            .sort((a, b) => b.threshold - a.threshold)[0];
+
+          if (eligible) {
+            const el = layersIndex.get(eligible.layer);
+            if (el) el.classList.add('is-on');
+          }
+        });
+      }
+
+      /* -------------------- Totals -------------------- */
+      function updateTotal() {
+        let total = 0;
+        CATALOG.forEach(i => total += (state.get(i.id) || 0) * i.price);
+        totalEl.textContent = fmt(total);
+      }
+
+      /* -------------------- CTA handlers -------------------- */
+      qs('#sponsorDonate').addEventListener('click', (e) => {
+        e.preventDefault();
+        const payload = CATALOG.map(i => ({ id: i.id, qty: state.get(i.id) || 0, price: i.price }))
+          .filter(x => x.qty > 0);
+        console.log('Donate payload', payload);
+        // Integrate with your cart/checkout here
+      });
+      qs('#sponsorCart').addEventListener('click', () => {
+        // Example visual feedback
+        qs('#sponsorCart').classList.add('is-bounce');
+        setTimeout(() => qs('#sponsorCart').classList.remove('is-bounce'), 350);
+      });
+
+      /* -------------------- Init -------------------- */
+      applyAvatarLayers();
+      updateTotal();
+    })();
+  </script>
+  <!-- ======================= Vendor JS → App JS ======================== -->
   <script src="assets/js/swiper-bundle.min.js"></script>
   <script src="assets/js/lightbox.min.js"></script>
   <script src="assets/js/aos.js"></script>
   <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin></script>
 
+  <!-- =============================== App JS ============================== -->
   <script src="assets/js/app.js"></script>
 
   <!--
-    JS NOTES:
-    - In app.js: init Swiper with reduced motion check, sync tabs (aria-pressed), and offcanvas a11y.
-    - Ensure images exist: slide-1..8.(webp/jpg) with given sizes to avoid CLS.
-    - For further SEO: add sitemap.xml + robots.txt on deploy.
+    JS CHECKLIST
+    - In app.js: init Swiper with reduced-motion guard, sync tabs (aria-pressed), offcanvas a11y.
+    - Ensure images exist: slide-1..8.(webp/jpg) to avoid CLS.
+    - Year auto-fill: document.getElementById('currentYear').textContent = new Date().getFullYear().toString();
+    - For SEO: include sitemap.xml + robots.txt in production.
   -->
 </body>
 
