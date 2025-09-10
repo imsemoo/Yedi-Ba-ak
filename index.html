@@ -122,11 +122,10 @@
        - Offcanvas: mobile navigation panel
        ========================================================= -->
   <header class="site-header" role="banner">
-    <!-- ===== Topbar ===== -->
+    <!-- Topbar -->
     <div class="topbar">
       <div class="container">
         <div class="topbar__left">
-          <!-- Tel links: tap-to-call on mobile -->
           <a class="toplink" href="tel:+903423251030" title="Call: +90 342 325 1030">
             <i class="fa-solid fa-phone" aria-hidden="true"></i>
             <span class="toplink__label">Tel: +90 342 325 1030</span>
@@ -138,15 +137,15 @@
         </div>
 
         <nav class="topbar__right" aria-label="Quick links">
-          <a class="toplink" href="#" title="Public Benefits status">
+          <a class="toplink" href="public-benefits.html" title="Public Benefits status">
             <i class="fa-solid fa-building-columns" aria-hidden="true"></i>
             <span class="toplink__label">Public Benefits status</span>
           </a>
-          <a class="toplink" href="#" title="Bank info">
+          <a class="toplink" href="bank-info.html" title="Bank info">
             <i class="fa-solid fa-credit-card" aria-hidden="true"></i>
             <span class="toplink__label">Bank info</span>
           </a>
-          <a class="toplink" href="#" title="Food Banking">
+          <a class="toplink" href="food-banking.html" title="Food Banking">
             <i class="fa-solid fa-house" aria-hidden="true"></i>
             <span class="toplink__label">Food Banking</span>
           </a>
@@ -154,62 +153,61 @@
       </div>
     </div>
 
-    <!-- ===== Mainbar ===== -->
+    <!-- Mainbar -->
     <div class="mainbar" role="navigation" aria-label="Main header">
       <div class="container mainbar__row">
-        <!-- Brand: prefer SVG for sharpness -->
-        <a class="brand" href="/" aria-label="Homepage">
+        <a class="brand" href="index.html" aria-label="Homepage">
           <img src="assets/images/logo.svg" alt="Yedi Başak Logo" width="140" height="36" />
         </a>
 
-        <!-- Mobile menu toggle -->
+        <!-- Mobile toggle -->
         <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-controls="offcanvas"
           aria-expanded="false">
           <i class="fa-solid fa-bars" aria-hidden="true"></i>
         </button>
 
-        <!-- Primary navigation (desktop) -->
+        <!-- Primary nav (desktop) -->
         <nav class="navbar" aria-label="Primary">
           <ul class="menu">
-            <li><a class="menu__link" href="/" aria-current="page">Home</a></li>
+            <li><a class="menu__link" href="index.html">Home</a></li>
 
             <li class="has-dropdown">
               <button class="menu__link dropdown-toggle" aria-haspopup="menu" aria-expanded="false">
                 Corporate <i class="fa-solid fa-chevron-down fa-sm" aria-hidden="true"></i>
               </button>
               <ul class="dropdown" role="menu">
-                <li><a role="menuitem" href="#">About Us</a></li>
-                <li><a role="menuitem" href="#">Board</a></li>
-                <li><a role="menuitem" href="#">Contact</a></li>
+                <li><a role="menuitem" href="about.html">About Us</a></li>
+                <li><a role="menuitem" href="board.html">Board</a></li>
+                <li><a role="menuitem" href="contact.html">Contact</a></li>
               </ul>
             </li>
 
-            <li><a class="menu__link" href="#">Our Activities</a></li>
+            <li><a class="menu__link" href="activities.html" aria-current="page">Our Activities</a></li>
 
             <li class="has-dropdown">
               <button class="menu__link dropdown-toggle" aria-haspopup="menu" aria-expanded="false">
                 Media <i class="fa-solid fa-chevron-down fa-sm" aria-hidden="true"></i>
               </button>
               <ul class="dropdown" role="menu">
-                <li><a role="menuitem" href="#">News</a></li>
-                <li><a role="menuitem" href="#">Gallery</a></li>
+                <li><a role="menuitem" href="news.html">News</a></li>
+                <li><a role="menuitem" href="gallery.html">Gallery</a></li>
               </ul>
             </li>
 
-            <li><a class="menu__link" href="#">Be Volunteer</a></li>
+            <li><a class="menu__link" href="volunteer.html">Be Volunteer</a></li>
           </ul>
         </nav>
 
-        <!-- Header actions: primary CTA + utilities -->
+        <!-- Header actions -->
         <div class="actions">
-          <a class="btn btn--pill btn--primary" href="#">
+          <a class="btn btn--pill btn--primary" href="donate.html">
             <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i>
             <span>Donate</span>
           </a>
-          <button class="btn btn--ghost" aria-label="Account">
+          <a class="btn btn--ghost" href="account.html" aria-label="Account">
             <i class="fa-solid fa-user" aria-hidden="true"></i>
-          </button>
-          <a class="btn btn--ghost" href="#" aria-label="Cart">
+          </a>
+          <a class="btn btn--ghost" href="cart.html" aria-label="Cart">
             <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
           </a>
           <button class="btn btn--ghost" aria-label="Language">
@@ -219,7 +217,7 @@
       </div>
     </div>
 
-    <!-- ===== Offcanvas (mobile) ===== -->
+    <!-- Offcanvas (mobile) -->
     <aside id="offcanvas" class="offcanvas" hidden aria-label="Mobile menu">
       <div class="offcanvas__header">
         <span>Menu</span>
@@ -229,32 +227,32 @@
       </div>
       <nav class="offcanvas__body" aria-label="Mobile primary">
         <ul class="offcanvas__menu">
-          <li><a href="/">Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li>
             <button class="collapse-toggle" aria-expanded="false">
               Corporate <i class="fa-solid fa-chevron-down fa-sm" aria-hidden="true"></i>
             </button>
             <ul class="collapse" hidden>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Board</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="board.html">Board</a></li>
+              <li><a href="contact.html">Contact</a></li>
             </ul>
           </li>
-          <li><a href="#">Our Activities</a></li>
+          <li><a href="activities.html" aria-current="page">Our Activities</a></li>
           <li>
             <button class="collapse-toggle" aria-expanded="false">
               Media <i class="fa-solid fa-chevron-down fa-sm" aria-hidden="true"></i>
             </button>
             <ul class="collapse" hidden>
-              <li><a href="#">News</a></li>
-              <li><a href="#">Gallery</a></li>
+              <li><a href="news.html">News</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
             </ul>
           </li>
-          <li><a href="#">Be Volunteer</a></li>
+          <li><a href="volunteer.html">Be Volunteer</a></li>
         </ul>
       </nav>
       <div class="offcanvas__footer">
-        <a class="btn btn--pill btn--primary" href="#">
+        <a class="btn btn--pill btn--primary" href="donate.html">
           <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i>
           <span>Donate</span>
         </a>

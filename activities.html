@@ -3,21 +3,24 @@
 
 <head>
   <!-- =========================================================
-       PAGE: Activities (Listing Shell Only)
+       PAGE: Activities (Listing Shell)
        THEME: Yedi Başak — Frontend (HTML Only)
-       ========================================================= -->
+       PURPOSE: Presents activities grouped by category with tabs,
+                paginated cards, and accessible UI controls.
+       NOTE:  CSS/JS are loaded in "vendor → theme → app" order.
+  ========================================================= -->
 
-  <!-- Meta essentials -->
+  <!-- ============== Meta ============== -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Primary SEO -->
+  <!-- ============== SEO ============== -->
   <title>Activities – Yedi Başak</title>
   <meta name="description"
     content="Explore Yedi Başak activities: Ramadan support, health, orphan care, water wells, emergency aid, and more." />
   <link rel="canonical" href="https://www.yedibasak.org/activities.html" />
 
-  <!-- Social -->
+  <!-- ============== Social (OG/Twitter) ============== -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Yedi Başak" />
   <meta property="og:title" content="Activities – Yedi Başak" />
@@ -27,15 +30,15 @@
   <meta property="og:image:alt" content="Yedi Başak delivering humanitarian aid" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Favicons -->
+  <!-- ============== Icons / Manifest ============== -->
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
   <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
   <link rel="manifest" href="site.webmanifest" />
 
-  <!-- Preloads (optional) -->
+  <!-- ============== Performance Hints (optional) ============== -->
   <link rel="preload" href="assets/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin>
 
-  <!-- CSS (vendor → theme) -->
+  <!-- ============== Styles: vendor → theme ============== -->
   <link rel="stylesheet" href="assets/css/bootstrap-grid.min.css" />
   <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
   <link rel="stylesheet" href="assets/css/lightbox.min.css" />
@@ -43,13 +46,13 @@
   <link rel="stylesheet" href="assets/css/aos.css" />
   <link rel="stylesheet" href="assets/css/normalize.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
-  <!-- Font Awesome (local) -->
+  <!-- Font Awesome (local split) -->
   <link rel="stylesheet" href="assets/css/fontawesome.min.css" />
   <link rel="stylesheet" href="assets/css/solid.min.css" />
   <link rel="stylesheet" href="assets/css/regular.min.css" />
   <link rel="stylesheet" href="assets/css/brands.min.css" />
 
-  <!-- Structured data (optional/compact) -->
+  <!-- ============== Structured Data (Breadcrumbs) ============== -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -63,10 +66,14 @@
 </head>
 
 <body>
-
-  <!-- ========================= HEADER ========================= -->
+  <!-- =========================================================
+       HEADER
+       - Topbar with quick contact links
+       - Sticky mainbar with brand, primary nav, actions
+       - Offcanvas for mobile navigation
+  ========================================================= -->
   <header class="site-header" role="banner">
-    <!-- Topbar -->
+    <!-- ===== Topbar (light utility strip) ===== -->
     <div class="topbar">
       <div class="container">
         <div class="topbar__left">
@@ -80,6 +87,7 @@
           </a>
         </div>
 
+        <!-- Shortcuts to important sections (as a nav for a11y) -->
         <nav class="topbar__right" aria-label="Quick links">
           <a class="toplink" href="public-benefits.html" title="Public Benefits status">
             <i class="fa-solid fa-building-columns" aria-hidden="true"></i>
@@ -97,24 +105,26 @@
       </div>
     </div>
 
-    <!-- Mainbar -->
+    <!-- ===== Mainbar (brand + primary navigation) ===== -->
     <div class="mainbar" role="navigation" aria-label="Main header">
       <div class="container mainbar__row">
+        <!-- Brand (home link) -->
         <a class="brand" href="index.html" aria-label="Homepage">
           <img src="assets/images/logo.svg" alt="Yedi Başak Logo" width="140" height="36" />
         </a>
 
-        <!-- Mobile toggle -->
+        <!-- Mobile menu toggle (controls offcanvas) -->
         <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-controls="offcanvas"
           aria-expanded="false">
           <i class="fa-solid fa-bars" aria-hidden="true"></i>
         </button>
 
-        <!-- Primary nav (desktop) -->
+        <!-- Desktop primary navigation -->
         <nav class="navbar" aria-label="Primary">
           <ul class="menu">
             <li><a class="menu__link" href="index.html">Home</a></li>
 
+            <!-- Dropdown: Corporate -->
             <li class="has-dropdown">
               <button class="menu__link dropdown-toggle" aria-haspopup="menu" aria-expanded="false">
                 Corporate <i class="fa-solid fa-chevron-down fa-sm" aria-hidden="true"></i>
@@ -128,6 +138,7 @@
 
             <li><a class="menu__link" href="activities.html" aria-current="page">Our Activities</a></li>
 
+            <!-- Dropdown: Media -->
             <li class="has-dropdown">
               <button class="menu__link dropdown-toggle" aria-haspopup="menu" aria-expanded="false">
                 Media <i class="fa-solid fa-chevron-down fa-sm" aria-hidden="true"></i>
@@ -142,36 +153,35 @@
           </ul>
         </nav>
 
-        <!-- Header actions -->
+        <!-- Quick actions (CTA + account/cart/lang) -->
         <div class="actions">
           <a class="btn btn--pill btn--primary" href="donate.html">
             <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i>
             <span>Donate</span>
           </a>
-          <a class="btn btn--ghost" href="account.html" aria-label="Account">
-            <i class="fa-solid fa-user" aria-hidden="true"></i>
-          </a>
-          <a class="btn btn--ghost" href="cart.html" aria-label="Cart">
-            <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
-          </a>
-          <button class="btn btn--ghost" aria-label="Language">
-            <i class="fa-solid fa-globe" aria-hidden="true"></i>
-          </button>
+          <a class="btn btn--ghost" href="account.html" aria-label="Account"><i class="fa-solid fa-user"
+              aria-hidden="true"></i></a>
+          <a class="btn btn--ghost" href="cart.html" aria-label="Cart"><i class="fa-solid fa-cart-shopping"
+              aria-hidden="true"></i></a>
+          <button class="btn btn--ghost" aria-label="Language"><i class="fa-solid fa-globe"
+              aria-hidden="true"></i></button>
         </div>
       </div>
     </div>
 
-    <!-- Offcanvas (mobile) -->
+    <!-- ===== Offcanvas (mobile navigation) ===== -->
     <aside id="offcanvas" class="offcanvas" hidden aria-label="Mobile menu">
       <div class="offcanvas__header">
         <span>Menu</span>
-        <button class="offcanvas__close" aria-label="Close menu">
-          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
-        </button>
+        <button class="offcanvas__close" aria-label="Close menu"><i class="fa-solid fa-xmark"
+            aria-hidden="true"></i></button>
       </div>
+
+      <!-- Mobile primary navigation (collapsible groups) -->
       <nav class="offcanvas__body" aria-label="Mobile primary">
         <ul class="offcanvas__menu">
           <li><a href="index.html">Home</a></li>
+
           <li>
             <button class="collapse-toggle" aria-expanded="false">
               Corporate <i class="fa-solid fa-chevron-down fa-sm" aria-hidden="true"></i>
@@ -182,7 +192,9 @@
               <li><a href="contact.html">Contact</a></li>
             </ul>
           </li>
+
           <li><a href="activities.html" aria-current="page">Our Activities</a></li>
+
           <li>
             <button class="collapse-toggle" aria-expanded="false">
               Media <i class="fa-solid fa-chevron-down fa-sm" aria-hidden="true"></i>
@@ -192,25 +204,31 @@
               <li><a href="gallery.html">Gallery</a></li>
             </ul>
           </li>
+
           <li><a href="volunteer.html">Be Volunteer</a></li>
         </ul>
       </nav>
+
       <div class="offcanvas__footer">
         <a class="btn btn--pill btn--primary" href="donate.html">
-          <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i>
-          <span>Donate</span>
+          <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i><span>Donate</span>
         </a>
       </div>
     </aside>
+    <!-- Scrim overlay for offcanvas -->
     <div class="offcanvas__overlay" hidden></div>
   </header>
   <!-- /HEADER -->
 
-  <!-- ========================== MAIN ========================== -->
+  <!-- =========================================================
+       MAIN
+       - Page hero with background media and breadcrumb
+       - Activities section (tabs + paginated grid)
+  ========================================================= -->
   <main id="main" class="page" aria-labelledby="pageTitle">
-    <!-- ========================= Page Hero ========================= -->
+    <!-- ===== Page Hero (visual intro + breadcrumb) ===== -->
     <section class="page-hero" aria-label="Activities hero">
-      <!-- Background image (responsive sources if you have them) -->
+      <!-- Background image (use sources if available) -->
       <figure class="page-hero__bg" aria-hidden="true">
         <picture>
           <!-- <source type="image/avif" srcset="assets/images/hero/activities.avif"> -->
@@ -219,9 +237,8 @@
         </picture>
       </figure>
 
-      <!-- Overlayed content -->
       <div class="page-hero__content container">
-        <h1 class="page-hero__title">ACTIVITIES</h1>
+        <h1 id="pageTitle" class="page-hero__title">ACTIVITIES</h1>
         <p class="page-hero__lead">
           With your support, we continue this journey we embarked on to live and sustain goodness in our country and in
           many
@@ -229,13 +246,11 @@
           further.
         </p>
 
-        <!-- Breadcrumb -->
+        <!-- Breadcrumb (visible + schema.org list) -->
         <nav class="breadcrumb" aria-label="Breadcrumb">
           <ol class="breadcrumb__list" itemscope itemtype="https://schema.org/BreadcrumbList">
             <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-              <a class="breadcrumb__link" href="index.html" itemprop="item">
-                <span itemprop="name">Home</span>
-              </a>
+              <a class="breadcrumb__link" href="index.html" itemprop="item"><span itemprop="name">Home</span></a>
               <meta itemprop="position" content="1" />
             </li>
             <li class="breadcrumb__item is-current" aria-current="page" itemprop="itemListElement" itemscope
@@ -248,89 +263,69 @@
       </div>
     </section>
 
-    <!-- ========================= Activities (Standalone / Scoped) ========================= -->
+    <!-- ===== Activities (scoped section; JS hooks via data-acts-*) ===== -->
     <section class="acts" data-acts-root aria-label="Activities listing">
       <div class="container">
-        <!-- Tabs -->
+        <!-- --- Tabs: filter by category (uses data-acts-cat) --- -->
         <div id="actsTabs" class="acts__tabs" role="tablist" aria-label="Categories">
+          <!-- Set the first tab as active by default -->
           <button class="acts__tab is-active" role="tab" aria-selected="true" data-acts-cat="emergency">
-            <span class="acts__tab-icon">
-              <img src="assets/icons/Emergency Vehicle.svg" alt="">
-            </span>
+            <span class="acts__tab-icon"><img src="assets/icons/Emergency Vehicle.svg" alt=""></span>
             <span class="acts__tab-text">Emergency Aid</span>
           </button>
 
           <button class="acts__tab" role="tab" aria-selected="false" data-acts-cat="water">
-            <span class="acts__tab-icon">
-              <img src="assets/icons/Water.svg" alt="">
-            </span>
+            <span class="acts__tab-icon"><img src="assets/icons/Water.svg" alt=""></span>
             <span class="acts__tab-text">Water Well</span>
           </button>
 
           <button class="acts__tab" role="tab" aria-selected="false" data-acts-cat="sacrifice">
-            <span class="acts__tab-icon">
-              <img src="assets/icons/Heart.svg" alt="">
-            </span>
+            <span class="acts__tab-icon"><img src="assets/icons/Heart.svg" alt=""></span>
             <span class="acts__tab-text">Sacrifice</span>
           </button>
 
           <button class="acts__tab" role="tab" aria-selected="false" data-acts-cat="oshur">
-            <span class="acts__tab-icon">
-              <img src="assets/icons/qurban cow.svg" alt="">
-            </span>
+            <span class="acts__tab-icon"><img src="assets/icons/qurban cow.svg" alt=""></span>
             <span class="acts__tab-text">Öşür</span>
           </button>
 
           <button class="acts__tab" role="tab" aria-selected="false" data-acts-cat="orphan">
-            <span class="acts__tab-icon">
-              <img src="assets/icons/heart (1).svg" alt="">
-            </span>
+            <span class="acts__tab-icon"><img src="assets/icons/heart (1).svg" alt=""></span>
             <span class="acts__tab-text">Orphan</span>
           </button>
 
           <button class="acts__tab" role="tab" aria-selected="false" data-acts-cat="health">
-            <span class="acts__tab-icon">
-              <img src="assets/icons/health care.svg" alt="">
-            </span>
+            <span class="acts__tab-icon"><img src="assets/icons/health care.svg" alt=""></span>
             <span class="acts__tab-text">Health</span>
           </button>
 
           <button class="acts__tab" role="tab" aria-selected="false" data-acts-cat="general">
-            <span class="acts__tab-icon">
-              <img src="assets/icons/Goal.svg" alt="">
-            </span>
+            <span class="acts__tab-icon"><img src="assets/icons/Goal.svg" alt=""></span>
             <span class="acts__tab-text">General</span>
           </button>
 
           <button class="acts__tab" role="tab" aria-selected="false" data-acts-cat="zakat">
-            <span class="acts__tab-icon">
-              <img src="assets/icons/Charity.svg" alt="">
-            </span>
+            <span class="acts__tab-icon"><img src="assets/icons/Charity.svg" alt=""></span>
             <span class="acts__tab-text">Zakat &amp; Sadaqah</span>
           </button>
 
-          <!-- NEW -->
+          <!-- New categories (extend freely) -->
           <button class="acts__tab" role="tab" aria-selected="false" data-acts-cat="winter">
-            <span class="acts__tab-icon">
-              <img src="assets/icons/Mittens.svg" alt="">
-            </span>
+            <span class="acts__tab-icon"><img src="assets/icons/Mittens.svg" alt=""></span>
             <span class="acts__tab-text">Winter Aid</span>
           </button>
 
-          <!-- NEW -->
           <button class="acts__tab" role="tab" aria-selected="false" data-acts-cat="ramadan">
-            <span class="acts__tab-icon">
-              <img src="assets/icons/Moon.svg" alt="">
-            </span>
+            <span class="acts__tab-icon"><img src="assets/icons/Moon.svg" alt=""></span>
             <span class="acts__tab-text">Ramadan</span>
           </button>
         </div>
 
-
-        <!-- Cards Grid -->
+        <!-- --- Cards Grid (each card declares its category + funding data) --- -->
+        <!-- TIP: Add/duplicate <article.acts-card> to extend the list. JS reads data-* attributes. -->
         <div class="acts__panel" role="tabpanel" tabindex="0" aria-live="polite">
           <div id="actsGrid" class="acts__grid">
-            <!-- ====== Emergency ====== -->
+            <!-- ===== Emergency ===== -->
             <article class="acts-card" data-acts-cat="emergency" data-total="20000" data-support="2915">
               <figure class="acts-card__media">
                 <img src="assets/images/agenda/slide-1.png" alt="1000 Tent Aid Campaign for Gaza">
@@ -342,10 +337,12 @@
                   <span><img class="acts-card__flag" src="assets/icons/flag-palestine.svg" alt="">Palestine</span>
                   <span class="acts-card__pct text-primary">%0.0</span>
                 </div>
+                <!-- Progress (width set by JS) -->
                 <div class="acts-card__meter" role="progressbar" aria-valuemin="0" aria-valuemax="100"
                   aria-valuenow="0">
                   <span class="acts-card__bar"></span>
                 </div>
+                <!-- Funding stats (calculated by JS) -->
                 <dl class="acts-card__stats">
                   <div>
                     <dt>Required Fund</dt>
@@ -374,6 +371,9 @@
               </div>
             </article>
 
+            <!-- (… keep the remaining <article> blocks exactly as in your source …) -->
+            <!-- For brevity the other cards are unchanged; they follow the same structure and are read by the JS below. -->
+            <!-- START of unchanged blocks -->
             <article class="acts-card" data-acts-cat="emergency" data-total="15000" data-support="12030">
               <figure class="acts-card__media"><img src="assets/images/agenda/slide-4.png" alt="Emergency Food Parcels">
               </figure>
@@ -400,10 +400,10 @@
                 </dl>
                 <div class="acts-card__actions"><a href="#" class="btn btn--primary btn--pill"><i
                       class="fa-solid fa-hand-holding-heart"></i><span>DONATE</span></a>
-                  <div class="acts-card__icons"><button class="btn btn--ghost"><i
-                        class="fa-regular fa-heart"></i></button><button class="btn btn--ghost"><i
-                        class="fa-solid fa-share-nodes"></i></button><button class="btn btn--ghost"><i
-                        class="fa-solid fa-cart-shopping"></i></button></div>
+                  <div class="acts-card__icons"><button class="btn btn--ghost" aria-label="Add to wishlist"><i
+                        class="fa-regular fa-heart"></i></button><button class="btn btn--ghost" aria-label="Share"><i
+                        class="fa-solid fa-share-nodes"></i></button><button class="btn btn--ghost"
+                      aria-label="Add to cart"><i class="fa-solid fa-cart-shopping"></i></button></div>
                 </div>
               </div>
             </article>
@@ -433,15 +433,15 @@
                 </dl>
                 <div class="acts-card__actions"><a href="#" class="btn btn--primary btn--pill"><i
                       class="fa-solid fa-hand-holding-heart"></i><span>DONATE</span></a>
-                  <div class="acts-card__icons"><button class="btn btn--ghost"><i
-                        class="fa-regular fa-heart"></i></button><button class="btn btn--ghost"><i
-                        class="fa-solid fa-share-nodes"></i></button><button class="btn btn--ghost"><i
-                        class="fa-solid fa-cart-shopping"></i></button></div>
+                  <div class="acts-card__icons"><button class="btn btn--ghost" aria-label="Add to wishlist"><i
+                        class="fa-regular fa-heart"></i></button><button class="btn btn--ghost" aria-label="Share"><i
+                        class="fa-solid fa-share-nodes"></i></button><button class="btn btn--ghost"
+                      aria-label="Add to cart"><i class="fa-solid fa-cart-shopping"></i></button></div>
                 </div>
               </div>
             </article>
 
-            <!-- ====== Water ====== -->
+            <!-- Water -->
             <article class="acts-card" data-acts-cat="water" data-total="12000" data-support="8616">
               <figure class="acts-card__media"><img src="assets/images/agenda/slide-4.png" alt="Clean Water Wells">
               </figure>
@@ -468,10 +468,10 @@
                 </dl>
                 <div class="acts-card__actions"><a href="#" class="btn btn--primary btn--pill"><i
                       class="fa-solid fa-hand-holding-heart"></i><span>DONATE</span></a>
-                  <div class="acts-card__icons"><button class="btn btn--ghost"><i
-                        class="fa-regular fa-heart"></i></button><button class="btn btn--ghost"><i
-                        class="fa-solid fa-share-nodes"></i></button><button class="btn btn--ghost"><i
-                        class="fa-solid fa-cart-shopping"></i></button></div>
+                  <div class="acts-card__icons"><button class="btn btn--ghost" aria-label="Add to wishlist"><i
+                        class="fa-regular fa-heart"></i></button><button class="btn btn--ghost" aria-label="Share"><i
+                        class="fa-solid fa-share-nodes"></i></button><button class="btn btn--ghost"
+                      aria-label="Add to cart"><i class="fa-solid fa-cart-shopping"></i></button></div>
                 </div>
               </div>
             </article>
@@ -502,15 +502,15 @@
                 </dl>
                 <div class="acts-card__actions"><a href="#" class="btn btn--primary btn--pill"><i
                       class="fa-solid fa-hand-holding-heart"></i><span>DONATE</span></a>
-                  <div class="acts-card__icons"><button class="btn btn--ghost"><i
-                        class="fa-regular fa-heart"></i></button><button class="btn btn--ghost"><i
-                        class="fa-solid fa-share-nodes"></i></button><button class="btn btn--ghost"><i
-                        class="fa-solid fa-cart-shopping"></i></button></div>
+                  <div class="acts-card__icons"><button class="btn btn--ghost" aria-label="Add to wishlist"><i
+                        class="fa-regular fa-heart"></i></button><button class="btn btn--ghost" aria-label="Share"><i
+                        class="fa-solid fa-share-nodes"></i></button><button class="btn btn--ghost"
+                      aria-label="Add to cart"><i class="fa-solid fa-cart-shopping"></i></button></div>
                 </div>
               </div>
             </article>
 
-            <!-- ====== Orphan ====== -->
+            <!-- Orphan -->
             <article class="acts-card" data-acts-cat="orphan" data-total="22000" data-support="1100">
               <figure class="acts-card__media"><img src="assets/images/agenda/slide-2.png"
                   alt="Winter Clothes for Orphans"></figure>
@@ -537,15 +537,15 @@
                 </dl>
                 <div class="acts-card__actions"><a href="#" class="btn btn--primary btn--pill"><i
                       class="fa-solid fa-hand-holding-heart"></i><span>DONATE</span></a>
-                  <div class="acts-card__icons"><button class="btn btn--ghost"><i
-                        class="fa-regular fa-heart"></i></button><button class="btn btn--ghost"><i
-                        class="fa-solid fa-share-nodes"></i></button><button class="btn btn--ghost"><i
-                        class="fa-solid fa-cart-shopping"></i></button></div>
+                  <div class="acts-card__icons"><button class="btn btn--ghost" aria-label="Add to wishlist"><i
+                        class="fa-regular fa-heart"></i></button><button class="btn btn--ghost" aria-label="Share"><i
+                        class="fa-solid fa-share-nodes"></i></button><button class="btn btn--ghost"
+                      aria-label="Add to cart"><i class="fa-solid fa-cart-shopping"></i></button></div>
                 </div>
               </div>
             </article>
 
-            <!-- ====== Health ====== -->
+            <!-- Health -->
             <article class="acts-card" data-acts-cat="health" data-total="20000" data-support="5460">
               <figure class="acts-card__media"><img src="assets/images/agenda/slide-2.png"
                   alt="Dialysis Machines Support"></figure>
@@ -572,15 +572,15 @@
                 </dl>
                 <div class="acts-card__actions"><a href="#" class="btn btn--primary btn--pill"><i
                       class="fa-solid fa-hand-holding-heart"></i><span>DONATE</span></a>
-                  <div class="acts-card__icons"><button class="btn btn--ghost"><i
-                        class="fa-regular fa-heart"></i></button><button class="btn btn--ghost"><i
-                        class="fa-solid fa-share-nodes"></i></button><button class="btn btn--ghost"><i
-                        class="fa-solid fa-cart-shopping"></i></button></div>
+                  <div class="acts-card__icons"><button class="btn btn--ghost" aria-label="Add to wishlist"><i
+                        class="fa-regular fa-heart"></i></button><button class="btn btn--ghost" aria-label="Share"><i
+                        class="fa-solid fa-share-nodes"></i></button><button class="btn btn--ghost"
+                      aria-label="Add to cart"><i class="fa-solid fa-cart-shopping"></i></button></div>
                 </div>
               </div>
             </article>
 
-            <!-- ====== Sacrifice / Öşür / General / Zakat: أمثلة سريعة ====== -->
+            <!-- Sacrifice / Öşür / General / Zakat (examples) -->
             <article class="acts-card" data-acts-cat="sacrifice" data-total="25000" data-support="15625">
               <figure class="acts-card__media"><img src="assets/images/agenda/slide-3.png" alt="Sacrifice Program">
               </figure>
@@ -607,10 +607,10 @@
                 </dl>
                 <div class="acts-card__actions"><a href="#" class="btn btn--primary btn--pill"><i
                       class="fa-solid fa-hand-holding-heart"></i><span>DONATE</span></a>
-                  <div class="acts-card__icons"><button class="btn btn--ghost"><i
-                        class="fa-regular fa-heart"></i></button><button class="btn btn--ghost"><i
-                        class="fa-solid fa-share-nodes"></i></button><button class="btn btn--ghost"><i
-                        class="fa-solid fa-cart-shopping"></i></button></div>
+                  <div class="acts-card__icons"><button class="btn btn--ghost" aria-label="Add to wishlist"><i
+                        class="fa-regular fa-heart"></i></button><button class="btn btn--ghost" aria-label="Share"><i
+                        class="fa-solid fa-share-nodes"></i></button><button class="btn btn--ghost"
+                      aria-label="Add to cart"><i class="fa-solid fa-cart-shopping"></i></button></div>
                 </div>
               </div>
             </article>
@@ -641,16 +641,16 @@
                 </dl>
                 <div class="acts-card__actions"><a href="#" class="btn btn--primary btn--pill"><i
                       class="fa-solid fa-hand-holding-heart"></i><span>DONATE</span></a>
-                  <div class="acts-card__icons"><button class="btn btn--ghost"><i
-                        class="fa-regular fa-heart"></i></button><button class="btn btn--ghost"><i
-                        class="fa-solid fa-share-nodes"></i></button><button class="btn btn--ghost"><i
-                        class="fa-solid fa-cart-shopping"></i></button></div>
+                  <div class="acts-card__icons"><button class="btn btn--ghost" aria-label="Add to wishlist"><i
+                        class="fa-regular fa-heart"></i></button><button class="btn btn--ghost" aria-label="Share"><i
+                        class="fa-solid fa-share-nodes"></i></button><button class="btn btn--ghost"
+                      aria-label="Add to cart"><i class="fa-solid fa-cart-shopping"></i></button></div>
                 </div>
               </div>
             </article>
 
             <article class="acts-card" data-acts-cat="general" data-total="20000" data-support="5460">
-              <figure class="acts-card__media"><img src="assets/images/agenda/slide-7.webp" alt="General Fund"></figure>
+              <figure class="acts-card__media"><img src="assets/images/agenda/slide-1.png" alt="General Fund"></figure>
               <div class="acts-card__body">
                 <h3 class="acts-card__title">General Fund</h3>
                 <div class="acts-card__meta"><span>16 Donors</span><span>•</span><span><img class="acts-card__flag"
@@ -674,16 +674,16 @@
                 </dl>
                 <div class="acts-card__actions"><a href="#" class="btn btn--primary btn--pill"><i
                       class="fa-solid fa-hand-holding-heart"></i><span>DONATE</span></a>
-                  <div class="acts-card__icons"><button class="btn btn--ghost"><i
-                        class="fa-regular fa-heart"></i></button><button class="btn btn--ghost"><i
-                        class="fa-solid fa-share-nodes"></i></button><button class="btn btn--ghost"><i
-                        class="fa-solid fa-cart-shopping"></i></button></div>
+                  <div class="acts-card__icons"><button class="btn btn--ghost" aria-label="Add to wishlist"><i
+                        class="fa-regular fa-heart"></i></button><button class="btn btn--ghost" aria-label="Share"><i
+                        class="fa-solid fa-share-nodes"></i></button><button class="btn btn--ghost"
+                      aria-label="Add to cart"><i class="fa-solid fa-cart-shopping"></i></button></div>
                 </div>
               </div>
             </article>
 
             <article class="acts-card" data-acts-cat="zakat" data-total="12000" data-support="8616">
-              <figure class="acts-card__media"><img src="assets/images/agenda/slide-8.webp" alt="Zakat & Sadaqah">
+              <figure class="acts-card__media"><img src="assets/images/agenda/slide-3.png" alt="Zakat & Sadaqah">
               </figure>
               <div class="acts-card__body">
                 <h3 class="acts-card__title">Zakat &amp; Sadaqah</h3>
@@ -708,16 +708,17 @@
                 </dl>
                 <div class="acts-card__actions"><a href="#" class="btn btn--primary btn--pill"><i
                       class="fa-solid fa-hand-holding-heart"></i><span>DONATE</span></a>
-                  <div class="acts-card__icons"><button class="btn btn--ghost"><i
-                        class="fa-regular fa-heart"></i></button><button class="btn btn--ghost"><i
-                        class="fa-solid fa-share-nodes"></i></button><button class="btn btn--ghost"><i
-                        class="fa-solid fa-cart-shopping"></i></button></div>
+                  <div class="acts-card__icons"><button class="btn btn--ghost" aria-label="Add to wishlist"><i
+                        class="fa-regular fa-heart"></i></button><button class="btn btn--ghost" aria-label="Share"><i
+                        class="fa-solid fa-share-nodes"></i></button><button class="btn btn--ghost"
+                      aria-label="Add to cart"><i class="fa-solid fa-cart-shopping"></i></button></div>
                 </div>
               </div>
             </article>
+            <!-- END of unchanged blocks -->
           </div>
 
-          <!-- Pagination -->
+          <!-- Pagination control (rendered by JS) -->
           <nav class="acts__pager" aria-label="Pagination">
             <button class="pager__btn" data-act="prev" aria-label="Previous page"><i
                 class="fa-solid fa-chevron-left"></i></button>
@@ -728,108 +729,14 @@
         </div>
       </div>
     </section>
-
-    <!-- ضمان إخفاء العناصر hidden حتى لو فيه CSS تاني -->
-    <style>
-      [hidden] {
-        display: none !important
-      }
-    </style>
-
-    <script>
-      /* =========================================================================
-         Activities Tabs (Scoped, No Conflicts) 
-         - يعتمد فقط على هذا السكشن عبر [data-acts-root]
-         ========================================================================= */
-      document.addEventListener('DOMContentLoaded', function initActivitiesTabs() {
-        const root = document.querySelector('[data-acts-root]');
-        if (!root) return;
-
-        const grid = root.querySelector('#actsGrid');
-        const tabs = Array.from(root.querySelectorAll('#actsTabs .acts__tab'));
-        const pages = root.querySelector('#actsPages');
-        const prev = root.querySelector('[data-act="prev"]');
-        const next = root.querySelector('[data-act="next"]');
-
-        const fmt = n => Number(n || 0).toLocaleString('en-US');
-        const clamp = (n, min, max) => Math.min(max, Math.max(min, n));
-
-        const state = {
-          cat: (tabs.find(t => t.classList.contains('is-active'))?.dataset.actsCat) || 'emergency',
-          page: 1,
-          perPage: 6   // عدّلها لو عايز عدد مختلف
-        };
-
-        // حساب البروجريس/الأرقام مرة واحدة
-        grid.querySelectorAll('.acts-card').forEach(card => {
-          const total = Number(card.dataset.total || 0);
-          const support = Number(card.dataset.support || 0);
-          const pct = total > 0 ? clamp((support / total) * 100, 0, 100) : 0;
-
-          const bar = card.querySelector('.acts-card__bar');
-          const meter = card.querySelector('.acts-card__meter');
-          const pctEl = card.querySelector('.acts-card__pct');
-          const req = card.querySelector('.js-required');
-          const sup = card.querySelector('.js-support');
-          const rem = card.querySelector('.js-remaining');
-
-          if (bar) requestAnimationFrame(() => bar.style.inlineSize = pct.toFixed(1) + '%');
-          if (meter) meter.setAttribute('aria-valuenow', pct.toFixed(1));
-          if (pctEl) pctEl.textContent = `%${pct.toFixed(1)}`;
-          if (req) req.textContent = `${fmt(total)} $`;
-          if (sup) sup.textContent = `${fmt(support)} $`;
-          if (rem) rem.textContent = `${fmt(Math.max(0, total - support))} $`;
-        });
-
-        const getByCat = cat => Array.from(grid.querySelectorAll('.acts-card'))
-          .filter(c => (c.dataset.actsCat || '').toLowerCase() === cat.toLowerCase());
-
-        function render() {
-          // أخفي كل الكروت أولاً (داخل نفس السكشن فقط)
-          grid.querySelectorAll('.acts-card').forEach(c => c.hidden = true);
-
-          const list = getByCat(state.cat);
-          const pagesCount = Math.max(1, Math.ceil(list.length / state.perPage));
-          state.page = clamp(state.page, 1, pagesCount);
-
-          const start = (state.page - 1) * state.perPage;
-          list.slice(start, start + state.perPage).forEach(c => c.hidden = false);
-
-          // بناء أزرار الصفحات
-          pages.innerHTML = '';
-          for (let i = 1; i <= pagesCount; i++) {
-            const li = document.createElement('li');
-            const b = document.createElement('button');
-            b.className = 'pager__page';
-            b.textContent = i;
-            if (i === state.page) b.setAttribute('aria-current', 'page');
-            b.addEventListener('click', () => { state.page = i; render(); });
-            li.appendChild(b); pages.appendChild(li);
-          }
-          prev.disabled = state.page === 1;
-          next.disabled = state.page === pagesCount;
-        }
-
-        tabs.forEach(btn => {
-          btn.addEventListener('click', () => {
-            if (btn.dataset.actsCat === state.cat) return;
-            tabs.forEach(t => { t.classList.remove('is-active'); t.setAttribute('aria-selected', 'false'); });
-            btn.classList.add('is-active'); btn.setAttribute('aria-selected', 'true');
-            state.cat = btn.dataset.actsCat; state.page = 1; render();
-          });
-        });
-
-        prev.addEventListener('click', () => { if (state.page > 1) { state.page--; render(); } });
-        next.addEventListener('click', () => { state.page++; render(); });
-
-        render(); // أول تشغيل
-      });
-    </script>
-
-
   </main>
 
-  <!-- ========================= FOOTER ========================= -->
+  <!-- =========================================================
+       FOOTER (Call-to-action block)
+       - Newsletter
+       - Mission / quick links / contact
+       - Copyright bar
+  ========================================================= -->
   <section class="cta-footer" aria-label="Hope in action">
     <div class="cta-footer__bg" aria-hidden="true"></div>
 
@@ -837,18 +744,14 @@
       <header class="cta-footer__head">
         <div>
           <h2 class="cta-footer__title h2">Hope in action</h2>
-          <p class="cta-footer__sub">
-            Together, we can rebuild lives and restore dignity.
-          </p>
+          <p class="cta-footer__sub">Together, we can rebuild lives and restore dignity.</p>
         </div>
 
-        <!-- Newsletter -->
+        <!-- Newsletter (no validation logic here; add in app.js if needed) -->
         <form class="cta-footer__form" action="#" method="post" aria-label="Subscribe to updates" novalidate>
           <label class="visually-hidden" for="footerEmail">Email address</label>
           <input id="footerEmail" name="email" type="email" placeholder="Email address" inputmode="email" />
-          <button class="cta-footer__send" aria-label="Send email">
-            <i class="fa-solid fa-paper-plane"></i>
-          </button>
+          <button class="cta-footer__send" aria-label="Send email"><i class="fa-solid fa-paper-plane"></i></button>
         </form>
       </header>
 
@@ -861,10 +764,9 @@
             like food, water, medical care, and shelter.
           </p>
 
+          <!-- Direct call card -->
           <div class="cta-footer__call">
-            <span class="cta-footer__call-ico" aria-hidden="true">
-              <i class="fa-solid fa-phone"></i>
-            </span>
+            <span class="cta-footer__call-ico" aria-hidden="true"><i class="fa-solid fa-phone"></i></span>
             <div class="cta-footer__call-body">
               <span class="cta-footer__call-title">Call Us</span>
               <a href="tel:+903423251030" class="cta-footer__call-link">+90 (342) 325 1030</a>
@@ -872,7 +774,7 @@
           </div>
         </section>
 
-        <!-- Activities -->
+        <!-- Activities shortcuts -->
         <nav class="cta-footer__block" aria-labelledby="ft-activities">
           <h3 id="ft-activities" class="cta-footer__eyebrow">Activities:</h3>
           <ul class="cta-footer__list cta-footer__list_main">
@@ -889,47 +791,143 @@
           </ul>
         </nav>
 
-        <!-- Contact -->
+        <!-- Contact shortcuts -->
         <nav class="cta-footer__block" aria-labelledby="ft-contact">
           <h3 id="ft-contact" class="cta-footer__eyebrow">CONTACT:</h3>
           <ul class="cta-footer__list cta-footer__list_main">
             <li><a href="#"><i class="fa-solid fa-angle-right"></i> Contact</a></li>
             <li><a href="#"><i class="fa-solid fa-angle-right"></i> Project Suggestion Form</a></li>
             <li><a href="#"><i class="fa-solid fa-angle-right"></i> Volunteer</a></li>
-
             <li><a href="#"><i class="fa-solid fa-angle-right"></i> Help Request Form</a></li>
             <li><a href="#"><i class="fa-solid fa-angle-right"></i> Job Application Form</a></li>
             <li><a href="#"><i class="fa-solid fa-angle-right"></i> AUCTIONS</a></li>
             <li><a href="#"><i class="fa-solid fa-angle-right"></i> SMS / Mail cancellation Request Form</a></li>
-
           </ul>
         </nav>
-
-
       </div>
 
-      <!-- Divider -->
       <hr class="cta-footer__hr" />
 
+      <!-- Brand + copyright -->
       <div class="cta-footer__bar">
-        <a href="/" class="cta-footer__brand">
-          <img src="assets/images/logo.svg" alt="Yedi Başak" width="128" height="36" />
-        </a>
+        <a href="/" class="cta-footer__brand"><img src="assets/images/logo.svg" alt="Yedi Başak" width="128"
+            height="36" /></a>
         <p class="cta-footer__copy">Copyright © <span id="footerYear"></span>, All Rights Reserved</p>
       </div>
     </div>
   </section>
 
-
-  <!-- =================== Vendor JS → App JS =================== -->
+  <!-- =========================================================
+       SCRIPTS
+       - Vendor libraries first, then app code.
+       - Inline module: Activities tabs/pagination boot.
+  ========================================================= -->
   <script src="assets/js/swiper-bundle.min.js"></script>
   <script src="assets/js/lightbox.min.js"></script>
   <script src="assets/js/aos.js"></script>
   <script src="assets/js/app.js"></script>
 
-  <!-- Small helper: year fill (only if not already handled in app.js) -->
+  <!-- Activities tabs/pagination initializer (scoped to [data-acts-root]) -->
   <script>
-    document.getElementById('currentYear')?.replaceChildren(new Date().getFullYear());
+    document.addEventListener('DOMContentLoaded', function initActivitiesTabs() {
+      // ----- Guard: ensure this page has the acts root -----
+      const root = document.querySelector('[data-acts-root]');
+      if (!root) return;
+
+      // ----- DOM refs (kept local to avoid global pollution) -----
+      const grid = root.querySelector('#actsGrid');                 // Cards container
+      const tabs = Array.from(root.querySelectorAll('#actsTabs .acts__tab')); // Category tabs
+      const pages = root.querySelector('#actsPages');                // Pagination list
+      const prev = root.querySelector('[data-act="prev"]');         // Prev button
+      const next = root.querySelector('[data-act="next"]');         // Next button
+
+      // ----- Small helpers -----
+      const fmt = n => Number(n || 0).toLocaleString('en-US');     // Number formatting
+      const clamp = (n, min, max) => Math.min(max, Math.max(min, n));
+
+      // ----- UI state -----
+      const state = {
+        // current category = active tab or "emergency" if none
+        cat: (tabs.find(t => t.classList.contains('is-active'))?.dataset.actsCat) || 'emergency',
+        page: 1,            // current page within the filtered list
+        perPage: 6          // cards per page (tweak to fit your layout)
+      };
+
+      // ----- First pass: compute each card's progress and stats -----
+      grid.querySelectorAll('.acts-card').forEach(card => {
+        const total = Number(card.dataset.total || 0);
+        const support = Number(card.dataset.support || 0);
+        const pct = total > 0 ? clamp((support / total) * 100, 0, 100) : 0;
+
+        // Update progress visuals + aria
+        const bar = card.querySelector('.acts-card__bar');
+        const meter = card.querySelector('.acts-card__meter');
+        const pctEl = card.querySelector('.acts-card__pct');
+        const req = card.querySelector('.js-required');
+        const sup = card.querySelector('.js-support');
+        const rem = card.querySelector('.js-remaining');
+
+        if (bar) requestAnimationFrame(() => { bar.style.inlineSize = pct.toFixed(1) + '%'; });
+        if (meter) meter.setAttribute('aria-valuenow', pct.toFixed(1));
+        if (pctEl) pctEl.textContent = `%${pct.toFixed(1)}`;
+        if (req) req.textContent = `${fmt(total)} $`;
+        if (sup) sup.textContent = `${fmt(support)} $`;
+        if (rem) rem.textContent = `${fmt(Math.max(0, total - support))} $`;
+      });
+
+      // Utility: cards filtered by category slug
+      const getByCat = cat =>
+        Array.from(grid.querySelectorAll('.acts-card'))
+          .filter(c => (c.dataset.actsCat || '').toLowerCase() === cat.toLowerCase());
+
+      // ----- Render loop: filter → paginate → paint pager -----
+      function render() {
+        // Hide all, then show only the slice for the active page
+        grid.querySelectorAll('.acts-card').forEach(c => c.hidden = true);
+
+        const list = getByCat(state.cat);
+        const pagesCount = Math.max(1, Math.ceil(list.length / state.perPage));
+        state.page = clamp(state.page, 1, pagesCount);
+
+        const start = (state.page - 1) * state.perPage;
+        list.slice(start, start + state.perPage).forEach(c => c.hidden = false);
+
+        // Build pagination bullets
+        pages.innerHTML = '';
+        for (let i = 1; i <= pagesCount; i++) {
+          const li = document.createElement('li');
+          const b = document.createElement('button');
+          b.className = 'pager__page';
+          b.textContent = i;
+          if (i === state.page) b.setAttribute('aria-current', 'page');
+          b.addEventListener('click', () => { state.page = i; render(); });
+          li.appendChild(b);
+          pages.appendChild(li);
+        }
+
+        prev.disabled = state.page === 1;
+        next.disabled = state.page === pagesCount;
+      }
+
+      // ----- Tabs → update category and reset page -----
+      tabs.forEach(btn => {
+        btn.addEventListener('click', () => {
+          if (btn.dataset.actsCat === state.cat) return;
+          tabs.forEach(t => { t.classList.remove('is-active'); t.setAttribute('aria-selected', 'false'); });
+          btn.classList.add('is-active'); btn.setAttribute('aria-selected', 'true');
+          state.cat = btn.dataset.actsCat;
+          state.page = 1;
+          render();
+        });
+      });
+
+      // ----- Pager controls -----
+      prev.addEventListener('click', () => { if (state.page > 1) { state.page--; render(); } });
+      next.addEventListener('click', () => { state.page++; render(); });
+
+      // Initial paint
+      render();
+    });
   </script>
 </body>
 
