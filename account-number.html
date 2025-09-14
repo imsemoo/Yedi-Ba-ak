@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+  <!-- =========================================================
+       PAGE: Bank Account Numbers & Donation Channels
+       THEME: Yedi Başak — Frontend (HTML Only)
+       ========================================================= -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Account Numbers – Yedi Başak</title>
+  <meta name="description"
+    content="Find our bank account numbers and donation channels. Copy IBAN or account numbers instantly." />
+  <link rel="canonical" href="https://www.yedibasak.org/bank-info.html" />
+
+  <!-- Site CSS (already in your project) -->
+  <link rel="stylesheet" href="assets/css/normalize.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/fontawesome.min.css" />
+  <link rel="stylesheet" href="assets/css/solid.min.css" />
+  <link rel="stylesheet" href="assets/css/regular.min.css" />
+  <link rel="stylesheet" href="assets/css/brands.min.css" />
+
+
+
+  <!-- Breadcrumb structured data -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://www.yedibasak.org/"},
+    {"@type":"ListItem","position":2,"name":"Account Numbers","item":"https://www.yedibasak.org/bank-info.html"}
+  ]}
+  </script>
+</head>
+
+<body>
+  <!-- ======= Header (reuse your site header) ======= -->
+  <header class="site-header" role="banner">
+    <!-- Topbar -->
+    <div class="topbar">
+      <div class="container">
+        <div class="topbar__left">
+          <a class="toplink" href="tel:+903423251030" title="Call: +90 342 325 1030">
+            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+            <span class="toplink__label">Tel: +90 342 325 1030</span>
+          </a>
+          <a class="toplink" href="tel:+905538867777" title="Call: +90 553 886 7777">
+            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+            <span class="toplink__label">Gsm: +90 553 886 7777</span>
+          </a>
+        </div>
+
+        <nav class="topbar__right" aria-label="Quick links">
+          <a class="toplink" href="public-benefits.html" title="Public Benefits status">
+            <i class="fa-solid fa-building-columns" aria-hidden="true"></i>
+            <span class="toplink__label">Public Benefits status</span>
+          </a>
+          <a class="toplink" href="bank-info.html" title="Bank info">
+            <i class="fa-solid fa-credit-card" aria-hidden="true"></i>
+            <span class="toplink__label">Bank info</span>
+          </a>
+          <a class="toplink" href="food-banking.html" title="Food Banking">
+            <i class="fa-solid fa-house" aria-hidden="true"></i>
+            <span class="toplink__label">Food Banking</span>
+          </a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Mainbar -->
+    <div class="mainbar" role="navigation" aria-label="Main header">
+      <div class="container mainbar__row">
+        <a class="brand" href="index.html" aria-label="Homepage">
+          <img src="assets/images/logo.svg" alt="Yedi Başak Logo" width="140" height="36" />
+        </a>
+
+        <!-- Mobile toggle -->
+        <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-controls="offcanvas"
+          aria-expanded="false">
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+
+        <!-- Primary nav (desktop) -->
+        <nav class="navbar" aria-label="Primary">
+          <ul class="menu">
+            <li><a class="menu__link" href="index.html">Home</a></li>
+
+            <!-- Corporate -->
+            <li class="has-dropdown">
+              <button class="menu__link dropdown-toggle" aria-haspopup="menu" aria-expanded="false">
+                Corporate <i class="fa-solid fa-chevron-down fa-sm" aria-hidden="true"></i>
+              </button>
+              <ul class="dropdown" role="menu">
+                <li><a role="menuitem" href="about.html">About Us</a></li>
+                <li><a role="menuitem" href="president-message.html">President’s Message</a></li>
+              </ul>
+            </li>
+
+            <!-- Activities -->
+            <li><a class="menu__link" href="activities.html">Our Activities</a></li>
+
+            <!-- Media (list page) -->
+            <li><a class="menu__link" href="media.html">Media</a></li>
+
+            <!-- Account numbers / bank info -->
+            <li><a class="menu__link" href="account-number.html">Account Numbers</a></li>
+
+            <!-- Donate -->
+            <li><a class="menu__link" href="donate.html">Donate</a></li>
+          </ul>
+        </nav>
+
+        <!-- Header actions -->
+        <div class="actions">
+          <a class="btn btn--ghost" href="payment.html" aria-label="Payment">
+            <i class="fa-solid fa-credit-card" aria-hidden="true"></i>
+          </a>
+          <a class="btn btn--ghost" href="cart.html" aria-label="Cart">
+            <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+          </a>
+          <button class="btn btn--ghost" aria-label="Language">
+            <i class="fa-solid fa-globe" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Offcanvas (mobile) -->
+    <aside id="offcanvas" class="offcanvas" hidden aria-label="Mobile menu">
+      <div class="offcanvas__header">
+        <span>Menu</span>
+        <button class="offcanvas__close" aria-label="Close menu">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <nav class="offcanvas__body" aria-label="Mobile primary">
+        <ul class="offcanvas__menu">
+          <li><a href="index.html">Home</a></li>
+
+          <li>
+            <button class="collapse-toggle" aria-expanded="false">
+              Corporate <i class="fa-solid fa-chevron-down fa-sm" aria-hidden="true"></i>
+            </button>
+            <ul class="collapse" hidden>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="president-message.html">President’s Message</a></li>
+            </ul>
+          </li>
+
+          <li><a href="activities.html">Our Activities</a></li>
+          <li><a href="media.html">Media</a></li>
+          <li><a href="account-number.html">Account Numbers</a></li>
+          <li><a href="donate.html">Donate</a></li>
+          <li><a href="payment.html">Payment</a></li>
+          <li><a href="cart.html">Cart</a></li>
+        </ul>
+      </nav>
+
+      <div class="offcanvas__footer">
+        <a class="btn btn--pill btn--primary" href="donate.html">
+          <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i>
+          <span>Donate</span>
+        </a>
+      </div>
+    </aside>
+    <div class="offcanvas__overlay" hidden></div>
+
+  </header>
+
+  <!-- ===== Page Hero (visual intro + breadcrumb) ===== -->
+  <section class="page-hero" aria-label="Account numbers hero">
+    <figure class="page-hero__bg" aria-hidden="true">
+      <picture>
+        <!-- Swap to your actual banks hero if available -->
+        <source type="image/webp" srcset="assets/images/bg/bg_banks.webp">
+        <img src="assets/images/bg/bg_banks.webp" alt="" loading="eager" decoding="async">
+      </picture>
+    </figure>
+
+    <div class="page-hero__content container">
+      <h1 id="pageTitle" class="page-hero__title">ACCOUNT NUMBERS</h1>
+      <p class="page-hero__lead">
+        Choose your preferred bank and copy IBAN or account numbers instantly. Secure, fast, and transparent.
+      </p>
+
+      <!-- Breadcrumb (visible + schema.org list) -->
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol class="breadcrumb__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+          <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a class="breadcrumb__link" href="index.html" itemprop="item"><span itemprop="name">Home</span></a>
+            <meta itemprop="position" content="1" />
+          </li>
+          <li class="breadcrumb__item is-current" aria-current="page" itemprop="itemListElement" itemscope
+            itemtype="https://schema.org/ListItem">
+            <span class="breadcrumb__current" itemprop="name">Account Numbers</span>
+            <meta itemprop="position" content="2" />
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+  <!-- /Page Hero -->
+
+  <!-- ===== Banks directory ===== -->
+  <section class="banks-dir" aria-labelledby="banksTitle">
+    <div class="banks-dir__wrap">
+      <!-- Logos rail -->
+      <aside class="banks-dir__rail" aria-label="Bank logos">
+        <button class="bank-tile is-active" data-bank="ziraat">
+          <img class="bank-tile__img" src="assets/images/about/bank/01.svg" alt="">
+        </button>
+        <button class="bank-tile" data-bank="ptt">
+          <img class="bank-tile__img" src="assets/images/about/bank/02.svg" alt="">
+        </button>
+        <button class="bank-tile" data-bank="kuveyt">
+          <img class="bank-tile__img" src="assets/images/about/bank/03.svg" alt="">
+        </button>
+        <button class="bank-tile" data-bank="ziraatKat">
+          <img class="bank-tile__img" src="assets/images/about/bank/04.svg" alt="">
+        </button>
+        <button class="bank-tile" data-bank="vakif">
+          <img class="bank-tile__img" src="assets/images/about/bank/05.svg" alt="">
+        </button>
+      </aside>
+
+      <!-- Details panel -->
+      <div class="banks-dir__panel" id="bankPanel" role="region" aria-live="polite" aria-labelledby="banksTitle">
+        <!-- injected via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- toast -->
+  <span class="toast" id="toast" role="status" aria-live="polite">Copied</span>
+
+
+
+  <!-- ===== Footer (same site footer) ===== -->
+  <section class="cta-footer" aria-label="Hope in action">
+    <div class="cta-footer__bg" aria-hidden="true"></div>
+    <div class="container">
+      <header class="cta-footer__head">
+        <div>
+          <h2 class="cta-footer__title h2">Hope in action</h2>
+          <p class="cta-footer__sub">Together, we can rebuild lives and restore dignity.</p>
+        </div>
+        <form class="cta-footer__form" action="#" method="post" aria-label="Subscribe to updates" novalidate>
+          <label class="visually-hidden" for="footerEmail">Email address</label>
+          <input id="footerEmail" name="email" type="email" placeholder="Email address" inputmode="email" />
+          <button class="cta-footer__send" aria-label="Send email"><i class="fa-solid fa-paper-plane"></i></button>
+        </form>
+      </header>
+
+      <div class="cta-footer__grid">
+        <section class="cta-footer__block" aria-labelledby="ft-mission">
+          <h3 id="ft-mission" class="cta-footer__eyebrow">Our Mission :</h3>
+          <p class="cta-footer__text">We provide immediate and long-term support to war refugees, offering essential
+            resources like food, water, medical care, and shelter.</p>
+          <div class="cta-footer__call">
+            <span class="cta-footer__call-ico"><i class="fa-solid fa-phone"></i></span>
+            <div class="cta-footer__call-body">
+              <span class="cta-footer__call-title">Call Us</span>
+              <a href="tel:+903423251030" class="cta-footer__call-link">+90 (342) 325 1030</a>
+            </div>
+          </div>
+        </section>
+
+        <nav class="cta-footer__block" aria-labelledby="ft-activities">
+          <h3 id="ft-activities" class="cta-footer__eyebrow">Activities:</h3>
+          <ul class="cta-footer__list cta-footer__list_main">
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Ramadan</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> General</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Health</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Emergency Aid</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Orphan</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Water Well</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Sacrifice</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Zakat Sadaqah</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> ÖŞÜR</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Winter Aid</a></li>
+          </ul>
+        </nav>
+
+        <nav class="cta-footer__block" aria-labelledby="ft-contact">
+          <h3 id="ft-contact" class="cta-footer__eyebrow">CONTACT:</h3>
+          <ul class="cta-footer__list cta-footer__list_main">
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Contact</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Project Suggestion Form</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Volunteer</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Help Request Form</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Job Application Form</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> AUCTIONS</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> SMS / Mail cancellation Request Form</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <hr class="cta-footer__hr" />
+      <div class="cta-footer__bar">
+        <a href="/" class="cta-footer__brand">
+          <img src="assets/images/logo.svg" alt="Yedi Başak" width="128" height="36" />
+        </a>
+        <p class="cta-footer__copy">Copyright © <span id="footerYear"></span>, All Rights Reserved</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Minimal, namespaced JS (no conflicts) ===== -->
+  <script>
+    (function ybBanks() {
+      // --- Data (replace with real numbers) ---
+      const BANKS = {
+        ziraat: {
+          logo: "assets/images/about/bank/01.svg",
+          name: "Ziraat Bankası",
+          holder: "Yedi Başak İnsani Yardım Derneği",
+          swift: "TCZBTR2A",
+          accounts: [
+            { cur: "TRY", acc: "15971901", iban: "TR14 0020 9000 0015 9971 0000 01" },
+            { cur: "USD", acc: "15971901", iban: "TR14 0020 9000 0015 9971 0000 02" },
+            { cur: "EUR", acc: "15971901", iban: "TR14 0020 9000 0015 9971 0000 03" }
+          ]
+        },
+        ptt: {
+          logo: "assets/images/about/bank/02.svg",
+          name: "PTT Bank",
+          holder: "Yedi Başak İnsani Yardım Derneği",
+          swift: "PTTATRSX",
+          accounts: [
+            { cur: "TRY", acc: "45892011", iban: "TR59 0001 0000 0458 9201 1000 01" },
+            { cur: "USD", acc: "45892011", iban: "TR59 0001 0000 0458 9201 1000 02" }
+          ]
+        },
+        kuveyt: {
+          logo: "assets/images/about/bank/03.svg",
+          name: "KuveytTürk",
+          holder: "Yedi Başak İnsani Yardım Derneği",
+          swift: "KTEFTRIS",
+          accounts: [
+            { cur: "TRY", acc: "20334477", iban: "TR98 0020 5000 0002 0334 4770 01" },
+            { cur: "USD", acc: "20334477", iban: "TR98 0020 5000 0002 0334 4770 02" },
+            { cur: "EUR", acc: "20334477", iban: "TR98 0020 5000 0002 0334 4770 03" }
+          ]
+        },
+        ziraatKat: {
+          logo: "assets/images/about/bank/04.svg",
+          name: "Ziraat Katılım",
+          holder: "Yedi Başak İnsani Yardım Derneği",
+          swift: "ZKBATRIS",
+          accounts: [
+            { cur: "TRY", acc: "18991031", iban: "TR20 0020 9000 0018 9910 3100 01" },
+            { cur: "USD", acc: "18991031", iban: "TR20 0020 9000 0018 9910 3100 02" }
+          ]
+        },
+        vakif: {
+          logo: "assets/images/about/bank/05.svg",
+          name: "Vakıf Katılım",
+          holder: "Yedi Başak İnsani Yardım Derneği",
+          swift: "VAKFTRIS",
+          accounts: [
+            { cur: "TRY", acc: "119901", iban: "TR22 0023 0000 0001 1990 1000 01" },
+            { cur: "EUR", acc: "119901", iban: "TR22 0023 0000 0001 1990 1000 02" }
+          ]
+        }
+      };
+
+      const panel = document.getElementById('bankPanel');
+      const toast = document.getElementById('toast');
+
+      function render(key) {
+        const b = BANKS[key]; if (!b) return;
+        panel.innerHTML = `
+          <div class="banks-dir__head">
+            <img src="${b.logo}" alt="">
+          </div>
+
+          <dl class="banks-dir__meta">
+            <div><dt>Account Holder</dt><dd>${b.holder}</dd></div>
+            <div><dt>SWIFT / BIC</dt><dd>${b.swift}</dd></div>
+          </dl>
+
+          <div class="acct" role="table" aria-label="Account numbers">
+            ${b.accounts.map(a => `
+              <div class="acct__row" role="row">
+                <div class="acct__cur" role="cell">${a.cur}</div>
+
+                <div role="cell">
+                  <div class="acct__label">Account No</div>
+                  <div class="acct__val">${a.acc}</div>
+                </div>
+
+                <div class="acct__label" role="cell">IBAN No</div>
+                <div class="acct__val" role="cell">${a.iban}</div>
+
+                <button class="copy" type="button" title="Copy IBAN" data-copy="${a.iban}">
+                  <i class="fa-regular fa-copy" aria-hidden="true"></i>
+                  <span class="sr-only">Copy IBAN</span>
+                </button>
+              </div>
+            `).join('')}
+          </div>
+        `;
+
+        // copy
+        panel.querySelectorAll('.copy').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const txt = btn.getAttribute('data-copy');
+            navigator.clipboard?.writeText(txt).then(() => {
+              btn.innerHTML = '<i class="fa-solid fa-check" aria-hidden="true"></i>';
+              toast.textContent = 'IBAN copied';
+              toast.classList.add('is-show');
+              setTimeout(() => { toast.classList.remove('is-show'); btn.innerHTML = '<i class="fa-regular fa-copy"></i>'; }, 1100);
+            });
+          });
+        });
+      }
+
+      // interactions
+      document.querySelectorAll('.bank-tile').forEach(b => {
+        b.addEventListener('click', () => {
+          document.querySelectorAll('.bank-tile').forEach(x => x.classList.remove('is-active'));
+          b.classList.add('is-active');
+          render(b.dataset.bank);
+        });
+      });
+
+      // initial
+      render('ziraat');
+    })();
+  </script>
+
+
+</body>
+
+</html>

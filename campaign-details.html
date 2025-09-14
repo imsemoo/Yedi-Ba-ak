@@ -3,69 +3,37 @@
 
 <head>
   <!-- =========================================================
-       PAGE: Cart
+       PAGE: Campaign Details (pixel-aligned to design)
        THEME: Yedi Başak — Frontend (HTML Only)
-       NOTES: Clean, accessible, SEO-ready markup.
        ========================================================= -->
-
-  <!-- Meta essentials -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Primary SEO -->
-  <title>Cart – Yedi Başak</title>
+  <title>1000 Tent Aid Campaign for Gaza – Yedi Başak</title>
   <meta name="description"
-    content="Review your selected campaigns, adjust quantities, and complete your donation securely with Yedi Başak." />
-  <link rel="canonical" href="https://www.yedibasak.org/cart.html" />
+    content="Support families in Gaza with food baskets and emergency aid. See progress, donate instantly, and browse the gallery." />
 
-  <!-- Open Graph / Twitter -->
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Yedi Başak" />
-  <meta property="og:title" content="Cart – Yedi Başak" />
-  <meta property="og:description" content="Check out your donation cart and finalize your support." />
-  <meta property="og:url" content="https://www.yedibasak.org/cart.html" />
-  <meta property="og:image" content="https://www.yedibasak.org/assets/images/og-cover.jpg" />
-  <meta property="og:image:alt" content="Yedi Başak delivering humanitarian aid" />
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- Favicons -->
-  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
-  <link rel="manifest" href="site.webmanifest" />
-
-  <!-- Preloads -->
-  <link rel="preload" href="assets/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin>
-
-  <!-- CSS (vendor → theme) -->
+  <!-- ================= Vendor CSS → Theme CSS ================= -->
   <link rel="stylesheet" href="assets/css/bootstrap-grid.min.css" />
   <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
   <link rel="stylesheet" href="assets/css/lightbox.min.css" />
   <link rel="stylesheet" href="assets/css/animate.min.css" />
   <link rel="stylesheet" href="assets/css/aos.css" />
   <link rel="stylesheet" href="assets/css/normalize.css" />
+
   <link rel="stylesheet" href="assets/css/style.css" />
-  <!-- Font Awesome (local) -->
+  <!-- Font Awesome (local split builds) -->
   <link rel="stylesheet" href="assets/css/fontawesome.min.css" />
   <link rel="stylesheet" href="assets/css/solid.min.css" />
   <link rel="stylesheet" href="assets/css/regular.min.css" />
   <link rel="stylesheet" href="assets/css/brands.min.css" />
+  <!-- Page-scoped CSS (namespaced: cdv-*) -->
+  <style>
 
-  <!-- Structured data: BreadcrumbList (Home > Cart) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.yedibasak.org/" },
-      { "@type": "ListItem", "position": 2, "name": "Cart", "item": "https://www.yedibasak.org/cart.html" }
-    ]
-  }
-  </script>
+  </style>
 </head>
 
 <body>
-  <!-- ========================= HEADER ========================= -->
- <header class="site-header" role="banner">
+  <header class="site-header" role="banner">
     <!-- Topbar -->
     <div class="topbar">
       <div class="container">
@@ -197,169 +165,137 @@
     <div class="offcanvas__overlay" hidden></div>
 
   </header>
-  <!-- /HEADER -->
+  <!-- ===== HERO ===== -->
+  <section class="cdv-hero" aria-label="Campaign cover">
+    <figure class="cdv-hero__bg" aria-hidden="true">
+      <picture>
+        <source type="image/webp" srcset="assets/images/bg/bg_about.webp">
+        <img src="assets/images/bg/bg_about.webp" alt="" loading="eager" decoding="async">
+      </picture>
+    </figure>
+    <div class="cdv-hero__content">
+      <span class="cdv-chip"> Emergency Aid</span>
+      <h1 class="cdv-hero__title">1000 Tent Aid Campaign<br>for Gaza</h1>
+    </div>
+  </section>
 
-  <!-- ========================== MAIN ========================== -->
-  <main id="main" class="page" aria-labelledby="cartTitle">
-    <!-- ========================= CART ========================= -->
-    <section class="cart" aria-labelledby="cartTitle">
-      <div class="container">
-        <header class="cart__head">
-          <div>
-            <h1 id="cartTitle" class="h2 title_page">Your Cart</h1>
-            <p class="cart__sub text-muted">Review your selected campaigns and complete your donation.</p>
+  <!-- ===== CONTENT ===== -->
+  <main class="cdv" id="main">
+    <div class="cdv__container">
+
+      <!-- Header row: progress + quick donate (left) | facts (right) -->
+      <header class="cdv__head">
+        <!-- Left -->
+        <div class="cdv-progress">
+          <!-- Numbers exactly like design -->
+          <div class="cdv-progress__labels" id="cdvProgress" data-collected="5000" data-goal="50000">
+            <div class="cdv-collected">
+              <span id="cdvCollected">$0</span>
+              <small>Collected</small>
+            </div>
+            <div class="cdv-remaining">
+              <span id="cdvRemaining">$0</span>
+              <small>Remaining</small>
+            </div>
           </div>
-        </header>
 
-        <!-- Items list -->
-        <div class="cart__list" id="cartList" role="list">
-          <!-- Item 1 -->
-          <article class="cart-item" role="listitem" data-price="100">
-            <figure class="cart-item__media">
-              <img src="assets/images/agenda/slide-1.png" alt="1000 Tent Aid Campaign for Gaza"
-                class="cart-item__thumb">
-            </figure>
-
-            <div class="cart-item__body">
-              <h3 class="cart-item__title">1000 Tent Aid Campaign for Gaza</h3>
-              <p class="cart-item__excerpt text-muted">Our brothers displaced by the massacre in Gaza need urgent
-                support…</p>
-              <div class="cart-item__meta">
-                <span class="cart-item__unit"><strong>$100</strong> <span class="text-muted">per share</span></span>
-                <div class="cart-item__badges" aria-label="item labels">
-                  <i class="fa-solid fa-certificate" title="Verified"></i>
-                  <i class="fa-regular fa-star" title="Popular"></i>
-                </div>
-              </div>
-            </div>
-
-            <aside class="cart-item__aside">
-              <div class="cart-item__actions">
-                <button class="link link--icon cart-save" type="button" aria-pressed="false"><i
-                    class="fa-solid fa-bookmark"></i> Save</button>
-                <button class="link link--icon cart-delete" type="button"><i class="fa-regular fa-trash-can"></i>
-                  Delete</button>
-              </div>
-              <div class="qty" aria-label="Quantity of shares">
-                <button class="qty__btn qty__minus" type="button" aria-label="Decrease quantity">−</button>
-                <input class="qty__input" type="text" inputmode="numeric" aria-label="Quantity" value="5" maxlength="2">
-                <button class="qty__btn qty__plus" type="button" aria-label="Increase quantity">+</button>
-              </div>
-              <div class="cart-item__subtotal" aria-live="polite">
-                <span class="sr-only">Subtotal:</span>
-                <strong class="cart-item__subtotal-num">$500</strong>
-              </div>
-            </aside>
-          </article>
-
-          <!-- Item 2 -->
-          <article class="cart-item" role="listitem" data-price="100">
-            <figure class="cart-item__media">
-              <img src="assets/images/agenda/slide-2.png" alt="1000 Tent Aid Campaign for Gaza"
-                class="cart-item__thumb">
-            </figure>
-            <div class="cart-item__body">
-              <h3 class="cart-item__title">1000 Tent Aid Campaign for Gaza</h3>
-              <p class="cart-item__excerpt text-muted">Our brothers displaced by the massacre in Gaza need urgent
-                support…</p>
-              <div class="cart-item__meta">
-                <span class="cart-item__unit"><strong>$100</strong> <span class="text-muted">per share</span></span>
-              </div>
-            </div>
-            <aside class="cart-item__aside">
-              <div class="cart-item__actions">
-                <button class="link link--icon cart-save" type="button"><i class="fa-solid fa-bookmark"></i>
-                  Save</button>
-                <button class="link link--icon cart-delete" type="button"><i class="fa-regular fa-trash-can"></i>
-                  Delete</button>
-              </div>
-              <div class="qty" aria-label="Quantity of shares">
-                <button class="qty__btn qty__minus" type="button" aria-label="Decrease quantity">−</button>
-                <input class="qty__input" type="text" inputmode="numeric" aria-label="Quantity" value="5" maxlength="2">
-                <button class="qty__btn qty__plus" type="button" aria-label="Increase quantity">+</button>
-              </div>
-              <div class="cart-item__subtotal" aria-live="polite">
-                <strong class="cart-item__subtotal-num">$500</strong>
-              </div>
-            </aside>
-          </article>
-
-          <!-- Item 3 -->
-          <article class="cart-item" role="listitem" data-price="100">
-            <figure class="cart-item__media">
-              <img src="assets/images/agenda/slide-3.png" alt="1000 Tent Aid Campaign for Gaza"
-                class="cart-item__thumb">
-            </figure>
-            <div class="cart-item__body">
-              <h3 class="cart-item__title">1000 Tent Aid Campaign for Gaza</h3>
-              <p class="cart-item__excerpt text-muted">Our brothers displaced by the massacre in Gaza need urgent
-                support…</p>
-              <div class="cart-item__meta">
-                <span class="cart-item__unit"><strong>$100</strong> <span class="text-muted">per share</span></span>
-              </div>
-            </div>
-            <aside class="cart-item__aside">
-              <div class="cart-item__actions">
-                <button class="link link--icon cart-save" type="button"><i class="fa-solid fa-bookmark"></i>
-                  Save</button>
-                <button class="link link--icon cart-delete" type="button"><i class="fa-regular fa-trash-can"></i>
-                  Delete</button>
-              </div>
-              <div class="qty" aria-label="Quantity of shares">
-                <button class="qty__btn qty__minus" type="button" aria-label="Decrease quantity">−</button>
-                <input class="qty__input" type="text" inputmode="numeric" aria-label="Quantity" value="5" maxlength="2">
-                <button class="qty__btn qty__plus" type="button" aria-label="Increase quantity">+</button>
-              </div>
-              <div class="cart-item__subtotal" aria-live="polite">
-                <strong class="cart-item__subtotal-num">$500</strong>
-              </div>
-            </aside>
-          </article>
-        </div>
-
-        <!-- Total + actions -->
-        <footer class="cart__foot">
-          <div class="cart__total">
-            <span class="cart__total-label">Total Donation</span>
-            <strong class="cart__total-num" id="cartTotal">$0.00</strong>
+          <!-- Bar -->
+          <div class="cdv-bar" aria-label="Progress">
+            <span class="cdv-bar__fill" style="--pct:0%"></span>
           </div>
-          <div class="cart__cta">
-            <a href="checkout.html" class="btn btn--pill btn--primary">
-              <i class="fa-solid fa-circle-check" aria-hidden="true"></i> Complete Donation
+
+          <!-- Quick amounts + custom + donate -->
+          <div class="cdv-quick">
+            <button class="cdv-pill is-active" type="button" data-amt="50">$50</button>
+            <button class="cdv-pill" type="button" data-amt="100">$100</button>
+            <button class="cdv-pill" type="button" data-amt="200">$200</button>
+            <button class="cdv-pill" type="button" data-amt="300">$300</button>
+
+            <label class="cdv-input" for="cdvCustom">
+              <i class="fa fa-circle-dollar-to-slot" aria-hidden="true"></i>
+              <input id="cdvCustom" type="number" min="1" step="1" placeholder="Another amount…" inputmode="numeric" />
+            </label>
+
+            <a id="cdvDonate" class="btn btn--pill btn--primary cdv-cta" href="donate.html">
+              <i class="fa-solid fa-heart"></i> Donate
             </a>
-            <button class="btn btn--pill cart__clear" id="cartClear" type="button">
-              <i class="fa-regular fa-trash-can" aria-hidden="true"></i> Clean the cart
-            </button>
           </div>
-        </footer>
-
-        <!-- Empty state (auto) -->
-        <div class="cart__empty" id="cartEmpty" hidden>
-          <p>No items in your cart yet.</p>
-          <a class="btn btn--pill btn--primary" href="activities.html">
-            <i class="fa-solid fa-heart" aria-hidden="true"></i> Explore campaigns
-          </a>
         </div>
-      </div>
-    </section>
-    <!-- /CART -->
-  </main>
 
-  <!-- ========================= FOOTER ========================= -->
+        <!-- Right facts -->
+        <aside class="cdv-facts" aria-label="Campaign facts">
+          <div class="cdv-fact">
+            <i class="fa-solid fa-map-location-dot" aria-hidden="true"></i>
+            <div>
+              <small>Country of implementation</small>
+              <strong>Palestine</strong>
+            </div>
+            <img class="cdv-flag" src="assets/images/flags/ps.webp" alt="Palestine flag" />
+          </div>
+
+          <div class="cdv-fact">
+            <i class="fa-solid fa-flag" aria-hidden="true"></i>
+            <div>
+              <small>Fund financing</small>
+              <strong>Palestine</strong>
+            </div>
+            <img class="cdv-flag" src="assets/images/flags/ps.webp" alt="Palestine flag" />
+          </div>
+        </aside>
+      </header>
+
+      <!-- Body -->
+      <section class="cdv__body" aria-labelledby="whyTitle">
+        <h2 id="whyTitle">Why do I support this project?</h2>
+        <p>
+          Amid the difficult conditions and ongoing war, thousands of displaced families in Gaza are suffering from
+          severe food and water shortages. Our joint campaign aims to provide food baskets for thousands of displaced
+          people in Gaza, both north and south, to alleviate their suffering and provide food support to families living
+          in catastrophic humanitarian conditions.
+        </p>
+        <p>
+          We invite you to join our relief campaign. Your donation could mean the difference between life and death.
+          Donate now and be part of this noble humanitarian effort.
+        </p>
+
+        <h2 id="galleryTitle">Gallery</h2>
+        <div class="cdv-gallery" aria-labelledby="galleryTitle">
+          <figure class="cdv-thumb"><img src="assets/images/media/01.webp" alt=""></figure>
+          <figure class="cdv-thumb"><img src="assets/images/media/02.webp" alt=""></figure>
+          <figure class="cdv-thumb"><img src="assets/images/media/03.webp" alt=""></figure>
+          <figure class="cdv-thumb"><img src="assets/images/media/04.webp" alt=""></figure>
+          <figure class="cdv-thumb"><img src="assets/images/media/05.webp" alt=""></figure>
+          <figure class="cdv-thumb"><img src="assets/images/media/06.webp" alt=""></figure>
+        </div>
+      </section>
+
+      <!-- Bottom CTA -->
+      <div class="cdv__foot">
+        <a id="cdvDonateBottom" class="btn btn--pill btn--primary" href="donate.html">
+          <i class="fa-solid fa-heart"></i> Donate
+        </a>
+      </div>
+    </div>
+  </main>
   <section class="cta-footer" aria-label="Hope in action">
     <div class="cta-footer__bg" aria-hidden="true"></div>
+
     <div class="container">
       <header class="cta-footer__head">
         <div>
           <h2 class="cta-footer__title h2">Hope in action</h2>
-          <p class="cta-footer__sub">Together, we can rebuild lives and restore dignity.</p>
+          <p class="cta-footer__sub">
+            Together, we can rebuild lives and restore dignity.
+          </p>
         </div>
 
-        <!-- Newsletter (no validation wiring yet) -->
+        <!-- Newsletter -->
         <form class="cta-footer__form" action="#" method="post" aria-label="Subscribe to updates" novalidate>
           <label class="visually-hidden" for="footerEmail">Email address</label>
           <input id="footerEmail" name="email" type="email" placeholder="Email address" inputmode="email" />
-          <button class="cta-footer__send" aria-label="Send email"><i class="fa-solid fa-paper-plane"></i></button>
+          <button class="cta-footer__send" aria-label="Send email">
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
         </form>
       </header>
 
@@ -367,11 +303,15 @@
         <!-- Mission -->
         <section class="cta-footer__block" aria-labelledby="ft-mission">
           <h3 id="ft-mission" class="cta-footer__eyebrow">Our Mission :</h3>
-          <p class="cta-footer__text">We provide immediate and long-term support to war refugees, offering essential
-            resources like food, water, medical care, and shelter.</p>
+          <p class="cta-footer__text">
+            We provide immediate and long-term support to war refugees, offering essential resources
+            like food, water, medical care, and shelter.
+          </p>
 
           <div class="cta-footer__call">
-            <span class="cta-footer__call-ico" aria-hidden="true"><i class="fa-solid fa-phone"></i></span>
+            <span class="cta-footer__call-ico" aria-hidden="true">
+              <i class="fa-solid fa-phone"></i>
+            </span>
             <div class="cta-footer__call-body">
               <span class="cta-footer__call-title">Call Us</span>
               <a href="tel:+903423251030" class="cta-footer__call-link">+90 (342) 325 1030</a>
@@ -403,14 +343,19 @@
             <li><a href="#"><i class="fa-solid fa-angle-right"></i> Contact</a></li>
             <li><a href="#"><i class="fa-solid fa-angle-right"></i> Project Suggestion Form</a></li>
             <li><a href="#"><i class="fa-solid fa-angle-right"></i> Volunteer</a></li>
+
             <li><a href="#"><i class="fa-solid fa-angle-right"></i> Help Request Form</a></li>
             <li><a href="#"><i class="fa-solid fa-angle-right"></i> Job Application Form</a></li>
             <li><a href="#"><i class="fa-solid fa-angle-right"></i> AUCTIONS</a></li>
             <li><a href="#"><i class="fa-solid fa-angle-right"></i> SMS / Mail cancellation Request Form</a></li>
+
           </ul>
         </nav>
+
+
       </div>
 
+      <!-- Divider -->
       <hr class="cta-footer__hr" />
 
       <div class="cta-footer__bar">
@@ -421,12 +366,62 @@
       </div>
     </div>
   </section>
-  <!-- /FOOTER -->
 
-  <!-- =================== Vendor JS → App JS =================== -->
+  <!-- ===== Minimal, namespaced JS (no conflicts) ===== -->
+  <script>
+    (function CDV() {
+      const $ = (s, c = document) => c.querySelector(s);
+      const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+
+      // Progress numbers + bar
+      const wrap = $('#cdvProgress');
+      if (wrap) {
+        const collected = Number(wrap.dataset.collected || 0);
+        const goal = Math.max(1, Number(wrap.dataset.goal || 1));
+        const remaining = Math.max(0, goal - collected);
+        const pct = Math.min(100, (collected / goal) * 100);
+
+        $('#cdvCollected').textContent = `$${collected.toLocaleString()}`;
+        $('#cdvRemaining').textContent = `$${remaining.toLocaleString()}`;
+        document.querySelector('.cdv-bar__fill').style.setProperty('--pct', pct + '%');
+      }
+
+      // Amount selection → pass ?amount= to donate link
+      const donateTop = $('#cdvDonate');
+      const donateBottom = $('#cdvDonateBottom');
+      const custom = $('#cdvCustom');
+
+      function setAmount(v) {
+        const link = new URL(donateTop.getAttribute('href'), location.href);
+        link.searchParams.set('amount', String(v));
+        donateTop.href = link;
+        donateBottom.href = link;
+      }
+
+      $$('.cdv-pill').forEach(btn => {
+        btn.addEventListener('click', () => {
+          $$('.cdv-pill').forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          custom.value = '';
+          setAmount(btn.dataset.amt);
+        });
+      });
+
+      custom.addEventListener('input', () => {
+        $$('.cdv-pill').forEach(b => b.classList.remove('is-active'));
+        const v = Math.max(1, Number(custom.value || 0));
+        if (v) setAmount(v);
+      });
+
+      // init
+      const active = $('.cdv-pill.is-active');
+      if (active) setAmount(active.dataset.amt);
+    })();
+  </script>
   <script src="assets/js/swiper-bundle.min.js"></script>
   <script src="assets/js/lightbox.min.js"></script>
   <script src="assets/js/aos.js"></script>
+  <!-- =============================== App JS ============================== -->
   <script src="assets/js/app.js"></script>
 </body>
 

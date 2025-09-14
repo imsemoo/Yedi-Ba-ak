@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+  <!-- =========================================================
+       PAGE: President's Message
+       THEME: Yedi Başak — Frontend (HTML Only)
+       ========================================================= -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>President’s Message – Yedi Başak</title>
+  <meta name="description"
+    content="A message from the Chairman of the Board about our mission, values, and humanitarian work." />
+  <link rel="canonical" href="https://www.yedibasak.org/president-message.html" />
+
+  <!-- OG / Twitter -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Yedi Başak" />
+  <meta property="og:title" content="President’s Message" />
+  <meta property="og:description" content="Our vision for goodness: a message from the Chairman of the Board." />
+  <meta property="og:image" content="assets/images/president/cover.jpg" />
+  <meta property="og:url" content="https://www.yedibasak.org/president-message.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+
+  <!-- Base CSS (project) -->
+  <link rel="stylesheet" href="assets/css/normalize.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/fontawesome.min.css" />
+  <link rel="stylesheet" href="assets/css/solid.min.css" />
+  <link rel="stylesheet" href="assets/css/regular.min.css" />
+  <link rel="stylesheet" href="assets/css/brands.min.css" />
+
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"President’s Message",
+    "author":{"@type":"Person","name":"Mustafa BULUT"},
+    "image":"assets/images/president/cover.jpg",
+    "publisher":{"@type":"Organization","name":"Yedi Başak"},
+    "mainEntityOfPage":"https://www.yedibasak.org/president-message.html"
+  }
+  </script>
+</head>
+
+<body>
+  <!-- ======= Header (reuse your site header) ======= -->
+  <header class="site-header" role="banner">
+    <!-- Topbar -->
+    <div class="topbar">
+      <div class="container">
+        <div class="topbar__left">
+          <a class="toplink" href="tel:+903423251030" title="Call: +90 342 325 1030">
+            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+            <span class="toplink__label">Tel: +90 342 325 1030</span>
+          </a>
+          <a class="toplink" href="tel:+905538867777" title="Call: +90 553 886 7777">
+            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+            <span class="toplink__label">Gsm: +90 553 886 7777</span>
+          </a>
+        </div>
+
+        <nav class="topbar__right" aria-label="Quick links">
+          <a class="toplink" href="public-benefits.html" title="Public Benefits status">
+            <i class="fa-solid fa-building-columns" aria-hidden="true"></i>
+            <span class="toplink__label">Public Benefits status</span>
+          </a>
+          <a class="toplink" href="bank-info.html" title="Bank info">
+            <i class="fa-solid fa-credit-card" aria-hidden="true"></i>
+            <span class="toplink__label">Bank info</span>
+          </a>
+          <a class="toplink" href="food-banking.html" title="Food Banking">
+            <i class="fa-solid fa-house" aria-hidden="true"></i>
+            <span class="toplink__label">Food Banking</span>
+          </a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Mainbar -->
+    <div class="mainbar" role="navigation" aria-label="Main header">
+      <div class="container mainbar__row">
+        <a class="brand" href="index.html" aria-label="Homepage">
+          <img src="assets/images/logo.svg" alt="Yedi Başak Logo" width="140" height="36" />
+        </a>
+
+        <!-- Mobile toggle -->
+        <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-controls="offcanvas"
+          aria-expanded="false">
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+
+        <!-- Primary nav (desktop) -->
+        <nav class="navbar" aria-label="Primary">
+          <ul class="menu">
+            <li><a class="menu__link" href="index.html">Home</a></li>
+
+            <!-- Corporate -->
+            <li class="has-dropdown">
+              <button class="menu__link dropdown-toggle" aria-haspopup="menu" aria-expanded="false">
+                Corporate <i class="fa-solid fa-chevron-down fa-sm" aria-hidden="true"></i>
+              </button>
+              <ul class="dropdown" role="menu">
+                <li><a role="menuitem" href="about.html">About Us</a></li>
+                <li><a role="menuitem" href="president-message.html">President’s Message</a></li>
+              </ul>
+            </li>
+
+            <!-- Activities -->
+            <li><a class="menu__link" href="activities.html">Our Activities</a></li>
+
+            <!-- Media (list page) -->
+            <li><a class="menu__link" href="media.html">Media</a></li>
+
+            <!-- Account numbers / bank info -->
+            <li><a class="menu__link" href="account-number.html">Account Numbers</a></li>
+
+            <!-- Donate -->
+            <li><a class="menu__link" href="donate.html">Donate</a></li>
+          </ul>
+        </nav>
+
+        <!-- Header actions -->
+        <div class="actions">
+          <a class="btn btn--ghost" href="payment.html" aria-label="Payment">
+            <i class="fa-solid fa-credit-card" aria-hidden="true"></i>
+          </a>
+          <a class="btn btn--ghost" href="cart.html" aria-label="Cart">
+            <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+          </a>
+          <button class="btn btn--ghost" aria-label="Language">
+            <i class="fa-solid fa-globe" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Offcanvas (mobile) -->
+    <aside id="offcanvas" class="offcanvas" hidden aria-label="Mobile menu">
+      <div class="offcanvas__header">
+        <span>Menu</span>
+        <button class="offcanvas__close" aria-label="Close menu">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <nav class="offcanvas__body" aria-label="Mobile primary">
+        <ul class="offcanvas__menu">
+          <li><a href="index.html">Home</a></li>
+
+          <li>
+            <button class="collapse-toggle" aria-expanded="false">
+              Corporate <i class="fa-solid fa-chevron-down fa-sm" aria-hidden="true"></i>
+            </button>
+            <ul class="collapse" hidden>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="president-message.html">President’s Message</a></li>
+            </ul>
+          </li>
+
+          <li><a href="activities.html">Our Activities</a></li>
+          <li><a href="media.html">Media</a></li>
+          <li><a href="account-number.html">Account Numbers</a></li>
+          <li><a href="donate.html">Donate</a></li>
+          <li><a href="payment.html">Payment</a></li>
+          <li><a href="cart.html">Cart</a></li>
+        </ul>
+      </nav>
+
+      <div class="offcanvas__footer">
+        <a class="btn btn--pill btn--primary" href="donate.html">
+          <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i>
+          <span>Donate</span>
+        </a>
+      </div>
+    </aside>
+    <div class="offcanvas__overlay" hidden></div>
+
+  </header>
+  <!-- ===== Page Hero (visual intro + breadcrumb) ===== -->
+  <section class="page-hero" aria-label="President hero">
+    <figure class="page-hero__bg" aria-hidden="true">
+      <picture>
+        <source type="image/webp" srcset="assets/images/bg/bg_about.webp">
+        <img src="assets/images/bg/bg_about.webp" alt="" loading="eager" decoding="async">
+      </picture>
+    </figure>
+
+    <div class="page-hero__content container">
+      <h1 id="pageTitle" class="page-hero__title">PRESIDENT’S MESSAGE</h1>
+      <p class="page-hero__lead">A word from our Chairman about our calling to serve with dignity, justice, and impact.
+      </p>
+
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol class="breadcrumb__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+          <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a class="breadcrumb__link" href="index.html" itemprop="item"><span itemprop="name">Home</span></a>
+            <meta itemprop="position" content="1" />
+          </li>
+          <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a class="breadcrumb__link" href="about.html" itemprop="item"><span itemprop="name">About Us</span></a>
+            <meta itemprop="position" content="2" />
+          </li>
+          <li class="breadcrumb__item is-current" aria-current="page" itemprop="itemListElement" itemscope
+            itemtype="https://schema.org/ListItem">
+            <span class="breadcrumb__current" itemprop="name">President’s Message</span>
+            <meta itemprop="position" content="3" />
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+  <!-- /Hero -->
+
+  <!-- ===== President’s message ===== -->
+  <section class="pmsg" aria-labelledby="pmsgTitle">
+    <div class="pmsg__container">
+      <div class="pmsg__grid">
+        <!-- Portrait -->
+        <figure class="pmsg__media" aria-label="Chairman portrait">
+          <img src="assets/images/president-portrait.webp" alt="Mustafa Bulut, Chairman of the Board" />
+          <span class="pmsg__badge"><i class="fa-solid fa-star-of-life"></i> Chairman</span>
+        </figure>
+
+        <!-- Copy -->
+        <div class="pmsg__body">
+          <span class="pmsg__eyebrow">Message</span>
+          <h2 id="pmsgTitle" class="pmsg__title">With your trust, we turn compassion into sustained impact</h2>
+
+          <p class="pmsg__lead dropcap">
+            Dear friends; as our Lord has said, “The situation of those who spend their wealth in the way of Allah is
+            like a grain that gives seven ears of ears, one hundred in each ear.” Established in 2016, Yedi Başak was
+            born to embody the values that make human life noble.
+          </p>
+
+          <p>
+            Yedi Başak Humanitarian Aid Association is an international, independent NGO that aims to alleviate the pain
+            and suffering of all needy people by providing material and spiritual support—regardless of religion,
+            language, race, or geography. Through fast and accountable action, our projects have touched the lives of
+            millions in three continents.
+          </p>
+
+          <div class="pmsg__quote">
+            <strong>We serve with integrity and transparency.</strong> Every lira entrusted to us is treated as an
+            amanah. We report, measure, and improve—so your kindness travels farther.
+          </div>
+
+          <p>
+            Our teams provide essentials like food, shelter, clean water, and healthcare, and we mobilize in emergencies
+            with agility and care. We also invest in sustainable development—livelihoods, education, and permanent
+            works—so families can stand on their own feet with dignity.
+          </p>
+
+          <p>
+            While you are benevolent and rain down like drops of mercy, we experience the happiness of raising your
+            kindness to the victims and oppressed. We want to reunite the world with the reviving breath of goodness. We
+            thank you for your trust and support to Yedi Başak Humanitarian Aid Association.
+          </p>
+
+          <hr class="pmsg__hr" />
+
+          <!-- Signature -->
+          <div class="pmsg__signature">
+            <div>
+              <div class="pmsg__name">Mustafa BULUT</div>
+              <div class="pmsg__role">Chairman of the Board</div>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="pmsg__actions">
+            <a class="btn--ghost-sm" href="assets/files/president-message.pdf" download>
+              <i class="fa-regular fa-file-lines"></i> Download PDF
+            </a>
+            <button class="btn--ghost-sm" type="button" id="printMsg">
+              <i class="fa-solid fa-print"></i> Print
+            </button>
+            <a class="btn--ghost-sm" href="about.html">
+              <i class="fa-solid fa-arrow-left-long"></i> Back to About
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /President’s message -->
+
+  <!-- ===== Footer (same site footer) ===== -->
+  <section class="cta-footer" aria-label="Hope in action">
+    <div class="cta-footer__bg" aria-hidden="true"></div>
+    <div class="container">
+      <header class="cta-footer__head">
+        <div>
+          <h2 class="cta-footer__title h2">Hope in action</h2>
+          <p class="cta-footer__sub">Together, we can rebuild lives and restore dignity.</p>
+        </div>
+        <form class="cta-footer__form" action="#" method="post" aria-label="Subscribe to updates" novalidate>
+          <label class="visually-hidden" for="footerEmail">Email address</label>
+          <input id="footerEmail" name="email" type="email" placeholder="Email address" inputmode="email" />
+          <button class="cta-footer__send" aria-label="Send email"><i class="fa-solid fa-paper-plane"></i></button>
+        </form>
+      </header>
+
+      <div class="cta-footer__grid">
+        <section class="cta-footer__block" aria-labelledby="ft-mission">
+          <h3 id="ft-mission" class="cta-footer__eyebrow">Our Mission :</h3>
+          <p class="cta-footer__text">We provide immediate and long-term support to war refugees, offering essential
+            resources like food, water, medical care, and shelter.</p>
+          <div class="cta-footer__call">
+            <span class="cta-footer__call-ico"><i class="fa-solid fa-phone"></i></span>
+            <div class="cta-footer__call-body">
+              <span class="cta-footer__call-title">Call Us</span>
+              <a href="tel:+903423251030" class="cta-footer__call-link">+90 (342) 325 1030</a>
+            </div>
+          </div>
+        </section>
+
+        <nav class="cta-footer__block" aria-labelledby="ft-activities">
+          <h3 id="ft-activities" class="cta-footer__eyebrow">Activities:</h3>
+          <ul class="cta-footer__list cta-footer__list_main">
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Ramadan</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> General</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Health</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Emergency Aid</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Orphan</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Water Well</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Sacrifice</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Zakat Sadaqah</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> ÖŞÜR</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Winter Aid</a></li>
+          </ul>
+        </nav>
+
+        <nav class="cta-footer__block" aria-labelledby="ft-contact">
+          <h3 id="ft-contact" class="cta-footer__eyebrow">CONTACT:</h3>
+          <ul class="cta-footer__list cta-footer__list_main">
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Contact</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Project Suggestion Form</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Volunteer</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Help Request Form</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Job Application Form</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> AUCTIONS</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> SMS / Mail cancellation Request Form</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <hr class="cta-footer__hr" />
+      <div class="cta-footer__bar">
+        <a href="/" class="cta-footer__brand">
+          <img src="assets/images/logo.svg" alt="Yedi Başak" width="128" height="36" />
+        </a>
+        <p class="cta-footer__copy">Copyright © <span id="footerYear"></span>, All Rights Reserved</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Minimal JS (namespaced, no conflicts) -->
+  <script>
+    (function pmsg() {
+      document.getElementById('printMsg')?.addEventListener('click', () => window.print());
+    })();
+  </script>
+</body>
+
+</html>

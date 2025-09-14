@@ -3,29 +3,24 @@
 
 <head>
   <!-- =========================================================
-       PAGE: Cart
+       PAGE: Payment / Checkout
        THEME: Yedi Başak — Frontend (HTML Only)
-       NOTES: Clean, accessible, SEO-ready markup.
+       PURPOSE: Collect card details + show order summary.
        ========================================================= -->
-
-  <!-- Meta essentials -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Primary SEO -->
-  <title>Cart – Yedi Başak</title>
-  <meta name="description"
-    content="Review your selected campaigns, adjust quantities, and complete your donation securely with Yedi Başak." />
-  <link rel="canonical" href="https://www.yedibasak.org/cart.html" />
+  <title>Payment – Yedi Başak</title>
+  <meta name="description" content="Securely complete your donation with your card. Review the summary and proceed." />
+  <link rel="canonical" href="https://www.yedibasak.org/payment.html" />
 
-  <!-- Open Graph / Twitter -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Yedi Başak" />
-  <meta property="og:title" content="Cart – Yedi Başak" />
-  <meta property="og:description" content="Check out your donation cart and finalize your support." />
-  <meta property="og:url" content="https://www.yedibasak.org/cart.html" />
+  <meta property="og:title" content="Payment – Yedi Başak" />
+  <meta property="og:description" content="Secure payment page to finalize your donation." />
+  <meta property="og:url" content="https://www.yedibasak.org/payment.html" />
   <meta property="og:image" content="https://www.yedibasak.org/assets/images/og-cover.jpg" />
-  <meta property="og:image:alt" content="Yedi Başak delivering humanitarian aid" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <!-- Favicons -->
@@ -33,7 +28,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
   <link rel="manifest" href="site.webmanifest" />
 
-  <!-- Preloads -->
+  <!-- Fonts preload -->
   <link rel="preload" href="assets/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin>
 
   <!-- CSS (vendor → theme) -->
@@ -44,28 +39,28 @@
   <link rel="stylesheet" href="assets/css/aos.css" />
   <link rel="stylesheet" href="assets/css/normalize.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
-  <!-- Font Awesome (local) -->
   <link rel="stylesheet" href="assets/css/fontawesome.min.css" />
   <link rel="stylesheet" href="assets/css/solid.min.css" />
   <link rel="stylesheet" href="assets/css/regular.min.css" />
   <link rel="stylesheet" href="assets/css/brands.min.css" />
 
-  <!-- Structured data: BreadcrumbList (Home > Cart) -->
+
+  <!-- Breadcrumb schema -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.yedibasak.org/" },
-      { "@type": "ListItem", "position": 2, "name": "Cart", "item": "https://www.yedibasak.org/cart.html" }
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://www.yedibasak.org/"},
+      {"@type":"ListItem","position":2,"name":"Payment","item":"https://www.yedibasak.org/payment.html"}
     ]
   }
   </script>
 </head>
 
 <body>
-  <!-- ========================= HEADER ========================= -->
- <header class="site-header" role="banner">
+  <!-- ===== HEADER (same as the rest of the site) ===== -->
+  <header class="site-header" role="banner">
     <!-- Topbar -->
     <div class="topbar">
       <div class="container">
@@ -200,149 +195,86 @@
   <!-- /HEADER -->
 
   <!-- ========================== MAIN ========================== -->
-  <main id="main" class="page" aria-labelledby="cartTitle">
-    <!-- ========================= CART ========================= -->
-    <section class="cart" aria-labelledby="cartTitle">
+  <main id="main" class="page" aria-labelledby="pageTitle">
+    <section class="checkout" aria-label="Payment">
       <div class="container">
-        <header class="cart__head">
-          <div>
-            <h1 id="cartTitle" class="h2 title_page">Your Cart</h1>
-            <p class="cart__sub text-muted">Review your selected campaigns and complete your donation.</p>
-          </div>
-        </header>
+        <div class="checkout__grid">
+          <!-- Left: Card info -->
+          <section class="pay-card" aria-labelledby="cardTitle">
+            <h2 id="cardTitle" class="pay-card__title">Card Information</h2>
 
-        <!-- Items list -->
-        <div class="cart__list" id="cartList" role="list">
-          <!-- Item 1 -->
-          <article class="cart-item" role="listitem" data-price="100">
-            <figure class="cart-item__media">
-              <img src="assets/images/agenda/slide-1.png" alt="1000 Tent Aid Campaign for Gaza"
-                class="cart-item__thumb">
-            </figure>
+            <form class="pay-form" id="payForm" novalidate>
+              <!-- Card Number -->
+              <div class="field">
+                <label class="field__label" for="cardNumber">Enter card number</label>
+                <input class="input" id="cardNumber" name="cardNumber" inputmode="numeric" autocomplete="cc-number"
+                  placeholder="0000 0000 0000 0000" maxlength="19" />
+              </div>
 
-            <div class="cart-item__body">
-              <h3 class="cart-item__title">1000 Tent Aid Campaign for Gaza</h3>
-              <p class="cart-item__excerpt text-muted">Our brothers displaced by the massacre in Gaza need urgent
-                support…</p>
-              <div class="cart-item__meta">
-                <span class="cart-item__unit"><strong>$100</strong> <span class="text-muted">per share</span></span>
-                <div class="cart-item__badges" aria-label="item labels">
-                  <i class="fa-solid fa-certificate" title="Verified"></i>
-                  <i class="fa-regular fa-star" title="Popular"></i>
+              <!-- Row: Date + CVV -->
+              <div class="pay-form__row">
+                <div class="field">
+                  <label class="field__label" for="expDate">Last Serv. Date</label>
+                  <!-- use month; fallback formatting handled by JS if needed -->
+                  <input class="input" id="expDate" name="expDate" type="month" placeholder="MM/YY"
+                    autocomplete="cc-exp">
+                </div>
+
+                <div class="field">
+                  <label class="field__label" for="cvv">CVV</label>
+                  <input class="input" id="cvv" name="cvv" inputmode="numeric" autocomplete="cc-csc"
+                    placeholder="Enter CVV" maxlength="4">
                 </div>
               </div>
-            </div>
 
-            <aside class="cart-item__aside">
-              <div class="cart-item__actions">
-                <button class="link link--icon cart-save" type="button" aria-pressed="false"><i
-                    class="fa-solid fa-bookmark"></i> Save</button>
-                <button class="link link--icon cart-delete" type="button"><i class="fa-regular fa-trash-can"></i>
-                  Delete</button>
-              </div>
-              <div class="qty" aria-label="Quantity of shares">
-                <button class="qty__btn qty__minus" type="button" aria-label="Decrease quantity">−</button>
-                <input class="qty__input" type="text" inputmode="numeric" aria-label="Quantity" value="5" maxlength="2">
-                <button class="qty__btn qty__plus" type="button" aria-label="Increase quantity">+</button>
-              </div>
-              <div class="cart-item__subtotal" aria-live="polite">
-                <span class="sr-only">Subtotal:</span>
-                <strong class="cart-item__subtotal-num">$500</strong>
-              </div>
-            </aside>
-          </article>
+              <!-- Save card -->
+              <label class="check">
+                <input type="checkbox" id="saveCard" name="saveCard" />
+                <span>Save card for future use</span>
+              </label>
+            </form>
+          </section>
 
-          <!-- Item 2 -->
-          <article class="cart-item" role="listitem" data-price="100">
-            <figure class="cart-item__media">
-              <img src="assets/images/agenda/slide-2.png" alt="1000 Tent Aid Campaign for Gaza"
-                class="cart-item__thumb">
-            </figure>
-            <div class="cart-item__body">
-              <h3 class="cart-item__title">1000 Tent Aid Campaign for Gaza</h3>
-              <p class="cart-item__excerpt text-muted">Our brothers displaced by the massacre in Gaza need urgent
-                support…</p>
-              <div class="cart-item__meta">
-                <span class="cart-item__unit"><strong>$100</strong> <span class="text-muted">per share</span></span>
-              </div>
-            </div>
-            <aside class="cart-item__aside">
-              <div class="cart-item__actions">
-                <button class="link link--icon cart-save" type="button"><i class="fa-solid fa-bookmark"></i>
-                  Save</button>
-                <button class="link link--icon cart-delete" type="button"><i class="fa-regular fa-trash-can"></i>
-                  Delete</button>
-              </div>
-              <div class="qty" aria-label="Quantity of shares">
-                <button class="qty__btn qty__minus" type="button" aria-label="Decrease quantity">−</button>
-                <input class="qty__input" type="text" inputmode="numeric" aria-label="Quantity" value="5" maxlength="2">
-                <button class="qty__btn qty__plus" type="button" aria-label="Increase quantity">+</button>
-              </div>
-              <div class="cart-item__subtotal" aria-live="polite">
-                <strong class="cart-item__subtotal-num">$500</strong>
-              </div>
-            </aside>
-          </article>
+          <!-- Right: Summary -->
+          <aside class="pay-summary" aria-labelledby="sumTitle">
+            <h2 id="sumTitle" class="pay-summary__title">Summery</h2>
 
-          <!-- Item 3 -->
-          <article class="cart-item" role="listitem" data-price="100">
-            <figure class="cart-item__media">
-              <img src="assets/images/agenda/slide-3.png" alt="1000 Tent Aid Campaign for Gaza"
-                class="cart-item__thumb">
-            </figure>
-            <div class="cart-item__body">
-              <h3 class="cart-item__title">1000 Tent Aid Campaign for Gaza</h3>
-              <p class="cart-item__excerpt text-muted">Our brothers displaced by the massacre in Gaza need urgent
-                support…</p>
-              <div class="cart-item__meta">
-                <span class="cart-item__unit"><strong>$100</strong> <span class="text-muted">per share</span></span>
+            <div class="summary" id="summary">
+              <div class="summary__list" id="summaryList">
+                <!-- Row template: data-qty & data-amount used for JS total -->
+                <div class="summary__row" data-qty="2" data-amount="500">
+                  <h3 class="summary__title">1000 Tent Aid Campaign for Gaza</h3>
+                  <span class="summary__qty">x2</span>
+                  <span class="summary__price">$500</span>
+                </div>
+
+                <div class="summary__row" data-qty="2" data-amount="500">
+                  <h3 class="summary__title">Orphan Donation</h3>
+                  <span class="summary__qty">x2</span>
+                  <span class="summary__price">$500</span>
+                </div>
+
+                <div class="summary__row" data-qty="2" data-amount="500">
+                  <h3 class="summary__title">Health Donation</h3>
+                  <span class="summary__qty">x2</span>
+                  <span class="summary__price">$500</span>
+                </div>
+              </div>
+
+              <div class="summary__total">
+                <span class="summary__total-label">Total</span>
+                <strong class="summary__total-num" id="grandTotal">$0.00</strong>
               </div>
             </div>
-            <aside class="cart-item__aside">
-              <div class="cart-item__actions">
-                <button class="link link--icon cart-save" type="button"><i class="fa-solid fa-bookmark"></i>
-                  Save</button>
-                <button class="link link--icon cart-delete" type="button"><i class="fa-regular fa-trash-can"></i>
-                  Delete</button>
-              </div>
-              <div class="qty" aria-label="Quantity of shares">
-                <button class="qty__btn qty__minus" type="button" aria-label="Decrease quantity">−</button>
-                <input class="qty__input" type="text" inputmode="numeric" aria-label="Quantity" value="5" maxlength="2">
-                <button class="qty__btn qty__plus" type="button" aria-label="Increase quantity">+</button>
-              </div>
-              <div class="cart-item__subtotal" aria-live="polite">
-                <strong class="cart-item__subtotal-num">$500</strong>
-              </div>
-            </aside>
-          </article>
+          </aside>
         </div>
 
-        <!-- Total + actions -->
-        <footer class="cart__foot">
-          <div class="cart__total">
-            <span class="cart__total-label">Total Donation</span>
-            <strong class="cart__total-num" id="cartTotal">$0.00</strong>
-          </div>
-          <div class="cart__cta">
-            <a href="checkout.html" class="btn btn--pill btn--primary">
-              <i class="fa-solid fa-circle-check" aria-hidden="true"></i> Complete Donation
-            </a>
-            <button class="btn btn--pill cart__clear" id="cartClear" type="button">
-              <i class="fa-regular fa-trash-can" aria-hidden="true"></i> Clean the cart
-            </button>
-          </div>
-        </footer>
-
-        <!-- Empty state (auto) -->
-        <div class="cart__empty" id="cartEmpty" hidden>
-          <p>No items in your cart yet.</p>
-          <a class="btn btn--pill btn--primary" href="activities.html">
-            <i class="fa-solid fa-heart" aria-hidden="true"></i> Explore campaigns
-          </a>
+        <!-- CTA -->
+        <div class="checkout__cta">
+          <button class=" btn btn--pill btn--primary btn-continue" id="payContinue" type="button">Continue</button>
         </div>
       </div>
     </section>
-    <!-- /CART -->
   </main>
 
   <!-- ========================= FOOTER ========================= -->
@@ -354,8 +286,6 @@
           <h2 class="cta-footer__title h2">Hope in action</h2>
           <p class="cta-footer__sub">Together, we can rebuild lives and restore dignity.</p>
         </div>
-
-        <!-- Newsletter (no validation wiring yet) -->
         <form class="cta-footer__form" action="#" method="post" aria-label="Subscribe to updates" novalidate>
           <label class="visually-hidden" for="footerEmail">Email address</label>
           <input id="footerEmail" name="email" type="email" placeholder="Email address" inputmode="email" />
@@ -364,14 +294,12 @@
       </header>
 
       <div class="cta-footer__grid">
-        <!-- Mission -->
         <section class="cta-footer__block" aria-labelledby="ft-mission">
           <h3 id="ft-mission" class="cta-footer__eyebrow">Our Mission :</h3>
           <p class="cta-footer__text">We provide immediate and long-term support to war refugees, offering essential
             resources like food, water, medical care, and shelter.</p>
-
           <div class="cta-footer__call">
-            <span class="cta-footer__call-ico" aria-hidden="true"><i class="fa-solid fa-phone"></i></span>
+            <span class="cta-footer__call-ico"><i class="fa-solid fa-phone"></i></span>
             <div class="cta-footer__call-body">
               <span class="cta-footer__call-title">Call Us</span>
               <a href="tel:+903423251030" class="cta-footer__call-link">+90 (342) 325 1030</a>
@@ -379,24 +307,22 @@
           </div>
         </section>
 
-        <!-- Activities -->
         <nav class="cta-footer__block" aria-labelledby="ft-activities">
           <h3 id="ft-activities" class="cta-footer__eyebrow">Activities:</h3>
           <ul class="cta-footer__list cta-footer__list_main">
-            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Ramadan</a></li>
-            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> General</a></li>
-            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Health</a></li>
-            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Emergency Aid</a></li>
-            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Orphan</a></li>
-            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Water Well</a></li>
-            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Sacrifice</a></li>
-            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Zakat Sadaqah</a></li>
-            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> ÖŞÜR</a></li>
-            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Winter Aid</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Ramadan</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> General</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Health</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Emergency Aid</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Orphan</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Water Well</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Sacrifice</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Zakat Sadaqah</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> ÖŞÜR</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Winter Aid</a></li>
           </ul>
         </nav>
 
-        <!-- Contact -->
         <nav class="cta-footer__block" aria-labelledby="ft-contact">
           <h3 id="ft-contact" class="cta-footer__eyebrow">CONTACT:</h3>
           <ul class="cta-footer__list cta-footer__list_main">
@@ -412,22 +338,76 @@
       </div>
 
       <hr class="cta-footer__hr" />
-
       <div class="cta-footer__bar">
-        <a href="/" class="cta-footer__brand">
-          <img src="assets/images/logo.svg" alt="Yedi Başak" width="128" height="36" />
-        </a>
+        <a href="/" class="cta-footer__brand"><img src="assets/images/logo.svg" alt="Yedi Başak" width="128"
+            height="36" /></a>
         <p class="cta-footer__copy">Copyright © <span id="footerYear"></span>, All Rights Reserved</p>
       </div>
     </div>
   </section>
-  <!-- /FOOTER -->
 
-  <!-- =================== Vendor JS → App JS =================== -->
+  <!-- Vendor JS → App JS -->
   <script src="assets/js/swiper-bundle.min.js"></script>
   <script src="assets/js/lightbox.min.js"></script>
   <script src="assets/js/aos.js"></script>
   <script src="assets/js/app.js"></script>
+
+  <!-- Minimal, namespaced JS (no conflicts) -->
+  <script>
+    /* =========================================================
+       Payment page scripts (scoped; no globals leaked)
+       - Format card number 4-4-4-4
+       - Limit CVV length
+       - Compute summary total
+       ========================================================= */
+    (() => {
+      const $$ = (sel, root = document) => root.querySelector(sel);
+      const $$$ = (sel, root = document) => [...root.querySelectorAll(sel)];
+
+      // ---- 1) Card formatting
+      const card = $$('#cardNumber');
+      const cvv = $$('#cvv');
+
+      if (card) {
+        card.addEventListener('input', e => {
+          // keep digits only, group by 4
+          let v = e.target.value.replace(/\D/g, '').slice(0, 16);
+          e.target.value = v.replace(/(\d{4})(?=\d)/g, '$1 ').trim();
+        });
+      }
+      if (cvv) {
+        cvv.addEventListener('input', e => {
+          e.target.value = e.target.value.replace(/\D/g, '').slice(0, 4);
+        });
+      }
+
+      // ---- 2) Total calculation from summary rows
+      const formatMoney = n => `$${Number(n).toFixed(2)}`;
+      const totalEl = $$('#grandTotal');
+      const rows = $$$('.summary__row');
+      const total = rows.reduce((acc, row) => {
+        const qty = Number(row.dataset.qty || 0);
+        const amt = Number(row.dataset.amount || 0);
+        return acc + (qty * amt);
+      }, 0);
+      if (totalEl) totalEl.textContent = formatMoney(total);
+
+      // ---- 3) Continue (dummy submit)
+      const btn = $$('#payContinue');
+      if (btn) {
+        btn.addEventListener('click', () => {
+          // Basic guard (you can replace with real validation/integration)
+          if (!card.value || !cvv.value) {
+            alert('Please enter your card number and CVV.');
+            return;
+          }
+          // Navigate to success page or trigger actual payment flow.
+          // location.href = 'success.html';
+          alert('Payment submitted (demo).');
+        });
+      }
+    })();
+  </script>
 </body>
 
 </html>

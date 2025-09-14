@@ -171,41 +171,35 @@
           <ul class="menu">
             <li><a class="menu__link" href="index.html">Home</a></li>
 
+            <!-- Corporate -->
             <li class="has-dropdown">
               <button class="menu__link dropdown-toggle" aria-haspopup="menu" aria-expanded="false">
                 Corporate <i class="fa-solid fa-chevron-down fa-sm" aria-hidden="true"></i>
               </button>
               <ul class="dropdown" role="menu">
                 <li><a role="menuitem" href="about.html">About Us</a></li>
-                <li><a role="menuitem" href="board.html">Board</a></li>
-                <li><a role="menuitem" href="contact.html">Contact</a></li>
+                <li><a role="menuitem" href="president-message.html">President’s Message</a></li>
               </ul>
             </li>
 
-            <li><a class="menu__link" href="activities.html" aria-current="page">Our Activities</a></li>
+            <!-- Activities -->
+            <li><a class="menu__link" href="activities.html">Our Activities</a></li>
 
-            <li class="has-dropdown">
-              <button class="menu__link dropdown-toggle" aria-haspopup="menu" aria-expanded="false">
-                Media <i class="fa-solid fa-chevron-down fa-sm" aria-hidden="true"></i>
-              </button>
-              <ul class="dropdown" role="menu">
-                <li><a role="menuitem" href="news.html">News</a></li>
-                <li><a role="menuitem" href="gallery.html">Gallery</a></li>
-              </ul>
-            </li>
+            <!-- Media (list page) -->
+            <li><a class="menu__link" href="media.html">Media</a></li>
 
-            <li><a class="menu__link" href="volunteer.html">Be Volunteer</a></li>
+            <!-- Account numbers / bank info -->
+            <li><a class="menu__link" href="account-number.html">Account Numbers</a></li>
+
+            <!-- Donate -->
+            <li><a class="menu__link" href="donate.html">Donate</a></li>
           </ul>
         </nav>
 
         <!-- Header actions -->
         <div class="actions">
-          <a class="btn btn--pill btn--primary" href="donate.html">
-            <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i>
-            <span>Donate</span>
-          </a>
-          <a class="btn btn--ghost" href="account.html" aria-label="Account">
-            <i class="fa-solid fa-user" aria-hidden="true"></i>
+          <a class="btn btn--ghost" href="payment.html" aria-label="Payment">
+            <i class="fa-solid fa-credit-card" aria-hidden="true"></i>
           </a>
           <a class="btn btn--ghost" href="cart.html" aria-label="Cart">
             <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
@@ -225,32 +219,30 @@
           <i class="fa-solid fa-xmark" aria-hidden="true"></i>
         </button>
       </div>
+
       <nav class="offcanvas__body" aria-label="Mobile primary">
         <ul class="offcanvas__menu">
           <li><a href="index.html">Home</a></li>
+
           <li>
             <button class="collapse-toggle" aria-expanded="false">
               Corporate <i class="fa-solid fa-chevron-down fa-sm" aria-hidden="true"></i>
             </button>
             <ul class="collapse" hidden>
               <li><a href="about.html">About Us</a></li>
-              <li><a href="board.html">Board</a></li>
-              <li><a href="contact.html">Contact</a></li>
+              <li><a href="president-message.html">President’s Message</a></li>
             </ul>
           </li>
-          <li><a href="activities.html" aria-current="page">Our Activities</a></li>
-          <li>
-            <button class="collapse-toggle" aria-expanded="false">
-              Media <i class="fa-solid fa-chevron-down fa-sm" aria-hidden="true"></i>
-            </button>
-            <ul class="collapse" hidden>
-              <li><a href="news.html">News</a></li>
-              <li><a href="gallery.html">Gallery</a></li>
-            </ul>
-          </li>
-          <li><a href="volunteer.html">Be Volunteer</a></li>
+
+          <li><a href="activities.html">Our Activities</a></li>
+          <li><a href="media.html">Media</a></li>
+          <li><a href="account-number.html">Account Numbers</a></li>
+          <li><a href="donate.html">Donate</a></li>
+          <li><a href="payment.html">Payment</a></li>
+          <li><a href="cart.html">Cart</a></li>
         </ul>
       </nav>
+
       <div class="offcanvas__footer">
         <a class="btn btn--pill btn--primary" href="donate.html">
           <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i>
@@ -259,12 +251,15 @@
       </div>
     </aside>
     <div class="offcanvas__overlay" hidden></div>
+
   </header>
 
   <!-- =========================================================
        MAIN
-       - Hero slider: Swiper + 8 category tabs (synced)
-       - Keep one <h1> in hero for homepage SEO
+        - Hero slider: Swiper + 8 category tabs (synced)
+        - agenda: Swiper cards + see all link 
+        - Featured causes: grid cards + see all link
+        - donations: donation form + payment methods
        ========================================================= -->
   <main id="main">
     <!-- ========================= Hero ========================= -->
@@ -1088,23 +1083,19 @@
     </section>
 
     <!-- ========================= Sponsor a Child ========================= -->
-    <section class="sponsor" aria-label="Sponsor a child">
+    <!-- <section class="sponsor" aria-label="Sponsor a child">
       <div class="container">
         <header class="sponsor__header">
           <h2 class="h2">SPONSOR A CHILD</h2>
         </header>
 
         <div class="sponsor__grid">
-          <!-- Left column (items) -->
           <div class="sponsor__list" id="sponsorListLeft" aria-label="Items left side"></div>
 
-          <!-- Avatar (center) -->
           <div class="sponsor__avatar" aria-live="polite">
-            <!-- Base body -->
             <img class="avatar__layer is-base" src="assets/images/sponsor/avatar/base.png" alt="Child avatar base"
               decoding="async">
 
-            <!-- Layers (hidden by default; toggled in JS) -->
             <img class="avatar__layer" data-layer="clothes-basic" src="assets/images/sponsor/avatar/clothes/basic.svg"
               alt="" aria-hidden="true">
             <img class="avatar__layer" data-layer="clothes-jacket" src="assets/images/sponsor/avatar/clothes/jacket.svg"
@@ -1117,11 +1108,9 @@
               aria-hidden="true">
           </div>
 
-          <!-- Right column (items) -->
           <div class="sponsor__list" id="sponsorListRight" aria-label="Items right side"></div>
         </div>
 
-        <!-- Footer: total + CTA -->
         <footer class="sponsor__footer">
           <div class="sponsor__total" aria-live="polite">Total <span id="sponsorTotal">$0</span></div>
           <div class="sponsor__actions">
@@ -1135,7 +1124,6 @@
         </footer>
       </div>
 
-      <!-- Item template (JS will clone) -->
       <template id="sponsorItemTpl">
         <article class="sponsor-item">
           <figure class="sponsor-item__media"><img alt="" loading="lazy" decoding="async"></figure>
@@ -1151,7 +1139,7 @@
           </div>
         </article>
       </template>
-    </section>
+    </section> -->
 
     <!-- ========================= Media / Stories ========================= -->
     <section class="media" aria-label="Latest media and stories">
@@ -1370,11 +1358,7 @@
       </div>
     </section>
 
-    <!-- =========================
-     DONATION HIGHLIGHT (left slider)
-     - Left: media slider (Swiper)
-     - Right: copy + KPI + CTA
-     ========================= -->
+    <!-- ========================= DONATION HIGHLIGHT (left slider) ========================= -->
     <section class="donate" aria-label="Make an impact">
       <div class="container donate__grid">
         <!-- LEFT: Media slider (independent instance) -->
@@ -1455,9 +1439,7 @@
       </div>
     </section>
 
-    <!-- =========================
-     STORY SPOTLIGHT (full-width hero)
-     ========================= -->
+    <!-- ========================= STORY SPOTLIGHT (full-width hero)  ========================= -->
     <section class="story" aria-label="Story spotlight">
       <!-- Background media (decorative) -->
       <figure class="story__media" aria-hidden="true">
@@ -1489,9 +1471,7 @@
     </section>
 
 
-    <!-- =========================
-     DONOR OPINIONS (overlapped cards, no slider)
-     ========================= -->
+    <!-- ========================= DONOR OPINIONS (overlapped cards, no slider) ========================= -->
     <section class="testi" aria-label="Donor opinions">
       <div class="container">
         <header class="testi__header">
@@ -1599,8 +1579,6 @@
       </div>
     </section>
 
-
-
   </main>
 
   <!-- =========================================
@@ -1700,8 +1678,7 @@
 
 
 
-
-  <script>
+  <!-- <script>
     (() => {
       "use strict";
 
@@ -1838,7 +1815,7 @@
       applyAvatarLayers();
       updateTotal();
     })();
-  </script>
+  </script> -->
   <!-- ======================= Vendor JS → App JS ======================== -->
   <script src="assets/js/swiper-bundle.min.js"></script>
   <script src="assets/js/lightbox.min.js"></script>
@@ -1850,13 +1827,7 @@
   <!-- =============================== App JS ============================== -->
   <script src="assets/js/app.js"></script>
 
-  <!--
-    JS CHECKLIST
-    - In app.js: init Swiper with reduced-motion guard, sync tabs (aria-pressed), offcanvas a11y.
-    - Ensure images exist: slide-1..8.(webp/jpg) to avoid CLS.
-    - Year auto-fill: document.getElementById('currentYear').textContent = new Date().getFullYear().toString();
-    - For SEO: include sitemap.xml + robots.txt in production.
-  -->
+
 </body>
 
 </html>
