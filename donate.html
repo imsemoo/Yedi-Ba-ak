@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+  <!-- =========================================================
+       PAGE: Donate 
+       THEME: Yedi Başak — Frontend (HTML Only)
+       NOTES:
+       - Keep comments concise; each section is self-documented.
+       - All metadata tailored for the About page.
+       ========================================================= -->
+
+  <!-- Meta essentials -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Primary SEO -->
+  <title>Donate – Yedi Başak</title>
+  <meta name="description"
+    content="Learn about Yedi Başak: our mission, values, and the humanitarian work we do across food, water, health, education, and emergency response." />
+  <link rel="canonical" href="https://www.yedibasak.org/about.html" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Yedi Başak" />
+  <meta property="og:title" content="Donate – Yedi Başak" />
+  <meta property="og:description"
+    content="Who we are, what we stand for, and how we deliver impact with transparency and accountability." />
+  <meta property="og:url" content="https://www.yedibasak.org/about.html" />
+  <meta property="og:image" content="https://www.yedibasak.org/assets/images/og-cover.jpg" />
+  <meta property="og:image:alt" content="Yedi Başak delivering humanitarian aid" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+
+  <!-- Preloads (optional; keep light) -->
+  <link rel="preload" href="assets/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- CSS (vendor → theme) -->
+  <link rel="stylesheet" href="assets/css/bootstrap-grid.min.css" />
+  <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="assets/css/lightbox.min.css" />
+  <link rel="stylesheet" href="assets/css/animate.min.css" />
+  <link rel="stylesheet" href="assets/css/aos.css" />
+  <link rel="stylesheet" href="assets/css/normalize.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- Font Awesome (local) -->
+  <link rel="stylesheet" href="assets/css/fontawesome.min.css" />
+  <link rel="stylesheet" href="assets/css/solid.min.css" />
+  <link rel="stylesheet" href="assets/css/regular.min.css" />
+  <link rel="stylesheet" href="assets/css/brands.min.css" />
+
+  <!-- Structured data (BreadcrumbList scoped to About) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.yedibasak.org/" },
+        { "@type": "ListItem", "position": 2, "name": "About Us", "item": "https://www.yedibasak.org/about.html" }
+      ]
+    }
+  </script>
+</head>
+
+<body>
+  <!-- ========================= HEADER =========================
+       - Top contact strip
+       - Main header with brand, nav (desktop), actions
+       - Offcanvas for mobile navigation
+       ========================================================= -->
+  <header class="site-header" role="banner">
+    <!-- Topbar -->
+    <div class="topbar">
+      <div class="container">
+        <div class="topbar__left">
+          <a class="toplink" href="tel:+903423251030" title="Call: +90 342 325 1030">
+            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+            <span class="toplink__label">Tel: +90 342 325 1030</span>
+          </a>
+          <a class="toplink" href="tel:+905538867777" title="Call: +90 553 886 7777">
+            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+            <span class="toplink__label">Gsm: +90 553 886 7777</span>
+          </a>
+        </div>
+
+        <nav class="topbar__right" aria-label="Quick links">
+          <a class="toplink" href="public-benefits.html" title="Public Benefits status">
+            <i class="fa-solid fa-building-columns" aria-hidden="true"></i>
+            <span class="toplink__label">Public Benefits status</span>
+          </a>
+          <a class="toplink" href="bank-info.html" title="Bank info">
+            <i class="fa-solid fa-credit-card" aria-hidden="true"></i>
+            <span class="toplink__label">Bank info</span>
+          </a>
+          <a class="toplink" href="food-banking.html" title="Food Banking">
+            <i class="fa-solid fa-house" aria-hidden="true"></i>
+            <span class="toplink__label">Food Banking</span>
+          </a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Mainbar -->
+    <div class="mainbar" role="navigation" aria-label="Main header">
+      <div class="container mainbar__row">
+        <a class="brand" href="index.html" aria-label="Homepage">
+          <img src="assets/images/logo.svg" alt="Yedi Başak Logo" width="140" height="36" />
+        </a>
+
+        <!-- Mobile toggle -->
+        <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-controls="offcanvas"
+          aria-expanded="false">
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+
+        <!-- Primary nav (desktop) -->
+        <nav class="navbar" aria-label="Primary">
+          <ul class="menu">
+            <li><a class="menu__link" href="index.html">Home</a></li>
+
+            <li class="has-dropdown">
+              <button class="menu__link dropdown-toggle" aria-haspopup="menu" aria-expanded="false">
+                Corporate <i class="fa-solid fa-chevron-down fa-sm" aria-hidden="true"></i>
+              </button>
+              <ul class="dropdown" role="menu">
+                <!-- Mark About Us as current page -->
+                <li><a role="menuitem" href="about.html" aria-current="page">About Us</a></li>
+                <li><a role="menuitem" href="board.html">Board</a></li>
+                <li><a role="menuitem" href="contact.html">Contact</a></li>
+              </ul>
+            </li>
+
+            <li><a class="menu__link" href="activities.html">Our Activities</a></li>
+
+            <li class="has-dropdown">
+              <button class="menu__link dropdown-toggle" aria-haspopup="menu" aria-expanded="false">
+                Media <i class="fa-solid fa-chevron-down fa-sm" aria-hidden="true"></i>
+              </button>
+              <ul class="dropdown" role="menu">
+                <li><a role="menuitem" href="news.html">News</a></li>
+                <li><a role="menuitem" href="gallery.html">Gallery</a></li>
+              </ul>
+            </li>
+
+            <li><a class="menu__link" href="volunteer.html">Be Volunteer</a></li>
+          </ul>
+        </nav>
+
+        <!-- Header actions -->
+        <div class="actions">
+          <a class="btn btn--pill btn--primary" href="donate.html">
+            <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i>
+            <span>Donate</span>
+          </a>
+          <a class="btn btn--ghost" href="account.html" aria-label="Account">
+            <i class="fa-solid fa-user" aria-hidden="true"></i>
+          </a>
+          <a class="btn btn--ghost" href="cart.html" aria-label="Cart">
+            <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+          </a>
+          <button class="btn btn--ghost" aria-label="Language">
+            <i class="fa-solid fa-globe" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Offcanvas (mobile) -->
+    <aside id="offcanvas" class="offcanvas" hidden aria-label="Mobile menu">
+      <div class="offcanvas__header">
+        <span>Menu</span>
+        <button class="offcanvas__close" aria-label="Close menu">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+      </div>
+      <nav class="offcanvas__body" aria-label="Mobile primary">
+        <ul class="offcanvas__menu">
+          <li><a href="index.html">Home</a></li>
+          <li>
+            <button class="collapse-toggle" aria-expanded="false">
+              Corporate <i class="fa-solid fa-chevron-down fa-sm" aria-hidden="true"></i>
+            </button>
+            <ul class="collapse" hidden>
+              <li><a href="about.html" aria-current="page">About Us</a></li>
+              <li><a href="board.html">Board</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </li>
+          <li><a href="activities.html">Our Activities</a></li>
+          <li>
+            <button class="collapse-toggle" aria-expanded="false">
+              Media <i class="fa-solid fa-chevron-down fa-sm" aria-hidden="true"></i>
+            </button>
+            <ul class="collapse" hidden>
+              <li><a href="news.html">News</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+          </li>
+          <li><a href="volunteer.html">Be Volunteer</a></li>
+        </ul>
+      </nav>
+      <div class="offcanvas__footer">
+        <a class="btn btn--pill btn--primary" href="donate.html">
+          <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i>
+          <span>Donate</span>
+        </a>
+      </div>
+    </aside>
+    <div class="offcanvas__overlay" hidden></div>
+  </header>
+  <!-- /HEADER -->
+
+  <!-- ========================== MAIN ==========================
+       - Hero (image only)
+       - Donate Form (left) + Media (right with title, lead, chip)
+
+       ========================================================= -->
+  <main id="main" class="page" aria-labelledby="pageTitle">
+
+    <!-- ================= Donate Hero Section ================= -->
+    <section class="donate-hero" aria-labelledby="donateHeroTitle">
+      <img src="assets/images/donate-hero.png" alt="Donate Hero" class="donate-hero__img"> </img>
+    </section>
+
+    <!-- ================= Donate Section ================= -->
+    <section class="donate-form" aria-labelledby="donateTitle">
+      <div class="container donate-form__grid">
+        <!-- Left: form -->
+        <form class="donate-form__panel" action="#" method="post" novalidate>
+          <!-- Price + tag row -->
+          <div class="donate-form__head">
+            <div class="donate-form__price">
+              <span class="donate-form__amount" data-unit-price="220">$220</span>
+              <span class="donate-form__per">Per share</span>
+            </div>
+          </div>
+
+
+          <!-- Quantity -->
+          <div class="field">
+            <label class="field__label" for="qty">Quantity of Share</label>
+            <div class="qty" data-js="qty">
+              <button type="button" class="qty__btn" data-act="dec" aria-label="Decrease quantity">−</button>
+              <input id="qty" name="quantity" class="qty__input" type="text" inputmode="numeric" min="1" value="2"
+                aria-live="polite" />
+              <button type="button" class="qty__btn" data-act="inc" aria-label="Increase quantity">+</button>
+            </div>
+          </div>
+
+          <!-- Type of donation -->
+          <div class="field">
+            <label class="field__label" for="type">Type of Donation</label>
+            <div class="field__control">
+              <select id="type" name="type" class="input">
+                <option>Individual Share</option>
+                <option>Whole Animal</option>
+                <option>General Charity</option>
+              </select>
+              <i class="fa-solid fa-chevron-down field__chev" aria-hidden="true"></i>
+            </div>
+          </div>
+
+          <!-- Country / Region -->
+          <div class="field">
+            <label class="field__label" for="country">Country / Region</label>
+            <div class="field__control">
+              <select id="country" name="country" class="input">
+                <option selected>Unrestricted</option>
+                <option>Turkey</option>
+                <option>Palestine</option>
+                <option>Yemen</option>
+                <option>Syria</option>
+              </select>
+              <i class="fa-solid fa-chevron-down field__chev" aria-hidden="true"></i>
+            </div>
+          </div>
+
+          <!-- Shareholder name -->
+          <div class="field">
+            <label class="field__label" for="name">Name of the shareholder</label>
+            <input id="name" name="name" class="input" type="text" placeholder="Name" />
+          </div>
+
+          <!-- Phone -->
+          <div class="field">
+            <label class="field__label" for="phone">Phone number</label>
+            <div class="phone">
+              <span class="phone__country">
+                <img src="assets/images/flags/tr.webp" alt="" width="18" height="12" />
+                <span class="phone__code">+90</span>
+              </span>
+              <input id="phone" name="phone" class="input phone__input" type="tel" inputmode="tel"
+                placeholder="Enter phone number" />
+            </div>
+          </div>
+
+          <!-- CTA row -->
+          <div class="donate-form__actions">
+            <button class="btn btn--pill btn--primary donate-form__donate" type="submit">
+              <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i> Donate
+            </button>
+            <button class="btn btn--pill btn--ghost donate-form__cart" type="button">
+              <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Add to cart
+            </button>
+          </div>
+
+          <!-- Total (auto-updated; can be hidden if not needed) -->
+          <div class="donate-form__total" aria-live="polite">
+            <span>Total:</span>
+            <strong class="donate-form__total-val" data-js="total">$440</strong>
+          </div>
+        </form>
+
+        <!-- Right: media -->
+        <div class="donate-form__media-wrap">
+          <!-- Category chip (can be extended later to radio group) -->
+          <div class="donate-form__chip" role="status" aria-live="polite">
+            <span class="donate-form__chip-dot" aria-hidden="true"></span>
+            <span>Qurban</span>
+          </div>
+          <h2 id="donateTitle" class="donate-form__title">Aqeeqah Qurbani</h2>
+          <p class="donate-form__lead">
+            Share the joy of Eid with families in need by donating an animal sacrifice.
+            Your gift brings happiness to many hearts and provides food for the underprivileged.
+          </p>
+
+          <figure class="donate-form__media">
+            <img src="assets/images/donate/hero-kids-goat.png" alt="Children receiving Qurbani meat" loading="lazy"
+              decoding="async" />
+          </figure>
+        </div>
+      </div>
+    </section>
+    <!-- /Donate Section -->
+
+
+  </main>
+
+  <!-- ========================= FOOTER =========================
+       - Compact CTA footer with newsletter
+       - Quick link lists
+       - Copyright (auto-year via app.js)
+       ========================================================= -->
+  <section class="cta-footer" aria-label="Hope in action">
+    <div class="cta-footer__bg" aria-hidden="true"></div>
+
+    <div class="container">
+      <header class="cta-footer__head">
+        <div>
+          <h2 class="cta-footer__title h2">Hope in action</h2>
+          <p class="cta-footer__sub">Together, we can rebuild lives and restore dignity.</p>
+        </div>
+
+        <!-- Newsletter (no validation wiring yet) -->
+        <form class="cta-footer__form" action="#" method="post" aria-label="Subscribe to updates" novalidate>
+          <label class="visually-hidden" for="footerEmail">Email address</label>
+          <input id="footerEmail" name="email" type="email" placeholder="Email address" inputmode="email" />
+          <button class="cta-footer__send" aria-label="Send email">
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </form>
+      </header>
+
+      <div class="cta-footer__grid">
+        <!-- Mission -->
+        <section class="cta-footer__block" aria-labelledby="ft-mission">
+          <h3 id="ft-mission" class="cta-footer__eyebrow">Our Mission :</h3>
+          <p class="cta-footer__text">
+            We provide immediate and long-term support to war refugees, offering essential resources
+            like food, water, medical care, and shelter.
+          </p>
+
+          <div class="cta-footer__call">
+            <span class="cta-footer__call-ico" aria-hidden="true">
+              <i class="fa-solid fa-phone"></i>
+            </span>
+            <div class="cta-footer__call-body">
+              <span class="cta-footer__call-title">Call Us</span>
+              <a href="tel:+903423251030" class="cta-footer__call-link">+90 (342) 325 1030</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Activities -->
+        <nav class="cta-footer__block" aria-labelledby="ft-activities">
+          <h3 id="ft-activities" class="cta-footer__eyebrow">Activities:</h3>
+          <ul class="cta-footer__list cta-footer__list_main">
+            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Ramadan</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> General</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Health</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Emergency Aid</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Orphan</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Water Well</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Sacrifice</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Zakat Sadaqah</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> ÖŞÜR</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Winter Aid</a></li>
+          </ul>
+        </nav>
+
+        <!-- Contact -->
+        <nav class="cta-footer__block" aria-labelledby="ft-contact">
+          <h3 id="ft-contact" class="cta-footer__eyebrow">CONTACT:</h3>
+          <ul class="cta-footer__list cta-footer__list_main">
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Contact</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Project Suggestion Form</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Volunteer</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Help Request Form</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Job Application Form</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> AUCTIONS</a></li>
+            <li><a href="#"><i class="fa-solid fa-angle-right"></i> SMS / Mail cancellation Request Form</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Divider -->
+      <hr class="cta-footer__hr" />
+
+      <div class="cta-footer__bar">
+        <a href="/" class="cta-footer__brand">
+          <img src="assets/images/logo.svg" alt="Yedi Başak" width="128" height="36" />
+        </a>
+        <!-- Use #currentYear to align with app.js -->
+        <p class="cta-footer__copy">Copyright © <span id="currentYear"></span>, All Rights Reserved</p>
+      </div>
+    </div>
+  </section>
+  <!-- /FOOTER -->
+
+  <!-- =================== Vendor JS → App JS =================== -->
+  <script src="assets/js/swiper-bundle.min.js"></script>
+  <script src="assets/js/lightbox.min.js"></script>
+  <script src="assets/js/aos.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+
+</html>
