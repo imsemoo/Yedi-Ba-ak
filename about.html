@@ -3,24 +3,24 @@
 
 <head>
   <!-- =========================================================
-       PAGE: About Us
-       THEME: Yedi Başak — Frontend (HTML Only)
-       NOTES:
-       - Keep comments concise; each section is self-documented.
-       - All metadata tailored for the About page.
-       ========================================================= -->
+         PAGE: About Us
+         THEME: Yedi Başak — Frontend (HTML Only)
+         NOTES:
+         - Comments are concise and component-scoped.
+         - Metadata tailored for the About page only.
+         ========================================================= -->
 
-  <!-- Meta essentials -->
+  <!-- ========== Meta essentials ========== -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Primary SEO -->
+  <!-- ========== Primary SEO ========== -->
   <title>About Us – Yedi Başak</title>
   <meta name="description"
     content="Learn about Yedi Başak: our mission, values, and the humanitarian work we do across food, water, health, education, and emergency response." />
   <link rel="canonical" href="https://www.yedibasak.org/about.html" />
 
-  <!-- Open Graph / Twitter -->
+  <!-- ========== Open Graph / Twitter ========== -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Yedi Başak" />
   <meta property="og:title" content="About Us – Yedi Başak" />
@@ -31,15 +31,15 @@
   <meta property="og:image:alt" content="Yedi Başak delivering humanitarian aid" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Favicons -->
+  <!-- ========== Favicons ========== -->
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
   <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
   <link rel="manifest" href="site.webmanifest" />
 
-  <!-- Preloads (optional; keep light) -->
-  <link rel="preload" href="assets/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <!-- ========== Preloads (light) ========== -->
+  <link rel="preload" href="assets/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin />
 
-  <!-- CSS (vendor → theme) -->
+  <!-- ========== CSS (vendor → theme) ========== -->
   <link rel="stylesheet" href="assets/css/bootstrap-grid.min.css" />
   <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
   <link rel="stylesheet" href="assets/css/lightbox.min.css" />
@@ -47,33 +47,36 @@
   <link rel="stylesheet" href="assets/css/aos.css" />
   <link rel="stylesheet" href="assets/css/normalize.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
-  <!-- Font Awesome (local) -->
+
+  <!-- Font Awesome (local split) -->
   <link rel="stylesheet" href="assets/css/fontawesome.min.css" />
   <link rel="stylesheet" href="assets/css/solid.min.css" />
   <link rel="stylesheet" href="assets/css/regular.min.css" />
   <link rel="stylesheet" href="assets/css/brands.min.css" />
 
-  <!-- Structured data (BreadcrumbList scoped to About) -->
+  <!-- ========== Structured data: BreadcrumbList (About) ========== -->
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.yedibasak.org/" },
-        { "@type": "ListItem", "position": 2, "name": "About Us", "item": "https://www.yedibasak.org/about.html" }
-      ]
-    }
-  </script>
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.yedibasak.org/" },
+          { "@type": "ListItem", "position": 2, "name": "About Us", "item": "https://www.yedibasak.org/about.html" }
+        ]
+      }
+    </script>
 </head>
 
 <body>
-  <!-- ========================= HEADER =========================
-       - Top contact strip
-       - Main header with brand, nav (desktop), actions
-       - Offcanvas for mobile navigation
-       ========================================================= -->
+  <!-- =========================================================
+         HEADER
+         Blocks:
+         - Topbar (contacts & quicklinks)
+         - Mainbar (brand, desktop nav, actions)
+         - Offcanvas (mobile navigation)
+         ========================================================= -->
   <header class="site-header" role="banner">
-    <!-- Topbar -->
+    <!-- ===== Topbar ===== -->
     <div class="topbar">
       <div class="container">
         <div class="topbar__left">
@@ -103,10 +106,12 @@
         </nav>
       </div>
     </div>
+    <!-- /Topbar -->
 
-    <!-- Mainbar -->
+    <!-- ===== Mainbar ===== -->
     <div class="mainbar" role="navigation" aria-label="Main header">
       <div class="container mainbar__row">
+        <!-- Brand -->
         <a class="brand" href="index.html" aria-label="Homepage">
           <img src="assets/images/logo.svg" alt="Yedi Başak Logo" width="140" height="36" />
         </a>
@@ -161,8 +166,9 @@
         </div>
       </div>
     </div>
+    <!-- /Mainbar -->
 
-    <!-- Offcanvas (mobile) -->
+    <!-- ===== Offcanvas (mobile) ===== -->
     <aside id="offcanvas" class="offcanvas" hidden aria-label="Mobile menu">
       <div class="offcanvas__header">
         <span>Menu</span>
@@ -202,18 +208,21 @@
       </div>
     </aside>
     <div class="offcanvas__overlay" hidden></div>
-
+    <!-- /Offcanvas -->
   </header>
   <!-- /HEADER -->
 
-  <!-- ========================== MAIN ==========================
-       - Hero (visual intro + breadcrumb)
-       - About intro (who we are)
-       - Values (vision, mission, accountability)
-       - Principles list
-       - Goals / Offer (collage + copy)
-       - Bank donation channels
-       ========================================================= -->
+  <!-- =========================================================
+         MAIN
+         Sections:
+         - Page Hero
+         - About Intro
+         - Values (Vision / Mission / Accountability)
+         - Principles list
+         - Offer / Goals
+         - Bank donation channels
+         - Board of Directors (Swiper)
+         ========================================================= -->
   <main id="main" class="page" aria-labelledby="pageTitle">
     <!-- ===== Page Hero ===== -->
     <section class="page-hero" aria-label="About Us hero">
@@ -221,8 +230,8 @@
       <figure class="page-hero__bg" aria-hidden="true">
         <picture>
           <!-- <source type="image/avif" srcset="assets/images/bg/bg_about.avif"> -->
-          <source type="image/webp" srcset="assets/images/bg/bg_about.webp">
-          <img src="assets/images/bg/bg_about.webp" alt="" loading="eager" decoding="async">
+          <source type="image/webp" srcset="assets/images/bg/bg_about.webp" />
+          <img src="assets/images/bg/bg_about.webp" alt="" loading="eager" decoding="async" />
         </picture>
       </figure>
 
@@ -230,9 +239,9 @@
       <div class="page-hero__content container">
         <h1 id="pageTitle" class="page-hero__title">ABOUT US</h1>
         <p class="page-hero__lead">
-          We are a humanitarian organization dedicated to preserving dignity and improving lives through
-          sustainable relief and development. Guided by transparency and impact, we mobilize donors, partners,
-          and volunteers to deliver food, water, health services, education, and emergency aid where it’s needed most.
+          We are a humanitarian organization dedicated to preserving dignity and improving lives through sustainable
+          relief and development. Guided by transparency and impact, we mobilize donors, partners, and volunteers to
+          deliver food, water, health services, education, and emergency aid where it’s needed most.
         </p>
 
         <!-- Breadcrumb (visible + schema.org list) -->
@@ -263,10 +272,10 @@
           <span class="about-intro__eyebrow" aria-label="Section">About Us</span>
           <h2 id="aboutIntroTitle" class="about-intro__title">Who are we?</h2>
           <p class="about-intro__lead">
-            Yedi Başak Humanitarian Relief Organization is an independent, non-profit international NGO
-            founded in 2016 to preserve dignity and improve lives. We work with donors, partners and
-            volunteers to deliver sustainable aid in food, water, health, education and emergency response —
-            regardless of origin or category.
+            Yedi Başak Humanitarian Relief Organization is an independent, non-profit international NGO founded in
+            2016 to preserve dignity and improve lives. We work with donors, partners and volunteers to deliver
+            sustainable aid in food, water, health, education and emergency response — regardless of origin or
+            category.
           </p>
           <a href="donate.html" class="btn btn--pill btn--primary about-intro__cta">
             <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i>
@@ -297,13 +306,13 @@
           <li class="feature-card">
             <header class="feature-card__head">
               <span class="feature-card__icon" aria-hidden="true">
-                <img src="assets/icons/mdi_television-shimmer.svg" alt="">
+                <img src="assets/icons/mdi_television-shimmer.svg" alt="" />
               </span>
               <h3 class="feature-card__title">OUR VISION</h3>
             </header>
             <p class="feature-card__text">
-              To lead in the field of aid within the framework of all kinds of human needs
-              for the welfare and peace of humanity.
+              To lead in the field of aid within the framework of all kinds of human needs for the welfare and peace
+              of humanity.
             </p>
           </li>
 
@@ -311,13 +320,13 @@
           <li class="feature-card">
             <header class="feature-card__head">
               <span class="feature-card__icon" aria-hidden="true">
-                <img src="assets/icons/covid_transmission-virus-handshake.svg" alt="">
+                <img src="assets/icons/covid_transmission-virus-handshake.svg" alt="" />
               </span>
               <h3 class="feature-card__title">OUR MISSION</h3>
             </header>
             <p class="feature-card__text">
-              Guided by our values and a deep sense of responsibility, we strive to build
-              meaningful bridges between those who give and those in need.
+              Guided by our values and a deep sense of responsibility, we strive to build meaningful bridges between
+              those who give and those in need.
             </p>
           </li>
 
@@ -325,13 +334,14 @@
           <li class="feature-card">
             <header class="feature-card__head">
               <span class="feature-card__icon" aria-hidden="true">
-                <img src="assets/icons/machine learning.svg" alt="">
+                <!-- Note: filename contains a space; keep as-is per requirement -->
+                <img src="assets/icons/machine learning.svg" alt="" />
               </span>
               <h3 class="feature-card__title">Accountability</h3>
             </header>
             <p class="feature-card__text">
-              We act with the principle of being accountable to both the right and the public,
-              and we do our duty with the responsibility imposed by this principle.
+              We act with the principle of being accountable to both the right and the public, and we do our duty with
+              the responsibility imposed by this principle.
             </p>
           </li>
         </ul>
@@ -346,8 +356,8 @@
         <header class="values__intro">
           <h2 id="valuesTitle" class="values__title">Our Values &amp; Principles</h2>
           <p class="values__lead">
-            We believe that impactful change begins with unwavering values. Every step
-            we take is guided by our deep commitment to integrity, justice, and responsibility.
+            We believe that impactful change begins with unwavering values. Every step we take is guided by our deep
+            commitment to integrity, justice, and responsibility.
           </p>
         </header>
 
@@ -355,44 +365,50 @@
         <ul class="values__list" role="list">
           <li class="v-card">
             <span class="v-card__icon" aria-hidden="true">
-              <img src="assets/icons/filterd data.svg" alt="">
+              <!-- Note: filename contains a space; kept intact -->
+              <img src="assets/icons/filterd data.svg" alt="" />
             </span>
             <div class="v-card__body">
               <h3 class="v-card__title"><span class="v-card__num">1.</span> Transparency</h3>
-              <p class="v-card__text">We are accountable to our stakeholders as we strive to do our work in the best way
-                possible.</p>
+              <p class="v-card__text">
+                We are accountable to our stakeholders as we strive to do our work in the best way possible.
+              </p>
             </div>
           </li>
 
           <li class="v-card">
             <span class="v-card__icon" aria-hidden="true">
-              <img src="assets/icons/donate food.svg" alt="">
+              <img src="assets/icons/donate food.svg" alt="" />
             </span>
             <div class="v-card__body">
               <h3 class="v-card__title"><span class="v-card__num">2.</span> Institutionalism</h3>
-              <p class="v-card__text">We are guided by values of integrity, justice, and responsibility in everything we
-                do.</p>
+              <p class="v-card__text">
+                We are guided by values of integrity, justice, and responsibility in everything we do.
+              </p>
             </div>
           </li>
 
           <li class="v-card">
             <span class="v-card__icon" aria-hidden="true">
-              <img src="assets/icons/Justice.svg" alt="">
+              <img src="assets/icons/Justice.svg" alt="" />
             </span>
             <div class="v-card__body">
               <h3 class="v-card__title"><span class="v-card__num">3.</span> Justice</h3>
-              <p class="v-card__text">We treat people fairly because they are human — regardless of religion, language,
-                race, gender or geography.</p>
+              <p class="v-card__text">
+                We treat people fairly because they are human — regardless of religion, language, race, gender or
+                geography.
+              </p>
             </div>
           </li>
 
           <li class="v-card">
             <span class="v-card__icon" aria-hidden="true">
-              <img src="assets/icons/ribbon.svg" alt="">
+              <img src="assets/icons/ribbon.svg" alt="" />
             </span>
             <div class="v-card__body">
               <h3 class="v-card__title"><span class="v-card__num">4.</span> Impartiality</h3>
-              <p class="v-card__text">We deliver aid with fairness and respect, embracing all without discrimination.
+              <p class="v-card__text">
+                We deliver aid with fairness and respect, embracing all without discrimination.
               </p>
             </div>
           </li>
@@ -401,17 +417,17 @@
     </section>
     <!-- /Principles -->
 
-    <!-- ===== Goals / What we offer ===== -->
+    <!-- ===== Offer / Goals ===== -->
     <section class="offer" aria-labelledby="offerTitle">
       <div class="container offer__grid">
         <!-- Collage (decor block + two images) -->
         <div class="offer__media" aria-hidden="true">
           <span class="offer__shape"></span>
           <figure class="offer__thumb offer__thumb--sm">
-            <img src="assets/images/about/offer-small.png" alt="">
+            <img src="assets/images/about/offer-small.png" alt="" />
           </figure>
           <figure class="offer__thumb offer__thumb--lg">
-            <img src="assets/images/about/offer-large.png" alt="">
+            <img src="assets/images/about/offer-large.png" alt="" />
           </figure>
         </div>
 
@@ -421,8 +437,8 @@
           <h2 id="offerTitle" class="offer__title">What we offer?</h2>
           <p class="offer__text">
             Yedi Başak carries out projects to help people in need within the scope of food security, livelihood,
-            water and sanitation, education, shelter, nutrition and health programs. By putting humanitarian needs
-            at the center, we provide in-kind and cash assistance at home and abroad; we support education and health,
+            water and sanitation, education, shelter, nutrition and health programs. By putting humanitarian needs at
+            the center, we provide in-kind and cash assistance at home and abroad; we support education and health,
             permanent works and sustainable development projects. With reliable partners on 3 continents, our aim is
             to provide aid to all victims and oppressed people — regardless of religion, language, race or gender.
           </p>
@@ -430,7 +446,7 @@
         </div>
       </div>
     </section>
-    <!-- /Goals -->
+    <!-- /Offer -->
 
     <!-- ===== Bank donation channels (responsive logos row) ===== -->
     <section class="bank-donation-channels" aria-labelledby="channelsTitle">
@@ -476,11 +492,10 @@
     <!-- /Bank donation channels -->
 
     <!-- =========================================================
-     SECTION: Board of Directors (Swiper, component-scoped)
-     Note:
-     - Uses unique class names: .board, .board__swiper, etc.
-     - No conflict with other sliders (hero/agenda/impact/…)
-     ========================================================= -->
+           Board of Directors (Swiper)
+           - Unique class namespace: .board, .board__swiper, etc.
+           - Pagination & nav buttons scoped to this component.
+           ========================================================= -->
     <section class="board" aria-labelledby="boardTitle">
       <div class="container">
         <!-- Section head -->
@@ -488,8 +503,8 @@
           <h2 id="boardTitle" class="board__title h2">BOARD OF DIRECTORS</h2>
           <p class="board__sub">
             Our team includes an elite group of volunteers and professionals who are united by a passion for giving,
-            working with dedication to spread hope, provide support to everyone in need, and make a tangible impact
-            on the lives of individuals and communities.
+            working with dedication to spread hope, provide support to everyone in need, and make a tangible impact on
+            the lives of individuals and communities.
           </p>
         </header>
 
@@ -504,21 +519,28 @@
               <!-- ===== Slide 1 ===== -->
               <article class="swiper-slide board-card" aria-label="Board member">
                 <figure class="board-card__avatar">
-                  <img src="assets/images/avatars/01.png" alt="Portrait of İsmet Yıldirim">
+                  <img src="assets/images/avatars/01.png" alt="Portrait of İsmet Yıldırım" />
                 </figure>
 
                 <div class="board-card__body">
                   <h3 class="board-card__name">İsmet Yıldırım</h3>
                   <p class="board-card__role">Chairman of the Board</p>
                   <ul class="board-card__meta" role="list">
-                    <li><a class="board-card__soc" href="#" aria-label="Website"><i class="fa fa-globe"></i></a>
+                    <li>
+                      <a class="board-card__soc" href="#" aria-label="Website"><i class="fa fa-globe"></i></a>
                     </li>
-                    <li><a class="board-card__soc" href="#" aria-label="Facebook"><i
-                          class="fa-brands fa-facebook-f"></i></a></li>
-                    <li><a class="board-card__soc" href="#" aria-label="Twitter"><i
-                          class="fa-brands fa-x-twitter"></i></a></li>
-                    <li><a class="board-card__soc" href="#" aria-label="Instagram"><i
-                          class="fa-brands fa-instagram"></i></a></li>
+                    <li>
+                      <a class="board-card__soc" href="#" aria-label="Facebook"><i
+                          class="fa-brands fa-facebook-f"></i></a>
+                    </li>
+                    <li>
+                      <a class="board-card__soc" href="#" aria-label="Twitter"><i
+                          class="fa-brands fa-x-twitter"></i></a>
+                    </li>
+                    <li>
+                      <a class="board-card__soc" href="#" aria-label="Instagram"><i
+                          class="fa-brands fa-instagram"></i></a>
+                    </li>
                   </ul>
                 </div>
               </article>
@@ -526,21 +548,28 @@
               <!-- ===== Slide 2 ===== -->
               <article class="swiper-slide board-card" aria-label="Board member">
                 <figure class="board-card__avatar">
-                  <img src="assets/images/avatars/02.png" alt="Portrait of Sezai Çetin">
+                  <img src="assets/images/avatars/02.png" alt="Portrait of Sezai Çetin" />
                 </figure>
 
                 <div class="board-card__body">
                   <h3 class="board-card__name">Sezai Çetin</h3>
                   <p class="board-card__role">Vice President</p>
                   <ul class="board-card__meta" role="list">
-                    <li><a class="board-card__soc" href="#" aria-label="Website"><i class="fa fa-globe"></i></a>
+                    <li>
+                      <a class="board-card__soc" href="#" aria-label="Website"><i class="fa fa-globe"></i></a>
                     </li>
-                    <li><a class="board-card__soc" href="#" aria-label="Facebook"><i
-                          class="fa-brands fa-facebook-f"></i></a></li>
-                    <li><a class="board-card__soc" href="#" aria-label="Twitter"><i
-                          class="fa-brands fa-x-twitter"></i></a></li>
-                    <li><a class="board-card__soc" href="#" aria-label="Instagram"><i
-                          class="fa-brands fa-instagram"></i></a></li>
+                    <li>
+                      <a class="board-card__soc" href="#" aria-label="Facebook"><i
+                          class="fa-brands fa-facebook-f"></i></a>
+                    </li>
+                    <li>
+                      <a class="board-card__soc" href="#" aria-label="Twitter"><i
+                          class="fa-brands fa-x-twitter"></i></a>
+                    </li>
+                    <li>
+                      <a class="board-card__soc" href="#" aria-label="Instagram"><i
+                          class="fa-brands fa-instagram"></i></a>
+                    </li>
                   </ul>
                 </div>
               </article>
@@ -548,21 +577,28 @@
               <!-- ===== Slide 3 ===== -->
               <article class="swiper-slide board-card" aria-label="Board member">
                 <figure class="board-card__avatar">
-                  <img src="assets/images/avatars/03.png" alt="Portrait of Mehmet Yaşar SÖNMEZ">
+                  <img src="assets/images/avatars/03.png" alt="Portrait of Mehmet Yaşar SÖNMEZ" />
                 </figure>
 
                 <div class="board-card__body">
                   <h3 class="board-card__name">Mehmet Yaşar SÖNMEZ</h3>
                   <p class="board-card__role">Accountant</p>
                   <ul class="board-card__meta" role="list">
-                    <li><a class="board-card__soc" href="#" aria-label="Website"><i class="fa fa-globe"></i></a>
+                    <li>
+                      <a class="board-card__soc" href="#" aria-label="Website"><i class="fa fa-globe"></i></a>
                     </li>
-                    <li><a class="board-card__soc" href="#" aria-label="Facebook"><i
-                          class="fa-brands fa-facebook-f"></i></a></li>
-                    <li><a class="board-card__soc" href="#" aria-label="Twitter"><i
-                          class="fa-brands fa-x-twitter"></i></a></li>
-                    <li><a class="board-card__soc" href="#" aria-label="Instagram"><i
-                          class="fa-brands fa-instagram"></i></a></li>
+                    <li>
+                      <a class="board-card__soc" href="#" aria-label="Facebook"><i
+                          class="fa-brands fa-facebook-f"></i></a>
+                    </li>
+                    <li>
+                      <a class="board-card__soc" href="#" aria-label="Twitter"><i
+                          class="fa-brands fa-x-twitter"></i></a>
+                    </li>
+                    <li>
+                      <a class="board-card__soc" href="#" aria-label="Instagram"><i
+                          class="fa-brands fa-instagram"></i></a>
+                    </li>
                   </ul>
                 </div>
               </article>
@@ -570,45 +606,60 @@
               <!-- ===== Slide 4 ===== -->
               <article class="swiper-slide board-card" aria-label="Board member">
                 <figure class="board-card__avatar">
-                  <img src="assets/images/avatars/02.png" alt="Portrait of Dihat KAYA">
+                  <img src="assets/images/avatars/02.png" alt="Portrait of Dihat KAYA" />
                 </figure>
 
                 <div class="board-card__body">
                   <h3 class="board-card__name">Dihat KAYA</h3>
                   <p class="board-card__role">General Secretary</p>
                   <ul class="board-card__meta" role="list">
-                    <li><a class="board-card__soc" href="#" aria-label="Website"><i class="fa fa-globe"></i></a>
+                    <li>
+                      <a class="board-card__soc" href="#" aria-label="Website"><i class="fa fa-globe"></i></a>
                     </li>
-                    <li><a class="board-card__soc" href="#" aria-label="Facebook"><i
-                          class="fa-brands fa-facebook-f"></i></a></li>
-                    <li><a class="board-card__soc" href="#" aria-label="Twitter"><i
-                          class="fa-brands fa-x-twitter"></i></a></li>
-                    <li><a class="board-card__soc" href="#" aria-label="Instagram"><i
-                          class="fa-brands fa-instagram"></i></a></li>
+                    <li>
+                      <a class="board-card__soc" href="#" aria-label="Facebook"><i
+                          class="fa-brands fa-facebook-f"></i></a>
+                    </li>
+                    <li>
+                      <a class="board-card__soc" href="#" aria-label="Twitter"><i
+                          class="fa-brands fa-x-twitter"></i></a>
+                    </li>
+                    <li>
+                      <a class="board-card__soc" href="#" aria-label="Instagram"><i
+                          class="fa-brands fa-instagram"></i></a>
+                    </li>
                   </ul>
                 </div>
               </article>
+
+              <!-- ===== Slide 5 ===== -->
               <article class="swiper-slide board-card" aria-label="Board member">
                 <figure class="board-card__avatar">
-                  <img src="assets/images/avatars/04.png" alt="Portrait of Mehmet Yaşar SÖNMEZ">
+                  <img src="assets/images/avatars/04.png" alt="Portrait of Mehmet Yaşar SÖNMEZ" />
                 </figure>
 
                 <div class="board-card__body">
                   <h3 class="board-card__name">Mehmet Yaşar SÖNMEZ</h3>
                   <p class="board-card__role">Accountant</p>
                   <ul class="board-card__meta" role="list">
-                    <li><a class="board-card__soc" href="#" aria-label="Website"><i class="fa fa-globe"></i></a>
+                    <li>
+                      <a class="board-card__soc" href="#" aria-label="Website"><i class="fa fa-globe"></i></a>
                     </li>
-                    <li><a class="board-card__soc" href="#" aria-label="Facebook"><i
-                          class="fa-brands fa-facebook-f"></i></a></li>
-                    <li><a class="board-card__soc" href="#" aria-label="Twitter"><i
-                          class="fa-brands fa-x-twitter"></i></a></li>
-                    <li><a class="board-card__soc" href="#" aria-label="Instagram"><i
-                          class="fa-brands fa-instagram"></i></a></li>
+                    <li>
+                      <a class="board-card__soc" href="#" aria-label="Facebook"><i
+                          class="fa-brands fa-facebook-f"></i></a>
+                    </li>
+                    <li>
+                      <a class="board-card__soc" href="#" aria-label="Twitter"><i
+                          class="fa-brands fa-x-twitter"></i></a>
+                    </li>
+                    <li>
+                      <a class="board-card__soc" href="#" aria-label="Instagram"><i
+                          class="fa-brands fa-instagram"></i></a>
+                    </li>
                   </ul>
                 </div>
               </article>
-
             </div>
           </div>
 
@@ -621,20 +672,21 @@
         </div>
       </div>
     </section>
-
-
-
+    <!-- /Board -->
   </main>
+  <!-- /MAIN -->
 
-  <!-- ========================= FOOTER =========================
-       - Compact CTA footer with newsletter
-       - Quick link lists
-       - Copyright (auto-year via app.js)
-       ========================================================= -->
+  <!-- =========================================================
+         FOOTER (CTA + lists + brand bar)
+         - Newsletter form (no JS validation wired yet)
+         - Quick link lists (Activities / Contact)
+         - Auto-year handled by app.js for #currentYear
+         ========================================================= -->
   <section class="cta-footer" aria-label="Hope in action">
     <div class="cta-footer__bg" aria-hidden="true"></div>
 
     <div class="container">
+      <!-- Head / Newsletter -->
       <header class="cta-footer__head">
         <div>
           <h2 class="cta-footer__title h2">Hope in action</h2>
@@ -651,13 +703,14 @@
         </form>
       </header>
 
+      <!-- Content grid -->
       <div class="cta-footer__grid">
         <!-- Mission -->
         <section class="cta-footer__block" aria-labelledby="ft-mission">
           <h3 id="ft-mission" class="cta-footer__eyebrow">Our Mission :</h3>
           <p class="cta-footer__text">
-            We provide immediate and long-term support to war refugees, offering essential resources
-            like food, water, medical care, and shelter.
+            We provide immediate and long-term support to war refugees, offering essential resources like food, water,
+            medical care, and shelter.
           </p>
 
           <div class="cta-footer__call">
@@ -706,12 +759,15 @@
       <!-- Divider -->
       <hr class="cta-footer__hr" />
 
+      <!-- Brand bar -->
       <div class="cta-footer__bar">
         <a href="/" class="cta-footer__brand">
           <img src="assets/images/logo.svg" alt="Yedi Başak" width="128" height="36" />
         </a>
-        <!-- Use #currentYear to align with app.js -->
-        <p class="cta-footer__copy">Copyright © <span id="currentYear"></span>, All Rights Reserved</p>
+        <!-- Auto-year via app.js (#currentYear) -->
+        <p class="cta-footer__copy">
+          Copyright © <span id="currentYear"></span>, All Rights Reserved
+        </p>
       </div>
     </div>
   </section>
