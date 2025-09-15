@@ -73,7 +73,7 @@
        - Offcanvas for mobile navigation
   ========================================================= -->
   <header class="site-header" role="banner">
-    <!-- ===== Topbar (light utility strip) ===== -->
+    <!-- Topbar -->
     <div class="topbar">
       <div class="container">
         <div class="topbar__left">
@@ -87,7 +87,6 @@
           </a>
         </div>
 
-        <!-- Shortcuts to important sections (as a nav for a11y) -->
         <nav class="topbar__right" aria-label="Quick links">
           <a class="toplink" href="public-benefits.html" title="Public Benefits status">
             <i class="fa-solid fa-building-columns" aria-hidden="true"></i>
@@ -105,79 +104,73 @@
       </div>
     </div>
 
-    <!-- ===== Mainbar (brand + primary navigation) ===== -->
+    <!-- Mainbar -->
     <div class="mainbar" role="navigation" aria-label="Main header">
       <div class="container mainbar__row">
-        <!-- Brand (home link) -->
         <a class="brand" href="index.html" aria-label="Homepage">
           <img src="assets/images/logo.svg" alt="Yedi Başak Logo" width="140" height="36" />
         </a>
 
-        <!-- Mobile menu toggle (controls offcanvas) -->
+        <!-- Mobile toggle -->
         <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-controls="offcanvas"
           aria-expanded="false">
           <i class="fa-solid fa-bars" aria-hidden="true"></i>
         </button>
 
-        <!-- Desktop primary navigation -->
+        <!-- Primary nav (desktop) -->
         <nav class="navbar" aria-label="Primary">
           <ul class="menu">
             <li><a class="menu__link" href="index.html">Home</a></li>
 
-            <!-- Dropdown: Corporate -->
+            <!-- Corporate -->
             <li class="has-dropdown">
               <button class="menu__link dropdown-toggle" aria-haspopup="menu" aria-expanded="false">
                 Corporate <i class="fa-solid fa-chevron-down fa-sm" aria-hidden="true"></i>
               </button>
               <ul class="dropdown" role="menu">
                 <li><a role="menuitem" href="about.html">About Us</a></li>
-                <li><a role="menuitem" href="board.html">Board</a></li>
-                <li><a role="menuitem" href="contact.html">Contact</a></li>
+                <li><a role="menuitem" href="president-message.html">President’s Message</a></li>
               </ul>
             </li>
 
-            <li><a class="menu__link" href="activities.html" aria-current="page">Our Activities</a></li>
+            <!-- Activities -->
+            <li><a class="menu__link" href="activities.html">Our Activities</a></li>
 
-            <!-- Dropdown: Media -->
-            <li class="has-dropdown">
-              <button class="menu__link dropdown-toggle" aria-haspopup="menu" aria-expanded="false">
-                Media <i class="fa-solid fa-chevron-down fa-sm" aria-hidden="true"></i>
-              </button>
-              <ul class="dropdown" role="menu">
-                <li><a role="menuitem" href="news.html">News</a></li>
-                <li><a role="menuitem" href="gallery.html">Gallery</a></li>
-              </ul>
-            </li>
+            <!-- Media (list page) -->
+            <li><a class="menu__link" href="media.html">Media</a></li>
 
-            <li><a class="menu__link" href="volunteer.html">Be Volunteer</a></li>
+            <!-- Account numbers / bank info -->
+            <li><a class="menu__link" href="account-number.html">Account Numbers</a></li>
+
+            <!-- Donate -->
+            <li><a class="menu__link" href="donate.html">Donate</a></li>
           </ul>
         </nav>
 
-        <!-- Quick actions (CTA + account/cart/lang) -->
+        <!-- Header actions -->
         <div class="actions">
-          <a class="btn btn--pill btn--primary" href="donate.html">
-            <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i>
-            <span>Donate</span>
+          <a class="btn btn--ghost" href="payment.html" aria-label="Payment">
+            <i class="fa-solid fa-credit-card" aria-hidden="true"></i>
           </a>
-          <a class="btn btn--ghost" href="account.html" aria-label="Account"><i class="fa-solid fa-user"
-              aria-hidden="true"></i></a>
-          <a class="btn btn--ghost" href="cart.html" aria-label="Cart"><i class="fa-solid fa-cart-shopping"
-              aria-hidden="true"></i></a>
-          <button class="btn btn--ghost" aria-label="Language"><i class="fa-solid fa-globe"
-              aria-hidden="true"></i></button>
+          <a class="btn btn--ghost" href="cart.html" aria-label="Cart">
+            <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+          </a>
+          <button class="btn btn--ghost" aria-label="Language">
+            <i class="fa-solid fa-globe" aria-hidden="true"></i>
+          </button>
         </div>
       </div>
     </div>
 
-    <!-- ===== Offcanvas (mobile navigation) ===== -->
+    <!-- Offcanvas (mobile) -->
     <aside id="offcanvas" class="offcanvas" hidden aria-label="Mobile menu">
       <div class="offcanvas__header">
         <span>Menu</span>
-        <button class="offcanvas__close" aria-label="Close menu"><i class="fa-solid fa-xmark"
-            aria-hidden="true"></i></button>
+        <button class="offcanvas__close" aria-label="Close menu">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
       </div>
 
-      <!-- Mobile primary navigation (collapsible groups) -->
       <nav class="offcanvas__body" aria-label="Mobile primary">
         <ul class="offcanvas__menu">
           <li><a href="index.html">Home</a></li>
@@ -188,35 +181,28 @@
             </button>
             <ul class="collapse" hidden>
               <li><a href="about.html">About Us</a></li>
-              <li><a href="board.html">Board</a></li>
-              <li><a href="contact.html">Contact</a></li>
+              <li><a href="president-message.html">President’s Message</a></li>
             </ul>
           </li>
 
-          <li><a href="activities.html" aria-current="page">Our Activities</a></li>
-
-          <li>
-            <button class="collapse-toggle" aria-expanded="false">
-              Media <i class="fa-solid fa-chevron-down fa-sm" aria-hidden="true"></i>
-            </button>
-            <ul class="collapse" hidden>
-              <li><a href="news.html">News</a></li>
-              <li><a href="gallery.html">Gallery</a></li>
-            </ul>
-          </li>
-
-          <li><a href="volunteer.html">Be Volunteer</a></li>
+          <li><a href="activities.html">Our Activities</a></li>
+          <li><a href="media.html">Media</a></li>
+          <li><a href="account-number.html">Account Numbers</a></li>
+          <li><a href="donate.html">Donate</a></li>
+          <li><a href="payment.html">Payment</a></li>
+          <li><a href="cart.html">Cart</a></li>
         </ul>
       </nav>
 
       <div class="offcanvas__footer">
         <a class="btn btn--pill btn--primary" href="donate.html">
-          <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i><span>Donate</span>
+          <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i>
+          <span>Donate</span>
         </a>
       </div>
     </aside>
-    <!-- Scrim overlay for offcanvas -->
     <div class="offcanvas__overlay" hidden></div>
+
   </header>
   <!-- /HEADER -->
 
