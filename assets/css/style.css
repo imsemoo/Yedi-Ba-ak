@@ -157,6 +157,16 @@ a {
   --cdv-radius: 14px;
   --cdv-shadow: 0 6px 24px rgba(0, 0, 0, .06);
 
+  --mb-nav-h: 64px;
+  /* visual height */
+  --mb-nav-bg: #fff;
+  --mb-nav-shadow: 0 -10px 30px rgba(0, 0, 0, .08);
+  --mb-nav-radius: 18px;
+  --mb-icon-size: 20px;
+  --mb-gap: 14px;
+  --mb-active-bg: var(--color-primary, #06b6c9);
+  --mb-muted: var(--color-muted, #98a2b3);
+
 }
 
 /* Light scheme variation (kept; can add dark scheme later) */
@@ -4397,6 +4407,15 @@ html[dir="rtl"] .pager__btn i.fa-chevron-right {
 @media (max-width: 992px) {
   .donate-form__grid {
     grid-template-columns: 1fr;
+
+  }
+
+  .donate-form__grid> :first-child {
+    grid-row: 2;
+  }
+
+  .donate-form__grid> :nth-child(2) {
+    grid-row: 1;
   }
 
   .donate-form__media {
@@ -6241,6 +6260,10 @@ html[dir="rtl"] .pager__btn i.fa-chevron-right {
 }
 
 @media (max-width:900px) {
+  .donate-hero {
+    height: 220px;
+  }
+
   .sc__grid {
 
     grid-template-columns: 1fr min(200px, 28vw) 1fr;
@@ -6291,6 +6314,7 @@ html[dir="rtl"] .pager__btn i.fa-chevron-right {
   .v-card-modal {
     padding: 40px;
   }
+
 }
 
 /* Close */
@@ -6411,4 +6435,128 @@ html[dir="rtl"] .pager__btn i.fa-chevron-right {
 /* Prevent page scroll when dialog is open */
 html.is-modal-open {
   overflow: hidden;
+}
+
+/* ===== intl-tel-input x modal ===== */
+.iti {
+  width: 100%;
+}
+
+.v-phone-input {
+  height: 48px;
+  border-radius: 12px;
+}
+
+/* تحسين مظهر العلم/الكود مع الثيم */
+.iti__selected-flag {
+  height: 48px;
+  border-radius: 12px 0 0 12px;
+}
+
+.iti--separate-dial-code .iti__selected-flag {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-right: none;
+}
+
+.iti--separate-dial-code input.v-phone-input {
+  border-radius: 0 12px 12px 0;
+}
+
+
+.v-hint {
+  color: #ef4444;
+  padding-top: 4px;
+  display: inline-block;
+  font-size: 12.5px;
+}
+
+/* ===========================================================
+   Mobile Bottom Nav — app-like tab bar
+   - Mobile-only, fixed to bottom, safe-area aware.
+   - Active item shows a pill with label; others show icon only.
+   - Namespaced (mb-nav*) to avoid collisions.
+   =========================================================== */
+
+
+/* hidden by default (desktop) */
+.mb-nav {
+  display: none;
+}
+
+@media (max-width: 768px) {
+
+  /* Reserve space so content doesn’t hide behind the bar */
+  body {
+    padding-bottom: calc(var(--mb-nav-h) + env(safe-area-inset-bottom) + 10px);
+  }
+
+  .mb-nav {
+    position: fixed;
+    inset-inline: 0;
+    bottom: 0;
+    /* container */
+    height: calc(var(--mb-nav-h) + env(safe-area-inset-bottom));
+    background: var(--mb-nav-bg);
+    box-shadow: var(--mb-nav-shadow);
+    z-index: 1100;
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 8px 12px calc(8px + env(safe-area-inset-bottom));
+    border-top-left-radius: var(--mb-nav-radius);
+    border-top-right-radius: var(--mb-nav-radius);
+  }
+
+  .mb-nav__item {
+    /* large touch target */
+    min-width: 56px;
+    height: 44px;
+    padding-inline: 0;
+    color: var(--mb-muted);
+    text-decoration: none;
+    display: inline-grid;
+    grid-auto-flow: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 999px;
+    transition: background .2s ease, color .2s ease, transform .2s ease;
+  }
+
+  .mb-nav__item i {
+    font-size: var(--mb-icon-size);
+    line-height: 1;
+  }
+
+  .mb-nav__label {
+    display: none;
+    font-weight: 600;
+  }
+
+  .mb-nav__item:active {
+    transform: translateY(1px);
+  }
+
+  /* Active pill */
+  .mb-nav__item.is-active {
+    background: var(--mb-active-bg);
+    color: #fff;
+    padding-inline: 14px;
+  }
+
+  .mb-nav__item.is-active .mb-nav__label {
+    display: inline;
+    line-height: 1;
+  }
+
+  /* Optional hover (for device emulators) */
+  .mb-nav__item:hover {
+    color: var(--color-text, #111827);
+  }
+
+  .mb-nav__item.is-active:hover {
+    color: #fff;
+  }
 }

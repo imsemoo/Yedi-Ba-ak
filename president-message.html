@@ -52,7 +52,12 @@
 </head>
 
 <body>
-  <!-- ======= Header (reuse your site header) ======= -->
+  <!-- =========================================================
+       HEADER
+       - Topbar: contact + utility links
+       - Mainbar: brand + primary nav + actions
+       - Offcanvas: mobile navigation panel
+       ========================================================= -->
   <header class="site-header" role="banner">
     <!-- Topbar -->
     <div class="topbar">
@@ -92,11 +97,7 @@
           <img src="assets/images/logo.svg" alt="Yedi Başak Logo" width="140" height="36" />
         </a>
 
-        <!-- Mobile toggle -->
-        <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-controls="offcanvas"
-          aria-expanded="false">
-          <i class="fa-solid fa-bars" aria-hidden="true"></i>
-        </button>
+
 
         <!-- Primary nav (desktop) -->
         <nav class="navbar" aria-label="Primary">
@@ -123,23 +124,35 @@
             <!-- Account numbers / bank info -->
             <li><a class="menu__link" href="account-number.html">Account Numbers</a></li>
 
-            <!-- Donate -->
-            <li><a class="menu__link" href="donate.html">Donate</a></li>
+            <!-- sacrifice -->
+            <li><a class="menu__link" href="sacrifice.html">Sacrifice</a></li>
+
+            <li><a class="menu__link" href="#" data-modal-open="volunteerModal">Be Volunteer</a></li>
+
           </ul>
         </nav>
 
-        <!-- Header actions -->
-        <div class="actions">
-          <a class="btn btn--ghost" href="payment.html" aria-label="Payment">
-            <i class="fa-solid fa-credit-card" aria-hidden="true"></i>
-          </a>
-          <a class="btn btn--ghost" href="cart.html" aria-label="Cart">
-            <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
-          </a>
-          <button class="btn btn--ghost" aria-label="Language">
-            <i class="fa-solid fa-globe" aria-hidden="true"></i>
+        <div class="d-felx">
+          <!-- Header actions -->
+          <div class="actions">
+            <a class="btn btn--ghost" href="payment.html" aria-label="Payment">
+              <i class="fa-solid fa-credit-card" aria-hidden="true"></i>
+            </a>
+            <a class="btn btn--ghost" href="cart.html" aria-label="Cart">
+              <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+            </a>
+            <button class="btn btn--ghost" aria-label="Language">
+              <i class="fa-solid fa-globe" aria-hidden="true"></i>
+            </button>
+          </div>
+          <!-- Mobile toggle -->
+          <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-controls="offcanvas"
+            aria-expanded="false">
+            <i class="fa-solid fa-bars" aria-hidden="true"></i>
           </button>
         </div>
+
+
       </div>
     </div>
 
@@ -185,6 +198,7 @@
     <div class="offcanvas__overlay" hidden></div>
 
   </header>
+  <!-- End Header -->
   <!-- ===== Page Hero (visual intro + breadcrumb) ===== -->
   <section class="page-hero" aria-label="President hero">
     <figure class="page-hero__bg" aria-hidden="true">
@@ -364,12 +378,93 @@
   </section>
 
 
-  <!-- Minimal JS (namespaced, no conflicts) -->
-  <script>
-    (function pmsg() {
-      document.getElementById('printMsg')?.addEventListener('click', () => window.print());
-    })();
-  </script>
+  <!-- ========== Volunteer Modal (accessible, zero-deps) ========== -->
+  <dialog id="volunteerModal" class="v-modal" aria-labelledby="vol-title" aria-describedby="vol-desc">
+    <form class="v-card-modal" method="post" action="#" novalidate>
+      <button type="button" class="v-close" data-modal-close aria-label="Close dialog">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+
+      <header class="v-head">
+        <h2 id="vol-title" class="v-title">Be Volunteer</h2>
+        <p id="vol-desc" class="v-sub">
+          Join us and contribute your time and efforts to serve humanity.
+        </p>
+      </header>
+
+      <div class="v-grid">
+        <div class="v-field">
+          <label for="vol-name" class="v-label">Name</label>
+          <input id="vol-name" name="name" type="text" class="v-input" placeholder="Enter your name" autocomplete="name"
+            required autofocus>
+        </div>
+
+        <div class="v-field">
+          <label for="vol-email" class="v-label">Email</label>
+          <input id="vol-email" name="email" type="email" class="v-input" placeholder="Enter your email"
+            autocomplete="email" required>
+        </div>
+
+        <!-- Phone field (reusable) -->
+        <div class="v-field v-field--span2 js-phone-field">
+          <label class="v-label">Phone number</label>
+
+          <input type="tel" class="v-input v-phone" inputmode="tel" placeholder="Enter phone number" autocomplete="tel"
+            required data-initial="TR" data-preferred="tr,ps,sy,us">
+
+          <input type="hidden" name="phone_e164">
+          <input type="hidden" name="phone_country_iso2">
+
+          <small class="v-hint" aria-live="polite"></small>
+        </div>
+
+
+        <div class="v-field">
+          <label for="vol-city" class="v-label">City</label>
+          <select id="vol-city" class="v-select" required>
+            <option value="" selected disabled>Select city</option>
+            <option>Gaziantep</option>
+            <option>Istanbul</option>
+            <option>Ankara</option>
+          </select>
+        </div>
+      </div>
+
+      <label class="v-consent">
+        <input type="checkbox" id="vol-agree" required>
+        <span>Continuing <a href="#" class="v-link">Terms and Conditions</a> I agree. Read our <a href="#"
+            class="v-link">Privacy Policy</a>.</span>
+      </label>
+
+      <div class="v-actions">
+        <button type="submit" class="btn btn--pill btn--primary v-send">Send</button>
+      </div>
+    </form>
+  </dialog>
+  <!-- /Volunteer Modal -->
+
+
+
+  <!-- ======================= Vendor JS → App JS ======================== -->
+  <script src="assets/js/modal.js"></script>
+
+  <script src="assets/js/swiper-bundle.min.js"></script>
+  <script src="assets/js/lightbox.min.js"></script>
+  <script src="assets/js/aos.js"></script>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin></script>
+  <!-- intl-tel-input: flags + dial code + validation -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/css/intlTelInput.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/js/intlTelInput.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/js/utils.js"></script>
+
+
+  <!-- =============================== App JS ============================== -->
+  <script src="assets/js/app.js"></script>
+
+
 </body>
 
 </html>

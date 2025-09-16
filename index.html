@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
@@ -45,7 +45,7 @@
 
   <!-- =============== Preload Critical Resources =============== -->
   <!-- Fonts: variable, cross-origin is required for proper caching -->
-  <link rel="preload" href="assets/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin />
   <!-- Hero image: improves LCP on first slide -->
   <link rel="preload" href="assets/images/slide-1.webp" as="image" />
 
@@ -57,7 +57,7 @@
   <link rel="stylesheet" href="assets/css/aos.css" />
   <link rel="stylesheet" href="assets/css/normalize.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin>
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin />
   <link rel="stylesheet" href="assets/css/style.css" />
   <!-- Font Awesome (local split builds) -->
   <link rel="stylesheet" href="assets/css/fontawesome.min.css" />
@@ -67,39 +67,41 @@
 
   <!-- ==================== Structured Data ==================== -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Yedi Başak",
-    "url": "https://www.yedibasak.org/",
-    "logo": "https://www.yedibasak.org/assets/images/logo.svg",
-    "sameAs": [
-      "https://www.facebook.com/yourpage",
-      "https://twitter.com/yourhandle",
-      "https://www.instagram.com/yourhandle/",
-      "https://www.youtube.com/@yourchannel"
-    ],
-    "contactPoint": [{
-      "@type": "ContactPoint",
-      "telephone": "+90-342-325-1030",
-      "contactType": "customer service",
-      "areaServed": "TR"
-    }]
-  }
-  </script>
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Yedi Başak",
+        "url": "https://www.yedibasak.org/",
+        "logo": "https://www.yedibasak.org/assets/images/logo.svg",
+        "sameAs": [
+          "https://www.facebook.com/yourpage",
+          "https://twitter.com/yourhandle",
+          "https://www.instagram.com/yourhandle/",
+          "https://www.youtube.com/@yourchannel"
+        ],
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "+90-342-325-1030",
+            "contactType": "customer service",
+            "areaServed": "TR"
+          }
+        ]
+      }
+    </script>
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "url": "https://www.yedibasak.org/",
-    "name": "Yedi Başak",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://www.yedibasak.org/search?q={query}",
-      "query-input": "required name=query"
-    }
-  }
-  </script>
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "url": "https://www.yedibasak.org/",
+        "name": "Yedi Başak",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://www.yedibasak.org/search?q={query}",
+          "query-input": "required name=query"
+        }
+      }
+    </script>
 
   <!--
     SEO CHECKLIST
@@ -160,8 +162,6 @@
           <img src="assets/images/logo.svg" alt="Yedi Başak Logo" width="140" height="36" />
         </a>
 
-
-
         <!-- Primary nav (desktop) -->
         <nav class="navbar" aria-label="Primary">
           <ul class="menu">
@@ -170,28 +170,36 @@
             <!-- Corporate -->
             <li class="has-dropdown">
               <button class="menu__link dropdown-toggle" aria-haspopup="menu" aria-expanded="false">
-                Corporate <i class="fa-solid fa-chevron-down fa-sm" aria-hidden="true"></i>
+                Corporate
+                <i class="fa-solid fa-chevron-down fa-sm" aria-hidden="true"></i>
               </button>
               <ul class="dropdown" role="menu">
                 <li><a role="menuitem" href="about.html">About Us</a></li>
-                <li><a role="menuitem" href="president-message.html">President’s Message</a></li>
+                <li>
+                  <a role="menuitem" href="president-message.html">President’s Message</a>
+                </li>
               </ul>
             </li>
 
             <!-- Activities -->
-            <li><a class="menu__link" href="activities.html">Our Activities</a></li>
+            <li>
+              <a class="menu__link" href="activities.html">Our Activities</a>
+            </li>
 
             <!-- Media (list page) -->
             <li><a class="menu__link" href="media.html">Media</a></li>
 
             <!-- Account numbers / bank info -->
-            <li><a class="menu__link" href="account-number.html">Account Numbers</a></li>
+            <li>
+              <a class="menu__link" href="account-number.html">Account Numbers</a>
+            </li>
 
             <!-- sacrifice -->
             <li><a class="menu__link" href="sacrifice.html">Sacrifice</a></li>
 
-            <li><a class="menu__link js-open-volunteer" href="#volunteer">Be Volunteer</a></li>
-
+            <li>
+              <a class="menu__link" href="#" data-modal-open="volunteerModal">Be Volunteer</a>
+            </li>
           </ul>
         </nav>
 
@@ -214,8 +222,6 @@
             <i class="fa-solid fa-bars" aria-hidden="true"></i>
           </button>
         </div>
-
-
       </div>
     </div>
 
@@ -234,11 +240,14 @@
 
           <li>
             <button class="collapse-toggle" aria-expanded="false">
-              Corporate <i class="fa-solid fa-chevron-down fa-sm" aria-hidden="true"></i>
+              Corporate
+              <i class="fa-solid fa-chevron-down fa-sm" aria-hidden="true"></i>
             </button>
             <ul class="collapse" hidden>
               <li><a href="about.html">About Us</a></li>
-              <li><a href="president-message.html">President’s Message</a></li>
+              <li>
+                <a href="president-message.html">President’s Message</a>
+              </li>
             </ul>
           </li>
 
@@ -259,8 +268,8 @@
       </div>
     </aside>
     <div class="offcanvas__overlay" hidden></div>
-
   </header>
+  <!-- End Header -->
 
   <!-- =========================================================
        MAIN
@@ -277,7 +286,6 @@
           <!-- Swiper -->
           <div class="hero__swiper swiper" aria-roledescription="carousel">
             <div class="swiper-wrapper">
-
               <!-- Slide 0: Emergency / Kurbanım Kardeşime -->
               <div class="swiper-slide hero__slide" id="hero-slide-0" data-tab="0">
                 <picture>
@@ -288,8 +296,11 @@
                 </picture>
                 <div class="hero__caption">
                   <h1>Kurbanım Kardeşime</h1>
-                  <p>Share your Qurbani with families in crisis—bringing dignity, fresh meals, and festival joy across
-                    multiple countries.</p>
+                  <p>
+                    Share your Qurbani with families in crisis—bringing
+                    dignity, fresh meals, and festival joy across multiple
+                    countries.
+                  </p>
                   <a class="btn btn--pill btn--primary" href="cart.html">
                     <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i><span>Donate Now</span>
                   </a>
@@ -305,8 +316,10 @@
                 </picture>
                 <div class="hero__caption">
                   <h1>Clean Water Changes Everything</h1>
-                  <p>Fund durable wells and water access so families can drink safely, learn, and thrive—one village at
-                    a time.</p>
+                  <p>
+                    Fund durable wells and water access so families can drink
+                    safely, learn, and thrive—one village at a time.
+                  </p>
                   <a class="btn btn--pill btn--primary" href="cart.html">
                     <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i><span>Donate Now</span>
                   </a>
@@ -322,7 +335,9 @@
                 </picture>
                 <div class="hero__caption">
                   <h1>Sacrifice Program</h1>
-                  <p>Give Adak, Akika, or Shukr offerings that become nutritious meals and hope for families in need.
+                  <p>
+                    Give Adak, Akika, or Shukr offerings that become
+                    nutritious meals and hope for families in need.
                   </p>
                   <a class="btn btn--pill btn--primary" href="cart.html">
                     <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i><span>Donate Now</span>
@@ -339,8 +354,10 @@
                 </picture>
                 <div class="hero__caption">
                   <h1>Öşür – Harvest Giving</h1>
-                  <p>Turn the blessings of your harvest into year-round support for vulnerable households and small
-                    farmers.</p>
+                  <p>
+                    Turn the blessings of your harvest into year-round support
+                    for vulnerable households and small farmers.
+                  </p>
                   <a class="btn btn--pill btn--primary" href="cart.html">
                     <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i><span>Donate Now</span>
                   </a>
@@ -356,8 +373,10 @@
                 </picture>
                 <div class="hero__caption">
                   <h1>Orphan Care</h1>
-                  <p>Provide safety, education, nutrition, and a brighter future—so every child can grow with
-                    confidence.</p>
+                  <p>
+                    Provide safety, education, nutrition, and a brighter
+                    future—so every child can grow with confidence.
+                  </p>
                   <a class="btn btn--pill btn--primary" href="cart.html">
                     <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i><span>Donate Now</span>
                   </a>
@@ -373,8 +392,10 @@
                 </picture>
                 <div class="hero__caption">
                   <h1>Health & Medical Relief</h1>
-                  <p>From essential medicines to cataract surgeries—your gift restores health, sight, and everyday
-                    dignity.</p>
+                  <p>
+                    From essential medicines to cataract surgeries—your gift
+                    restores health, sight, and everyday dignity.
+                  </p>
                   <a class="btn btn--pill btn--primary" href="cart.html">
                     <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i><span>Donate Now</span>
                   </a>
@@ -390,7 +411,9 @@
                 </picture>
                 <div class="hero__caption">
                   <h1>General Fund</h1>
-                  <p>Empower our teams to respond fast where needs are greatest—flexible support that multiplies impact.
+                  <p>
+                    Empower our teams to respond fast where needs are
+                    greatest—flexible support that multiplies impact.
                   </p>
                   <a class="btn btn--pill btn--primary" href="cart.html">
                     <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i><span>Donate Now</span>
@@ -407,14 +430,15 @@
                 </picture>
                 <div class="hero__caption">
                   <h1>Zakat & Sadaqah</h1>
-                  <p>Give with confidence—your Zakat and Sadaqah reach verified programs and the most vulnerable
-                    families.</p>
+                  <p>
+                    Give with confidence—your Zakat and Sadaqah reach verified
+                    programs and the most vulnerable families.
+                  </p>
                   <a class="btn btn--pill btn--primary" href="cart.html">
                     <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i><span>Donate Now</span>
                   </a>
                 </div>
               </div>
-
             </div>
 
             <!-- Pagination & arrows (desktop) -->
@@ -471,22 +495,23 @@
         <!-- Swiper: Agenda cards -->
         <div class="agenda__swiper swiper" aria-roledescription="carousel">
           <div class="swiper-wrapper">
-
             <!-- 1) 14.6% of 20,000 = 2,920 -->
             <article class="swiper-slide agenda-card" aria-label="1000 Tent Aid Campaign for Gaza">
               <figure class="agenda-card__media">
                 <img src="assets/images/agenda/slide-1.webp" alt="Volunteers delivering medicine" loading="lazy"
-                  decoding="async">
+                  decoding="async" />
               </figure>
 
               <div class="agenda-card__body">
-                <h3 class="agenda-card__title">1000 Tent Aid Campaign for Gaza</h3>
+                <h3 class="agenda-card__title">
+                  1000 Tent Aid Campaign for Gaza
+                </h3>
 
                 <div class="agenda-card__meta">
                   <span class="agenda-card__meta-item">6 Donors</span>
                   <span class="agenda-card__meta-dot" aria-hidden="true">•</span>
                   <span class="agenda-card__meta-item">
-                    <img class="agenda-card__flag" src="assets/icons/flag-palestine.svg" alt="" aria-hidden="true">
+                    <img class="agenda-card__flag" src="assets/icons/flag-palestine.svg" alt="" aria-hidden="true" />
                     Palestine
                   </span>
                   <span class="agenda-card__growth text-primary">%14.6</span>
@@ -517,12 +542,15 @@
                     <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i><span>DONATE</span>
                   </a>
                   <div class="agenda-card__icons" aria-label="quick actions">
-                    <button class="btn btn--ghost" aria-label="Add to wishlist"><i class="fa-regular fa-heart"
-                        aria-hidden="true"></i></button>
-                    <button class="btn btn--ghost" aria-label="Share"><i class="fa-solid fa-share-nodes"
-                        aria-hidden="true"></i></button>
-                    <button class="btn btn--ghost" aria-label="Add to cart"><i class="fa-solid fa-cart-shopping"
-                        aria-hidden="true"></i></button>
+                    <button class="btn btn--ghost" aria-label="Add to wishlist">
+                      <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                    </button>
+                    <button class="btn btn--ghost" aria-label="Share">
+                      <i class="fa-solid fa-share-nodes" aria-hidden="true"></i>
+                    </button>
+                    <button class="btn btn--ghost" aria-label="Add to cart">
+                      <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -531,16 +559,18 @@
             <!-- 2) 38.0% of 18,000 = 6,840 -->
             <article class="swiper-slide agenda-card" aria-label="1000 Tent Aid Campaign for Gaza">
               <figure class="agenda-card__media">
-                <img src="assets/images/agenda/slide-2.webp" alt="Clothes donation" loading="lazy" decoding="async">
+                <img src="assets/images/agenda/slide-2.webp" alt="Clothes donation" loading="lazy" decoding="async" />
               </figure>
               <div class="agenda-card__body">
-                <h3 class="agenda-card__title">1000 Tent Aid Campaign for Gaza</h3>
+                <h3 class="agenda-card__title">
+                  1000 Tent Aid Campaign for Gaza
+                </h3>
 
                 <div class="agenda-card__meta">
                   <span class="agenda-card__meta-item">6 Donors</span>
                   <span class="agenda-card__meta-dot" aria-hidden="true">•</span>
                   <span class="agenda-card__meta-item">
-                    <img class="agenda-card__flag" src="assets/icons/flag-palestine.svg" alt="" aria-hidden="true">
+                    <img class="agenda-card__flag" src="assets/icons/flag-palestine.svg" alt="" aria-hidden="true" />
                     Palestine
                   </span>
                   <span class="agenda-card__growth text-primary">%38.0</span>
@@ -570,12 +600,15 @@
                   <a class="btn btn--pill btn--primary" href="#"><i class="fa-solid fa-hand-holding-heart"
                       aria-hidden="true"></i><span>DONATE</span></a>
                   <div class="agenda-card__icons">
-                    <button class="btn btn--ghost" aria-label="Add to wishlist"><i class="fa-regular fa-heart"
-                        aria-hidden="true"></i></button>
-                    <button class="btn btn--ghost" aria-label="Share"><i class="fa-solid fa-share-nodes"
-                        aria-hidden="true"></i></button>
-                    <button class="btn btn--ghost" aria-label="Add to cart"><i class="fa-solid fa-cart-shopping"
-                        aria-hidden="true"></i></button>
+                    <button class="btn btn--ghost" aria-label="Add to wishlist">
+                      <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                    </button>
+                    <button class="btn btn--ghost" aria-label="Share">
+                      <i class="fa-solid fa-share-nodes" aria-hidden="true"></i>
+                    </button>
+                    <button class="btn btn--ghost" aria-label="Add to cart">
+                      <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -585,16 +618,18 @@
             <article class="swiper-slide agenda-card" aria-label="1000 Tent Aid Campaign for Gaza">
               <figure class="agenda-card__media">
                 <img src="assets/images/agenda/slide-3.webp" alt="Cash support being handed" loading="lazy"
-                  decoding="async">
+                  decoding="async" />
               </figure>
               <div class="agenda-card__body">
-                <h3 class="agenda-card__title">1000 Tent Aid Campaign for Gaza</h3>
+                <h3 class="agenda-card__title">
+                  1000 Tent Aid Campaign for Gaza
+                </h3>
 
                 <div class="agenda-card__meta">
                   <span class="agenda-card__meta-item">6 Donors</span>
                   <span class="agenda-card__meta-dot" aria-hidden="true">•</span>
                   <span class="agenda-card__meta-item">
-                    <img class="agenda-card__flag" src="assets/icons/flag-palestine.svg" alt="" aria-hidden="true">
+                    <img class="agenda-card__flag" src="assets/icons/flag-palestine.svg" alt="" aria-hidden="true" />
                     Palestine
                   </span>
                   <span class="agenda-card__growth text-primary">%62.5</span>
@@ -624,12 +659,15 @@
                   <a class="btn btn--pill btn--primary" href="#"><i class="fa-solid fa-hand-holding-heart"
                       aria-hidden="true"></i><span>DONATE</span></a>
                   <div class="agenda-card__icons">
-                    <button class="btn btn--ghost" aria-label="Add to wishlist"><i class="fa-regular fa-heart"
-                        aria-hidden="true"></i></button>
-                    <button class="btn btn--ghost" aria-label="Share"><i class="fa-solid fa-share-nodes"
-                        aria-hidden="true"></i></button>
-                    <button class="btn btn--ghost" aria-label="Add to cart"><i class="fa-solid fa-cart-shopping"
-                        aria-hidden="true"></i></button>
+                    <button class="btn btn--ghost" aria-label="Add to wishlist">
+                      <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                    </button>
+                    <button class="btn btn--ghost" aria-label="Share">
+                      <i class="fa-solid fa-share-nodes" aria-hidden="true"></i>
+                    </button>
+                    <button class="btn btn--ghost" aria-label="Add to cart">
+                      <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -638,16 +676,18 @@
             <!-- 4) 80.2% of 15,000 = 12,030 -->
             <article class="swiper-slide agenda-card" aria-label="1000 Tent Aid Campaign for Gaza">
               <figure class="agenda-card__media">
-                <img src="assets/images/agenda/slide-4.webp" alt="Food aid packaging" loading="lazy" decoding="async">
+                <img src="assets/images/agenda/slide-4.webp" alt="Food aid packaging" loading="lazy" decoding="async" />
               </figure>
               <div class="agenda-card__body">
-                <h3 class="agenda-card__title">1000 Tent Aid Campaign for Gaza</h3>
+                <h3 class="agenda-card__title">
+                  1000 Tent Aid Campaign for Gaza
+                </h3>
 
                 <div class="agenda-card__meta">
                   <span class="agenda-card__meta-item">6 Donors</span>
                   <span class="agenda-card__meta-dot" aria-hidden="true">•</span>
                   <span class="agenda-card__meta-item">
-                    <img class="agenda-card__flag" src="assets/icons/flag-palestine.svg" alt="" aria-hidden="true">
+                    <img class="agenda-card__flag" src="assets/icons/flag-palestine.svg" alt="" aria-hidden="true" />
                     Palestine
                   </span>
                   <span class="agenda-card__growth text-primary">%80.2</span>
@@ -677,12 +717,15 @@
                   <a class="btn btn--pill btn--primary" href="#"><i class="fa-solid fa-hand-holding-heart"
                       aria-hidden="true"></i><span>DONATE</span></a>
                   <div class="agenda-card__icons">
-                    <button class="btn btn--ghost" aria-label="Add to wishlist"><i class="fa-regular fa-heart"
-                        aria-hidden="true"></i></button>
-                    <button class="btn btn--ghost" aria-label="Share"><i class="fa-solid fa-share-nodes"
-                        aria-hidden="true"></i></button>
-                    <button class="btn btn--ghost" aria-label="Add to cart"><i class="fa-solid fa-cart-shopping"
-                        aria-hidden="true"></i></button>
+                    <button class="btn btn--ghost" aria-label="Add to wishlist">
+                      <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                    </button>
+                    <button class="btn btn--ghost" aria-label="Share">
+                      <i class="fa-solid fa-share-nodes" aria-hidden="true"></i>
+                    </button>
+                    <button class="btn btn--ghost" aria-label="Add to cart">
+                      <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -692,16 +735,18 @@
             <article class="swiper-slide agenda-card" aria-label="1000 Tent Aid Campaign for Gaza">
               <figure class="agenda-card__media">
                 <img src="assets/images/agenda/slide-1.webp" alt="Volunteers delivering medicine" loading="lazy"
-                  decoding="async">
+                  decoding="async" />
               </figure>
               <div class="agenda-card__body">
-                <h3 class="agenda-card__title">1000 Tent Aid Campaign for Gaza</h3>
+                <h3 class="agenda-card__title">
+                  1000 Tent Aid Campaign for Gaza
+                </h3>
 
                 <div class="agenda-card__meta">
                   <span class="agenda-card__meta-item">6 Donors</span>
                   <span class="agenda-card__meta-dot" aria-hidden="true">•</span>
                   <span class="agenda-card__meta-item">
-                    <img class="agenda-card__flag" src="assets/icons/flag-palestine.svg" alt="" aria-hidden="true">
+                    <img class="agenda-card__flag" src="assets/icons/flag-palestine.svg" alt="" aria-hidden="true" />
                     Palestine
                   </span>
                   <span class="agenda-card__growth text-primary">%5.0</span>
@@ -731,12 +776,15 @@
                   <a class="btn btn--pill btn--primary" href="#"><i class="fa-solid fa-hand-holding-heart"
                       aria-hidden="true"></i><span>DONATE</span></a>
                   <div class="agenda-card__icons">
-                    <button class="btn btn--ghost" aria-label="Add to wishlist"><i class="fa-regular fa-heart"
-                        aria-hidden="true"></i></button>
-                    <button class="btn btn--ghost" aria-label="Share"><i class="fa-solid fa-share-nodes"
-                        aria-hidden="true"></i></button>
-                    <button class="btn btn--ghost" aria-label="Add to cart"><i class="fa-solid fa-cart-shopping"
-                        aria-hidden="true"></i></button>
+                    <button class="btn btn--ghost" aria-label="Add to wishlist">
+                      <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                    </button>
+                    <button class="btn btn--ghost" aria-label="Share">
+                      <i class="fa-solid fa-share-nodes" aria-hidden="true"></i>
+                    </button>
+                    <button class="btn btn--ghost" aria-label="Add to cart">
+                      <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -745,16 +793,18 @@
             <!-- 6) 27.3% of 20,000 = 5,460 -->
             <article class="swiper-slide agenda-card" aria-label="1000 Tent Aid Campaign for Gaza">
               <figure class="agenda-card__media">
-                <img src="assets/images/agenda/slide-2.webp" alt="Clothes donation" loading="lazy" decoding="async">
+                <img src="assets/images/agenda/slide-2.webp" alt="Clothes donation" loading="lazy" decoding="async" />
               </figure>
               <div class="agenda-card__body">
-                <h3 class="agenda-card__title">1000 Tent Aid Campaign for Gaza</h3>
+                <h3 class="agenda-card__title">
+                  1000 Tent Aid Campaign for Gaza
+                </h3>
 
                 <div class="agenda-card__meta">
                   <span class="agenda-card__meta-item">6 Donors</span>
                   <span class="agenda-card__meta-dot" aria-hidden="true">•</span>
                   <span class="agenda-card__meta-item">
-                    <img class="agenda-card__flag" src="assets/icons/flag-palestine.svg" alt="" aria-hidden="true">
+                    <img class="agenda-card__flag" src="assets/icons/flag-palestine.svg" alt="" aria-hidden="true" />
                     Palestine
                   </span>
                   <span class="agenda-card__growth text-primary">%27.3</span>
@@ -784,12 +834,15 @@
                   <a class="btn btn--pill btn--primary" href="#"><i class="fa-solid fa-hand-holding-heart"
                       aria-hidden="true"></i><span>DONATE</span></a>
                   <div class="agenda-card__icons">
-                    <button class="btn btn--ghost" aria-label="Add to wishlist"><i class="fa-regular fa-heart"
-                        aria-hidden="true"></i></button>
-                    <button class="btn btn--ghost" aria-label="Share"><i class="fa-solid fa-share-nodes"
-                        aria-hidden="true"></i></button>
-                    <button class="btn btn--ghost" aria-label="Add to cart"><i class="fa-solid fa-cart-shopping"
-                        aria-hidden="true"></i></button>
+                    <button class="btn btn--ghost" aria-label="Add to wishlist">
+                      <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                    </button>
+                    <button class="btn btn--ghost" aria-label="Share">
+                      <i class="fa-solid fa-share-nodes" aria-hidden="true"></i>
+                    </button>
+                    <button class="btn btn--ghost" aria-label="Add to cart">
+                      <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -799,16 +852,18 @@
             <article class="swiper-slide agenda-card" aria-label="1000 Tent Aid Campaign for Gaza">
               <figure class="agenda-card__media">
                 <img src="assets/images/agenda/slide-3.webp" alt="Cash support being handed" loading="lazy"
-                  decoding="async">
+                  decoding="async" />
               </figure>
               <div class="agenda-card__body">
-                <h3 class="agenda-card__title">1000 Tent Aid Campaign for Gaza</h3>
+                <h3 class="agenda-card__title">
+                  1000 Tent Aid Campaign for Gaza
+                </h3>
 
                 <div class="agenda-card__meta">
                   <span class="agenda-card__meta-item">6 Donors</span>
                   <span class="agenda-card__meta-dot" aria-hidden="true">•</span>
                   <span class="agenda-card__meta-item">
-                    <img class="agenda-card__flag" src="assets/icons/flag-palestine.svg" alt="" aria-hidden="true">
+                    <img class="agenda-card__flag" src="assets/icons/flag-palestine.svg" alt="" aria-hidden="true" />
                     Palestine
                   </span>
                   <span class="agenda-card__growth text-primary">%44.4</span>
@@ -838,12 +893,15 @@
                   <a class="btn btn--pill btn--primary" href="#"><i class="fa-solid fa-hand-holding-heart"
                       aria-hidden="true"></i><span>DONATE</span></a>
                   <div class="agenda-card__icons">
-                    <button class="btn btn--ghost" aria-label="Add to wishlist"><i class="fa-regular fa-heart"
-                        aria-hidden="true"></i></button>
-                    <button class="btn btn--ghost" aria-label="Share"><i class="fa-solid fa-share-nodes"
-                        aria-hidden="true"></i></button>
-                    <button class="btn btn--ghost" aria-label="Add to cart"><i class="fa-solid fa-cart-shopping"
-                        aria-hidden="true"></i></button>
+                    <button class="btn btn--ghost" aria-label="Add to wishlist">
+                      <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                    </button>
+                    <button class="btn btn--ghost" aria-label="Share">
+                      <i class="fa-solid fa-share-nodes" aria-hidden="true"></i>
+                    </button>
+                    <button class="btn btn--ghost" aria-label="Add to cart">
+                      <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -852,16 +910,18 @@
             <!-- 8) 71.8% of 12,000 = 8,616 -->
             <article class="swiper-slide agenda-card" aria-label="1000 Tent Aid Campaign for Gaza">
               <figure class="agenda-card__media">
-                <img src="assets/images/agenda/slide-4.webp" alt="Food aid packaging" loading="lazy" decoding="async">
+                <img src="assets/images/agenda/slide-4.webp" alt="Food aid packaging" loading="lazy" decoding="async" />
               </figure>
               <div class="agenda-card__body">
-                <h3 class="agenda-card__title">1000 Tent Aid Campaign for Gaza</h3>
+                <h3 class="agenda-card__title">
+                  1000 Tent Aid Campaign for Gaza
+                </h3>
 
                 <div class="agenda-card__meta">
                   <span class="agenda-card__meta-item">6 Donors</span>
                   <span class="agenda-card__meta-dot" aria-hidden="true">•</span>
                   <span class="agenda-card__meta-item">
-                    <img class="agenda-card__flag" src="assets/icons/flag-palestine.svg" alt="" aria-hidden="true">
+                    <img class="agenda-card__flag" src="assets/icons/flag-palestine.svg" alt="" aria-hidden="true" />
                     Palestine
                   </span>
                   <span class="agenda-card__growth text-primary">%71.8</span>
@@ -891,25 +951,29 @@
                   <a class="btn btn--pill btn--primary" href="#"><i class="fa-solid fa-hand-holding-heart"
                       aria-hidden="true"></i><span>DONATE</span></a>
                   <div class="agenda-card__icons">
-                    <button class="btn btn--ghost" aria-label="Add to wishlist"><i class="fa-regular fa-heart"
-                        aria-hidden="true"></i></button>
-                    <button class="btn btn--ghost" aria-label="Share"><i class="fa-solid fa-share-nodes"
-                        aria-hidden="true"></i></button>
-                    <button class="btn btn--ghost" aria-label="Add to cart"><i class="fa-solid fa-cart-shopping"
-                        aria-hidden="true"></i></button>
+                    <button class="btn btn--ghost" aria-label="Add to wishlist">
+                      <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                    </button>
+                    <button class="btn btn--ghost" aria-label="Share">
+                      <i class="fa-solid fa-share-nodes" aria-hidden="true"></i>
+                    </button>
+                    <button class="btn btn--ghost" aria-label="Add to cart">
+                      <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+                    </button>
                   </div>
                 </div>
               </div>
             </article>
-
           </div>
 
           <!-- Controls -->
           <div class="swiper-pagination"></div>
-          <button class="swiper-btn prev" aria-label="Previous"><i class="fa-solid fa-arrow-left"
-              aria-hidden="true"></i></button>
-          <button class="swiper-btn next" aria-label="Next"><i class="fa-solid fa-arrow-right"
-              aria-hidden="true"></i></button>
+          <button class="swiper-btn prev" aria-label="Previous">
+            <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+          </button>
+          <button class="swiper-btn next" aria-label="Next">
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </button>
         </div>
       </div>
     </section>
@@ -921,7 +985,8 @@
           <h2 class="h2">
             DONATION CAMPAIGNS
             <span class="badge badge--live" aria-label="Live">
-              <i class="fa-solid fa-tower-broadcast" aria-hidden="true"></i> Live
+              <i class="fa-solid fa-tower-broadcast" aria-hidden="true"></i>
+              Live
             </span>
           </h2>
         </div>
@@ -937,7 +1002,7 @@
           <div class="donations__panel">
             <div class="donations__panel-head">
               <div class="donations__country">
-                <img class="donations__flag" src="assets/icons/flag-palestine.svg" alt="" aria-hidden="true">
+                <img class="donations__flag" src="assets/icons/flag-palestine.svg" alt="" aria-hidden="true" />
                 <span class="donations__country-name">Palestine</span>
               </div>
               <div class="donations__count text-muted">
@@ -954,7 +1019,7 @@
       <template id="donationCardTpl">
         <article class="donation-card">
           <figure class="donation-card__media">
-            <img src="" alt="" loading="lazy" decoding="async">
+            <img src="" alt="" loading="lazy" decoding="async" />
           </figure>
 
           <div class="donation-card__body">
@@ -966,7 +1031,7 @@
                   <span class="donation-card__donors">0</span> Donors
                 </span>
                 <span class="donation-card__meta-item">
-                  <img class="donation-card__flag" src="" alt="" aria-hidden="true">
+                  <img class="donation-card__flag" src="" alt="" aria-hidden="true" />
                   <span class="donation-card__country"></span>
                 </span>
               </div>
@@ -982,15 +1047,24 @@
             <!-- Stats -->
             <dl class="donation-card__stats">
               <div class="donation-card__stat">
-                <dt><i class="fa-solid fa-bullseye" aria-hidden="true"></i> Required Fund</dt>
+                <dt>
+                  <i class="fa-solid fa-bullseye" aria-hidden="true"></i>
+                  Required Fund
+                </dt>
                 <dd class="donation-card__required">—</dd>
               </div>
               <div class="donation-card__stat">
-                <dt><i class="fa-solid fa-hand-holding-dollar" aria-hidden="true"></i> Support</dt>
+                <dt>
+                  <i class="fa-solid fa-hand-holding-dollar" aria-hidden="true"></i>
+                  Support
+                </dt>
                 <dd class="donation-card__support">—</dd>
               </div>
               <div class="donation-card__stat">
-                <dt><i class="fa-regular fa-hourglass-half" aria-hidden="true"></i> Remaining</dt>
+                <dt>
+                  <i class="fa-regular fa-hourglass-half" aria-hidden="true"></i>
+                  Remaining
+                </dt>
                 <dd class="donation-card__remaining">—</dd>
               </div>
             </dl>
@@ -1023,15 +1097,17 @@
       <div class="container">
         <div class="impact__swiper swiper" aria-roledescription="carousel">
           <div class="swiper-wrapper">
-
             <!-- Slide -->
             <article class="swiper-slide impact-card">
               <div class="impact-card__content">
-                <h2 class="impact-card__title h2">Support What Matters Most</h2>
+                <h2 class="impact-card__title h2">
+                  Support What Matters Most
+                </h2>
                 <p class="impact-card__text">
-                  Children are often the most vulnerable in times of conflict and displacement.
-                  Our programs focus on ensuring that refugee children have access to medical care,
-                  education, and emotional support.
+                  Children are often the most vulnerable in times of conflict
+                  and displacement. Our programs focus on ensuring that
+                  refugee children have access to medical care, education, and
+                  emotional support.
                 </p>
                 <a href="#" class="btn btn--primary btn--pill">
                   <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i>
@@ -1040,7 +1116,7 @@
               </div>
               <figure class="impact-card__media">
                 <img src="assets/images/impact/slide-1.png" alt="Volunteers preparing aid boxes" loading="lazy"
-                  decoding="async">
+                  decoding="async" />
               </figure>
             </article>
 
@@ -1049,8 +1125,9 @@
               <div class="impact-card__content">
                 <h2 class="impact-card__title h2">Food & Clean Water</h2>
                 <p class="impact-card__text">
-                  Provide emergency food parcels and clean water to families in remote areas.
-                  Your support keeps communities healthy and resilient.
+                  Provide emergency food parcels and clean water to families
+                  in remote areas. Your support keeps communities healthy and
+                  resilient.
                 </p>
                 <a href="#" class="btn btn--primary btn--pill">
                   <i class="fa-solid fa-utensils" aria-hidden="true"></i>
@@ -1059,7 +1136,7 @@
               </div>
               <figure class="impact-card__media">
                 <img src="assets/images/impact/slide-1.png" alt="Food distribution to families" loading="lazy"
-                  decoding="async">
+                  decoding="async" />
               </figure>
             </article>
 
@@ -1068,8 +1145,8 @@
               <div class="impact-card__content">
                 <h2 class="impact-card__title h2">Shelter & Warmth</h2>
                 <p class="impact-card__text">
-                  Help us deliver tents, blankets, and heaters to families facing harsh weather
-                  and unsafe living conditions.
+                  Help us deliver tents, blankets, and heaters to families
+                  facing harsh weather and unsafe living conditions.
                 </p>
                 <a href="#" class="btn btn--primary btn--pill">
                   <i class="fa-solid fa-house-chimney-heart" aria-hidden="true"></i>
@@ -1078,10 +1155,9 @@
               </div>
               <figure class="impact-card__media">
                 <img src="assets/images/impact/slide-1.png" alt="Emergency shelter supplies" loading="lazy"
-                  decoding="async">
+                  decoding="async" />
               </figure>
             </article>
-
           </div>
 
           <!-- Pagination bullets -->
@@ -1090,12 +1166,13 @@
       </div>
     </section>
 
-
     <!-- ============== Sponsor a Child (isolated) ============== -->
     <section class="sc" aria-labelledby="scTitle">
       <div class="sc__container">
         <header class="sc__head">
-          <h2 id="scTitle" class="sc__title"><span class="sc__bar"></span>SPONSOR A CHILD</h2>
+          <h2 id="scTitle" class="sc__title">
+            <span class="sc__bar"></span>SPONSOR A CHILD
+          </h2>
         </header>
 
         <div class="sc__grid">
@@ -1123,7 +1200,7 @@
               <figure class="sc-item__icon">
                 <img src="assets/images/sponsor/items/bag.svg" alt="" />
               </figure>
-              <h3 class="sc-item__title">School Bag </h3>
+              <h3 class="sc-item__title">School Bag</h3>
               <div class="sc-item__ctrl">
                 <button class="sc-btn sc-btn--ghost sc-minus" type="button" aria-label="Remove clothes">
                   <i class="fa-solid fa-minus"></i>
@@ -1135,7 +1212,6 @@
               </div>
               <small class="sc-item__price" data-price="$20">$20</small>
             </article>
-
           </div>
 
           <!-- CENTER: AVATAR -->
@@ -1153,11 +1229,14 @@
 
           <!-- RIGHT COLUMN -->
           <div class="sc__col">
-
             <!-- Item: Books -->
             <article class="sc-item" data-item="books">
-              <figure class="sc-item__icon"
-                style="height: 120px; display: flex; align-items: center; justify-content: center;">
+              <figure class="sc-item__icon" style="
+                    height: 120px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                  ">
                 <img src="assets/images/sponsor/items/toy.svg" alt="" />
               </figure>
               <h3 class="sc-item__title">Toy</h3>
@@ -1222,22 +1301,22 @@
        * - Safe for multiple instances if you duplicate the section.
        */
       (() => {
-        'use strict';
+        "use strict";
 
         // Scope: this <section.sc> only (script is placed right after it)
         const $section = document.currentScript.previousElementSibling;
-        if (!$section || !$section.classList.contains('sc')) return;
+        if (!$section || !$section.classList.contains("sc")) return;
 
-        const $kid = $section.querySelector('.sc-kid');
-        const $total = $section.querySelector('#scTotal');
+        const $kid = $section.querySelector(".sc-kid");
+        const $total = $section.querySelector("#scTotal");
 
         // Avatar layers — DO NOT change: matches your original filenames/order
         const layers = {
-          clothes: $kid.querySelector('.sc-kid__clothes'),
-          books: $kid.querySelector('.sc-kid__book'),      // toy.svg
-          food: $kid.querySelector('.sc-kid__food'),
-          bag: $kid.querySelector('.sc-kid__bag'),       // stationary.svg
-          head: $kid.querySelector('.sc-kid__head')
+          clothes: $kid.querySelector(".sc-kid__clothes"),
+          books: $kid.querySelector(".sc-kid__book"), // toy.svg
+          food: $kid.querySelector(".sc-kid__food"),
+          bag: $kid.querySelector(".sc-kid__bag"), // stationary.svg
+          head: $kid.querySelector(".sc-kid__head"),
         };
 
         // Build state from the DOM
@@ -1246,125 +1325,77 @@
         const max = {};
         const qtyEl = {};
 
-        $section.querySelectorAll('.sc-item').forEach(card => {
-          const key = card.dataset.item;                // e.g. "clothes"
+        $section.querySelectorAll(".sc-item").forEach((card) => {
+          const key = card.dataset.item; // e.g. "clothes"
           state[key] = 0;
 
           // read "$25" etc. → 25
-          const pText = card.querySelector('.sc-item__price')?.dataset.price || '0';
-          price[key] = Number(pText.replace(/[^\d.]/g, '')) || 0;
+          const pText =
+            card.querySelector(".sc-item__price")?.dataset.price || "0";
+          price[key] = Number(pText.replace(/[^\d.]/g, "")) || 0;
 
           // if data-max missing → Infinity (unlimited)
           const mAttr = card.dataset.max;
           const mNum = Number(mAttr);
           max[key] = Number.isFinite(mNum) && mNum > 0 ? mNum : Infinity;
 
-          qtyEl[key] = card.querySelector('.sc-qty');
+          qtyEl[key] = card.querySelector(".sc-qty");
         });
 
         // Currency formatter
-        const money = new Intl.NumberFormat('en-US', {
-          style: 'currency', currency: 'USD', maximumFractionDigits: 0
+        const money = new Intl.NumberFormat("en-US", {
+          style: "currency",
+          currency: "USD",
+          maximumFractionDigits: 0,
         });
 
         // Render avatar visibility, counters, and total
         function render() {
           // toggle each layer if available
-          Object.keys(state).forEach(k => {
+          Object.keys(state).forEach((k) => {
             layers[k] && (layers[k].hidden = state[k] === 0);
             qtyEl[k].textContent = state[k];
           });
 
           // happy face if any item is present
-          const any = Object.values(state).some(v => v > 0);
+          const any = Object.values(state).some((v) => v > 0);
           layers.head.src = any
-            ? 'assets/images/sponsor/head_happy.svg'
-            : 'assets/images/sponsor/head_normal.svg';
+            ? "assets/images/sponsor/head_happy.svg"
+            : "assets/images/sponsor/head_normal.svg";
 
           // total
-          const total = Object.keys(state).reduce((sum, k) => sum + state[k] * price[k], 0);
+          const total = Object.keys(state).reduce(
+            (sum, k) => sum + state[k] * price[k],
+            0
+          );
           $total.textContent = money.format(total);
         }
 
         // Mutators with clamping
-        const inc = k => (state[k] = Math.min(state[k] + 1, max[k]), render());
-        const dec = k => (state[k] = Math.max(state[k] - 1, 0), render());
+        const inc = (k) => (
+          (state[k] = Math.min(state[k] + 1, max[k])), render()
+        );
+        const dec = (k) => ((state[k] = Math.max(state[k] - 1, 0)), render());
 
         // Event delegation (single listener)
-        $section.addEventListener('click', (e) => {
-          const btn = e.target.closest('.sc-plus, .sc-minus');
-          if (!btn) return;
-          const card = e.target.closest('.sc-item');
-          if (!card) return;
+        $section.addEventListener(
+          "click",
+          (e) => {
+            const btn = e.target.closest(".sc-plus, .sc-minus");
+            if (!btn) return;
+            const card = e.target.closest(".sc-item");
+            if (!card) return;
 
-          const key = card.dataset.item;
-          btn.classList.contains('sc-plus') ? inc(key) : dec(key);
-        }, { passive: true });
+            const key = card.dataset.item;
+            btn.classList.contains("sc-plus") ? inc(key) : dec(key);
+          },
+          { passive: true }
+        );
 
         // Initial paint
         render();
       })();
     </script>
-
-
-    <!-- ========================= Sponsor a Child ========================= -->
-    <!-- <section class="sponsor" aria-label="Sponsor a child">
-      <div class="container">
-        <header class="sponsor__header">
-          <h2 class="h2">SPONSOR A CHILD</h2>
-        </header>
-
-        <div class="sponsor__grid">
-          <div class="sponsor__list" id="sponsorListLeft" aria-label="Items left side"></div>
-
-          <div class="sponsor__avatar" aria-live="polite">
-            <img class="avatar__layer is-base" src="assets/images/sponsor/avatar/base.png" alt="Child avatar base"
-              decoding="async">
-
-            <img class="avatar__layer" data-layer="clothes-basic" src="assets/images/sponsor/avatar/clothes/basic.svg"
-              alt="" aria-hidden="true">
-            <img class="avatar__layer" data-layer="clothes-jacket" src="assets/images/sponsor/avatar/clothes/jacket.svg"
-              alt="" aria-hidden="true">
-            <img class="avatar__layer" data-layer="bag" src="assets/images/sponsor/avatar/props/bag.svg" alt=""
-              aria-hidden="true">
-            <img class="avatar__layer avatar__layer--book" data-layer="book"
-              src="assets/images/sponsor/avatar/props/book-hand.svg" alt="" aria-hidden="true">
-            <img class="avatar__layer" data-layer="food" src="assets/images/sponsor/avatar/props/food.svg" alt=""
-              aria-hidden="true">
-          </div>
-
-          <div class="sponsor__list" id="sponsorListRight" aria-label="Items right side"></div>
-        </div>
-
-        <footer class="sponsor__footer">
-          <div class="sponsor__total" aria-live="polite">Total <span id="sponsorTotal">$0</span></div>
-          <div class="sponsor__actions">
-            <a href="#" class="btn btn--primary btn--pill" id="sponsorDonate">
-              <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i><span>DONATE</span>
-            </a>
-            <button class="btn btn--ghost btn--pill" id="sponsorCart" aria-label="Add selection to cart">
-              <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
-            </button>
-          </div>
-        </footer>
-      </div>
-
-      <template id="sponsorItemTpl">
-        <article class="sponsor-item">
-          <figure class="sponsor-item__media"><img alt="" loading="lazy" decoding="async"></figure>
-          <h3 class="sponsor-item__title"></h3>
-          <span class="sponsor-item__price"></span>
-
-          <div class="sponsor-item__controls" role="group" aria-label="Quantity controls">
-            <button class="ctrl ctrl--minus" aria-label="Decrease"><i class="fa-solid fa-minus"
-                aria-hidden="true"></i></button>
-            <output class="ctrl__qty" aria-live="polite">0</output>
-            <button class="ctrl ctrl--plus" aria-label="Increase"><i class="fa-solid fa-plus"
-                aria-hidden="true"></i></button>
-          </div>
-        </article>
-      </template>
-    </section> -->
 
     <!-- ========================= Media / Stories ========================= -->
     <section class="media" aria-label="Latest media and stories">
@@ -1376,9 +1407,10 @@
               <span class="badge badge--soft">MEDIA</span>
               <h2 class="h2">By you It’s happened</h2>
               <p class="media__sub">
-                We are dedicated to creating a brighter future for those in need. Through collective effort and
-                unwavering compassion, we connect people to meaningful causes. Together, we create a lifeline for those
-                who need it most.
+                We are dedicated to creating a brighter future for those in
+                need. Through collective effort and unwavering compassion, we
+                connect people to meaningful causes. Together, we create a
+                lifeline for those who need it most.
               </p>
             </header>
 
@@ -1386,18 +1418,20 @@
               <a class="media-card__link" href="#" itemprop="url">
                 <figure class="media-card__media">
                   <img src="assets/images/media/01.webp" alt="Volunteers carrying medicine boxes" loading="lazy"
-                    decoding="async" itemprop="image">
+                    decoding="async" itemprop="image" />
                   <span class="media-card__badge">News from us</span>
                 </figure>
                 <div class="media-card__meta-body">
-                  <h3 class="media-card__title" itemprop="headline">Young Couple from Batman Shared Wedding Table with
-                    Gaza</h3>
+                  <h3 class="media-card__title" itemprop="headline">
+                    Young Couple from Batman Shared Wedding Table with Gaza
+                  </h3>
                   <div class="media-card__meta">
                     <time class="media-card__date" datetime="2025-07-05" itemprop="datePublished">
-                      <i class="fa-regular fa-calendar" aria-hidden="true"></i> 05 July 2025
+                      <i class="fa-regular fa-calendar" aria-hidden="true"></i>
+                      05 July 2025
                     </time>
                   </div>
-                  <meta itemprop="author" content="Yedi Başak">
+                  <meta itemprop="author" content="Yedi Başak" />
                 </div>
               </a>
             </article>
@@ -1409,18 +1443,21 @@
               <a class="media-card__link" href="#" itemprop="url">
                 <figure class="media-card__media">
                   <img src="assets/images/media/02.webp" alt="Soup distribution at community kitchen" loading="lazy"
-                    decoding="async" itemprop="image">
+                    decoding="async" itemprop="image" />
                   <span class="media-card__badge">News from us</span>
                 </figure>
                 <div class="media-card__meta-body">
-                  <h3 class="media-card__title" itemprop="headline">Community kitchen serves hundreds every day</h3>
+                  <h3 class="media-card__title" itemprop="headline">
+                    Community kitchen serves hundreds every day
+                  </h3>
 
                   <div class="media-card__meta">
                     <time class="media-card__date" datetime="2025-07-05" itemprop="datePublished">
-                      <i class="fa-regular fa-calendar" aria-hidden="true"></i> 05 July 2025
+                      <i class="fa-regular fa-calendar" aria-hidden="true"></i>
+                      05 July 2025
                     </time>
                   </div>
-                  <meta itemprop="author" content="Yedi Başak">
+                  <meta itemprop="author" content="Yedi Başak" />
                 </div>
               </a>
             </article>
@@ -1429,18 +1466,21 @@
               <a class="media-card__link" href="#" itemprop="url">
                 <figure class="media-card__media">
                   <img src="assets/images/media/03.webp" alt="Donation bags with fresh vegetables" loading="lazy"
-                    decoding="async" itemprop="image">
+                    decoding="async" itemprop="image" />
                   <span class="media-card__badge">News from us</span>
                 </figure>
                 <div class="media-card__meta-body">
-                  <h3 class="media-card__title" itemprop="headline">Fresh food packs delivered to remote villages</h3>
+                  <h3 class="media-card__title" itemprop="headline">
+                    Fresh food packs delivered to remote villages
+                  </h3>
 
                   <div class="media-card__meta">
                     <time class="media-card__date" datetime="2025-07-05" itemprop="datePublished">
-                      <i class="fa-regular fa-calendar" aria-hidden="true"></i> 05 July 2025
+                      <i class="fa-regular fa-calendar" aria-hidden="true"></i>
+                      05 July 2025
                     </time>
                   </div>
-                  <meta itemprop="author" content="Yedi Başak">
+                  <meta itemprop="author" content="Yedi Başak" />
                 </div>
               </a>
             </article>
@@ -1452,18 +1492,21 @@
               <a class="media-card__link" href="#" itemprop="url">
                 <figure class="media-card__media">
                   <img src="assets/images/media/04.webp" alt="Volunteer carrying medicine" loading="lazy"
-                    decoding="async" itemprop="image">
+                    decoding="async" itemprop="image" />
                   <span class="media-card__badge">News from us</span>
                 </figure>
                 <div class="media-card__meta-body">
-                  <h3 class="media-card__title" itemprop="headline">Medicine aid arrives at field clinic</h3>
+                  <h3 class="media-card__title" itemprop="headline">
+                    Medicine aid arrives at field clinic
+                  </h3>
 
                   <div class="media-card__meta">
                     <time class="media-card__date" datetime="2025-07-05" itemprop="datePublished">
-                      <i class="fa-regular fa-calendar" aria-hidden="true"></i> 05 July 2025
+                      <i class="fa-regular fa-calendar" aria-hidden="true"></i>
+                      05 July 2025
                     </time>
                   </div>
-                  <meta itemprop="author" content="Yedi Başak">
+                  <meta itemprop="author" content="Yedi Başak" />
                 </div>
               </a>
             </article>
@@ -1472,18 +1515,21 @@
               <a class="media-card__link" href="#" itemprop="url">
                 <figure class="media-card__media">
                   <img src="assets/images/media/05.webp" alt="Donation of euro bills" loading="lazy" decoding="async"
-                    itemprop="image">
+                    itemprop="image" />
                   <span class="media-card__badge">News from us</span>
                 </figure>
                 <div class="media-card__meta-body">
-                  <h3 class="media-card__title" itemprop="headline">Donors pledge recurring monthly support</h3>
+                  <h3 class="media-card__title" itemprop="headline">
+                    Donors pledge recurring monthly support
+                  </h3>
 
                   <div class="media-card__meta">
                     <time class="media-card__date" datetime="2025-07-05" itemprop="datePublished">
-                      <i class="fa-regular fa-calendar" aria-hidden="true"></i> 05 July 2025
+                      <i class="fa-regular fa-calendar" aria-hidden="true"></i>
+                      05 July 2025
                     </time>
                   </div>
-                  <meta itemprop="author" content="Yedi Başak">
+                  <meta itemprop="author" content="Yedi Başak" />
                 </div>
               </a>
             </article>
@@ -1491,7 +1537,7 @@
         </div>
 
         <div class="media__cta">
-          <a class="btn btn--pill btn--primary " href="#" aria-label="See all media">
+          <a class="btn btn--pill btn--primary" href="#" aria-label="See all media">
             See all <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
           </a>
         </div>
@@ -1504,33 +1550,40 @@
         <div class="impact-stats__grid">
           <!-- Col 1: Stats (SEO ItemList) -->
           <aside class="impact-stats__stats" itemscope itemtype="https://schema.org/ItemList">
-            <meta itemprop="name" content="Impact statistics">
+            <meta itemprop="name" content="Impact statistics" />
             <div class="stat" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-              <meta itemprop="position" content="1">
+              <meta itemprop="position" content="1" />
               <div class="stat__label">Total donors</div>
-              <div class="stat__value" data-count="13256" aria-label="Total donors">0</div>
+              <div class="stat__value" data-count="13256" aria-label="Total donors">
+                0
+              </div>
             </div>
             <div class="stat" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-              <meta itemprop="position" content="2">
+              <meta itemprop="position" content="2" />
               <div class="stat__label">Number of campaigns</div>
-              <div class="stat__value" data-count="450" aria-label="Number of campaigns">0</div>
+              <div class="stat__value" data-count="450" aria-label="Number of campaigns">
+                0
+              </div>
             </div>
             <div class="stat" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-              <meta itemprop="position" content="3">
+              <meta itemprop="position" content="3" />
               <div class="stat__label">Number of beneficiaries</div>
-              <div class="stat__value" data-count="45256" aria-label="Number of beneficiaries">0</div>
+              <div class="stat__value" data-count="45256" aria-label="Number of beneficiaries">
+                0
+              </div>
             </div>
           </aside>
 
           <!-- Col 2: Center image card (with subtle overlay handled in CSS) -->
           <figure class="impact-stats__feature" itemscope itemtype="https://schema.org/ImageObject">
             <img src="assets/images/impact/feature-children.webp" alt="Children walking through muddy ground near tents"
-              loading="lazy" decoding="async" itemprop="contentUrl">
+              loading="lazy" decoding="async" itemprop="contentUrl" />
             <figcaption class="feature__caption">
               <strong class="feature__title">Big changes</strong>
-              <span class="feature__text">We are dedicated to creating a brighter future for those in need</span>
+              <span class="feature__text">We are dedicated to creating a brighter future for those in
+                need</span>
             </figcaption>
-            <meta itemprop="name" content="Field impact photo">
+            <meta itemprop="name" content="Field impact photo" />
           </figure>
 
           <!-- Col 3: Benefits list -->
@@ -1548,32 +1601,32 @@
                 <div class="benefit__body">
                   <span class="benefit__title" itemprop="name">One Cause at a Time</span>
                   <p class="benefit__text" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                    <span itemprop="text">Through focused initiatives, we strive to address immediate needs while
-                      working toward solutions.</span>
+                    <span itemprop="text">Through focused initiatives, we strive to address
+                      immediate needs while working toward solutions.</span>
                   </p>
                 </div>
               </li>
               <li class="benefit" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                 <div class="benefit__icon benefit__icon--teal">
-                  <i class=" fa-solid fa-check" aria-hidden="true"></i>
+                  <i class="fa-solid fa-check" aria-hidden="true"></i>
                 </div>
                 <div class="benefit__body">
                   <span class="benefit__title" itemprop="name">A World of Change</span>
                   <p class="benefit__text" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                    <span itemprop="text">Our mission is rooted in the belief that everyone deserves a chance at a
-                      better life.</span>
+                    <span itemprop="text">Our mission is rooted in the belief that everyone
+                      deserves a chance at a better life.</span>
                   </p>
                 </div>
               </li>
               <li class="benefit" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                 <div class="benefit__icon benefit__icon--teal">
-                  <i class=" fa-solid fa-check" aria-hidden="true"></i>
+                  <i class="fa-solid fa-check" aria-hidden="true"></i>
                 </div>
                 <div class="benefit__body">
                   <span class="benefit__title" itemprop="name">Faith Communion</span>
                   <p class="benefit__text" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                    <span itemprop="text">Our spotlight cause this month focuses on providing essential aid to refugees
-                      worldwide.</span>
+                    <span itemprop="text">Our spotlight cause this month focuses on providing
+                      essential aid to refugees worldwide.</span>
                   </p>
                 </div>
               </li>
@@ -1592,23 +1645,32 @@
             <div class="swiper-wrapper">
               <!-- Slide 1 -->
               <div class="swiper-slide donate__slide">
-                <img src="assets/images/media/01.webp" alt="Volunteers preparing food parcels">
+                <img src="assets/images/media/01.webp" alt="Volunteers preparing food parcels" />
                 <div class="donate__quote-caption" aria-hidden="true">
-                  <p>Every act of kindness. no matter how small, carries the power in humanity.</p>
+                  <p>
+                    Every act of kindness. no matter how small, carries the
+                    power in humanity.
+                  </p>
                 </div>
               </div>
               <!-- Slide 2 -->
               <div class="swiper-slide donate__slide">
-                <img src="assets/images/media/02.webp" alt="Donation boxes being prepared">
+                <img src="assets/images/media/02.webp" alt="Donation boxes being prepared" />
                 <div class="donate__quote-caption" aria-hidden="true">
-                  <p>Every act of kindness. no matter how small, carries the power in humanity.</p>
+                  <p>
+                    Every act of kindness. no matter how small, carries the
+                    power in humanity.
+                  </p>
                 </div>
               </div>
               <!-- Slide 3 -->
               <div class="swiper-slide donate__slide">
-                <img src="assets/images/media/03.webp" alt="Delivering aid to families">
+                <img src="assets/images/media/03.webp" alt="Delivering aid to families" />
                 <div class="donate__quote-caption" aria-hidden="true">
-                  <p>Every act of kindness. no matter how small, carries the power in humanity.</p>
+                  <p>
+                    Every act of kindness. no matter how small, carries the
+                    power in humanity.
+                  </p>
                 </div>
               </div>
             </div>
@@ -1620,7 +1682,8 @@
           <!-- Floating quote card -->
           <figure class="donate__quote card" aria-hidden="false">
             <figcaption class="donate__quote-text">
-              Every act of kindness, no matter how small, carries the power in humanity.
+              Every act of kindness, no matter how small, carries the power in
+              humanity.
             </figcaption>
           </figure>
         </div>
@@ -1631,17 +1694,14 @@
           </div>
           <div class="donate__icon" aria-hidden="true">
             <!-- decorative icon (fontawesome already loaded) -->
-            <img src="assets/icons/donate online.svg" alt="" aria-hidden="true">
+            <img src="assets/icons/donate online.svg" alt="" aria-hidden="true" />
           </div>
           <img src="assets/images/donate/01.webp" alt="Volunteers preparing aid boxes" loading="lazy" decoding="async"
-            class="donate__center-image">
+            class="donate__center-image" />
         </div>
 
         <!-- RIGHT: Content -->
         <div class="donate__content">
-
-
-
           <div class="donate__eyebrow">
             <span class="dot"></span> <span>Make an Impact</span>
           </div>
@@ -1651,9 +1711,10 @@
           </h2>
 
           <p class="donate__lead text-muted">
-            Every contribution makes a difference. Every contribution counts in creating a better world.
-            Your donation empowers change, bringing hope to those in need and driving meaningful solutions to global
-            challenges.
+            Every contribution makes a difference. Every contribution counts
+            in creating a better world. Your donation empowers change,
+            bringing hope to those in need and driving meaningful solutions to
+            global challenges.
           </p>
 
           <a href="#" class="btn btn--primary btn--pill donate__cta">
@@ -1670,14 +1731,14 @@
       <figure class="story__media" aria-hidden="true">
         <picture>
           <!-- <source type="image/avif" srcset="assets/images/story/teacher.avif"> -->
-          <source type="image/webp" srcset="assets/images/media/06.webp">
-          <img src="assets/images/media/6.webp" alt="" loading="lazy" decoding="async">
+          <source type="image/webp" srcset="assets/images/media/06.webp" />
+          <img src="assets/images/media/6.webp" alt="" loading="lazy" decoding="async" />
         </picture>
       </figure>
 
       <!-- Content -->
       <div class="container story__content">
-        <img src="assets/icons/help.svg" class="story__icon" aria-hidden="true" alt="">
+        <img src="assets/icons/help.svg" class="story__icon" aria-hidden="true" alt="" />
         <div class="story__eyebrow">
           <span>WHAT’S THE STORY?</span>
         </div>
@@ -1685,8 +1746,9 @@
         <h2 class="story__title h1">Yemeni Teacher</h2>
 
         <p class="story__lead text-muted--on-dark">
-          In the Taiz Region of Yemen, Yemeni teacher Adil SERCI’s house is in front of
-          700 students in rows and can’t wait to go home and get education.
+          In the Taiz Region of Yemen, Yemeni teacher Adil SERCI’s house is in
+          front of 700 students in rows and can’t wait to go home and get
+          education.
         </p>
 
         <a href="#" class="btn btn--primary btn--pill story__cta">
@@ -1695,14 +1757,14 @@
       </div>
     </section>
 
-
     <!-- ========================= DONOR OPINIONS (overlapped cards, no slider) ========================= -->
     <section class="testi" aria-label="Donor opinions">
       <div class="container">
         <header class="testi__header">
           <h2 class="h2 testi__title">Donor opinions</h2>
           <p class="testi__sub">
-            What they said about us… Real experiences from hearts that donated with confidence
+            What they said about us… Real experiences from hearts that donated
+            with confidence
           </p>
         </header>
 
@@ -1723,8 +1785,8 @@
               <time datetime="2025-07-05">05 July 2025</time>
             </header>
             <p class="testi-card__text">
-              I am happy that I was able to contribute to supporting families in need. May God reward you for your
-              efforts.
+              I am happy that I was able to contribute to supporting families
+              in need. May God reward you for your efforts.
             </p>
             <footer class="testi-card__foot">
               <img class="testi-card__avatar" src="assets/images/avatars/01.png" alt="" />
@@ -1741,7 +1803,8 @@
               <time datetime="2025-07-05">05 July 2025</time>
             </header>
             <p class="testi-card__text">
-              Transparent, quick, and impactful. I felt my donation reached the right people.
+              Transparent, quick, and impactful. I felt my donation reached
+              the right people.
             </p>
             <footer class="testi-card__foot">
               <img class="testi-card__avatar" src="assets/images/avatars/02.png" alt="" />
@@ -1758,7 +1821,8 @@
               <time datetime="2025-06-20">20 June 2025</time>
             </header>
             <p class="testi-card__text">
-              Great initiatives and professional team. Happy to keep supporting monthly.
+              Great initiatives and professional team. Happy to keep
+              supporting monthly.
             </p>
             <footer class="testi-card__foot">
               <img class="testi-card__avatar" src="assets/images/avatars/03.png" alt="" />
@@ -1803,7 +1867,6 @@
         </div>
       </div>
     </section>
-
   </main>
 
   <!-- =========================================
@@ -1836,8 +1899,9 @@
         <section class="cta-footer__block" aria-labelledby="ft-mission">
           <h3 id="ft-mission" class="cta-footer__eyebrow">Our Mission :</h3>
           <p class="cta-footer__text">
-            We provide immediate and long-term support to war refugees, offering essential resources
-            like food, water, medical care, and shelter.
+            We provide immediate and long-term support to war refugees,
+            offering essential resources like food, water, medical care, and
+            shelter.
           </p>
 
           <div class="cta-footer__call">
@@ -1855,16 +1919,46 @@
         <nav class="cta-footer__block" aria-labelledby="ft-activities">
           <h3 id="ft-activities" class="cta-footer__eyebrow">Activities:</h3>
           <ul class="cta-footer__list cta-footer__list_main">
-            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Ramadan</a></li>
-            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> General</a></li>
-            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Health</a></li>
-            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Emergency Aid</a></li>
-            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Orphan</a></li>
-            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Water Well</a></li>
-            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Sacrifice</a></li>
-            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Zakat Sadaqah</a></li>
-            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> ÖŞÜR</a></li>
-            <li><a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Winter Aid</a></li>
+            <li>
+              <a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i>
+                Ramadan</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i>
+                General</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i>
+                Health</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i>
+                Emergency Aid</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i>
+                Orphan</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i>
+                Water Well</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i>
+                Sacrifice</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i>
+                Zakat Sadaqah</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i>
+                ÖŞÜR</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-solid fa-angle-right" aria-hidden="true"></i>
+                Winter Aid</a>
+            </li>
           </ul>
         </nav>
 
@@ -1872,19 +1966,33 @@
         <nav class="cta-footer__block" aria-labelledby="ft-contact">
           <h3 id="ft-contact" class="cta-footer__eyebrow">CONTACT:</h3>
           <ul class="cta-footer__list cta-footer__list_main">
-            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Contact</a></li>
-            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Project Suggestion Form</a></li>
-            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Volunteer</a></li>
+            <li>
+              <a href="#"><i class="fa-solid fa-angle-right"></i> Contact</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-solid fa-angle-right"></i> Project Suggestion
+                Form</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-solid fa-angle-right"></i> Volunteer</a>
+            </li>
 
-            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Help Request Form</a></li>
-            <li><a href="#"><i class="fa-solid fa-angle-right"></i> Job Application Form</a></li>
-            <li><a href="#"><i class="fa-solid fa-angle-right"></i> AUCTIONS</a></li>
-            <li><a href="#"><i class="fa-solid fa-angle-right"></i> SMS / Mail cancellation Request Form</a></li>
-
+            <li>
+              <a href="#"><i class="fa-solid fa-angle-right"></i> Help Request Form</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-solid fa-angle-right"></i> Job Application
+                Form</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-solid fa-angle-right"></i> AUCTIONS</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-solid fa-angle-right"></i> SMS / Mail
+                cancellation Request Form</a>
+            </li>
           </ul>
         </nav>
-
-
       </div>
 
       <!-- Divider -->
@@ -1894,102 +2002,116 @@
         <a href="/" class="cta-footer__brand">
           <img src="assets/images/logo.svg" alt="Yedi Başak" width="128" height="36" />
         </a>
-        <p class="cta-footer__copy">Copyright © <span id="footerYear"></span>, All Rights Reserved</p>
+        <p class="cta-footer__copy">
+          Copyright © <span id="footerYear"></span>, All Rights Reserved
+        </p>
       </div>
     </div>
   </section>
 
-
   <!-- ========== Volunteer Modal (accessible, zero-deps) ========== -->
-  <dialog id="volunteerModal" class="v-modal" aria-labelledby="volTitle" aria-describedby="volDesc">
+  <dialog id="volunteerModal" class="v-modal" aria-labelledby="vol-title" aria-describedby="vol-desc">
     <form class="v-card-modal" method="post" action="#" novalidate>
-      <!-- Close -->
-      <button type="button" class="v-close" id="volClose" aria-label="Close dialog">
+      <button type="button" class="v-close" data-modal-close aria-label="Close dialog">
         <i class="fa-solid fa-xmark" aria-hidden="true"></i>
       </button>
 
-      <!-- Head -->
       <header class="v-head">
-        <h2 id="volTitle" class="v-title">Be Volunteer</h2>
-        <p id="volDesc" class="v-sub">
-          Join us and contribute your time and efforts to serve humanity. We’re always looking for
-          dedicated volunteers who share our mission of supporting those in need and bringing hope to others.
+        <h2 id="vol-title" class="v-title">Be Volunteer</h2>
+        <p id="vol-desc" class="v-sub">
+          Join us and contribute your time and efforts to serve humanity.
         </p>
       </header>
 
-      <!-- Form -->
       <div class="v-grid">
         <div class="v-field">
-          <label for="volName" class="v-label">Name</label>
-          <input id="volName" name="name" type="text" class="v-input" placeholder="Enter your name" autocomplete="name"
-            required>
+          <label for="vol-name" class="v-label">Name</label>
+          <input id="vol-name" name="name" type="text" class="v-input" placeholder="Enter your name" autocomplete="name"
+            required autofocus />
         </div>
 
         <div class="v-field">
-          <label for="volEmail" class="v-label">Email</label>
-          <input id="volEmail" name="email" type="email" class="v-input" placeholder="Enter your email"
-            autocomplete="email" required>
+          <label for="vol-email" class="v-label">Email</label>
+          <input id="vol-email" name="email" type="email" class="v-input" placeholder="Enter your email"
+            autocomplete="email" required />
         </div>
 
-        <div class="v-field v-field--row">
+        <!-- Phone field (reusable) -->
+        <div class="v-field v-field--span2 js-phone-field">
           <label class="v-label">Phone number</label>
-          <div class="v-phone">
-            <select class="v-select" aria-label="Country">
-              <option value="TR" selected>🇹🇷 +90</option>
-              <option value="SY">🇸🇾 +963</option>
-              <option value="PS">🇵🇸 +970</option>
-              <option value="US">🇺🇸 +1</option>
-            </select>
-            <input type="tel" class="v-input" inputmode="tel" placeholder="Enter phone number" autocomplete="tel">
-          </div>
+
+          <input type="tel" class="v-input v-phone" inputmode="tel" placeholder="Enter phone number" autocomplete="tel"
+            required data-initial="TR" data-preferred="tr,ps,sy,us" />
+
+          <input type="hidden" name="phone_e164" />
+          <input type="hidden" name="phone_country_iso2" />
+
+          <small class="v-hint" aria-live="polite"></small>
         </div>
 
         <div class="v-field">
-          <label for="volCity" class="v-label">City</label>
-          <select id="volCity" class="v-select">
+          <label for="vol-city" class="v-label">City</label>
+          <select id="vol-city" class="v-select" required>
             <option value="" selected disabled>Select city</option>
             <option>Gaziantep</option>
             <option>Istanbul</option>
             <option>Ankara</option>
-            <option>Şanlıurfa</option>
-            <option>Adana</option>
           </select>
         </div>
       </div>
 
-      <!-- Consent -->
       <label class="v-consent">
-        <input type="checkbox" id="volAgree" required>
-        <span>
-          Continuing <a href="#" class="v-link">Terms and Conditions</a> I agree. For more information about the privacy
-          of your data <a href="#" class="v-link">Our Privacy Policy</a>.
-        </span>
+        <input type="checkbox" id="vol-agree" required />
+        <span>Continuing <a href="#" class="v-link">Terms and Conditions</a> I
+          agree. Read our <a href="#" class="v-link">Privacy Policy</a>.</span>
       </label>
 
-      <!-- Actions -->
       <div class="v-actions">
-        <button type="submit" class="btn btn--pill btn--primary v-send">Send</button>
+        <button type="submit" class="btn btn--pill btn--primary v-send">
+          Send
+        </button>
       </div>
     </form>
   </dialog>
   <!-- /Volunteer Modal -->
 
+  <!-- ================= Mobile Bottom Nav (App-like) ================= -->
+  <nav class="mb-nav" aria-label="Mobile primary navigation">
+    <a class="mb-nav__item is-active" href="index.html" data-match="index.html" aria-current="page">
+      <i class="fa-solid fa-house"></i><span class="mb-nav__label">Home</span>
+    </a>
 
+    <a class="mb-nav__item" href="sacrifice.html" data-match="donate.html">
+      <i class="fa-regular fa-heart"></i><span class="mb-nav__label">Donate</span>
+    </a>
+
+    <a class="mb-nav__item" href="cart.html" data-match="cart.html">
+      <i class="fa-solid fa-cart-shopping"></i><span class="mb-nav__label">Cart</span>
+    </a>
+
+    <a class="mb-nav__item" href="#" data-match="account.html">
+      <i class="fa-regular fa-user"></i><span class="mb-nav__label">Account</span>
+    </a>
+  </nav>
+  <!-- /Mobile Bottom Nav -->
 
   <!-- ======================= Vendor JS → App JS ======================== -->
+  <script src="assets/js/modal.js"></script>
+
   <script src="assets/js/swiper-bundle.min.js"></script>
   <script src="assets/js/lightbox.min.js"></script>
   <script src="assets/js/aos.js"></script>
+
   <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin></script>
-
-  <script src="assets/js/modal.js"></script>
+  <!-- intl-tel-input: flags + dial code + validation -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/css/intlTelInput.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/js/intlTelInput.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/js/utils.js"></script>
 
   <!-- =============================== App JS ============================== -->
   <script src="assets/js/app.js"></script>
-
-
 </body>
 
 </html>
