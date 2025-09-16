@@ -61,14 +61,13 @@
     ]
   }
   </script>
+
+
 </head>
 
 <body>
- <!-- =========================================================
+  <!-- =========================================================
        HEADER
-       - Topbar: contact + utility links
-       - Mainbar: brand + primary nav + actions
-       - Offcanvas: mobile navigation panel
        ========================================================= -->
   <header class="site-header" role="banner">
     <!-- Topbar -->
@@ -108,8 +107,6 @@
         <a class="brand" href="index.html" aria-label="Homepage">
           <img src="assets/images/logo.svg" alt="Yedi Başak Logo" width="140" height="36" />
         </a>
-
-
 
         <!-- Primary nav (desktop) -->
         <nav class="navbar" aria-label="Primary">
@@ -243,15 +240,36 @@
                   <i class="fa-regular fa-star" title="Popular"></i>
                 </div>
               </div>
+              <!-- Notes trigger -->
+              <button class="cart-note btn btn--primary" type="button" aria-expanded="false">
+                <i class="fa-regular fa-note-sticky" aria-hidden="true"></i><span>Notes</span>
+              </button>
+              <!-- Notes editor (hidden by default) -->
+              <div class="cart-note__panel" hidden>
+                <label class="visually-hidden" for="note-1">Notes</label>
+                <textarea id="note-1" class="cart-note__textarea" maxlength="400"
+                  placeholder="Add special instructions, a prayer, or a dedication (max 400 chars)"></textarea>
+                <div class="cart-note__actions">
+                  <button class="btn btn--sm cart-note__cancel" type="button">Cancel</button>
+                  <button class="btn btn--sm btn--primary cart-note__save" type="button">Save</button>
+                </div>
+              </div>
             </div>
 
             <aside class="cart-item__aside">
               <div class="cart-item__actions">
-                <button class="link link--icon cart-save" type="button" aria-pressed="false"><i
-                    class="fa-solid fa-bookmark"></i> Save</button>
-                <button class="link link--icon cart-delete" type="button"><i class="fa-regular fa-trash-can"></i>
-                  Delete</button>
+                <button class="link link--icon cart-save" type="button" aria-pressed="false">
+                  <i class="fa-solid fa-bookmark"></i> Save
+                </button>
+                <button class="link link--icon cart-delete" type="button">
+                  <i class="fa-regular fa-trash-can"></i> Delete
+                </button>
+
+
               </div>
+
+
+
               <div class="qty" aria-label="Quantity of shares">
                 <button class="qty__btn qty__minus" type="button" aria-label="Decrease quantity">−</button>
                 <input class="qty__input" type="text" inputmode="numeric" aria-label="Quantity" value="5" maxlength="2">
@@ -264,65 +282,61 @@
             </aside>
           </article>
 
-          <!-- Item 2 -->
+          <!-- Item 1 -->
           <article class="cart-item" role="listitem" data-price="100">
             <figure class="cart-item__media">
               <img src="assets/images/agenda/slide-2.webp" alt="1000 Tent Aid Campaign for Gaza"
                 class="cart-item__thumb">
             </figure>
-            <div class="cart-item__body">
-              <h3 class="cart-item__title">1000 Tent Aid Campaign for Gaza</h3>
-              <p class="cart-item__excerpt text-muted">Our brothers displaced by the massacre in Gaza need urgent
-                support…</p>
-              <div class="cart-item__meta">
-                <span class="cart-item__unit"><strong>$100</strong> <span class="text-muted">per share</span></span>
-              </div>
-            </div>
-            <aside class="cart-item__aside">
-              <div class="cart-item__actions">
-                <button class="link link--icon cart-save" type="button"><i class="fa-solid fa-bookmark"></i>
-                  Save</button>
-                <button class="link link--icon cart-delete" type="button"><i class="fa-regular fa-trash-can"></i>
-                  Delete</button>
-              </div>
-              <div class="qty" aria-label="Quantity of shares">
-                <button class="qty__btn qty__minus" type="button" aria-label="Decrease quantity">−</button>
-                <input class="qty__input" type="text" inputmode="numeric" aria-label="Quantity" value="5" maxlength="2">
-                <button class="qty__btn qty__plus" type="button" aria-label="Increase quantity">+</button>
-              </div>
-              <div class="cart-item__subtotal" aria-live="polite">
-                <strong class="cart-item__subtotal-num">$500</strong>
-              </div>
-            </aside>
-          </article>
 
-          <!-- Item 3 -->
-          <article class="cart-item" role="listitem" data-price="100">
-            <figure class="cart-item__media">
-              <img src="assets/images/agenda/slide-3.webp" alt="1000 Tent Aid Campaign for Gaza"
-                class="cart-item__thumb">
-            </figure>
             <div class="cart-item__body">
               <h3 class="cart-item__title">1000 Tent Aid Campaign for Gaza</h3>
               <p class="cart-item__excerpt text-muted">Our brothers displaced by the massacre in Gaza need urgent
                 support…</p>
               <div class="cart-item__meta">
                 <span class="cart-item__unit"><strong>$100</strong> <span class="text-muted">per share</span></span>
+                <div class="cart-item__badges" aria-label="item labels">
+                  <i class="fa-solid fa-certificate" title="Verified"></i>
+                  <i class="fa-regular fa-star" title="Popular"></i>
+                </div>
+              </div>
+              <!-- Notes trigger -->
+              <button class="cart-note btn btn--primary" type="button" aria-expanded="false">
+                <i class="fa-regular fa-note-sticky" aria-hidden="true"></i><span>Notes</span>
+              </button>
+              <!-- Notes editor (hidden by default) -->
+              <div class="cart-note__panel" hidden>
+                <label class="visually-hidden" for="note-1">Notes</label>
+                <textarea id="note-1" class="cart-note__textarea" maxlength="400"
+                  placeholder="Add special instructions, a prayer, or a dedication (max 400 chars)"></textarea>
+                <div class="cart-note__actions">
+                  <button class="btn btn--sm cart-note__cancel" type="button">Cancel</button>
+                  <button class="btn btn--sm btn--primary cart-note__save" type="button">Save</button>
+                </div>
               </div>
             </div>
+
             <aside class="cart-item__aside">
               <div class="cart-item__actions">
-                <button class="link link--icon cart-save" type="button"><i class="fa-solid fa-bookmark"></i>
-                  Save</button>
-                <button class="link link--icon cart-delete" type="button"><i class="fa-regular fa-trash-can"></i>
-                  Delete</button>
+                <button class="link link--icon cart-save" type="button" aria-pressed="false">
+                  <i class="fa-solid fa-bookmark"></i> Save
+                </button>
+                <button class="link link--icon cart-delete" type="button">
+                  <i class="fa-regular fa-trash-can"></i> Delete
+                </button>
+
+
               </div>
+
+
+
               <div class="qty" aria-label="Quantity of shares">
                 <button class="qty__btn qty__minus" type="button" aria-label="Decrease quantity">−</button>
                 <input class="qty__input" type="text" inputmode="numeric" aria-label="Quantity" value="5" maxlength="2">
                 <button class="qty__btn qty__plus" type="button" aria-label="Increase quantity">+</button>
               </div>
               <div class="cart-item__subtotal" aria-live="polite">
+                <span class="sr-only">Subtotal:</span>
                 <strong class="cart-item__subtotal-num">$500</strong>
               </div>
             </aside>
@@ -500,8 +514,6 @@
   </dialog>
   <!-- /Volunteer Modal -->
 
-
-
   <!-- ======================= Vendor JS → App JS ======================== -->
   <script src="assets/js/modal.js"></script>
 
@@ -517,11 +529,73 @@
   <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/js/intlTelInput.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.6/build/js/utils.js"></script>
 
-
   <!-- =============================== App JS ============================== -->
   <script src="assets/js/app.js"></script>
 
+  <!-- ============== Cart Notes (scoped, no conflicts) ============== -->
+  <script>
+    (function cartNotes() {
+      const list = document.getElementById('cartList');
+      if (!list) return;
 
+      // Build a stable localStorage key per item (index + title text)
+      const buildKey = (idx, title) =>
+        `yb:cart:note:${idx}:${(title || '').trim().toLowerCase().replace(/\s+/g, '-').slice(0, 48)}`;
+
+      [...list.querySelectorAll('.cart-item')].forEach((item, idx) => {
+        const title = item.querySelector('.cart-item__title')?.textContent || `item-${idx + 1}`;
+        const key = buildKey(idx, title);
+
+        const btn = item.querySelector('.cart-note');
+        const panel = item.querySelector('.cart-note__panel');
+        const textarea = item.querySelector('.cart-note__textarea');
+        const saveBtn = item.querySelector('.cart-note__save');
+        const cancelBtn = item.querySelector('.cart-note__cancel');
+
+        if (!btn || !panel || !textarea || !saveBtn || !cancelBtn) return;
+
+        // Restore saved note (if exists)
+        const saved = localStorage.getItem(key) || '';
+        if (saved) {
+          btn.classList.add('has-note');
+        }
+
+        // Toggle panel
+        btn.addEventListener('click', () => {
+          const open = !panel.hasAttribute('hidden');
+          if (open) {
+            panel.hidden = true;
+            btn.setAttribute('aria-expanded', 'false');
+          } else {
+            textarea.value = localStorage.getItem(key) || '';
+            panel.hidden = false;
+            btn.setAttribute('aria-expanded', 'true');
+            textarea.focus();
+          }
+        });
+
+        // Save note
+        saveBtn.addEventListener('click', () => {
+          const val = textarea.value.trim();
+          if (val) {
+            localStorage.setItem(key, val);
+            btn.classList.add('has-note');
+          } else {
+            localStorage.removeItem(key);
+            btn.classList.remove('has-note');
+          }
+          panel.hidden = true;
+          btn.setAttribute('aria-expanded', 'false');
+        });
+
+        // Cancel edit
+        cancelBtn.addEventListener('click', () => {
+          panel.hidden = true;
+          btn.setAttribute('aria-expanded', 'false');
+        });
+      });
+    })();
+  </script>
 </body>
 
 </html>

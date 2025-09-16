@@ -4702,7 +4702,7 @@ html[dir="rtl"] .pager__btn i.fa-chevron-right {
 /* Card-like row (image | content | aside) */
 .cart-item {
   display: grid;
-  grid-template-columns: 180px 1fr minmax(220px, 300px);
+  grid-template-columns: 220px 1fr minmax(220px, 300px);
   gap: clamp(var(--space-4), 2vw, var(--space-6));
   align-items: start;
   padding: clamp(var(--space-4), 2vw, var(--space-5));
@@ -4850,6 +4850,87 @@ html[dir="rtl"] .pager__btn i.fa-chevron-right {
 
 .title_page {
   margin: 0;
+}
+
+/* -------- Cart item notes (scoped) -------- */
+.cart-item__actions {
+  display: flex;
+  gap: .9rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.cart-note {
+  position: relative;
+  color: #fff;
+  margin-top: 12px;
+}
+
+.cart-note i {
+  font-size: 1rem;
+}
+
+
+.cart-note.has-note::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  right: -6px;
+  inline-size: 8px;
+  block-size: 8px;
+  border-radius: 999px;
+  background: var(--color-primary);
+  box-shadow: 0 0 0 2px #fff;
+}
+
+.cart-item__body {
+  position: relative;
+}
+
+.cart-note__panel {
+  margin-top: .6rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: .75rem;
+  box-shadow: var(--shadow-sm);
+  position: absolute;
+  z-index: 9;
+  width: 100%;
+}
+
+.cart-note__textarea {
+  display: block;
+  width: 100%;
+  min-height: 84px;
+  resize: vertical;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: .6rem .75rem;
+  font: inherit;
+  color: var(--color-text);
+  background: #fff;
+  outline: none;
+}
+
+.cart-note__textarea:focus {
+  border-color: color-mix(in srgb, var(--color-primary) 45%, var(--color-border));
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 20%, transparent);
+}
+
+.cart-note__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: .5rem;
+  margin-top: .6rem;
+}
+
+.btn--sm {
+  --btn-h: 34px;
+  font-size: .9rem;
+  padding: 0 .9rem;
+  height: var(--btn-h);
+  border-radius: 999px;
 }
 
 /* Responsive */
