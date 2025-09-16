@@ -6259,4 +6259,156 @@ html[dir="rtl"] .pager__btn i.fa-chevron-right {
   .sc-item__icon {
     height: 70px !important;
   }
+
+
+}
+
+/* ========== Volunteer Modal (scoped, zero-conflicts) ========== */
+.v-modal {
+  border: none;
+  padding: 0;
+  margin: auto;
+  width: min(980px, calc(100% - 2rem));
+  max-width: 980px;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, .22);
+}
+
+.v-modal::backdrop {
+  background: rgba(17, 24, 39, .55);
+  backdrop-filter: blur(2px);
+}
+
+/* Card */
+.v-card-modal {
+  position: relative;
+  padding: 28px;
+  background: #fff;
+  border-radius: 20px;
+}
+
+@media (min-width: 720px) {
+  .v-card-modal {
+    padding: 40px;
+  }
+}
+
+/* Close */
+.v-close {
+  position: absolute;
+  inset-inline-end: 12px;
+  inset-block-start: 12px;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  display: grid;
+  place-items: center;
+  color: #111827;
+  transition: transform .15s ease;
+}
+
+.v-close:hover {
+  transform: scale(1.03);
+}
+
+/* Head */
+.v-title {
+  font: 800 26px/1.2 'Inter', system-ui, sans-serif;
+  margin: 0 0 .25rem;
+}
+
+.v-sub {
+  margin: 0 0 1.25rem;
+  color: #6b7280;
+}
+
+/* Grid */
+.v-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 720px) {
+  .v-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 18px;
+  }
+}
+
+.v-field {
+  display: grid;
+  gap: 6px;
+}
+
+.v-field--row .v-phone {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.v-label {
+  font-weight: 600;
+  color: #111827;
+}
+
+/* Inputs */
+.v-input,
+.v-select {
+  width: 100%;
+  height: 48px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 0 14px;
+  font: 500 15px/1 'Inter', system-ui, sans-serif;
+  color: #111827;
+  outline: none;
+  background: #fff;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+.v-input:focus,
+.v-select:focus {
+  border-color: #06b6d4;
+  box-shadow: 0 0 0 4px rgba(6, 182, 212, .15);
+}
+
+.v-phone .v-select {
+  min-width: 110px;
+}
+
+/* Consent */
+.v-consent {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-top: 12px;
+  color: #111827;
+}
+
+.v-consent input {
+  margin-top: 5px;
+}
+
+.v-link {
+  color: #06b6d4;
+  text-decoration: underline;
+}
+
+/* Actions */
+.v-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.v-send {
+  min-width: 180px;
+}
+
+/* Prevent page scroll when dialog is open */
+html.is-modal-open {
+  overflow: hidden;
 }

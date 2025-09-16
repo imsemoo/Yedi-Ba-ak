@@ -189,6 +189,9 @@
 
             <!-- sacrifice -->
             <li><a class="menu__link" href="sacrifice.html">Sacrifice</a></li>
+
+            <li><a class="menu__link js-open-volunteer" href="#volunteer">Be Volunteer</a></li>
+
           </ul>
         </nav>
 
@@ -1897,147 +1900,82 @@
   </section>
 
 
+  <!-- ========== Volunteer Modal (accessible, zero-deps) ========== -->
+  <dialog id="volunteerModal" class="v-modal" aria-labelledby="volTitle" aria-describedby="volDesc">
+    <form class="v-card-modal" method="post" action="#" novalidate>
+      <!-- Close -->
+      <button type="button" class="v-close" id="volClose" aria-label="Close dialog">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+
+      <!-- Head -->
+      <header class="v-head">
+        <h2 id="volTitle" class="v-title">Be Volunteer</h2>
+        <p id="volDesc" class="v-sub">
+          Join us and contribute your time and efforts to serve humanity. We’re always looking for
+          dedicated volunteers who share our mission of supporting those in need and bringing hope to others.
+        </p>
+      </header>
+
+      <!-- Form -->
+      <div class="v-grid">
+        <div class="v-field">
+          <label for="volName" class="v-label">Name</label>
+          <input id="volName" name="name" type="text" class="v-input" placeholder="Enter your name" autocomplete="name"
+            required>
+        </div>
+
+        <div class="v-field">
+          <label for="volEmail" class="v-label">Email</label>
+          <input id="volEmail" name="email" type="email" class="v-input" placeholder="Enter your email"
+            autocomplete="email" required>
+        </div>
+
+        <div class="v-field v-field--row">
+          <label class="v-label">Phone number</label>
+          <div class="v-phone">
+            <select class="v-select" aria-label="Country">
+              <option value="TR" selected>🇹🇷 +90</option>
+              <option value="SY">🇸🇾 +963</option>
+              <option value="PS">🇵🇸 +970</option>
+              <option value="US">🇺🇸 +1</option>
+            </select>
+            <input type="tel" class="v-input" inputmode="tel" placeholder="Enter phone number" autocomplete="tel">
+          </div>
+        </div>
+
+        <div class="v-field">
+          <label for="volCity" class="v-label">City</label>
+          <select id="volCity" class="v-select">
+            <option value="" selected disabled>Select city</option>
+            <option>Gaziantep</option>
+            <option>Istanbul</option>
+            <option>Ankara</option>
+            <option>Şanlıurfa</option>
+            <option>Adana</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Consent -->
+      <label class="v-consent">
+        <input type="checkbox" id="volAgree" required>
+        <span>
+          Continuing <a href="#" class="v-link">Terms and Conditions</a> I agree. For more information about the privacy
+          of your data <a href="#" class="v-link">Our Privacy Policy</a>.
+        </span>
+      </label>
+
+      <!-- Actions -->
+      <div class="v-actions">
+        <button type="submit" class="btn btn--pill btn--primary v-send">Send</button>
+      </div>
+    </form>
+  </dialog>
+  <!-- /Volunteer Modal -->
 
 
 
-  <!-- <script>
-    (() => {
-      "use strict";
-
-      /* -------------------- Utilities -------------------- */
-      const qs = (s, r = document) => r.querySelector(s);
-      const qsa = (s, r = document) => [...r.querySelectorAll(s)];
-      const fmt = (n) => `$${Number(n || 0).toLocaleString('en-US')}`;
-
-      /* -------------------- Catalog -------------------- */
-      // Each item defines: id, title, price, image (for card), layers mapping (avatar layers to toggle / choose)
-      const CATALOG = [
-        {
-          id: 'clothes',
-          title: 'clothes',
-          price: 5,
-          image: 'assets/images/sponsor/items/clothes.png',
-          layers: [
-            { layer: 'clothes-basic', threshold: 1 },   // >=1 show basic
-            { layer: 'clothes-jacket', threshold: 2 }   // >=2 upgrade to jacket
-          ]
-        },
-        {
-          id: 'bag',
-          title: 'School Bag',
-          price: 5,
-          image: 'assets/images/sponsor/items/bag.png',
-          layers: [{ layer: 'bag', threshold: 1 }]
-        },
-        {
-          id: 'books',
-          title: 'Books',
-          price: 5,
-          image: 'assets/images/sponsor/items/books.png',
-          layers: [{ layer: 'book', threshold: 1 }]
-        },
-        {
-          id: 'food',
-          title: 'Food',
-          price: 5,
-          image: 'assets/images/sponsor/items/food.png',
-          layers: [{ layer: 'food', threshold: 1 }]
-        }
-      ];
-
-      /* -------------------- State -------------------- */
-      const state = new Map(CATALOG.map(i => [i.id, 0]));
-      const totalEl = qs('#sponsorTotal');
-
-      /* -------------------- Render items -------------------- */
-      const tpl = qs('#sponsorItemTpl');
-      const leftMount = qs('#sponsorListLeft');
-      const rightMount = qs('#sponsorListRight');
-
-      const mid = Math.ceil(CATALOG.length / 2);
-      const columns = [CATALOG.slice(0, mid), CATALOG.slice(mid)];
-
-      columns.forEach((col, idx) => {
-        const mount = idx === 0 ? leftMount : rightMount;
-        col.forEach(item => mount.appendChild(buildItem(item)));
-      });
-
-      function buildItem(item) {
-        const node = tpl.content.firstElementChild.cloneNode(true);
-        node.dataset.id = item.id;
-        node.querySelector('img').src = item.image;
-        node.querySelector('img').alt = item.title;
-        node.querySelector('.sponsor-item__title').textContent = item.title;
-        node.querySelector('.sponsor-item__price').textContent = `$${item.price}`;
-
-        const qty = node.querySelector('.ctrl__qty');
-        const plus = node.querySelector('.ctrl--plus');
-        const minus = node.querySelector('.ctrl--minus');
-
-        const updateQty = (delta) => {
-          const current = Math.max(0, (state.get(item.id) || 0) + delta);
-          state.set(item.id, current);
-          qty.textContent = String(current);
-          applyAvatarLayers();
-          updateTotal();
-        };
-
-        plus.addEventListener('click', () => updateQty(+1));
-        minus.addEventListener('click', () => updateQty(-1));
-        plus.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); updateQty(+1); } });
-        minus.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); updateQty(-1); } });
-
-        return node;
-      }
-
-      /* -------------------- Avatar layers logic -------------------- */
-      const layersIndex = new Map(qsa('.avatar__layer[data-layer]').map(el => [el.dataset.layer, el]));
-
-      function applyAvatarLayers() {
-        // Turn off all optional layers first
-        layersIndex.forEach(el => el.classList.remove('is-on'));
-
-        // For each catalog item, decide which layer(s) should be on based on quantity and thresholds
-        CATALOG.forEach(item => {
-          const qty = state.get(item.id) || 0;
-          // If multiple thresholds exist, prefer the highest threshold satisfied (upgrades)
-          const eligible = item.layers
-            .filter(L => qty >= L.threshold)
-            .sort((a, b) => b.threshold - a.threshold)[0];
-
-          if (eligible) {
-            const el = layersIndex.get(eligible.layer);
-            if (el) el.classList.add('is-on');
-          }
-        });
-      }
-
-      /* -------------------- Totals -------------------- */
-      function updateTotal() {
-        let total = 0;
-        CATALOG.forEach(i => total += (state.get(i.id) || 0) * i.price);
-        totalEl.textContent = fmt(total);
-      }
-
-      /* -------------------- CTA handlers -------------------- */
-      qs('#sponsorDonate').addEventListener('click', (e) => {
-        e.preventDefault();
-        const payload = CATALOG.map(i => ({ id: i.id, qty: state.get(i.id) || 0, price: i.price }))
-          .filter(x => x.qty > 0);
-        console.log('Donate payload', payload);
-        // Integrate with your cart/checkout here
-      });
-      qs('#sponsorCart').addEventListener('click', () => {
-        // Example visual feedback
-        qs('#sponsorCart').classList.add('is-bounce');
-        setTimeout(() => qs('#sponsorCart').classList.remove('is-bounce'), 350);
-      });
-
-      /* -------------------- Init -------------------- */
-      applyAvatarLayers();
-      updateTotal();
-    })();
-  </script> -->
   <!-- ======================= Vendor JS → App JS ======================== -->
   <script src="assets/js/swiper-bundle.min.js"></script>
   <script src="assets/js/lightbox.min.js"></script>
@@ -2045,6 +1983,8 @@
   <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin></script>
+
+  <script src="assets/js/modal.js"></script>
 
   <!-- =============================== App JS ============================== -->
   <script src="assets/js/app.js"></script>
