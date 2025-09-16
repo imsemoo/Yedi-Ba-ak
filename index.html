@@ -1087,6 +1087,173 @@
       </div>
     </section>
 
+
+    <!-- ============== Sponsor a Child (isolated) ============== -->
+    <section class="sc" aria-labelledby="scTitle">
+      <div class="sc__container">
+        <header class="sc__head">
+          <h2 id="scTitle" class="sc__title"><span class="sc__bar"></span>SPONSOR A CHILD</h2>
+        </header>
+
+        <div class="sc__grid">
+          <!-- LEFT COLUMN -->
+          <div class="sc__col">
+            <!-- Item: Clothes (max 1) -->
+            <article class="sc-item" data-item="clothes">
+              <figure class="sc-item__icon">
+                <img src="assets/images/sponsor/cloth.svg" alt="" />
+              </figure>
+              <h3 class="sc-item__title">Clothes</h3>
+              <div class="sc-item__ctrl">
+                <button class="sc-btn sc-btn--ghost sc-minus" type="button" aria-label="Remove clothes">−</button>
+                <span class="sc-qty" aria-live="polite">0</span>
+                <button class="sc-btn sc-btn--primary sc-plus" type="button" aria-label="Add clothes">+</button>
+              </div>
+              <small class="sc-item__price" data-price="$25">$25</small>
+            </article>
+            <!-- Item: School Bag (max 1) -->
+            <article class="sc-item" data-item="bag">
+              <figure class="sc-item__icon">
+                <img src="assets/images/sponsor/stationary.svg" alt="" />
+              </figure>
+              <h3 class="sc-item__title">School Bag </h3>
+              <div class="sc-item__ctrl">
+                <button class="sc-btn sc-btn--ghost sc-minus" type="button" aria-label="Remove school bag">−</button>
+                <span class="sc-qty" aria-live="polite">0</span>
+                <button class="sc-btn sc-btn--primary sc-plus" type="button" aria-label="Add school bag">+</button>
+              </div>
+              <small class="sc-item__price" data-price="$20">$20</small>
+            </article>
+
+          </div>
+
+          <!-- CENTER: AVATAR -->
+          <div class="sc__avatar" aria-label="Child avatar">
+            <div class="sc-kid">
+              <!-- order defines stacking -->
+              <img class="sc-kid__body" src="assets/images/sponsor/body.svg" alt="" />
+              <img class="sc-kid__clothes" src="assets/images/sponsor/cloth.svg" alt="" hidden />
+              <img class="sc-kid__book" src="assets/images/sponsor/toy.svg" alt="" hidden />
+              <img class="sc-kid__food" src="assets/images/sponsor/food.svg" alt="" hidden />
+              <img class="sc-kid__bag" src="assets/images/sponsor/stationary.svg" alt="" hidden />
+              <img class="sc-kid__head" src="assets/images/sponsor/head_normal.svg" alt="Child face" />
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN -->
+          <div class="sc__col">
+
+            <!-- Item: Books -->
+            <article class="sc-item" data-item="books">
+              <figure class="sc-item__icon">
+                <img src="assets/images/sponsor/toy.svg" alt="" />
+              </figure>
+              <h3 class="sc-item__title">Toy</h3>
+              <div class="sc-item__ctrl">
+                <button class="sc-btn sc-btn--ghost sc-minus" type="button" aria-label="Remove books">−</button>
+                <span class="sc-qty" aria-live="polite">0</span>
+                <button class="sc-btn sc-btn--primary sc-plus" type="button" aria-label="Add books">+</button>
+              </div>
+              <small class="sc-item__price" data-price="$10">$10</small>
+            </article>
+
+            <!-- Item: Food -->
+            <article class="sc-item" data-item="food">
+              <figure class="sc-item__icon">
+                <img src="assets/images/sponsor/food.svg" alt="" />
+              </figure>
+              <h3 class="sc-item__title">Food</h3>
+              <div class="sc-item__ctrl">
+                <button class="sc-btn sc-btn--ghost sc-minus" type="button" aria-label="Remove food">−</button>
+                <span class="sc-qty" aria-live="polite">0</span>
+                <button class="sc-btn sc-btn--primary sc-plus" type="button" aria-label="Add food">+</button>
+              </div>
+              <small class="sc-item__price" data-price="$15">$15</small>
+            </article>
+          </div>
+        </div>
+
+        <!-- FOOT -->
+        <footer class="sc__foot">
+          <div class="sc__total">Total <strong id="scTotal">$0</strong></div>
+          <div class="sc__cta">
+            <button class="sc-btn sc-btn--lg sc-btn--primary" type="button">
+              Donate <i class="fa-solid fa-heart" aria-hidden="true"></i>
+            </button>
+            <button class="sc-btn sc-btn--lg sc-btn--ghost" type="button" title="Add to cart">
+              <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+            </button>
+          </div>
+        </footer>
+      </div>
+    </section>
+
+    <script>
+      (() => {
+        // ====== Config (prices & limits) ======
+        const SC_PRICE = { clothes: 25, books: 10, bag: 20, food: 15 };
+        const SC_MAX = { clothes: 1, books: 99, bag: 1, food: 99 };
+
+        const $root = document.currentScript.previousElementSibling.previousElementSibling; // <section.sc>
+        const $wrap = $root.closest('.sc') || document.querySelector('.sc');
+        const $total = $wrap.querySelector('#scTotal');
+
+        // Avatar layers
+        const $kid = $wrap.querySelector('.sc-kid');
+        const $layers = {
+          clothes: $kid.querySelector('.sc-kid__clothes'),
+          books: $kid.querySelector('.sc-kid__book'),
+          bag: $kid.querySelector('.sc-kid__bag'),
+          food: $kid.querySelector('.sc-kid__food'),
+          head: $kid.querySelector('.sc-kid__head')
+        };
+
+        // State
+        const state = { clothes: 0, books: 0, bag: 0, food: 0 };
+
+        // Helpers
+        const fmt = v => `$${v.toLocaleString()}`;
+        const recalc = () => {
+          // toggle layers by count
+          $layers.clothes.hidden = state.clothes === 0;
+          $layers.book && ($layers.book.hidden = state.books === 0); // defensive (unused)
+          $layers.books && ($layers.books.hidden = state.books === 0);
+          $layers.food.hidden = state.food === 0;
+          $layers.bag.hidden = state.bag === 0;
+
+          // happy face if any item
+          const any = Object.values(state).some(n => n > 0);
+          $layers.head.src = any
+            ? 'assets/images/sponsor/head_happy.svg'
+            : 'assets/images/sponsor/head_normal.svg';
+
+          // total
+          const t = (state.clothes * SC_PRICE.clothes) + (state.books * SC_PRICE.books) +
+            (state.bag * SC_PRICE.bag) + (state.food * SC_PRICE.food);
+          $total.textContent = fmt(t);
+        };
+
+        // attach events
+        $wrap.querySelectorAll('.sc-item').forEach(card => {
+          const key = card.dataset.item;
+          const $qty = card.querySelector('.sc-qty');
+          const setQty = v => { state[key] = v; $qty.textContent = v; recalc(); };
+
+          card.querySelector('.sc-plus').addEventListener('click', () => {
+            if (state[key] < SC_MAX[key]) setQty(state[key] + 1);
+          });
+          card.querySelector('.sc-minus').addEventListener('click', () => {
+            if (state[key] > 0) setQty(state[key] - 1);
+          });
+        });
+
+        recalc(); // init
+
+        // Alias layer for books to a consistent name if needed
+        if (!$layers.books) $layers.books = $layers.book || $kid.querySelector('.sc-kid__book');
+      })();
+    </script>
+
     <!-- ========================= Sponsor a Child ========================= -->
     <!-- <section class="sponsor" aria-label="Sponsor a child">
       <div class="container">
