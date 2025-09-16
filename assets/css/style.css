@@ -814,7 +814,9 @@ html.rtl .hero__tabs {
   .hero__tabs {
     padding: 12px;
     grid-auto-flow: column;
-    overflow-y: auto
+    overflow-y: auto;
+    position: unset;
+    transform: translateY(0%);
   }
 
   .hero-tab {
@@ -861,7 +863,9 @@ html.rtl .hero__tabs {
   --agenda-ctrl-size: 46px;
   --agenda-ctrl-bg: color-mix(in srgb, #ffffff 88%, transparent);
   --agenda-ctrl-ring: color-mix(in srgb, var(--color-primary) 30%, transparent);
-  --agenda-ctrl-icon: var(--color-dark)
+  --agenda-ctrl-icon: var(--color-dark);
+  background: var(--color-bg);
+
 }
 
 .main__header {
@@ -1144,7 +1148,6 @@ html.rtl .hero__tabs {
   padding: var(--space-9) 0;
   position: relative;
   z-index: 1;
-  background: var(--color-bg);
 
 }
 
@@ -1469,7 +1472,9 @@ html.rtl .hero__tabs {
 
 /* ================================ 10) Impact ================================ */
 .impact {
-  padding: var(--space-9) 0
+  padding: var(--space-9) 0;
+  background: var(--color-bg);
+
 }
 
 .impact__swiper {
@@ -6036,7 +6041,7 @@ html[dir="rtl"] .pager__btn i.fa-chevron-right {
 
 /* ====== Sponsor a Child — styles (namespaced sc-) ====== */
 .sc {
-  padding: clamp(24px, 4vw, 40px) 0
+  padding: var(--space-9) 0;
 }
 
 .sc__container {
@@ -6052,7 +6057,7 @@ html[dir="rtl"] .pager__btn i.fa-chevron-right {
 }
 
 .sc__title {
-  font: 800 22px/1.2 system-ui, Segoe UI, Inter, Arial;
+  font: 800 22px/1.2 system-ui, Segoe UI, var(--font-sans), Arial;
   color: #111;
   letter-spacing: .3px;
   display: flex;
@@ -6074,12 +6079,7 @@ html[dir="rtl"] .pager__btn i.fa-chevron-right {
   gap: min(5vw, 40px)
 }
 
-@media (max-width:900px) {
-  .sc__grid {
-    grid-template-columns: 1fr;
-    justify-items: center
-  }
-}
+
 
 .sc__col {
   display: grid;
@@ -6095,13 +6095,13 @@ html[dir="rtl"] .pager__btn i.fa-chevron-right {
 }
 
 .sc-item__icon img {
-  width: 90px;
+  width: 120px;
   height: auto;
   display: block
 }
 
 .sc-item__title {
-  font: 600 15px/1.2 Inter, system-ui
+  font: 600 15px/1.2 var(--font-sans)
 }
 
 .sc-item__ctrl {
@@ -6114,16 +6114,21 @@ html[dir="rtl"] .pager__btn i.fa-chevron-right {
 .sc-qty {
   min-width: 22px;
   text-align: center;
-  font: 700 14px/1 Inter;
+  font: 700 14px/1 var(--font-sans);
   color: #00a8b5
 }
 
 .sc-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
   appearance: none;
   border: 0;
   border-radius: 999px;
   padding: 8px 12px;
-  font: 700 14px/1 Inter;
+  font-size: 12px;
   cursor: pointer;
   transition: .2s
 }
@@ -6146,13 +6151,23 @@ html[dir="rtl"] .pager__btn i.fa-chevron-right {
   background: #e9eef1
 }
 
+.sc__cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px
+}
+
 .sc-btn--lg {
-  padding: 12px 18px
+  font-size: 16px;
+  padding: 12px 18px;
+  width: unset;
+  height: unset;
 }
 
 .sc-item__price {
   color: #8a97a1;
-  font: 600 12px/1 Inter
+  font: 600 14px/1 var(--font-sans);
 }
 
 .sc__avatar {
@@ -6187,8 +6202,7 @@ html[dir="rtl"] .pager__btn i.fa-chevron-right {
 
 .sc-kid__book {
   z-index: 0;
-
-  transform: translate(-22%, -8%) scale(.6)
+  transform: translate(-30%, -8%) scale(1);
 }
 
 .sc-kid__food {
@@ -6217,11 +6231,32 @@ html[dir="rtl"] .pager__btn i.fa-chevron-right {
 }
 
 .sc__total {
-  font: 600 14px/1.2 Inter;
-  color: #111
+  font: 600 16px/1.4 var(--font-sans);
+  color: var(--color-dark)
 }
 
 .sc__total strong {
   color: #00a8b5;
   margin-inline-start: 6px
+}
+
+@media (max-width:900px) {
+  .sc__grid {
+
+    grid-template-columns: 1fr min(200px, 28vw) 1fr;
+    align-items: center;
+    gap: min(5vw, 40px);
+  }
+
+  .sc-kid {
+    width: min(240px, 40vw);
+  }
+
+  .sc-item__icon img {
+    width: 70px;
+  }
+
+  .sc-item__icon {
+    height: 70px !important;
+  }
 }
